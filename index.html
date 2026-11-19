@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth dark">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bing Search — Buscas na Web direto no Discord</title>
   <meta name="description" content="Faça buscas na web direto no Discord sem abrir o navegador. Novo comando /privatesearch e até 2 resultados completos por pesquisa." />
 
-  <!-- Favicon do Bing Search -->
+  <!-- Favicon embutido (lupa azul/ciano/roxo do Bing Search) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300B4D8'/%3E%3Cstop offset='50%25' stop-color='%230078D4'/%3E%3Cstop offset='100%25' stop-color='%235865F2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='13' fill='none' stroke='%23ffffff' stroke-width='5.5'/%3E%3Cpath d='M38 38l11 11' stroke='%23ffffff' stroke-width='5.5' stroke-linecap='round'/%3E%3C/svg%3E" />
 
-<!-- Cor da barra lateral no Discord e barra do navegador no celular -->
+  <!-- Cor da barra lateral no Discord e barra do navegador no celular -->
   <meta name="theme-color" content="#0078D4" />
 
-  <!-- Open Graph (Discord, WhatsApp, Telegram, Facebook) -->
+  <!-- Open Graph (Discord, WhatsApp, Telegram e redes sociais) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://klinger230.github.io/bing-search-bot/" />
   <meta property="og:title" content="Bing Search — Buscas na Web direto no Discord" />
   <meta property="og:description" content="Faça buscas na web direto no Discord sem abrir o navegador. Novo comando /privatesearch e até 2 resultados completos por pesquisa." />
   <meta property="og:image" content="https://klinger230.github.io/bing-search-bot/preview.jpg" />
 
-  <!-- Card grande no Discord e X/Twitter -->
+  <!-- Twitter / X e card expandido no Discord -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Bing Search — Buscas na Web direto no Discord" />
   <meta name="twitter:description" content="Faça buscas na web direto no Discord sem abrir o navegador. Novo comando /privatesearch e até 2 resultados completos por pesquisa." />
   <meta name="twitter:image" content="https://klinger230.github.io/bing-search-bot/preview.jpg" />
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bing Search — Buscas na Web direto no Discord</title>
-  <meta name="description" content="Faça buscas na web direto no Discord sem abrir o navegador. Novo comando /privatesearch e até 2 resultados completos por pesquisa." />
 
   <!-- Fonte Inter via Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -72,8 +70,31 @@
     };
   </script>
 
-  <!-- Animações suaves da linha do tempo estilo rastreio (v1.0 -> v2.0) -->
+  <!-- Animações suaves da linha do tempo estilo rastreio (v1.0 -> v2.0) e Cursor Personalizado -->
   <style>
+    /* Cursor padrão futurista dark-tech (corpo escuro com contorno ciano e branco + detalhe interno) */
+    html,
+    body {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M2.5 2.5L21.8 13L13.8 15.2L17.9 22.8L14.7 24.5L10.6 16.9L5.2 21.4Z' fill='%23111214' stroke='%2300B4D8' stroke-width='2.6' stroke-linejoin='round'/%3E%3Cpath d='M2.5 2.5L21.8 13L13.8 15.2L17.9 22.8L14.7 24.5L10.6 16.9L5.2 21.4Z' fill='%23111214' stroke='%23ffffff' stroke-width='1.15' stroke-linejoin='round'/%3E%3Cpath d='M5.8 6.8L14.4 11.7L10.8 12.7Z' fill='%2300B4D8' fill-opacity='0.9'/%3E%3C/svg%3E") 2 2, auto;
+    }
+
+    /* Cursor interativo (mãozinha customizada em roxo Discord + brilho ciano com borda branca) */
+    a,
+    button,
+    [role="button"],
+    select,
+    summary,
+    label,
+    .cursor-pointer {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M5.4 14.2V4.2C5.4 2.8 6.1 2.2 7.1 2.2C8.1 2.2 8.8 2.8 8.8 4.2V11C9.2 10.4 9.9 10 10.8 10C12 10 12.9 10.8 13 11.9C13.4 11.4 14.1 11.1 14.9 11.1C16 11.1 16.9 11.9 17 12.9C17.4 12.5 18 12.3 18.7 12.3C20.1 12.3 21.2 13.4 21.2 14.8V18.6C21.2 22.4 18.3 25.2 14.5 25.2H11.4C9.1 25.2 7.1 23.9 6 21.9L2.9 16.4C2.3 15.3 2.7 14 3.7 13.4C4.5 13 5 13.3 5.4 14.2Z' fill='%235865F2' stroke='%2300B4D8' stroke-width='2.6' stroke-linejoin='round'/%3E%3Cpath d='M5.4 14.2V4.2C5.4 2.8 6.1 2.2 7.1 2.2C8.1 2.2 8.8 2.8 8.8 4.2V11C9.2 10.4 9.9 10 10.8 10C12 10 12.9 10.8 13 11.9C13.4 11.4 14.1 11.1 14.9 11.1C16 11.1 16.9 11.9 17 12.9C17.4 12.5 18 12.3 18.7 12.3C20.1 12.3 21.2 13.4 21.2 14.8V18.6C21.2 22.4 18.3 25.2 14.5 25.2H11.4C9.1 25.2 7.1 23.9 6 21.9L2.9 16.4C2.3 15.3 2.7 14 3.7 13.4C4.5 13 5 13.3 5.4 14.2Z' fill='%235865F2' stroke='%23ffffff' stroke-width='1.35' stroke-linejoin='round'/%3E%3Crect x='6.4' y='4.2' width='1.4' height='6.2' rx='0.7' fill='%2300B4D8'/%3E%3C/svg%3E") 6 2, pointer !important;
+    }
+
+    /* Mantém cursor de texto limpo em campos de digitação */
+    input[type="text"],
+    textarea {
+      cursor: text !important;
+    }
+
     .changelog-card {
       opacity: 0;
       transform: translateY(-16px);
@@ -469,7 +490,7 @@
                 <span class="text-xs font-medium text-bing-cyan" data-i18n="commands.twoItemsTag">Até 2 resultados</span>
               </div>
               <div class="p-3.5 rounded-xl bg-discord-darkest border border-white/5 font-mono text-sm text-white flex items-center justify-between gap-2">
-                <span class="truncate"><span class="text-discord-blurple font-bold">/search</span> <span class="text-discord-muted">busca:</span><span class="text-bing-cyan" data-i18n="commands.termPlaceholder">[termo]</span></span>
+                <span class="truncate"><span class="text-discord-blurple font-bold">/search</span> <span class="text-discord-muted">busca:</span><span class="text-bing-cyan" data-i18n="commands.termPlaceholder">[termo]</span> <span class="text-discord-muted">language:</span><span class="text-indigo-300" data-i18n="commands.langPlaceholder">[idioma]</span></span>
                 <button type="button" data-copy-cmd="/search busca:" class="copy-cmd-btn shrink-0 px-3 py-1.5 rounded-lg bg-discord-dark hover:bg-discord-blurple text-xs font-sans font-semibold text-white transition-colors cursor-pointer flex items-center gap-1.5">
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
                   <span data-i18n="commands.copyBtn">Copiar</span>
@@ -490,7 +511,7 @@
                 <span class="text-xs font-medium text-bing-cyan" data-i18n="commands.twoItemsTag">Até 2 resultados</span>
               </div>
               <div class="p-3.5 rounded-xl bg-discord-darkest border border-bing-cyan/20 font-mono text-sm text-white flex items-center justify-between gap-2">
-                <span class="truncate"><span class="text-bing-cyan font-bold">/privatesearch</span> <span class="text-discord-muted">busca:</span><span class="text-indigo-300" data-i18n="commands.termPlaceholder">[termo]</span></span>
+                <span class="truncate"><span class="text-bing-cyan font-bold">/privatesearch</span> <span class="text-discord-muted">busca:</span><span class="text-indigo-300" data-i18n="commands.termPlaceholder">[termo]</span> <span class="text-discord-muted">language:</span><span class="text-bing-cyan" data-i18n="commands.langPlaceholder">[idioma]</span></span>
                 <button type="button" data-copy-cmd="/privatesearch busca:" class="copy-cmd-btn shrink-0 px-3 py-1.5 rounded-lg bg-bing-blue hover:bg-bing-cyan text-xs font-sans font-semibold text-white transition-colors cursor-pointer flex items-center gap-1.5">
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
                   <span data-i18n="commands.copyBtn">Copiar</span>
@@ -811,6 +832,7 @@
             privateTag: '🔒 Resposta Privada',
             twoItemsTag: 'Até 2 resultados',
             termPlaceholder: '[termo]',
+            langPlaceholder: '[idioma]',
             copyBtn: 'Copiar',
             copiedBtn: 'Copiado!',
             copiedToast: 'Comando copiado para a área de transferência!',
@@ -1064,6 +1086,7 @@
             privateTag: '🔒 Private Reply',
             twoItemsTag: 'Up to 2 results',
             termPlaceholder: '[query]',
+            langPlaceholder: '[language]',
             copyBtn: 'Copy',
             copiedBtn: 'Copied!',
             copiedToast: 'Command copied to clipboard!',
@@ -1317,6 +1340,7 @@
             privateTag: '🔒 Respuesta Privada',
             twoItemsTag: 'Hasta 2 resultados',
             termPlaceholder: '[término]',
+            langPlaceholder: '[idioma]',
             copyBtn: 'Copiar',
             copiedBtn: '¡Copiado!',
             copiedToast: '¡Comando copiado al portapapeles!',
