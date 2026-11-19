@@ -72,13 +72,11 @@
 
   <!-- Animações suaves da linha do tempo estilo rastreio (v1.0 -> v2.5) e Cursor Personalizado -->
   <style>
-    /* Cursor padrão futurista dark-tech (corpo escuro com contorno ciano e branco + detalhe interno) */
     html,
     body {
       cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M2.5 2.5L21.8 13L13.8 15.2L17.9 22.8L14.7 24.5L10.6 16.9L5.2 21.4Z' fill='%23111214' stroke='%2300B4D8' stroke-width='2.6' stroke-linejoin='round'/%3E%3Cpath d='M2.5 2.5L21.8 13L13.8 15.2L17.9 22.8L14.7 24.5L10.6 16.9L5.2 21.4Z' fill='%23111214' stroke='%23ffffff' stroke-width='1.15' stroke-linejoin='round'/%3E%3Cpath d='M5.8 6.8L14.4 11.7L10.8 12.7Z' fill='%2300B4D8' fill-opacity='0.9'/%3E%3C/svg%3E") 2 2, auto;
     }
 
-    /* Cursor interativo (mãozinha customizada em roxo Discord + brilho ciano com borda branca) */
     a,
     button,
     [role="button"],
@@ -89,7 +87,6 @@
       cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M5.4 14.2V4.2C5.4 2.8 6.1 2.2 7.1 2.2C8.1 2.2 8.8 2.8 8.8 4.2V11C9.2 10.4 9.9 10 10.8 10C12 10 12.9 10.8 13 11.9C13.4 11.4 14.1 11.1 14.9 11.1C16 11.1 16.9 11.9 17 12.9C17.4 12.5 18 12.3 18.7 12.3C20.1 12.3 21.2 13.4 21.2 14.8V18.6C21.2 22.4 18.3 25.2 14.5 25.2H11.4C9.1 25.2 7.1 23.9 6 21.9L2.9 16.4C2.3 15.3 2.7 14 3.7 13.4C4.5 13 5 13.3 5.4 14.2Z' fill='%235865F2' stroke='%2300B4D8' stroke-width='2.6' stroke-linejoin='round'/%3E%3Cpath d='M5.4 14.2V4.2C5.4 2.8 6.1 2.2 7.1 2.2C8.1 2.2 8.8 2.8 8.8 4.2V11C9.2 10.4 9.9 10 10.8 10C12 10 12.9 10.8 13 11.9C13.4 11.4 14.1 11.1 14.9 11.1C16 11.1 16.9 11.9 17 12.9C17.4 12.5 18 12.3 18.7 12.3C20.1 12.3 21.2 13.4 21.2 14.8V18.6C21.2 22.4 18.3 25.2 14.5 25.2H11.4C9.1 25.2 7.1 23.9 6 21.9L2.9 16.4C2.3 15.3 2.7 14 3.7 13.4C4.5 13 5 13.3 5.4 14.2Z' fill='%235865F2' stroke='%23ffffff' stroke-width='1.35' stroke-linejoin='round'/%3E%3Crect x='6.4' y='4.2' width='1.4' height='6.2' rx='0.7' fill='%2300B4D8'/%3E%3C/svg%3E") 6 2, pointer !important;
     }
 
-    /* Mantém cursor de texto limpo em campos de digitação */
     input[type="text"],
     textarea {
       cursor: text !important;
@@ -429,7 +426,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          <!-- Card 1: Busca Privada -->
           <div class="relative rounded-2xl p-6 bg-gradient-to-b from-discord-dark to-discord-darker border border-bing-cyan/40 shadow-glow-bing hover:-translate-y-1 transition-all">
             <span class="absolute top-4 right-4 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-gradient-to-r from-bing-blue to-bing-cyan text-white">v2.5</span>
             <div class="w-12 h-12 rounded-xl bg-bing-cyan/15 border border-bing-cyan/30 flex items-center justify-center text-2xl mb-4">🔒</div>
@@ -437,7 +433,6 @@
             <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f1Desc">Respostas em Embed azul visíveis apenas para você, com títulos clicáveis, botões de link e navegação entre 2 páginas.</p>
           </div>
 
-          <!-- Card 2: Paginação & Botões -->
           <div class="relative rounded-2xl p-6 bg-gradient-to-b from-discord-dark to-discord-darker border border-discord-blurple/50 shadow-glow-blurple hover:-translate-y-1 transition-all">
             <span class="absolute top-4 right-4 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-discord-blurple text-white">v2.5</span>
             <div class="w-12 h-12 rounded-xl bg-discord-blurple/20 border border-discord-blurple/40 flex items-center justify-center text-2xl mb-4">📑</div>
@@ -445,28 +440,24 @@
             <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f2Desc">Navegue entre a Página 1/2 e Página 2/2 com botões, abra os links direto pelos botões e apague mensagens públicas só pelo autor.</p>
           </div>
 
-          <!-- Card 3: Busca Pública -->
           <div class="rounded-2xl p-6 bg-discord-dark/70 border border-white/10 hover:border-white/20 hover:-translate-y-1 transition-all">
             <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-4">🌐</div>
             <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f3Title">Busca Pública (/search)</h3>
             <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f3Desc">Compartilhe resultados no canal com Embed azul, botões de link, paginação e botão vermelho de apagar restrito a quem rodou o comando.</p>
           </div>
 
-          <!-- Card 4: Comando /help e Multilíngue -->
           <div class="rounded-2xl p-6 bg-discord-dark/70 border border-white/10 hover:border-white/20 hover:-translate-y-1 transition-all">
             <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-4">❓</div>
             <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f4Title">Comando /help & Multilíngue</h3>
             <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f4Desc">Central de ajuda privada e bilíngue (PT-BR / Worldwide) com acesso rápido ao site e seletor de idioma nos comandos de busca.</p>
           </div>
 
-          <!-- Card 5: Rodapé Dinâmico & Cooldown -->
           <div class="rounded-2xl p-6 bg-discord-dark/70 border border-white/10 hover:border-white/20 hover:-translate-y-1 transition-all">
             <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-4">⚡</div>
             <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f5Title">Horário Dinâmico & Cooldown (5s)</h3>
             <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f5Desc">Rodapé com horário atual em tempo real e proteção anti-spam de 5 segundos por usuário com aviso privado bilíngue.</p>
           </div>
 
-          <!-- Card 6: Foco em Privacidade -->
           <div class="rounded-2xl p-6 bg-discord-dark/70 border border-white/10 hover:border-white/20 hover:-translate-y-1 transition-all">
             <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-4">🛡️</div>
             <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f6Title">Foco em Privacidade</h3>
@@ -484,9 +475,7 @@
           <p class="mt-3 text-sm sm:text-base text-discord-muted" data-i18n="commands.subtitle">Comandos slash diretos com Embed azul, botões, paginação de 2 páginas e cooldown de 5 segundos.</p>
         </div>
 
-        <!-- Cards de Comandos -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-          <!-- Comando /search -->
           <div class="rounded-2xl p-6 bg-discord-dark border border-white/10 flex flex-col justify-between gap-5">
             <div>
               <div class="flex items-center justify-between gap-2 mb-3">
@@ -504,7 +493,6 @@
             </div>
           </div>
 
-          <!-- Comando /privatesearch -->
           <div class="rounded-2xl p-6 bg-discord-dark border border-bing-cyan/40 shadow-glow-bing flex flex-col justify-between gap-5">
             <div>
               <div class="flex items-center justify-between gap-2 mb-3">
@@ -525,7 +513,6 @@
             </div>
           </div>
 
-          <!-- Comando /help -->
           <div class="rounded-2xl p-6 bg-discord-dark border border-white/10 flex flex-col justify-between gap-5 md:col-span-2 lg:col-span-1">
             <div>
               <div class="flex items-center justify-between gap-2 mb-3">
@@ -544,7 +531,6 @@
           </div>
         </div>
 
-        <!-- Passo a Passo em 3 Etapas -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div class="rounded-2xl p-5 bg-discord-dark/60 border border-white/5">
             <div class="w-8 h-8 rounded-full bg-discord-blurple text-white font-extrabold text-sm flex items-center justify-center mb-3">1</div>
@@ -592,9 +578,8 @@
     </section>
   </main>
 
-  <!-- ABA DEDICADA DE CHANGELOG / RELEASES (FORA DO MODAL, ORDEM CRONOLÓGICA v1.0 -> v2.5) -->
+  <!-- ABA DEDICADA DE CHANGELOG / RELEASES -->
   <section id="view-changelog" class="hidden min-h-screen pt-12 pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto" aria-label="Changelog e Releases">
-    <!-- Cabeçalho do Changelog -->
     <div class="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-5">
       <div>
         <a href="#top" data-route="#top" class="inline-flex items-center gap-2 text-sm font-semibold text-bing-cyan hover:text-sky-300 mb-5 transition-colors">
@@ -615,7 +600,6 @@
         </p>
       </div>
 
-      <!-- Botão para repetir a animação -->
       <button type="button" id="changelog-replay-btn" class="self-start sm:self-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-discord-dark hover:bg-discord-chat border border-white/10 hover:border-bing-cyan/40 text-xs sm:text-sm font-semibold text-white transition-all cursor-pointer shrink-0">
         <svg class="w-4 h-4 text-bing-cyan" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
@@ -624,14 +608,11 @@
       </button>
     </div>
 
-    <!-- Linha do tempo estilo rastreio (cresce de cima para baixo: v1.0 -> v1.5 -> v2.0 -> v2.5) -->
     <div class="relative pl-10 sm:pl-12">
-      <!-- Trilho vertical ancorado no topo da v1.0 até a bolinha da v2.5 -->
       <div id="changelog-track" class="absolute left-[11px] top-9 w-[2px] bg-white/10 rounded-full overflow-hidden" style="height: calc(100% - 12rem);" aria-hidden="true">
         <div id="changelog-line-fill" class="changelog-line-progress absolute inset-x-0 top-0 bg-gradient-to-b from-discord-blurple via-bing-cyan to-discord-green rounded-full" style="height: 0px;"></div>
       </div>
 
-      <!-- Cards de versões renderizados via JS -->
       <div id="changelog-timeline" class="space-y-8"></div>
     </div>
   </section>
@@ -661,13 +642,12 @@
     </div>
   </footer>
 
-  <!-- MODAL DE ROTAS LEGAIS (#termos e #privacidade) -->
+  <!-- MODAL DE ROTAS LEGAIS -->
   <div id="legal-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title">
     <div class="relative w-full max-w-3xl max-h-[88vh] flex flex-col rounded-2xl bg-discord-dark border border-white/15 shadow-2xl overflow-hidden">
-      <!-- Cabeçalho do Modal -->
       <div class="flex items-center justify-between gap-3 px-5 sm:px-6 py-4 bg-discord-darker border-b border-white/10">
         <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
-          <button type="button" id="legal-tab-terms" class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer" data-i18n="footer.terms">Termos de Servicio</button>
+          <button type="button" id="legal-tab-terms" class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer" data-i18n="footer.terms">Termos de Serviço</button>
           <button type="button" id="legal-tab-privacy" class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer" data-i18n="footer.privacy">Política de Privacidade</button>
         </div>
         <button type="button" id="legal-close-x" aria-label="Fechar" class="p-2 rounded-xl bg-discord-dark hover:bg-white/10 text-discord-muted hover:text-white transition-colors cursor-pointer">
@@ -675,14 +655,12 @@
         </button>
       </div>
 
-      <!-- Conteúdo Rolável -->
       <div class="p-5 sm:p-8 overflow-y-auto space-y-5 text-sm sm:text-base text-discord-text leading-relaxed">
         <h2 id="legal-modal-title" class="text-2xl font-extrabold text-white"></h2>
         <p id="legal-modal-updated" class="text-xs text-discord-muted"></p>
         <div id="legal-modal-body" class="space-y-4"></div>
       </div>
 
-      <!-- Rodapé do Modal -->
       <div class="px-5 sm:px-6 py-4 bg-discord-darker border-t border-white/10 flex justify-end">
         <button type="button" id="legal-close-btn" class="px-5 py-2.5 rounded-xl bg-discord-blurple hover:bg-discord-blurpleHover text-white text-sm font-bold transition-colors cursor-pointer" data-i18n="legal.backBtn">Voltar à página inicial</button>
       </div>
@@ -697,23 +675,16 @@
     </div>
   </div>
 
-  <!-- JAVASCRIPT PRINCIPAL (ENCAPSULADO, SEM INLINE ONCLICK, INICIALIZAÇÃO GARANTIDA) -->
   <script>
     (function () {
       'use strict';
 
-      // =========================================================================
-      // CONFIGURAÇÃO DO BOT E DO SITE
-      // =========================================================================
       const CONFIG = {
         inviteUrl: 'https://discord.com/oauth2/authorize?client_id=1442546622805577859',
         botName: 'Bing Search',
         siteUrl: 'https://klinger230.github.io/bing-search-bot/'
       };
 
-      // =========================================================================
-      // ESTADO INTERNO DA APLICAÇÃO
-      // =========================================================================
       let currentLang = 'pt';
       let currentSimMode = 'private';
       let currentSimPage = 1;
@@ -727,15 +698,112 @@
       let changelogTimers = [];
       let isInitialized = false;
 
-      // =========================================================================
-      // DICIONÁRIO COMPLETO DE TRADUÇÕES (PT-BR | EN | ES)
-      // Ordem do Changelog: v1.0 -> v1.5 -> v2.0 -> v2.5
-      // =========================================================================
+      function buildCustomPages(lang, q) {
+        const encodedWiki = encodeURIComponent(q.replace(/\s+/g, '_'));
+        const encodedSearch = encodeURIComponent(q);
+        const encodedGuide = encodeURIComponent(q + ' guia');
+        const encodedMore = encodeURIComponent(q + ' informacoes');
+
+        if (lang === 'en') {
+          return [
+            [
+              {
+                title: q + ' — Overview & Key Information',
+                content: 'Top summary, definitions, and curated web references about "' + q + '" delivered instantly inside Discord.',
+                url: 'https://en.wikipedia.org/wiki/' + encodedWiki
+              },
+              {
+                title: 'Everything about ' + q + ': Guides & Latest Updates',
+                content: 'Helpful articles, community insights, and direct web links related to "' + q + '" without opening a browser.',
+                url: 'https://www.bing.com/search?q=' + encodedSearch
+              }
+            ],
+            [
+              {
+                title: 'More results for ' + q + ' — Page 2',
+                content: 'Additional references and web pages for "' + q + '" shown on the second pagination page.',
+                url: 'https://www.bing.com/search?q=' + encodedGuide
+              },
+              {
+                title: 'Explore ' + q + ' on the web',
+                content: 'Open links directly from the Embed titles or action buttons below.',
+                url: 'https://www.bing.com/search?q=' + encodedMore
+              }
+            ]
+          ];
+        }
+
+        if (lang === 'es') {
+          return [
+            [
+              {
+                title: q + ' — Guía Completa e Información Actualizada',
+                content: 'Resumen principal, definiciones y referencias relevantes encontradas en la web sobre "' + q + '" para consultar rápido desde Discord.',
+                url: 'https://es.wikipedia.org/wiki/' + encodedWiki
+              },
+              {
+                title: 'Todo sobre ' + q + ': noticias, consejos y enlaces',
+                content: 'Selección de artículos recientes y enlaces útiles relacionados con "' + q + '" sin tener que salir de tu servidor.',
+                url: 'https://www.bing.com/search?q=' + encodedSearch
+              }
+            ],
+            [
+              {
+                title: 'Más resultados sobre ' + q + ' — Página 2',
+                content: 'Referencias adicionales y enlaces relacionados con "' + q + '" en la segunda página.',
+                url: 'https://www.bing.com/search?q=' + encodedGuide
+              },
+              {
+                title: 'Explorar ' + q + ' en la web',
+                content: 'Abre los enlaces desde los títulos del Embed o mediante los botones inferiores.',
+                url: 'https://www.bing.com/search?q=' + encodedMore
+              }
+            ]
+          ];
+        }
+
+        return [
+          [
+            {
+              title: q + ' — Guia Completo e Informações Atualizadas',
+              content: 'Principais informações, definições e referências relevantes encontradas na web sobre "' + q + '" para consulta rápida direto no Discord.',
+              url: 'https://pt.wikipedia.org/wiki/' + encodedWiki
+            },
+            {
+              title: 'Tudo sobre ' + q + ': notícias, dicas e artigos',
+              content: 'Seleção de conteúdos, discussões recentes e links úteis relacionados a "' + q + '" sem precisar sair do seu servidor.',
+              url: 'https://www.bing.com/search?q=' + encodedSearch
+            }
+          ],
+          [
+            {
+              title: 'Mais resultados sobre ' + q + ' — Página 2',
+              content: 'Referências complementares e páginas relacionadas a "' + q + '" exibidas na segunda página da paginação.',
+              url: 'https://www.bing.com/search?q=' + encodedGuide
+            },
+            {
+              title: 'Explorar ' + q + ' na web',
+              content: 'Aprofunde-se no tema "' + q + '" acessando os links diretamente pelo Embed ou pelos botões abaixo.',
+              url: 'https://www.bing.com/search?q=' + encodedMore
+            }
+          ]
+        ];
+      }
+
+      const HELP_BODY_HTML = [
+        '<div class="font-bold text-white">🇧🇷 PT-BR</div>',
+        '<div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> — Pesquisa pública no canal com Embed, botões de link, paginação e botão de apagar para o autor.</div>',
+        '<div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/privatesearch</code> — Pesquisa privada (visível só para você) com títulos clicáveis, botões de link e paginação.</div>',
+        '<div class="pt-1 border-t border-white/10 font-bold text-white">🇺🇸 Worldwide</div>',
+        '<div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> — Public search in the channel with an Embed, link buttons, pagination, and an author-only delete button.</div>',
+        '<div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/privatesearch</code> — Private search (visible only to you) with clickable titles, link buttons, and pagination.</div>'
+      ].join('');
+
       const TRANSLATIONS = {
         pt: {
           htmlLang: 'pt-BR',
           botLocaleCode: 'pt-BR',
-          pageTitle: `${CONFIG.botName} — Buscas na Web direto no Discord`,
+          pageTitle: CONFIG.botName + ' — Buscas na Web direto no Discord',
           badges: { new: 'NOVO' },
           nav: {
             simulator: 'Simulador',
@@ -784,14 +852,7 @@
             searchBtn: 'Pesquisar',
             deletedFeedback: 'Mensagem apagada no simulador! Clique em Pesquisar para exibir novamente.',
             helpTitle: '🔍 Bing Search — Ajuda / Help',
-            helpBody: `
-              <div class="font-bold text-white">🇧🇷 PT-BR</div>
-              <div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> — Pesquisa pública no canal com Embed, botões de link, paginação e botão de apagar para o autor.</div>
-              <div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/privatesearch</code> — Pesquisa privada (visível só para você) com títulos clicáveis, botões de link e paginação.</div>
-              <div class="pt-1 border-t border-white/10 font-bold text-white">🇺🇸 Worldwide</div>
-              <div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> — Public search in the channel with an Embed, link buttons, pagination, and an author-only delete button.</div>
-              <div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/privatesearch</code> — Private search (visible only to you) with clickable titles, link buttons, and pagination.</div>
-            `,
+            helpBody: HELP_BODY_HTML,
             presets: [
               {
                 query: 'clima São Paulo',
@@ -881,32 +942,9 @@
                 ]
               }
             ],
-            customTemplate: (q) => [
-              [
-                {
-                  title: `${q} — Guia Completo e Informações Atualizadas`,
-                  content: `Principais informações, definições e referências relevantes encontradas na web sobre "${q}" para consulta rápida direto no Discord.`,
-                  url: `https://pt.wikipedia.org/wiki/${encodeURIComponent(q.replace(/\s+/g, '_'))}`
-                },
-                {
-                  title: `Tudo sobre ${q}: notícias, dicas e artigos`,
-                  content: `Seleção de conteúdos, discussões recentes e links úteis relacionados a "${q}" sem precisar sair do seu servidor.`,
-                  url: `https://www.bing.com/search?q=${encodeURIComponent(q)}`
-                }
-              ],
-              [
-                {
-                  title: `Mais resultados sobre ${q} — Página 2`,
-                  content: `Referências complementares e páginas relacionadas a "${q}" exibidas na segunda página da paginação.`,
-                  url: `https://www.bing.com/search?q=${encodeURIComponent(q + ' guia')}`
-                },
-                {
-                  title: `Explorar ${q} na web`,
-                  content: `Aprofunde-se no tema "${q}" acessando os links diretamente pelo Embed ou pelos botões abaixo.`,
-                  url: `https://www.bing.com/search?q=${encodeURIComponent(q + ' informacoes')}`
-                }
-              ]
-            ]
+            customTemplate: function (q) {
+              return buildCustomPages('pt', q);
+            }
           },
           features: {
             title: 'Feito para buscas rápidas e organizadas',
@@ -1052,36 +1090,16 @@
             backBtn: 'Voltar à página inicial',
             updated: 'Última atualização: Novembro de 2026',
             termsTitle: 'Termos de Serviço',
-            termsBody: `
-              <p>Ao adicionar ou utilizar o bot <strong>${CONFIG.botName}</strong> no Discord, você concorda com os termos descritos abaixo.</p>
-              <h3 class="text-lg font-bold text-white pt-2">1. Natureza Independente do Projeto</h3>
-              <p>O <strong>${CONFIG.botName}</strong> é um projeto independente e gratuito desenvolvido para facilitar pesquisas na web dentro do Discord. Este serviço <strong>não é oficial</strong> e não possui afiliação, endosso ou vínculo com a Microsoft Corporation, Bing ou Discord Inc.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Funcionamento dos Comandos</h3>
-              <p>O bot disponibiliza os comandos <code>/search</code> (respostas públicas no canal), <code>/privatesearch</code> (respostas efêmeras visíveis apenas para quem executou o comando) e <code>/help</code> (ajuda privada), com paginação em Embed, botões interativos e cooldown de 5 segundos por usuário.</p>
-              <h3 class="text-lg font-bold text-white pt-2">3. Uso Responsável</h3>
-              <p>O usuário compromete-se a não utilizar o bot para spam, automação abusiva, buscas de conteúdo ilegal ou violação dos Termos de Serviço e Diretrizes da Comunidade do Discord. O desenvolvedor reserva-se o direito de restringir o acesso em caso de uso abusivo.</p>
-              <h3 class="text-lg font-bold text-white pt-2">4. Conteúdo de Terceiros e Disponibilidade</h3>
-              <p>Os títulos, resumos e links retornados pertencem a sites de terceiros indexados na web. Não garantimos disponibilidade ininterrupta (uptime de 100%) nem nos responsabilizamos pelo conteúdo hospedado em páginas externas.</p>
-            `,
+            termsBody: '<p>Ao adicionar ou utilizar o bot <strong>' + CONFIG.botName + '</strong> no Discord, você concorda com os termos descritos abaixo.</p><h3 class="text-lg font-bold text-white pt-2">1. Natureza Independente do Projeto</h3><p>O <strong>' + CONFIG.botName + '</strong> é um projeto independente e gratuito desenvolvido para facilitar pesquisas na web dentro do Discord. Este serviço <strong>não é oficial</strong> e não possui afiliação, endosso ou vínculo com a Microsoft Corporation, Bing ou Discord Inc.</p><h3 class="text-lg font-bold text-white pt-2">2. Funcionamento dos Comandos</h3><p>O bot disponibiliza os comandos <code>/search</code> (respostas públicas no canal), <code>/privatesearch</code> (respostas efêmeras visíveis apenas para quem executou o comando) e <code>/help</code> (ajuda privada), com paginação em Embed, botões interativos e cooldown de 5 segundos por usuário.</p><h3 class="text-lg font-bold text-white pt-2">3. Uso Responsável</h3><p>O usuário compromete-se a não utilizar o bot para spam, automação abusiva, buscas de conteúdo ilegal ou violação dos Termos de Serviço e Diretrizes da Comunidade do Discord.</p><h3 class="text-lg font-bold text-white pt-2">4. Conteúdo de Terceiros e Disponibilidade</h3><p>Os títulos, resumos e links retornados pertencem a sites de terceiros indexados na web. Não garantimos disponibilidade ininterrupta nem nos responsabilizamos pelo conteúdo de páginas externas.</p>',
             privacyTitle: 'Política de Privacidade',
-            privacyBody: `
-              <p>A sua privacidade é prioridade no <strong>${CONFIG.botName}</strong>. Esta política explica como os dados são tratados durante o uso dos comandos no Discord.</p>
-              <h3 class="text-lg font-bold text-white pt-2">1. Não Armazenamento de Histórico de Pesquisas</h3>
-              <p>O termo informado no parâmetro <code>busca</code> é processado exclusivamente em tempo real para realizar a consulta na web e retornar os resultados no Discord. <strong>Não armazenamos histórico de buscas</strong>, não vinculamos termos pesquisados ao seu ID do Discord e não vendemos ou compartilhamos dados com terceiros para fins publicitários.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Privacidade dos Comandos /privatesearch e /help</h3>
-              <p>Ao utilizar <code>/privatesearch</code> ou <code>/help</code>, a resposta é enviada utilizando o recurso de mensagem efêmera do Discord (<em>"Só você pode ver esta mensagem"</em>). Outros membros do servidor não conseguem visualizar os resultados.</p>
-              <h3 class="text-lg font-bold text-white pt-2">3. Dados Mínimos de Operação</h3>
-              <p>O bot não lê mensagens comuns enviadas nos canais — ele só é acionado quando um usuário invoca explicitamente um comando slash. Logs técnicos temporários podem registrar apenas erros técnicos para manutenção do serviço.</p>
-              <h3 class="text-lg font-bold text-white pt-2">4. Independência e Links Externos</h3>
-              <p>Este é um projeto independente sem vínculo oficial com a Microsoft/Bing. Ao clicar em qualquer link retornado nos resultados da pesquisa, você estará sujeito às políticas de privacidade do respectivo site de destino.</p>
-            `
+            privacyBody: '<p>A sua privacidade é prioridade no <strong>' + CONFIG.botName + '</strong>. Esta política explica como os dados são tratados durante o uso dos comandos no Discord.</p><h3 class="text-lg font-bold text-white pt-2">1. Não Armazenamento de Histórico de Pesquisas</h3><p>O termo informado no parâmetro <code>busca</code> é processado exclusivamente em tempo real para realizar a consulta na web e retornar os resultados no Discord. <strong>Não armazenamos histórico de buscas</strong> nem vinculamos termos ao seu ID do Discord.</p><h3 class="text-lg font-bold text-white pt-2">2. Privacidade dos Comandos /privatesearch e /help</h3><p>Ao utilizar <code>/privatesearch</code> ou <code>/help</code>, a resposta é enviada como mensagem efêmera no Discord (<em>"Só você pode ver esta mensagem"</em>).</p><h3 class="text-lg font-bold text-white pt-2">3. Dados Mínimos de Operação</h3><p>O bot não lê mensagens comuns enviadas nos canais — ele só é acionado quando um usuário invoca explicitamente um comando slash.</p><h3 class="text-lg font-bold text-white pt-2">4. Independência e Links Externos</h3><p>Projeto independente sem vínculo oficial com Microsoft/Bing. Links externos seguem as políticas de privacidade de cada site de destino.</p>'
           }
         },
 
         en: {
           htmlLang: 'en',
           botLocaleCode: 'en-US',
-          pageTitle: `${CONFIG.botName} — Web Search right inside Discord`,
+          pageTitle: CONFIG.botName + ' — Web Search right inside Discord',
           badges: { new: 'NEW' },
           nav: {
             simulator: 'Simulator',
@@ -1130,14 +1148,7 @@
             searchBtn: 'Search',
             deletedFeedback: 'Message deleted in simulator! Click Search to display it again.',
             helpTitle: '🔍 Bing Search — Ajuda / Help',
-            helpBody: `
-              <div class="font-bold text-white">🇧🇷 PT-BR</div>
-              <div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> — Pesquisa pública no canal com Embed, botões de link, paginação e botão de apagar para o autor.</div>
-              <div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/privatesearch</code> — Pesquisa privada (visível só para você) com títulos clicáveis, botões de link e paginação.</div>
-              <div class="pt-1 border-t border-white/10 font-bold text-white">🇺🇸 Worldwide</div>
-              <div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> — Public search in the channel with an Embed, link buttons, pagination, and an author-only delete button.</div>
-              <div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/privatesearch</code> — Private search (visible only to you) with clickable titles, link buttons, and pagination.</div>
-            `,
+            helpBody: HELP_BODY_HTML,
             presets: [
               {
                 query: 'weather New York',
@@ -1227,32 +1238,9 @@
                 ]
               }
             ],
-            customTemplate: (q) => [
-              [
-                {
-                  title: `${q} — Overview & Key Information`,
-                  content: `Top summary, definitions, and curated web references about "${q}" delivered instantly inside Discord.`,
-                  url: `https://en.wikipedia.org/wiki/${encodeURIComponent(q.replace(/\s+/g, '_'))}`
-                },
-                {
-                  title: `Everything about ${q}: Guides & Latest Updates`,
-                  content: `Helpful articles, community insights, and direct web links related to "${q}" without opening a browser.`,
-                  url: `https://www.bing.com/search?q=${encodeURIComponent(q)}`
-                }
-              ],
-              [
-                {
-                  title: `More results for ${q} — Page 2`,
-                  content: `Additional references and web pages for "${q}" shown on the second pagination page.`,
-                  url: `https://www.bing.com/search?q=${encodeURIComponent(q + ' guide')}`
-                },
-                {
-                  title: `Explore ${q} on the web`,
-                  content: `Open links directly from the Embed titles or action buttons below.`,
-                  url: `https://www.bing.com/search?q=${encodeURIComponent(q + ' overview')}`
-                }
-              ]
-            ]
+            customTemplate: function (q) {
+              return buildCustomPages('en', q);
+            }
           },
           features: {
             title: 'Built for fast, clutter-free searches',
@@ -1398,36 +1386,16 @@
             backBtn: 'Back to Home',
             updated: 'Last updated: November 2026',
             termsTitle: 'Terms of Service',
-            termsBody: `
-              <p>By adding or using the <strong>${CONFIG.botName}</strong> Discord bot, you agree to the terms outlined below.</p>
-              <h3 class="text-lg font-bold text-white pt-2">1. Independent Project</h3>
-              <p><strong>${CONFIG.botName}</strong> is an independent, free community project created to enable convenient web searches inside Discord. This service is <strong>not official</strong> and has no affiliation, sponsorship, or partnership with Microsoft Corporation, Bing, or Discord Inc.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Command Functionality</h3>
-              <p>The bot provides <code>/search</code> (public channel replies), <code>/privatesearch</code> (ephemeral replies visible only to the command user), and <code>/help</code> (private help), featuring Embed pagination, interactive buttons, and a 5-second per-user cooldown.</p>
-              <h3 class="text-lg font-bold text-white pt-2">3. Responsible Use</h3>
-              <p>You agree not to use the bot for spamming, abusive automation, illegal queries, or any activity that violates Discord's Terms of Service or Community Guidelines. We reserve the right to restrict access in cases of abuse.</p>
-              <h3 class="text-lg font-bold text-white pt-2">4. Third-Party Content & Availability</h3>
-              <p>Titles, summaries, and links returned belong to third-party websites indexed on the web. We do not guarantee 100% uninterrupted uptime and are not responsible for the content hosted on external sites.</p>
-            `,
+            termsBody: '<p>By adding or using the <strong>' + CONFIG.botName + '</strong> Discord bot, you agree to the terms outlined below.</p><h3 class="text-lg font-bold text-white pt-2">1. Independent Project</h3><p><strong>' + CONFIG.botName + '</strong> is an independent, free community project created to enable convenient web searches inside Discord. This service is <strong>not official</strong> and has no affiliation, sponsorship, or partnership with Microsoft Corporation, Bing, or Discord Inc.</p><h3 class="text-lg font-bold text-white pt-2">2. Command Functionality</h3><p>The bot provides <code>/search</code> (public channel replies), <code>/privatesearch</code> (ephemeral replies visible only to the command user), and <code>/help</code> (private help), featuring Embed pagination, interactive buttons, and a 5-second per-user cooldown.</p><h3 class="text-lg font-bold text-white pt-2">3. Responsible Use</h3><p>You agree not to use the bot for spamming, abusive automation, illegal queries, or any activity that violates Discord Terms of Service or Community Guidelines.</p><h3 class="text-lg font-bold text-white pt-2">4. Third-Party Content & Availability</h3><p>Titles, summaries, and links returned belong to third-party websites indexed on the web. We do not guarantee 100% uninterrupted uptime.</p>',
             privacyTitle: 'Privacy Policy',
-            privacyBody: `
-              <p>Your privacy matters when using <strong>${CONFIG.botName}</strong>. This policy explains how information is handled when you run commands on Discord.</p>
-              <h3 class="text-lg font-bold text-white pt-2">1. No Search History Storage</h3>
-              <p>The query entered in the <code>busca</code> option is processed strictly in real time to fetch web results and reply inside Discord. <strong>We do not store search history</strong>, do not tie search terms to your Discord ID, and never sell or share data for advertising.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. /privatesearch & /help Privacy</h3>
-              <p>When using <code>/privatesearch</code> or <code>/help</code>, results are delivered using Discord's native ephemeral message feature (<em>"Only you can see this"</em>). Other server members cannot view your results.</p>
-              <h3 class="text-lg font-bold text-white pt-2">3. Minimal Operational Data</h3>
-              <p>The bot does not read regular messages in your channels — it only activates when a user explicitly invokes a slash command. Temporary hosting logs may record technical error codes strictly for maintenance.</p>
-              <h3 class="text-lg font-bold text-white pt-2">4. Independence & External Links</h3>
-              <p>This is an independent project with no official ties to Microsoft/Bing. Clicking any external link in the search results subjects you to the privacy policy of the destination website.</p>
-            `
+            privacyBody: '<p>Your privacy matters when using <strong>' + CONFIG.botName + '</strong>. This policy explains how information is handled when you run commands on Discord.</p><h3 class="text-lg font-bold text-white pt-2">1. No Search History Storage</h3><p>The query entered in the <code>busca</code> option is processed strictly in real time to fetch web results and reply inside Discord. <strong>We do not store search history</strong> and never tie search terms to your Discord ID.</p><h3 class="text-lg font-bold text-white pt-2">2. /privatesearch & /help Privacy</h3><p>When using <code>/privatesearch</code> or <code>/help</code>, results are delivered using Discord native ephemeral messages (<em>"Only you can see this"</em>).</p><h3 class="text-lg font-bold text-white pt-2">3. Minimal Operational Data</h3><p>The bot does not read regular messages in your channels — it only activates when a user explicitly invokes a slash command.</p><h3 class="text-lg font-bold text-white pt-2">4. Independence & External Links</h3><p>Independent project with no official ties to Microsoft/Bing. External links follow their own privacy policies.</p>'
           }
         },
 
         es: {
           htmlLang: 'es',
           botLocaleCode: 'es-ES',
-          pageTitle: `${CONFIG.botName} — Búsquedas Web directo en Discord`,
+          pageTitle: CONFIG.botName + ' — Búsquedas Web directo en Discord',
           badges: { new: 'NUEVO' },
           nav: {
             simulator: 'Simulador',
@@ -1476,14 +1444,7 @@
             searchBtn: 'Buscar',
             deletedFeedback: '¡Mensaje borrado en el simulador! Pulsa Buscar para mostrarlo de nuevo.',
             helpTitle: '🔍 Bing Search — Ajuda / Help',
-            helpBody: `
-              <div class="font-bold text-white">🇧🇷 PT-BR</div>
-              <div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> — Pesquisa pública no canal com Embed, botões de link, paginação e botão de apagar para o autor.</div>
-              <div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/privatesearch</code> — Pesquisa privada (visível só para você) com títulos clicáveis, botões de link e paginação.</div>
-              <div class="pt-1 border-t border-white/10 font-bold text-white">🇺🇸 Worldwide</div>
-              <div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> — Public search in the channel with an Embed, link buttons, pagination, and an author-only delete button.</div>
-              <div><code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/privatesearch</code> — Private search (visible only to you) with clickable titles, link buttons, and pagination.</div>
-            `,
+            helpBody: HELP_BODY_HTML,
             presets: [
               {
                 query: 'clima Madrid',
@@ -1573,32 +1534,9 @@
                 ]
               }
             ],
-            customTemplate: (q) => [
-              [
-                {
-                  title: `${q} — Guía Completa e Información Actualizada`,
-                  content: `Resumen principal, definiciones y referencias relevantes encontradas en la web sobre "${q}" para consultar rápido desde Discord.`,
-                  url: `https://es.wikipedia.org/wiki/${encodeURIComponent(q.replace(/\s+/g, '_'))}`
-                },
-                {
-                  title: `Todo sobre ${q}: noticias, consejos y enlaces`,
-                  content: `Selección de artículos recientes y enlaces útiles relacionados con "${q}" sin tener que salir de tu servidor.`,
-                  url: `https://www.bing.com/search?q=${encodeURIComponent(q)}`
-                }
-              ],
-              [
-                {
-                  title: `Más resultados sobre ${q} — Página 2`,
-                  content: `Referencias adicionales y enlaces relacionados con "${q}" en la segunda página.`,
-                  url: `https://www.bing.com/search?q=${encodeURIComponent(q + ' guia')}`
-                },
-                {
-                  title: `Explorar ${q} en la web`,
-                  content: `Abre los enlaces desde los títulos del Embed o mediante los botones inferiores.`,
-                  url: `https://www.bing.com/search?q=${encodeURIComponent(q + ' informacion')}`
-                }
-              ]
-            ]
+            customTemplate: function (q) {
+              return buildCustomPages('es', q);
+            }
           },
           features: {
             title: 'Diseñado para búsquedas rápidas y limpias',
@@ -1732,7 +1670,7 @@
           },
           cta: {
             title: '¿Listo para buscar sin salir de Discord?',
-            subtitle: 'Prueba la v2.5 con Embeds azuis, botones, paginación de 2 páginas, /help y cooldown de 5s gratis.',
+            subtitle: 'Prueba la v2.5 con Embeds azules, botones, paginación de 2 páginas, /help y cooldown de 5s gratis.',
           },
           footer: {
             disclaimer: 'Proyecto independiente para Discord. No tiene vínculo oficial con Microsoft, Bing ni Discord Inc.',
@@ -1744,36 +1682,13 @@
             backBtn: 'Volver al inicio',
             updated: 'Última actualización: Noviembre de 2026',
             termsTitle: 'Términos de Servicio',
-            termsBody: `
-              <p>Al añadir o utilizar el bot <strong>${CONFIG.botName}</strong> en Discord, aceptas los términos descritos a continuación.</p>
-              <h3 class="text-lg font-bold text-white pt-2">1. Naturaleza Independiente del Proyecto</h3>
-              <p><strong>${CONFIG.botName}</strong> es un proyecto independiente y gratuito creado para facilitar búsquedas web dentro de Discord. Este servicio <strong>no es oficial</strong> y no tiene afiliación, respaldo ni vínculo con Microsoft Corporation, Bing o Discord Inc.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Funcionamiento de los Comandos</h3>
-              <p>El bot ofrece los comandos <code>/search</code> (respuestas públicas en el canal), <code>/privatesearch</code> (respuestas efímeras visibles solo para quien ejecuta el comando) y <code>/help</code> (ayuda privada), con paginación en Embed, botones interactivos y cooldown de 5 segundos por usuario.</p>
-              <h3 class="text-lg font-bold text-white pt-2">3. Uso Responsable</h3>
-              <p>El usuario se compromete a no utilizar el bot para spam, automatización abusiva, búsquedas de contenido ilegal o cualquier infracción de los Términos de Servicio y Directrices de la Comunidad de Discord. Nos reservamos el derecho de limitar el acceso en caso de abuso.</p>
-              <h3 class="text-lg font-bold text-white pt-2">4. Contenido de Terceros y Disponibilidad</h3>
-              <p>Los títulos, resúmenes y enlaces devueltos pertenecen a sitios web de terceros. No garantizamos disponibilidad ininterrupta del 100% ni nos hacemos responsables por el contenido alojado en páginas externas.</p>
-            `,
+            termsBody: '<p>Al añadir o utilizar el bot <strong>' + CONFIG.botName + '</strong> en Discord, aceptas los términos descritos a continuación.</p><h3 class="text-lg font-bold text-white pt-2">1. Naturaleza Independiente del Proyecto</h3><p><strong>' + CONFIG.botName + '</strong> es un proyecto independiente y gratuito creado para facilitar búsquedas web dentro de Discord. Este servicio <strong>no es oficial</strong> y no tiene afiliación, respaldo ni vínculo con Microsoft Corporation, Bing o Discord Inc.</p><h3 class="text-lg font-bold text-white pt-2">2. Funcionamiento de los Comandos</h3><p>El bot ofrece los comandos <code>/search</code> (respuestas públicas en el canal), <code>/privatesearch</code> (respuestas efímeras visibles solo para quien ejecuta el comando) y <code>/help</code> (ayuda privada), con paginación en Embed, botones interactivos y cooldown de 5 segundos por usuario.</p><h3 class="text-lg font-bold text-white pt-2">3. Uso Responsable</h3><p>El usuario se compromete a no utilizar el bot para spam, automatización abusiva, búsquedas de contenido ilegal o cualquier infracción de los Términos de Servicio y Directrices de la Comunidad de Discord.</p><h3 class="text-lg font-bold text-white pt-2">4. Contenido de Terceros y Disponibilidad</h3><p>Los títulos, resúmenes y enlaces devueltos pertenecen a sitios web de terceros. No garantizamos disponibilidad ininterrupta ni nos hacemos responsables por el contenido de páginas externas.</p>',
             privacyTitle: 'Política de Privacidad',
-            privacyBody: `
-              <p>Tu privacidad es fundamental en <strong>${CONFIG.botName}</strong>. Esta política explica cómo se gestionan los datos al usar los comandos en Discord.</p>
-              <h3 class="text-lg font-bold text-white pt-2">1. No Almacenamiento del Historial de Búsquedas</h3>
-              <p>El término ingresado en el parámetro <code>busca</code> se procesa exclusivamente en tiempo real para obtener resultados web y responder en Discord. <strong>No almacenamos historial de búsquedas</strong>, no vinculamos consultas a tu ID de Discord y nunca vendemos ni compartimos datos con fines publicitarios.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Privacidad de /privatesearch y /help</h3>
-              <p>Al usar <code>/privatesearch</code> o <code>/help</code>, la respuesta se envía mediante la función de mensaje efímero de Discord (<em>"Solo tú puedes ver esto"</em>). Ningún otro miembro del servidor puede ver tus resultados.</p>
-              <h3 class="text-lg font-bold text-white pt-2">3. Datos Mínimos de Operación</h3>
-              <p>El bot no lee mensajes normales en los canales; solo se activa cuando un usuario invoca explícitamente un comando slash. Los registros técnicos temporales del servidor pueden registrar únicamente errores técnicos para mantenimiento.</p>
-              <h3 class="text-lg font-bold text-white pt-2">4. Independencia y Enlaces Externos</h3>
-              <p>Este es un proyecto independiente sin vínculo oficial con Microsoft/Bing. Al hacer clic en cualquier enlace de los resultados, quedarás sujeto a las políticas de privacidad del sitio web de destino.</p>
-            `
+            privacyBody: '<p>Tu privacidad es fundamental en <strong>' + CONFIG.botName + '</strong>. Esta política explica cómo se gestionan los datos al usar los comandos en Discord.</p><h3 class="text-lg font-bold text-white pt-2">1. No Almacenamiento del Historial de Búsquedas</h3><p>El término ingresado en el parámetro <code>busca</code> se procesa exclusivamente en tiempo real para obtener resultados web y responder en Discord. <strong>No almacenamos historial de búsquedas</strong> ni vinculamos consultas a tu ID de Discord.</p><h3 class="text-lg font-bold text-white pt-2">2. Privacidad de /privatesearch y /help</h3><p>Al usar <code>/privatesearch</code> o <code>/help</code>, la respuesta se envía como mensaje efímero en Discord (<em>"Solo tú puedes ver esto"</em>).</p><h3 class="text-lg font-bold text-white pt-2">3. Datos Mínimos de Operación</h3><p>El bot no lee mensajes normales en los canales; solo se activa cuando un usuario invoca explícitamente un comando slash.</p><h3 class="text-lg font-bold text-white pt-2">4. Independencia y Enlaces Externos</h3><p>Proyecto independiente sin vínculo oficial con Microsoft/Bing. Los enlaces externos siguen sus propias políticas de privacidad.</p>'
           }
         }
       };
 
-      // =========================================================================
-      // UTILITÁRIOS DE SEGURANÇA, CLIPBOARD E TOAST
-      // =========================================================================
       function escapeHtml(str) {
         return String(str)
           .replace(/&/g, '&')
@@ -1836,9 +1751,6 @@
         }
       }
 
-      // =========================================================================
-      // MENU MOBILE
-      // =========================================================================
       function toggleMobileMenu() {
         const menu = document.getElementById('mobile-menu');
         const btn = document.getElementById('mobile-menu-btn');
@@ -1864,9 +1776,6 @@
         if (btn) btn.setAttribute('aria-expanded', 'false');
       }
 
-      // =========================================================================
-      // SISTEMA DE IDIOMAS (PT-BR | EN | ES)
-      // =========================================================================
       function setLanguage(lang) {
         if (!TRANSLATIONS[lang]) return;
         currentLang = lang;
@@ -1915,7 +1824,7 @@
         currentSimQuery = t.sim.presets[0].query;
         currentSimPage = 1;
         if (simInput) simInput.value = '';
-        renderSimMessage(currentSimQuery, false);
+        setSimMode(currentSimMode);
         renderFaq();
 
         const changelogView = document.getElementById('view-changelog');
@@ -1928,9 +1837,6 @@
         }
       }
 
-      // =========================================================================
-      // SIMULADOR INTERATIVO DO DISCORD (EMBED AZUL, 2 PÁGINAS, BOTÕES & /HELP)
-      // =========================================================================
       function setSimMode(mode) {
         if (mode === 'public') {
           currentSimMode = 'public';
@@ -2031,7 +1937,7 @@
           const btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'px-3 py-1.5 rounded-xl bg-discord-dark hover:bg-discord-blurple/20 border border-white/10 hover:border-bing-cyan/40 text-xs font-medium text-discord-text hover:text-white transition-all cursor-pointer';
-          btn.textContent = `🔎 ${preset.query}`;
+          btn.textContent = '🔎 ' + preset.query;
           btn.addEventListener('click', () => {
             if (currentSimMode === 'help') {
               setSimMode('private');
@@ -2045,7 +1951,7 @@
         });
       }
 
-      function attachSimButtonEvents(contentEl, pageItems, totalPages) {
+      function attachSimButtonEvents(contentEl, totalPages) {
         const btnPrev = contentEl.querySelector('#sim-btn-prev');
         const btnNext = contentEl.querySelector('#sim-btn-next');
         const btnDelete = contentEl.querySelector('#sim-btn-delete');
@@ -2067,11 +1973,10 @@
 
         if (btnDelete) {
           btnDelete.addEventListener('click', () => {
-            contentEl.innerHTML = `
-              <div class="rounded-xl px-4 py-3 bg-discord-darker/80 border border-white/10 text-xs sm:text-sm text-discord-muted">
-                🗑️ ${escapeHtml(tSim.deletedFeedback)}
-              </div>
-            `;
+            contentEl.innerHTML =
+              '<div class="rounded-xl px-4 py-3 bg-discord-darker/80 border border-white/10 text-xs sm:text-sm text-discord-muted">' +
+              '🗑️ ' + escapeHtml(tSim.deletedFeedback) +
+              '</div>';
           });
         }
       }
@@ -2086,37 +1991,37 @@
 
         if (inlineQueryEl) inlineQueryEl.textContent = query;
 
+        const matched = tSim.presets.find(
+          (p) => p.query.toLowerCase() === query.toLowerCase()
+        );
+        const pages = matched ? matched.pages : tSim.customTemplate(query);
+        const totalPages = pages.length || 1;
+        if (currentSimPage > totalPages) currentSimPage = 1;
+        if (currentSimPage < 1) currentSimPage = 1;
+
         const buildHtml = () => {
           if (currentSimMode === 'help') {
-            return `
-              <div class="rounded-r-lg bg-discord-darker/90 border-l-4 border-bing-blue p-3.5 sm:p-4 space-y-2.5 text-xs sm:text-sm text-discord-text">
-                <div class="font-bold text-white text-sm sm:text-base">${escapeHtml(tSim.helpTitle)}</div>
-                <div class="space-y-2 leading-relaxed">${tSim.helpBody}</div>
-                <div class="pt-2 border-t border-white/5 text-[11px] text-discord-muted">
-                  ${escapeHtml(tSim.footerHelp)} • ${escapeHtml(tSim.timestamp)}
-                </div>
-              </div>
-              <div class="flex flex-wrap items-center gap-2 pt-0.5">
-                <a href="${escapeHtml(CONFIG.siteUrl)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#4e5058] hover:bg-[#5d6069] text-white text-xs font-semibold transition-colors">
-                  <span>🌐</span>
-                  <span>${escapeHtml(tSim.btnWebsite)}</span>
-                  <span class="text-[10px] opacity-80">↗</span>
-                </a>
-                <button type="button" id="sim-btn-delete" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#da373c] hover:bg-[#a1282c] text-white text-xs font-semibold transition-colors cursor-pointer">
-                  <span>🗑️</span>
-                  <span>${escapeHtml(tSim.btnDelete)}</span>
-                </button>
-              </div>
-            `;
+            return (
+              '<div class="rounded-r-lg bg-discord-darker/90 border-l-4 border-bing-blue p-3.5 sm:p-4 space-y-2.5 text-xs sm:text-sm text-discord-text">' +
+                '<div class="font-bold text-white text-sm sm:text-base">' + escapeHtml(tSim.helpTitle) + '</div>' +
+                '<div class="space-y-2 leading-relaxed">' + tSim.helpBody + '</div>' +
+                '<div class="pt-2 border-t border-white/5 text-[11px] text-discord-muted">' +
+                  escapeHtml(tSim.footerHelp) + ' • ' + escapeHtml(tSim.timestamp) +
+                '</div>' +
+              '</div>' +
+              '<div class="flex flex-wrap items-center gap-2 pt-0.5">' +
+                '<a href="' + escapeHtml(CONFIG.siteUrl) + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#4e5058] hover:bg-[#5d6069] text-white text-xs font-semibold transition-colors">' +
+                  '<span>🌐</span>' +
+                  '<span>' + escapeHtml(tSim.btnWebsite) + '</span>' +
+                  '<span class="text-[10px] opacity-80">↗</span>' +
+                '</a>' +
+                '<button type="button" id="sim-btn-delete" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#da373c] hover:bg-[#a1282c] text-white text-xs font-semibold transition-colors cursor-pointer">' +
+                  '<span>🗑️</span>' +
+                  '<span>' + escapeHtml(tSim.btnDelete) + '</span>' +
+                '</button>' +
+              '</div>'
+            );
           }
-
-          const matched = tSim.presets.find(
-            (p) => p.query.toLowerCase() === query.toLowerCase()
-          );
-          const pages = matched ? matched.pages : tSim.customTemplate(query);
-          const totalPages = pages.length || 1;
-          if (currentSimPage > totalPages) currentSimPage = 1;
-          if (currentSimPage < 1) currentSimPage = 1;
 
           const pageItems = pages[currentSimPage - 1] || [];
           const startIndex = (currentSimPage - 1) * 2;
@@ -2133,25 +2038,20 @@
               const numberLabel = startIndex + idx + 1;
 
               const titleNode = isPrivate
-                ? `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer" class="font-bold text-[#00a8fc] hover:underline">${numberLabel}. ${safeTitle}</a>`
-                : `<div class="font-bold text-white">${numberLabel}. ${safeTitle}</div>`;
+                ? '<a href="' + safeUrl + '" target="_blank" rel="noopener noreferrer" class="font-bold text-[#00a8fc] hover:underline">' + numberLabel + '. ' + safeTitle + '</a>'
+                : '<div class="font-bold text-white">' + numberLabel + '. ' + safeTitle + '</div>';
 
               const linkLine = isPrivate
                 ? ''
-                : `
-                  <div class="flex items-start gap-1.5 break-all">
-                    <span aria-hidden="true">🔗</span>
-                    <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" class="text-[#00a8fc] hover:underline">${safeUrl}</a>
-                  </div>
-                `;
+                : '<div class="flex items-start gap-1.5 break-all"><span aria-hidden="true">🔗</span><a href="' + safeUrl + '" target="_blank" rel="noopener noreferrer" class="text-[#00a8fc] hover:underline">' + safeUrl + '</a></div>';
 
-              return `
-                <div class="space-y-0.5">
-                  <div>${titleNode}</div>
-                  <div class="text-discord-text/90">${safeContent}</div>
-                  ${linkLine}
-                </div>
-              `;
+              return (
+                '<div class="space-y-0.5">' +
+                  '<div>' + titleNode + '</div>' +
+                  '<div class="text-discord-text/90">' + safeContent + '</div>' +
+                  linkLine +
+                '</div>'
+              );
             })
             .join('');
 
@@ -2160,51 +2060,39 @@
 
           const deleteBtnHtml = isPrivate
             ? ''
-            : `
-              <button type="button" id="sim-btn-delete" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#da373c] hover:bg-[#a1282c] text-white text-xs font-semibold transition-colors cursor-pointer">
-                <span>🗑️</span>
-                <span>${escapeHtml(tSim.btnDelete)}</span>
-              </button>
-            `;
+            : '<button type="button" id="sim-btn-delete" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#da373c] hover:bg-[#a1282c] text-white text-xs font-semibold transition-colors cursor-pointer"><span>🗑️</span><span>' + escapeHtml(tSim.btnDelete) + '</span></button>';
 
-          return `
-            <div class="rounded-r-lg bg-discord-darker/90 border-l-4 border-bing-blue p-3.5 sm:p-4 space-y-3 text-xs sm:text-sm text-discord-text">
-              <div class="font-bold text-white text-sm sm:text-base">🔎 ${escapeHtml(tSim.resultsFor)} ${safeQuery}</div>
-              <div class="space-y-3">${itemsHtml}</div>
-              <div class="pt-2 border-t border-white/5 text-[11px] text-discord-muted">
-                ${escapeHtml(footerPrefix)} • ${escapeHtml(tSim.pageLabel)} ${currentSimPage}/${totalPages} • ${escapeHtml(tSim.timestamp)}
-              </div>
-            </div>
-            <div class="flex flex-wrap items-center gap-2 pt-0.5">
-              <a href="${url1}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#4e5058] hover:bg-[#5d6069] text-white text-xs font-semibold transition-colors">
-                <span>🔗</span>
-                <span>${escapeHtml(tSim.btnResult1)}</span>
-                <span class="text-[10px] opacity-80">↗</span>
-              </a>
-              <a href="${url2}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#4e5058] hover:bg-[#5d6069] text-white text-xs font-semibold transition-colors">
-                <span>🔗</span>
-                <span>${escapeHtml(tSim.btnResult2)}</span>
-                <span class="text-[10px] opacity-80">↗</span>
-              </a>
-              ${deleteBtnHtml}
-              <button type="button" id="sim-btn-prev" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#da373c] hover:bg-[#a1282c] text-white text-xs font-semibold transition-colors cursor-pointer">
-                <span>⬅️</span>
-                <span>${escapeHtml(tSim.btnPrev)}</span>
-              </button>
-              <button type="button" id="sim-btn-next" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#23a559] hover:bg-[#1e8e4c] text-white text-xs font-semibold transition-colors cursor-pointer">
-                <span>➡️</span>
-                <span>${escapeHtml(tSim.btnNext)}</span>
-              </button>
-            </div>
-          `;
+          return (
+            '<div class="rounded-r-lg bg-discord-darker/90 border-l-4 border-bing-blue p-3.5 sm:p-4 space-y-3 text-xs sm:text-sm text-discord-text">' +
+              '<div class="font-bold text-white text-sm sm:text-base">🔎 ' + escapeHtml(tSim.resultsFor) + ' ' + safeQuery + '</div>' +
+              '<div class="space-y-3">' + itemsHtml + '</div>' +
+              '<div class="pt-2 border-t border-white/5 text-[11px] text-discord-muted">' +
+                escapeHtml(footerPrefix) + ' • ' + escapeHtml(tSim.pageLabel) + ' ' + currentSimPage + '/' + totalPages + ' • ' + escapeHtml(tSim.timestamp) +
+              '</div>' +
+            '</div>' +
+            '<div class="flex flex-wrap items-center gap-2 pt-0.5">' +
+              '<a href="' + url1 + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#4e5058] hover:bg-[#5d6069] text-white text-xs font-semibold transition-colors">' +
+                '<span>🔗</span><span>' + escapeHtml(tSim.btnResult1) + '</span><span class="text-[10px] opacity-80">↗</span>' +
+              '</a>' +
+              '<a href="' + url2 + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#4e5058] hover:bg-[#5d6069] text-white text-xs font-semibold transition-colors">' +
+                '<span>🔗</span><span>' + escapeHtml(tSim.btnResult2) + '</span><span class="text-[10px] opacity-80">↗</span>' +
+              '</a>' +
+              deleteBtnHtml +
+              '<button type="button" id="sim-btn-prev" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#da373c] hover:bg-[#a1282c] text-white text-xs font-semibold transition-colors cursor-pointer">' +
+                '<span>⬅️</span><span>' + escapeHtml(tSim.btnPrev) + '</span>' +
+              '</button>' +
+              '<button type="button" id="sim-btn-next" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#23a559] hover:bg-[#1e8e4c] text-white text-xs font-semibold transition-colors cursor-pointer">' +
+                '<span>➡️</span><span>' + escapeHtml(tSim.btnNext) + '</span>' +
+              '</button>' +
+            '</div>'
+          );
         };
 
         clearTimeout(simLoadingTimeout);
 
         const finishRender = () => {
           contentEl.innerHTML = buildHtml();
-          const currentPageData = (tSim.presets.find((p) => p.query.toLowerCase() === query.toLowerCase()) || { pages: tSim.customTemplate(query) }).pages;
-          attachSimButtonEvents(contentEl, currentPageData[currentSimPage - 1] || [], currentPageData.length || 1);
+          attachSimButtonEvents(contentEl, totalPages);
         };
 
         if (animateLoading && loadingEl) {
@@ -2222,9 +2110,6 @@
         }
       }
 
-      // =========================================================================
-      // FAQ ACORDEÃO INTERATIVO
-      // =========================================================================
       function renderFaq() {
         const container = document.getElementById('faq-container');
         if (!container) return;
@@ -2235,29 +2120,28 @@
         items.forEach((item, index) => {
           const isOpen = openFaqIndex === index;
           const card = document.createElement('div');
-          card.className = `rounded-2xl border transition-all ${
-            isOpen
+          card.className =
+            'rounded-2xl border transition-all ' +
+            (isOpen
               ? 'bg-discord-dark border-bing-cyan/35 shadow-lg'
-              : 'bg-discord-dark/60 border-white/10 hover:border-white/20'
-          }`;
+              : 'bg-discord-dark/60 border-white/10 hover:border-white/20');
 
           const triggerBtn = document.createElement('button');
           triggerBtn.type = 'button';
           triggerBtn.setAttribute('aria-expanded', String(isOpen));
           triggerBtn.className = 'w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer';
-          triggerBtn.innerHTML = `
-            <span class="font-bold text-sm sm:text-base text-white">${escapeHtml(item.q)}</span>
-            <svg class="w-5 h-5 shrink-0 text-bing-cyan transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          `;
+          triggerBtn.innerHTML =
+            '<span class="font-bold text-sm sm:text-base text-white">' + escapeHtml(item.q) + '</span>' +
+            '<svg class="w-5 h-5 shrink-0 text-bing-cyan transition-transform duration-200 ' + (isOpen ? 'rotate-180' : '') + '" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">' +
+              '<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />' +
+            '</svg>';
           triggerBtn.addEventListener('click', () => {
             openFaqIndex = openFaqIndex === index ? -1 : index;
             renderFaq();
           });
 
           const body = document.createElement('div');
-          body.className = `${isOpen ? 'block' : 'hidden'} px-5 pb-5 text-sm text-discord-muted leading-relaxed border-t border-white/5 pt-3`;
+          body.className = (isOpen ? 'block' : 'hidden') + ' px-5 pb-5 text-sm text-discord-muted leading-relaxed border-t border-white/5 pt-3';
           body.textContent = item.a;
 
           card.appendChild(triggerBtn);
@@ -2266,9 +2150,6 @@
         });
       }
 
-      // =========================================================================
-      // CHANGELOG ANIMADO ESTILO LINHA DE RASTREIO (TOP-TO-BOTTOM: v1.0 -> v2.5)
-      // =========================================================================
       function clearChangelogTimers() {
         changelogTimers.forEach((id) => clearTimeout(id));
         changelogTimers = [];
@@ -2285,9 +2166,9 @@
       }
 
       function setDotState(index, state) {
-        const dotCore = document.getElementById(`timeline-dot-core-${index}`);
-        const dotPulse = document.getElementById(`timeline-dot-pulse-${index}`);
-        const dotCheck = document.getElementById(`timeline-dot-check-${index}`);
+        const dotCore = document.getElementById('timeline-dot-core-' + index);
+        const dotPulse = document.getElementById('timeline-dot-pulse-' + index);
+        const dotCheck = document.getElementById('timeline-dot-check-' + index);
         if (!dotCore || !dotPulse || !dotCheck) return;
 
         if (state === 'idle') {
@@ -2320,14 +2201,10 @@
         const totalTrackHeight = Math.max(0, lastOffset - firstOffset);
 
         if (totalTrackHeight > 0) {
-          track.style.height = `${totalTrackHeight}px`;
+          track.style.height = totalTrackHeight + 'px';
         }
 
-        if (instant) {
-          lineFill.style.transition = 'none';
-        } else {
-          lineFill.style.transition = 'height 1.15s cubic-bezier(0.22, 1, 0.36, 1)';
-        }
+        lineFill.style.transition = instant ? 'none' : 'height 1.15s cubic-bezier(0.22, 1, 0.36, 1)';
 
         if (targetStepIndex < 0) {
           lineFill.style.height = '0px';
@@ -2336,7 +2213,7 @@
 
         const clampedIndex = Math.min(targetStepIndex, cards.length - 1);
         const targetHeight = Math.max(0, cards[clampedIndex].offsetTop - firstOffset);
-        lineFill.style.height = `${targetHeight}px`;
+        lineFill.style.height = targetHeight + 'px';
       }
 
       function renderChangelog(animate) {
@@ -2350,54 +2227,48 @@
         releases.forEach((rel, index) => {
           const changesHtml = rel.changes
             .map(
-              (ch) => `
-              <li class="flex items-start gap-2.5">
-                <span class="mt-0.5 shrink-0 px-1.5 py-0.5 text-[10px] font-extrabold tracking-wide rounded border ${getTagBadgeClasses(ch.color)}">${escapeHtml(ch.tag)}</span>
-                <span class="text-sm text-discord-text/90 leading-relaxed">${ch.text}</span>
-              </li>
-            `
+              (ch) =>
+                '<li class="flex items-start gap-2.5">' +
+                  '<span class="mt-0.5 shrink-0 px-1.5 py-0.5 text-[10px] font-extrabold tracking-wide rounded border ' + getTagBadgeClasses(ch.color) + '">' + escapeHtml(ch.tag) + '</span>' +
+                  '<span class="text-sm text-discord-text/90 leading-relaxed">' + ch.text + '</span>' +
+                '</li>'
             )
             .join('');
 
           const article = document.createElement('article');
-          article.id = `changelog-card-${index}`;
-          article.className = `changelog-card relative rounded-2xl p-6 border ${
-            rel.isLatest
+          article.id = 'changelog-card-' + index;
+          article.className =
+            'changelog-card relative rounded-2xl p-6 border ' +
+            (rel.isLatest
               ? 'bg-gradient-to-b from-discord-dark to-discord-darker border-discord-green/45 shadow-xl shadow-black/40'
-              : 'bg-discord-dark/70 border-white/10'
-          } ${animate ? '' : 'is-visible'}`;
+              : 'bg-discord-dark/70 border-white/10') +
+            (animate ? '' : ' is-visible');
 
-          article.innerHTML = `
-            <div class="absolute -left-[40px] sm:-left-[48px] top-6 w-6 h-6 flex items-center justify-center">
-              <span id="timeline-dot-pulse-${index}" class="hidden"></span>
-              <span id="timeline-dot-core-${index}" class="relative z-10 w-3.5 h-3.5 rounded-full bg-white/15 ring-4 ring-discord-darkest flex items-center justify-center">
-                <svg id="timeline-dot-check-${index}" class="hidden w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </span>
-            </div>
-
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <div class="flex flex-wrap items-center gap-2.5">
-                <span class="px-3 py-1 text-xs font-extrabold rounded-full ${
-                  rel.isLatest
+          article.innerHTML =
+            '<div class="absolute -left-[40px] sm:-left-[48px] top-6 w-6 h-6 flex items-center justify-center">' +
+              '<span id="timeline-dot-pulse-' + index + '" class="hidden"></span>' +
+              '<span id="timeline-dot-core-' + index + '" class="relative z-10 w-3.5 h-3.5 rounded-full bg-white/15 ring-4 ring-discord-darkest flex items-center justify-center">' +
+                '<svg id="timeline-dot-check-' + index + '" class="hidden w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">' +
+                  '<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />' +
+                '</svg>' +
+              '</span>' +
+            '</div>' +
+            '<div class="flex flex-wrap items-center justify-between gap-2 mb-3">' +
+              '<div class="flex flex-wrap items-center gap-2.5">' +
+                '<span class="px-3 py-1 text-xs font-extrabold rounded-full ' +
+                  (rel.isLatest
                     ? 'bg-discord-green/20 text-emerald-300 border border-discord-green/40'
-                    : 'bg-white/10 text-gray-200 border border-white/15'
-                }">
-                  ${escapeHtml(rel.version)} — ${escapeHtml(rel.statusLabel)}
-                </span>
-              </div>
-              <span class="text-xs font-medium text-discord-muted">${escapeHtml(rel.date)}</span>
-            </div>
-
-            <h2 class="text-lg sm:text-xl font-bold ${rel.isLatest ? 'text-emerald-300' : 'text-white'} mb-3.5">
-              ${escapeHtml(rel.title)}
-            </h2>
-
-            <ul class="space-y-2.5">
-              ${changesHtml}
-            </ul>
-          `;
+                    : 'bg-white/10 text-gray-200 border border-white/15') +
+                '">' +
+                  escapeHtml(rel.version) + ' — ' + escapeHtml(rel.statusLabel) +
+                '</span>' +
+              '</div>' +
+              '<span class="text-xs font-medium text-discord-muted">' + escapeHtml(rel.date) + '</span>' +
+            '</div>' +
+            '<h2 class="text-lg sm:text-xl font-bold ' + (rel.isLatest ? 'text-emerald-300' : 'text-white') + ' mb-3.5">' +
+              escapeHtml(rel.title) +
+            '</h2>' +
+            '<ul class="space-y-2.5">' + changesHtml + '</ul>';
 
           container.appendChild(article);
 
@@ -2434,7 +2305,7 @@
               setDotState(step - 1, 'settled');
             }
 
-            const card = document.getElementById(`changelog-card-${step}`);
+            const card = document.getElementById('changelog-card-' + step);
             if (card) card.classList.add('is-visible');
 
             syncChangelogTrackGeometry(step, false);
@@ -2446,9 +2317,6 @@
         }
       }
 
-      // =========================================================================
-      // MODAL LEGAL (#termos e #privacidade)
-      // =========================================================================
       function openLegalModal(type) {
         const modal = document.getElementById('legal-modal');
         const titleEl = document.getElementById('legal-modal-title');
@@ -2503,9 +2371,6 @@
         }
       }
 
-      // =========================================================================
-      // ROTEAMENTO SEGURO (COMPATÍVEL COM IFRAME E GITHUB PAGES)
-      // =========================================================================
       function safeUpdateHash(hashValue) {
         try {
           if (window.location.hash !== hashValue) {
@@ -2579,9 +2444,6 @@
         }
       }
 
-      // =========================================================================
-      // REGISTRO DE TODOS OS EVENT LISTENERS
-      // =========================================================================
       function bindEvents() {
         document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
           btn.addEventListener('click', () => {
@@ -2706,9 +2568,6 @@
         });
       }
 
-      // =========================================================================
-      // INICIALIZAÇÃO SEGURA (ANTES OU DEPOIS DO DOMContentLoaded)
-      // =========================================================================
       function initApp() {
         if (isInitialized) return;
         isInitialized = true;
@@ -2726,7 +2585,6 @@
 
         bindEvents();
         setLanguage('pt');
-        setSimMode('private');
 
         const initialHash = (window.location.hash || '').toLowerCase();
         if (initialHash) {
