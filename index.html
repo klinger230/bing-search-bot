@@ -50,6 +50,42 @@
       }
     };
   </script>
+
+  <!-- Estilos da Animação do Changelog estilo Rastreio -->
+  <style>
+    .changelog-card {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.4s ease,
+                  box-shadow 0.4s ease;
+    }
+
+    .changelog-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes trackingPulse {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.85;
+      }
+      70% {
+        transform: scale(2.35);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(2.35);
+        opacity: 0;
+      }
+    }
+
+    .dot-pulse-ring {
+      animation: trackingPulse 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+  </style>
 </head>
 <body class="bg-discord-darkest text-discord-text font-sans antialiased selection:bg-discord-blurple/40 selection:text-white overflow-x-hidden">
 
@@ -79,12 +115,16 @@
           </div>
         </a>
 
-        <!-- Links de Navegação Desktop -->
+        <!-- Links de Navegação Desktop (agora com o Changelog dentro do nav!) -->
         <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-discord-muted">
           <a href="#simulador" data-i18n="nav.simulator" class="hover:text-white transition-colors">Simulador</a>
           <a href="#recursos" data-i18n="nav.features" class="hover:text-white transition-colors">Recursos</a>
           <a href="#comandos" data-i18n="nav.commands" class="hover:text-white transition-colors">Comandos</a>
           <a href="#faq" data-i18n="nav.faq" class="hover:text-white transition-colors">FAQ</a>
+          <a href="#changelog" id="nav-changelog-link" class="hover:text-white transition-colors flex items-center gap-1.5">
+            <span data-i18n="nav.changelog">Changelog</span>
+            <span class="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-400 border border-sky-500/30">v2.0</span>
+          </a>
         </nav>
 
         <!-- Ações Direita: Idioma + CTA + Menu Mobile -->
@@ -123,24 +163,29 @@
       <a href="#recursos" onclick="closeMobileMenu()" data-i18n="nav.features" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">Recursos</a>
       <a href="#comandos" onclick="closeMobileMenu()" data-i18n="nav.commands" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">Comandos</a>
       <a href="#faq" onclick="closeMobileMenu()" data-i18n="nav.faq" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">FAQ</a>
+      <a href="#changelog" onclick="closeMobileMenu()" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">
+        <span data-i18n="nav.changelog">Changelog</span>
+        <span class="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-400 border border-sky-500/30">v2.0</span>
+      </a>
       <a href="#" data-invite-link target="_blank" rel="noopener noreferrer" class="mt-2 flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-discord-blurple hover:bg-discord-blurpleHover text-white text-sm font-semibold">
         <span data-i18n="hero.ctaPrimary">Adicionar ao Discord</span>
       </a>
     </div>
   </header>
 
+  <!-- CONTEÚDO PRINCIPAL (HOME) -->
   <main id="top">
     <!-- HERO SECTION -->
     <section class="relative pt-14 pb-16 sm:pt-20 sm:pb-24 px-4 sm:px-6 lg:px-8">
       <div class="max-w-5xl mx-auto text-center">
 
         <!-- Badge de Novidade -->
-        <div class="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-discord-dark/90 border border-bing-cyan/35 shadow-glow-bing mb-7">
+        <a href="#changelog" class="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-discord-dark/90 border border-bing-cyan/35 shadow-glow-bing hover:border-bing-cyan transition-colors mb-7">
           <span class="px-2 py-0.5 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-gradient-to-r from-bing-blue to-bing-cyan text-white" data-i18n="badges.new">NOVO</span>
           <span class="text-xs sm:text-sm font-medium text-white/95" data-i18n="hero.badgeText">
             Chegou o <code class="text-bing-cyan font-bold">/privatesearch</code> + até 2 resultados por busca!
           </span>
-        </div>
+        </a>
 
         <!-- Título Principal -->
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1] max-w-4xl mx-auto">
@@ -246,7 +291,7 @@
                 <div class="w-4 h-4 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-[9px] text-white font-bold">U</div>
                 <span class="font-semibold text-white/90" data-i18n="sim.demoUser">Você</span>
                 <span data-i18n="sim.usedCommand">usou</span>
-                <span id="sim-slash-badge" class="px-1.5 py-0.5 rounded bg-discord-blurple/20 text-[#99aab5] font-semibold text-indigo-300">/privatesearch</span>
+                <span id="sim-slash-badge" class="px-1.5 py-0.5 rounded bg-discord-blurple/20 font-semibold text-indigo-300">/privatesearch</span>
                 <span class="hidden sm:inline text-discord-muted/80 truncate">busca: <strong id="sim-inline-query" class="text-discord-text font-medium"></strong></span>
               </div>
 
@@ -331,7 +376,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-
           <!-- Card 1 (DESTAQUE NOVO): Busca Privada -->
           <div class="relative rounded-2xl p-6 bg-gradient-to-b from-discord-dark to-discord-darker border border-bing-cyan/40 shadow-glow-bing hover:-translate-y-1 transition-all">
             <span class="absolute top-4 right-4 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-gradient-to-r from-bing-blue to-bing-cyan text-white" data-i18n="badges.new">NOVO</span>
@@ -375,7 +419,6 @@
             <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f6Title">Foco em Privacidade</h3>
             <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f6Desc">Não salvamos histórico de pesquisas, não criamos perfis de usuários e solicitamos apenas as permissões mínimas para responder comandos.</p>
           </div>
-
         </div>
       </div>
     </section>
@@ -390,7 +433,6 @@
 
         <!-- Cards de Comandos com Botão Copiar -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
-
           <!-- Comando /search -->
           <div class="rounded-2xl p-6 bg-discord-dark border border-white/10 flex flex-col justify-between gap-5">
             <div>
@@ -429,7 +471,6 @@
               <p class="mt-3.5 text-sm text-discord-muted leading-relaxed" data-i18n="commands.privateDesc">Pesquisa de forma efêmera: somente quem digitou o comando consegue ver os 2 resultados retornados. Ideal para não atrapalhar o chat.</p>
             </div>
           </div>
-
         </div>
 
         <!-- Passo a Passo em 3 Etapas -->
@@ -450,7 +491,6 @@
             <p class="text-sm text-discord-muted" data-i18n="steps.s3Desc">Em instantes, o bot entrega até 2 resultados com título, resumo e link clicável direto no chat.</p>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -463,7 +503,7 @@
         </div>
 
         <div id="faq-container" class="space-y-3">
-          <!-- Renderizado dinamicamente via JS para suportar tradução completa -->
+          <!-- Renderizado dinamicamente via JS -->
         </div>
       </div>
     </section>
@@ -483,6 +523,50 @@
     </section>
   </main>
 
+  <!-- ABA DEDICADA DE CHANGELOG / RELEASES (AGORA FORA DO MODAL!) -->
+  <section id="view-changelog" class="hidden min-h-screen pt-12 pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <!-- Cabeçalho da Aba -->
+    <div class="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-5">
+      <div>
+        <a href="#top" class="inline-flex items-center gap-2 text-sm font-semibold text-bing-cyan hover:text-sky-300 mb-5 transition-colors">
+          <span data-i18n="changelog.back">← Voltar para o início</span>
+        </a>
+        <div class="flex flex-wrap items-center gap-3">
+          <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight" data-i18n="changelog.title">Changelog & Releases</h1>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-discord-green/15 text-emerald-400 border border-discord-green/35">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-discord-green"></span>
+            </span>
+            <span data-i18n="changelog.liveStatus">Ativo no Discord</span>
+          </span>
+        </div>
+        <p class="text-discord-muted mt-2 text-sm sm:text-base" data-i18n="changelog.subtitle">
+          Histórico completo de atualizações, novos comandos e melhorias do Bing Search.
+        </p>
+      </div>
+
+      <!-- Botão para rever a animação da linha do tempo -->
+      <button type="button" onclick="renderChangelog(true)" class="self-start sm:self-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-discord-dark hover:bg-discord-chat border border-white/10 hover:border-bing-cyan/40 text-xs sm:text-sm font-semibold text-white transition-all cursor-pointer shrink-0">
+        <svg class="w-4 h-4 text-bing-cyan" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+        </svg>
+        <span data-i18n="changelog.replay">Rever animação</span>
+      </button>
+    </div>
+
+    <!-- Linha do tempo estilo rastreio -->
+    <div class="relative pl-10 sm:pl-12">
+      <!-- Trilho cinza base -->
+      <div class="absolute left-[11px] top-4 bottom-4 w-[2px] bg-white/10 rounded-full" aria-hidden="true"></div>
+      <!-- Linha iluminada que sobe conforme cada versão aparece -->
+      <div id="changelog-line-fill" class="absolute left-[11px] bottom-4 w-[2px] bg-gradient-to-t from-discord-blurple via-bing-cyan to-discord-green rounded-full transition-all duration-700 ease-out" style="height: 0%;" aria-hidden="true"></div>
+
+      <!-- Cards renderizados dinamicamente em PT / EN / ES -->
+      <div id="changelog-timeline" class="space-y-8"></div>
+    </div>
+  </section>
+
   <!-- RODAPÉ -->
   <footer class="border-t border-white/10 bg-discord-darker/80 py-10 px-4 sm:px-6 lg:px-8">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -500,6 +584,7 @@
       </div>
 
       <div class="flex flex-wrap items-center justify-center gap-5 text-sm font-medium text-discord-muted">
+        <a href="#changelog" class="hover:text-white transition-colors" data-i18n="nav.changelog">Changelog</a>
         <a href="#termos" class="hover:text-white transition-colors" data-i18n="footer.terms">Termos de Serviço</a>
         <a href="#privacidade" class="hover:text-white transition-colors" data-i18n="footer.privacy">Política de Privacidade</a>
         <a href="#" data-invite-link target="_blank" rel="noopener noreferrer" class="hover:text-bing-cyan transition-colors" data-i18n="footer.invite">Convidar Bot</a>
@@ -507,7 +592,7 @@
     </div>
   </footer>
 
-  <!-- MODAL / VISUALIZAÇÃO DE ROTAS LEGAIS (#termos e #privacidade) -->
+  <!-- MODAL DE ROTAS LEGAIS (#termos e #privacidade) -->
   <div id="legal-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title">
     <div class="relative w-full max-w-3xl max-h-[88vh] flex flex-col rounded-2xl bg-discord-dark border border-white/15 shadow-2xl overflow-hidden">
       <!-- Cabeçalho do Modal -->
@@ -535,7 +620,7 @@
     </div>
   </div>
 
-  <!-- TOAST DE NOTIFICAÇÃO (Substitui alert) -->
+  <!-- TOAST DE NOTIFICAÇÃO -->
   <div id="toast" class="fixed bottom-5 right-5 z-50 pointer-events-none opacity-0 translate-y-3 transition-all duration-300">
     <div class="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-discord-darker border border-bing-cyan/40 text-white text-sm font-semibold shadow-2xl">
       <span class="w-2 h-2 rounded-full bg-discord-green"></span>
@@ -551,17 +636,18 @@
     const CONFIG = {
       inviteUrl: "https://discord.com/oauth2/authorize?client_id=1442546622805577859",
       botName: "Bing Search",
-      siteUrl: "SEU_LINK_AQUI"
+      siteUrl: "https://klinger230.github.io/bing-search-bot/"
     };
 
     // =========================================================================
     // ESTADO DA APLICAÇÃO
     // =========================================================================
     let currentLang = 'pt';
-    let currentSimMode = 'private'; // Inicia destacando a novidade /privatesearch
+    let currentSimMode = 'private';
     let currentSimQuery = '';
     let openFaqIndex = 0;
     let toastTimeout = null;
+    let changelogTimers = [];
 
     // =========================================================================
     // DICIONÁRIO COMPLETO DE TRADUÇÕES (PT | EN | ES)
@@ -576,6 +662,7 @@
           features: 'Recursos',
           commands: 'Comandos',
           faq: 'FAQ',
+          changelog: 'Changelog',
           add: 'Adicionar',
         },
         hero: {
@@ -732,6 +819,52 @@
             }
           ]
         },
+        changelog: {
+          back: '← Voltar para o início',
+          title: 'Changelog & Releases',
+          liveStatus: 'Ativo no Discord',
+          subtitle: 'Acompanhe toda a evolução do Bing Search desde o lançamento até a versão mais recente.',
+          replay: 'Rever animação',
+          releases: [
+            {
+              version: 'v2.0',
+              statusLabel: 'Versão Atual',
+              date: 'Novembro de 2026',
+              isLatest: true,
+              title: 'Modo Privado, Idiomas & Múltiplos Resultados',
+              changes: [
+                { tag: 'NOVO', color: 'emerald', text: 'Lançamento do comando <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/privatesearch</code> com respostas efêmeras visíveis apenas para quem fez a busca.' },
+                { tag: 'NOVO', color: 'emerald', text: 'Filtro de idioma integrado também no modo privado (Português, English e Español).' },
+                { tag: 'MELHORIA', color: 'indigo', text: 'Suporte ampliado para até <strong>2 resultados completos</strong> por pesquisa (título, resumo e link clicável).' },
+                { tag: 'MELHORIA', color: 'indigo', text: 'Site atualizado com simulador interativo de chat e nova aba de Changelog multilíngue.' }
+              ]
+            },
+            {
+              version: 'v1.5',
+              statusLabel: 'Atualização',
+              date: '2026',
+              isLatest: false,
+              title: 'Site Oficial & Suporte Multilíngue',
+              changes: [
+                { tag: 'NOVO', color: 'emerald', text: 'Publicação da landing page oficial no GitHub Pages com tradução em PT, EN e ES.' },
+                { tag: 'NOVO', color: 'emerald', text: 'Inclusão dos Termos de Serviço, Política de Privacidade e mensagem de boas-vindas multilíngue na DM.' },
+                { tag: 'MELHORIA', color: 'indigo', text: 'Adição de seletor de idioma no comando público <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code>.' }
+              ]
+            },
+            {
+              version: 'v1.0',
+              statusLabel: 'Lançamento',
+              date: '24 de Novembro de 2025',
+              isLatest: false,
+              title: 'Nascimento do Bing Search',
+              changes: [
+                { tag: 'RELEASE', color: 'amber', text: 'Criação oficial do bot <strong>Bing Search</strong> no Discord com motor de busca web integrado.' },
+                { tag: 'NOVO', color: 'emerald', text: 'Implementação do recurso básico <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> para pesquisar sem sair do chat.' },
+                { tag: 'VISUAL', color: 'purple', text: 'Configuração completa da identidade visual: foto de perfil, capa (banner) e descrição oficial.' }
+              ]
+            }
+          ]
+        },
         cta: {
           title: 'Pronto para pesquisar sem sair do Discord?',
           subtitle: 'Experimente o novo /privatesearch e aproveite até 2 resultados completos por pesquisa gratuitamente.',
@@ -781,6 +914,7 @@
           features: 'Features',
           commands: 'Commands',
           faq: 'FAQ',
+          changelog: 'Changelog',
           add: 'Add Bot',
         },
         hero: {
@@ -937,6 +1071,52 @@
             }
           ]
         },
+        changelog: {
+          back: '← Back to Home',
+          title: 'Changelog & Releases',
+          liveStatus: 'Live on Discord',
+          subtitle: 'Follow the full evolution of Bing Search from initial launch to the latest release.',
+          replay: 'Replay animation',
+          releases: [
+            {
+              version: 'v2.0',
+              statusLabel: 'Current Release',
+              date: 'November 2026',
+              isLatest: true,
+              title: 'Private Mode, Languages & Multiple Results',
+              changes: [
+                { tag: 'NEW', color: 'emerald', text: 'Launched <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/privatesearch</code> with ephemeral replies visible only to the user who ran the command.' },
+                { tag: 'NEW', color: 'emerald', text: 'Integrated language selector in private search (Português, English, and Español).' },
+                { tag: 'IMPROVED', color: 'indigo', text: 'Expanded support to up to <strong>2 complete results</strong> per search (title, summary, and clickable link).' },
+                { tag: 'IMPROVED', color: 'indigo', text: 'Updated website with an interactive Discord simulator and a multilingual Changelog tab.' }
+              ]
+            },
+            {
+              version: 'v1.5',
+              statusLabel: 'Update',
+              date: '2026',
+              isLatest: false,
+              title: 'Official Website & Multilingual Support',
+              changes: [
+                { tag: 'NEW', color: 'emerald', text: 'Published the official landing page on GitHub Pages with full PT, EN, and ES translations.' },
+                { tag: 'NEW', color: 'emerald', text: 'Added Terms of Service, Privacy Policy, and a multilingual welcome message via DM.' },
+                { tag: 'IMPROVED', color: 'indigo', text: 'Added language selection support to the public <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> command.' }
+              ]
+            },
+            {
+              version: 'v1.0',
+              statusLabel: 'Launch',
+              date: 'November 24, 2025',
+              isLatest: false,
+              title: 'Birth of Bing Search',
+              changes: [
+                { tag: 'RELEASE', color: 'amber', text: 'Official creation of the <strong>Bing Search</strong> Discord bot with integrated web search.' },
+                { tag: 'NEW', color: 'emerald', text: 'Implemented the core <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> command to browse results without leaving Discord.' },
+                { tag: 'VISUAL', color: 'purple', text: 'Configured the full bot branding: profile avatar, banner cover, and official description.' }
+              ]
+            }
+          ]
+        },
         cta: {
           title: 'Ready to search without leaving Discord?',
           subtitle: 'Try the new /privatesearch and enjoy up to 2 complete results per query for free.',
@@ -986,6 +1166,7 @@
           features: 'Funciones',
           commands: 'Comandos',
           faq: 'FAQ',
+          changelog: 'Changelog',
           add: 'Añadir',
         },
         hero: {
@@ -1142,6 +1323,52 @@
             }
           ]
         },
+        changelog: {
+          back: '← Volver al inicio',
+          title: 'Changelog y Lanzamientos',
+          liveStatus: 'Activo en Discord',
+          subtitle: 'Sigue toda la evolución de Bing Search desde su creación hasta la versión más reciente.',
+          replay: 'Repetir animación',
+          releases: [
+            {
+              version: 'v2.0',
+              statusLabel: 'Versión Actual',
+              date: 'Noviembre de 2026',
+              isLatest: true,
+              title: 'Modo Privado, Idiomas y Múltiples Resultados',
+              changes: [
+                { tag: 'NUEVO', color: 'emerald', text: 'Lanzamiento del comando <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/privatesearch</code> con respuestas efímeras visibles solo para quien buscó.' },
+                { tag: 'NUEVO', color: 'emerald', text: 'Selector de idioma integrado también en el modo privado (Português, English y Español).' },
+                { tag: 'MEJORA', color: 'indigo', text: 'Soporte ampliado para hasta <strong>2 resultados completos</strong> por búsqueda (título, resumen y enlace).' },
+                { tag: 'MEJORA', color: 'indigo', text: 'Sitio actualizado con simulador interactivo de Discord y nueva pestaña de Changelog multilingüe.' }
+              ]
+            },
+            {
+              version: 'v1.5',
+              statusLabel: 'Actualización',
+              date: '2026',
+              isLatest: false,
+              title: 'Sitio Oficial y Soporte Multilingüe',
+              changes: [
+                { tag: 'NUEVO', color: 'emerald', text: 'Publicación de la página oficial en GitHub Pages con traducción en PT, EN y ES.' },
+                { tag: 'NUEVO', color: 'emerald', text: 'Inclusión de los Términos de Servicio, Política de Privacidad y mensaje de bienvenida multilingüe por DM.' },
+                { tag: 'MEJORA', color: 'indigo', text: 'Se añadió selector de idioma al comando público <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code>.' }
+              ]
+            },
+            {
+              version: 'v1.0',
+              statusLabel: 'Lanzamiento',
+              date: '24 de Noviembre de 2025',
+              isLatest: false,
+              title: 'Nacimiento de Bing Search',
+              changes: [
+                { tag: 'RELEASE', color: 'amber', text: 'Creación oficial del bot <strong>Bing Search</strong> en Discord con motor de búsqueda web integrado.' },
+                { tag: 'NUEVO', color: 'emerald', text: 'Implementación del comando básico <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> para buscar sin salir del chat.' },
+                { tag: 'VISUAL', color: 'purple', text: 'Configuración completa de la identidad visual: foto de perfil, portada (banner) y descripción oficial.' }
+              ]
+            }
+          ]
+        },
         cta: {
           title: '¿Listo para buscar sin salir de Discord?',
           subtitle: 'Prueba el nuevo /privatesearch y disfruta de hasta 2 resultados completos por búsqueda totalmente gratis.',
@@ -1186,22 +1413,15 @@
     // =========================================================================
     // FUNÇÕES AUXILIARES DE SEGURANÇA E UI
     // =========================================================================
-
-    /**
-     * Escapa caracteres HTML para evitar injeção ao renderizar buscas digitadas pelo usuário.
-     */
     function escapeHtml(str) {
       return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
+        .replace(/&/g, '&')
+        .replace(/</g, '<')
+        .replace(/>/g, '>')
+        .replace(/"/g, '"')
+        .replace(/'/g, ''');
     }
 
-    /**
-     * Exibe um toast discreto na tela (sem usar alert).
-     */
     function showToast(message) {
       const toast = document.getElementById('toast');
       const toastMsg = document.getElementById('toast-message');
@@ -1216,9 +1436,6 @@
       }, 2400);
     }
 
-    /**
-     * Copia um comando usando document.execCommand('copy') para máxima compatibilidade (inclusive em iframes).
-     */
     function copyCommand(text, btnElement) {
       try {
         const tempInput = document.createElement('textarea');
@@ -1275,11 +1492,9 @@
       currentLang = lang;
       const t = TRANSLATIONS[lang];
 
-      // Atualiza atributos da página
       document.documentElement.lang = t.htmlLang;
       document.title = t.pageTitle;
 
-      // Atualiza visual dos botões de idioma
       document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
         const isActive = btn.getAttribute('data-lang-btn') === lang;
         if (isActive) {
@@ -1289,7 +1504,6 @@
         }
       });
 
-      // Atualiza todos os elementos com atributo data-i18n
       document.querySelectorAll('[data-i18n]').forEach((el) => {
         const keyPath = el.getAttribute('data-i18n').split('.');
         let value = t;
@@ -1306,16 +1520,20 @@
         }
       });
 
-      // Atualiza placeholder e canal do simulador
       document.getElementById('sim-input').placeholder = t.sim.inputPlaceholder;
       document.getElementById('sim-channel-name').textContent = t.sim.channelName;
 
-      // Recarrega presets do simulador, FAQ e modal legal (caso aberto)
       renderSimPresets();
       currentSimQuery = t.sim.presets[0].query;
       renderSimMessage(currentSimQuery, false);
       renderFaq();
       updateLegalModalContentIfOpen();
+
+      // Se a aba Changelog estiver aberta, traduz na hora sem precisar reiniciar a animação
+      const changelogView = document.getElementById('view-changelog');
+      if (changelogView && !changelogView.classList.contains('hidden')) {
+        renderChangelog(false);
+      }
     }
 
     // =========================================================================
@@ -1334,7 +1552,6 @@
         btnPrivate.className = 'flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer bg-discord-blurple text-white shadow-md';
         btnPublic.className = 'flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-discord-muted hover:text-white';
 
-        // Estilo autêntico de mensagem efêmera do Discord
         wrapper.className = 'rounded-xl p-3 sm:p-4 transition-all duration-300 bg-discord-blurple/10 border-l-[3px] border-discord-blurple';
         slashBadge.textContent = '/privatesearch';
         inputCmd.textContent = '/privatesearch';
@@ -1344,7 +1561,6 @@
         btnPublic.className = 'flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer bg-discord-dark text-white border border-white/10 shadow-md';
         btnPrivate.className = 'flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-discord-muted hover:text-white';
 
-        // Estilo padrão de mensagem pública do Discord
         wrapper.className = 'rounded-xl p-3 sm:p-4 transition-all duration-300 bg-transparent border-l-[3px] border-transparent hover:bg-discord-hover/40';
         slashBadge.textContent = '/search';
         inputCmd.textContent = '/search';
@@ -1393,7 +1609,6 @@
 
       inlineQueryEl.textContent = query;
 
-      // Busca correspondência nos presets do idioma atual ou gera resposta dinâmica de 2 itens
       const matched = tSim.presets.find(
         (p) => p.query.toLowerCase() === query.toLowerCase()
       );
@@ -1482,16 +1697,196 @@
     }
 
     // =========================================================================
-    // ROTEAMENTO POR HASH (#termos e #privacidade)
+    // CHANGELOG ANIMADO ESTILO LINHA DE RASTREIO (PT | EN | ES)
+    // =========================================================================
+    function clearChangelogTimers() {
+      changelogTimers.forEach((id) => clearTimeout(id));
+      changelogTimers = [];
+    }
+
+    function getTagBadgeClasses(color) {
+      const map = {
+        emerald: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30',
+        indigo: 'bg-indigo-500/20 text-indigo-300 border-indigo-500/30',
+        amber: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
+        purple: 'bg-purple-500/20 text-purple-300 border-purple-500/30'
+      };
+      return map[color] || 'bg-white/10 text-gray-300 border-white/20';
+    }
+
+    function setDotState(index, state, isLatest) {
+      const dotCore = document.getElementById(`timeline-dot-core-${index}`);
+      const dotPulse = document.getElementById(`timeline-dot-pulse-${index}`);
+      const dotCheck = document.getElementById(`timeline-dot-check-${index}`);
+      if (!dotCore || !dotPulse || !dotCheck) return;
+
+      if (state === 'idle') {
+        dotCore.className = 'relative z-10 w-3.5 h-3.5 rounded-full bg-white/15 ring-4 ring-discord-darkest transition-all duration-300 flex items-center justify-center';
+        dotPulse.className = 'hidden';
+        dotCheck.classList.add('hidden');
+      } else if (state === 'active') {
+        dotCore.className = 'relative z-10 w-4 h-4 rounded-full bg-bing-cyan ring-4 ring-discord-darkest shadow-lg shadow-bing-cyan/50 transition-all duration-300 flex items-center justify-center';
+        dotPulse.className = 'dot-pulse-ring absolute w-4 h-4 rounded-full bg-bing-cyan/80';
+        dotCheck.classList.add('hidden');
+      } else if (state === 'settled') {
+        dotCore.className = 'relative z-10 w-3.5 h-3.5 rounded-full bg-discord-muted ring-4 ring-discord-darkest transition-all duration-300 flex items-center justify-center';
+        dotPulse.className = 'hidden';
+        dotCheck.classList.add('hidden');
+      } else if (state === 'latest') {
+        // Bolinha mais recente: destaque verde com check e piscando continuamente!
+        dotCore.className = 'relative z-10 w-6 h-6 rounded-full bg-discord-green ring-4 ring-discord-darkest shadow-lg shadow-discord-green/50 transition-all duration-300 flex items-center justify-center';
+        dotPulse.className = 'dot-pulse-ring absolute w-6 h-6 rounded-full bg-emerald-400/75';
+        dotCheck.classList.remove('hidden');
+      }
+    }
+
+    function renderChangelog(animate = true) {
+      clearChangelogTimers();
+      const container = document.getElementById('changelog-timeline');
+      const lineFill = document.getElementById('changelog-line-fill');
+      const releases = TRANSLATIONS[currentLang].changelog.releases;
+
+      container.innerHTML = '';
+      if (lineFill) {
+        lineFill.style.transition = animate ? 'height 0.65s ease-out' : 'none';
+        lineFill.style.height = animate ? '0%' : 'calc(100% - 32px)';
+      }
+
+      releases.forEach((rel, index) => {
+        const changesHtml = rel.changes
+          .map(
+            (ch) => `
+            <li class="flex items-start gap-2.5">
+              <span class="mt-0.5 shrink-0 px-1.5 py-0.5 text-[10px] font-extrabold tracking-wide rounded border ${getTagBadgeClasses(ch.color)}">${escapeHtml(ch.tag)}</span>
+              <span class="text-sm text-discord-text/90 leading-relaxed">${ch.text}</span>
+            </li>
+          `
+          )
+          .join('');
+
+        const article = document.createElement('article');
+        article.id = `changelog-card-${index}`;
+        article.className = `changelog-card relative rounded-2xl p-6 border ${
+          rel.isLatest
+            ? 'bg-gradient-to-b from-discord-dark to-discord-darker border-discord-green/45 shadow-xl shadow-black/40'
+            : 'bg-discord-dark/70 border-white/10'
+        } ${animate ? '' : 'is-visible'}`;
+
+        article.innerHTML = `
+          <!-- Bolinha da Linha do Tempo (centralizada no trilho esquerdo) -->
+          <div class="absolute -left-[40px] sm:-left-[48px] top-6 w-6 h-6 flex items-center justify-center">
+            <span id="timeline-dot-pulse-${index}" class="hidden"></span>
+            <span id="timeline-dot-core-${index}" class="relative z-10 w-3.5 h-3.5 rounded-full bg-white/15 ring-4 ring-discord-darkest flex items-center justify-center">
+              <svg id="timeline-dot-check-${index}" class="hidden w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </span>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span class="px-3 py-1 text-xs font-extrabold rounded-full ${
+                rel.isLatest
+                  ? 'bg-discord-green/20 text-emerald-300 border border-discord-green/40'
+                  : 'bg-white/10 text-gray-200 border border-white/15'
+              }">
+                ${escapeHtml(rel.version)} — ${escapeHtml(rel.statusLabel)}
+              </span>
+            </div>
+            <span class="text-xs font-medium text-discord-muted">${escapeHtml(rel.date)}</span>
+          </div>
+
+          <h2 class="text-lg sm:text-xl font-bold ${rel.isLatest ? 'text-emerald-300' : 'text-white'} mb-3.5">
+            ${escapeHtml(rel.title)}
+          </h2>
+
+          <ul class="space-y-2.5">
+            ${changesHtml}
+          </ul>
+        `;
+
+        container.appendChild(article);
+
+        if (!animate) {
+          setDotState(index, rel.isLatest ? 'latest' : 'settled', rel.isLatest);
+        }
+      });
+
+      if (!animate) return;
+
+      // Anima cronologicamente de baixo (v1.0) até o topo (v2.0)
+      const total = releases.length;
+      const stepDelay = 620;
+
+      for (let step = 0; step < total; step++) {
+        const realIndex = total - 1 - step; // 2 -> 1 -> 0
+        const isLastStep = step === total - 1;
+
+        const timerId = setTimeout(() => {
+          // Acalma a bolinha do passo anterior em cinza (igual ao rastreio)
+          if (step > 0) {
+            const prevIndex = total - step;
+            setDotState(prevIndex, 'settled', false);
+          }
+
+          // Revela o card com fade-in suave
+          const card = document.getElementById(`changelog-card-${realIndex}`);
+          if (card) card.classList.add('is-visible');
+
+          // Cresce a linha vertical até o ponto atual
+          if (lineFill) {
+            const percent = Math.round(((step + 1) / total) * 100);
+            lineFill.style.height = isLastStep ? 'calc(100% - 32px)' : `${Math.max(18, percent - 12)}%`;
+          }
+
+          // Pisca a bolinha no ponto atual (e mantém piscando para sempre na mais recente!)
+          setDotState(realIndex, isLastStep ? 'latest' : 'active', isLastStep);
+        }, 160 + step * stepDelay);
+
+        changelogTimers.push(timerId);
+      }
+    }
+
+    // =========================================================================
+    // ROTEAMENTO UNIFICADO POR HASH (#changelog, #termos, #privacidade, Home)
     // =========================================================================
     function handleHashRoute() {
       const hash = window.location.hash.toLowerCase();
+      const homeMain = document.getElementById('top');
+      const changelogView = document.getElementById('view-changelog');
+      const navChangelogLink = document.getElementById('nav-changelog-link');
+
+      if (hash === '#changelog') {
+        hideLegalModalElement();
+        homeMain.classList.add('hidden');
+        changelogView.classList.remove('hidden');
+        if (navChangelogLink) navChangelogLink.classList.add('text-white');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        renderChangelog(true);
+        return;
+      }
+
+      // Saiu do Changelog -> mostra a página principal novamente
+      clearChangelogTimers();
+      changelogView.classList.add('hidden');
+      homeMain.classList.remove('hidden');
+      if (navChangelogLink) navChangelogLink.classList.remove('text-white');
+
       if (hash === '#termos') {
         openLegalModal('terms');
       } else if (hash === '#privacidade') {
         openLegalModal('privacy');
       } else {
         hideLegalModalElement();
+        // Se clicou em uma seção da Home (#simulador, #recursos, #comandos, #faq) vindo do Changelog
+        if (hash && hash !== '#top') {
+          const targetEl = document.querySelector(hash);
+          if (targetEl) {
+            setTimeout(() => targetEl.scrollIntoView({ behavior: 'smooth' }), 30);
+          }
+        } else if (hash === '#top') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       }
     }
 
@@ -1532,7 +1927,6 @@
 
     function closeLegalModal() {
       hideLegalModalElement();
-      // Remove o hash da URL sem recarregar a página
       if (window.location.hash === '#termos' || window.location.hash === '#privacidade') {
         try {
           history.pushState('', document.title, window.location.pathname + window.location.search);
@@ -1549,7 +1943,6 @@
       }
     }
 
-    // Fecha modal ao clicar fora da caixa ou pressionar ESC
     document.getElementById('legal-modal').addEventListener('click', (e) => {
       if (e.target.id === 'legal-modal') {
         closeLegalModal();
@@ -1568,7 +1961,6 @@
     // INICIALIZAÇÃO DA PÁGINA
     // =========================================================================
     function initApp() {
-      // Aplica CONFIG nos links de convite e nomes do bot
       document.querySelectorAll('[data-invite-link]').forEach((link) => {
         link.href = CONFIG.inviteUrl;
       });
@@ -1576,7 +1968,6 @@
       document.getElementById('sim-bot-name').textContent = CONFIG.botName;
       document.getElementById('footer-brand-name').textContent = CONFIG.botName;
 
-      // Inicializa idioma padrão PT-BR, modo privado destacado e rotas
       setLanguage('pt');
       setSimMode('private');
       handleHashRoute();
