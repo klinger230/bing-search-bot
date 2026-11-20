@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <meta http-equiv="content-language" content="en" />
+  <meta name="google" content="translate" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ — Bing Search Bot</title>
@@ -366,7 +368,7 @@
           <span>Changelog</span>
           <span class="version-pill">V2.6</span>
         </a>
-        <select id="langSelect" class="lang-select" aria-label="Language">
+        <select id="langSelect" class="lang-select" aria-label="Language"> 
           <option value="pt">🇧🇷 PT-BR</option>
           <option value="en">🇺🇸 EN-US</option>
           <option value="es">🇪🇸 ES</option>
@@ -374,6 +376,11 @@
           <option value="de">🇩🇪 DE</option>
           <option value="it">🇮🇹 IT</option>
         </select>
+        
+        <button type="button" id="browserTranslateBtn" class="translate-btn" title="Pedir para o navegador traduzir">
+          <span aria-hidden="true">🌍</span>
+          <span id="browserTranslateLabel">Traduzir página</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -673,7 +680,49 @@
     const categoryTabs = document.getElementById("categoryTabs");
     const faqList = document.getElementById("faqList");
     const emptyState = document.getElementById("emptyState");
+    const browserTranslateBtn = document.getElementById("browserTranslateBtn");
+    const browserTranslateLabel = document.getElementById("browserTranslateLabel");
 
+    function triggerBrowserTranslatePrompt() {
+      const browserLang = (navigator.language || "pt-BR").toLowerCase();
+      // Define um idioma alvo diferente do navegador para estimular o tradutor nativo
+      const foreignLang = browserLang.startsWith("pt") ? "en" : "pt";
+
+      document.documentElement.setAttribute("lang", foreignLang);
+      document.documentElement.setAttribute("xml:lang", foreignLang);
+
+      const metaLang = document.querySelector('meta[http-equiv="content-language"]');
+      if (metaLang) {
+        metaLang.setAttribute("content", foreignLang);
+      }
+
+      // Pequena mutação no DOM ajuda extensões e tradutores nativos a reavaliarem o idioma
+      const helperNode = document.createElement("span");
+      helperNode.setAttribute("translate", "yes");
+      helperNode.style.position = "absolute";
+      helperNode.style.opacity = "0";
+      helperNode.style.pointerEvents = "none";
+      helperNode.textContent = foreignLang === "en"
+        ? "Frequently asked questions about this Discord search bot and privacy settings."
+        : "Perguntas frequentes sobre este bot de busca no Discord e configurações de privacidade.";
+      document.body.appendChild(helperNode);
+
+      setTimeout(() => {
+        helperNode.remove();
+      }, 1500);
+
+      if (browserTranslateLabel) {
+        const originalText = browserTranslateLabel.textContent;
+        browserTranslateLabel.textContent = "Verifique o tradutor";
+        setTimeout(() => {
+          browserTranslateLabel.textContent = originalText;
+        }, 2500);
+      }
+    }
+
+    if (browserTranslateBtn) {
+      browserTranslateBtn.addEventListener("click", triggerBrowserTranslatePrompt);
+    }
     let currentLang = detectLanguage();
     let currentCat = "all";
 
