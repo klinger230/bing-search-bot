@@ -3779,13 +3779,32 @@
   </script>
   <!-- ==================== GAVETA DE AVISOS & STATUS (FIREBASE) ==================== -->
 <style>
-    /* Fade suave na etiqueta NOVIDADE */
+    /* Fade suave para NOVIDADE e ONLINE */
   @keyframes av-fade-suave {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.35; }
   }
-  .av-tag-NOVIDADE {
+  .av-tag-NOVIDADE,
+  .av-tag-ONLINE {
     animation: av-fade-suave 3.5s ease-in-out infinite;
+  }
+
+  /* MANUTENÇÃO: vermelho chamativo + fade rápido de urgência */
+  @keyframes av-alerta-urgente {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.75);
+    }
+    50% {
+      opacity: 0.25;
+      box-shadow: 0 0 2px rgba(239, 68, 68, 0.15);
+    }
+  }
+  .av-tag-MANUTENÇÃO {
+    background: rgba(220, 38, 38, 0.35);
+    color: #fecaca;
+    border: 1px solid #ef4444;
+    animation: av-alerta-urgente 0.9s ease-in-out infinite;
   }
 
   /* Piscar bem devagar na bolinha verde */
@@ -4161,7 +4180,7 @@
     <form class="av-form" id="av-post-form">
       <select class="av-select" id="av-tag-select">
         <option value="NOVIDADE">🔵 NOVIDADE</option>
-        <option value="MANUTENÇÃO">🟠 MANUTENÇÃO</option>
+        <option value="MANUTENÇÃO">🔴 MANUTENÇÃO</option>
         <option value="ONLINE">🟢 ONLINE</option>
       </select>
       <textarea class="av-textarea" id="av-message" placeholder="Escreva o aviso para os usuários..." required></textarea>
