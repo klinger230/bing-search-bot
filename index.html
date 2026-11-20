@@ -179,7 +179,7 @@
           <a href="#simulador" data-route="#simulador" data-i18n="nav.simulator" class="hover:text-white transition-colors">Simulador</a>
           <a href="#recursos" data-route="#recursos" data-i18n="nav.features" class="hover:text-white transition-colors">Recursos</a>
           <a href="#comandos" data-route="#comandos" data-i18n="nav.commands" class="hover:text-white transition-colors">Comandos</a>
-          <a href="#faq" data-route="#faq" data-i18n="nav.faq" class="hover:text-white transition-colors">FAQ</a>
+          <a href="faq.html" data-i18n="nav.faq" class="hover:text-white transition-colors">FAQ</a>
           <a href="#changelog" data-route="#changelog" id="nav-changelog-link" class="hover:text-white transition-colors flex items-center gap-1.5">
             <span data-i18n="nav.changelog">Changelog</span>
             <span class="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded-md bg-bing-cyan/15 text-bing-cyan border border-bing-cyan/30">v2.5</span>
@@ -224,7 +224,7 @@
       <a href="#simulador" data-route="#simulador" data-mobile-link data-i18n="nav.simulator" class="block px-3 py-3 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">Simulador</a>
       <a href="#recursos" data-route="#recursos" data-mobile-link data-i18n="nav.features" class="block px-3 py-3 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">Recursos</a>
       <a href="#comandos" data-route="#comandos" data-mobile-link data-i18n="nav.commands" class="block px-3 py-3 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">Comandos</a>
-      <a href="#faq" data-route="#faq" data-mobile-link data-i18n="nav.faq" class="block px-3 py-3 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">FAQ</a>
+      <a href="faq.html" data-mobile-link data-i18n="nav.faq" class="block px-3 py-3 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">FAQ</a>
       <a href="#changelog" data-route="#changelog" data-mobile-link class="flex items-center justify-between px-3 py-3 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">
         <span data-i18n="nav.changelog">Changelog</span>
         <span class="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded-md bg-bing-cyan/15 text-bing-cyan border border-bing-cyan/30">v2.5</span>
@@ -620,18 +620,6 @@
       </div>
     </section>
 
-    <!-- FAQ ACORDEÃO INTERATIVO -->
-    <section id="faq" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 scroll-mt-20">
-      <div class="max-w-3xl mx-auto">
-        <div class="text-center mb-10">
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white" data-i18n="faq.title">Perguntas Frequentes</h2>
-          <p class="mt-2 text-sm sm:text-base text-discord-muted" data-i18n="faq.subtitle">Tire suas dúvidas sobre o funcionamento, novidades da v2.5 e privacidade do Bing Search.</p>
-        </div>
-
-        <div id="faq-container" class="space-y-3"></div>
-      </div>
-    </section>
-
     <!-- CTA FINAL -->
     <section class="py-14 px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-discord-blurple/25 via-discord-dark to-bing-blue/25 border border-white/10 text-center shadow-2xl">
@@ -785,7 +773,6 @@
       let currentSimPage = 1; // 1 ou 2
       let currentSimRegion = 'BR'; // BR | US | ES | FR | DE | IT
       let isSimDeleted = false;
-      let openFaqIndex = 0;
       let currentRoute = '';
       let activeLegalTab = null;
       let changelogActiveStep = -1;
@@ -1000,36 +987,7 @@
             s3Title: 'Navegue pelos 4 resultados',
             s3Desc: 'Explore as 2 páginas com os botões interativos, abra links em 1 clique ou apague a busca pública quando quiser.',
           },
-          faq: {
-            title: 'Perguntas Frequentes',
-            subtitle: 'Tire suas dúvidas sobre o funcionamento, novidades da v2.5 e privacidade do Bing Search.',
-            items: [
-              {
-                q: 'O que mudou na versão 2.5?',
-                a: 'A v2.5 trouxe Embeds modernos no Discord, paginação interativa com até 4 resultados (2 páginas), botões de link direto, botão Delete / Apagar e cooldown anti-spam no /search, novo comando /help multilíngue, suporte a 6 regiões (BR, US, ES, FR, DE, IT) e migração para o motor oficial da Brave Search API.'
-              },
-              {
-                q: 'Quantos resultados aparecem por busca?',
-                a: 'Agora tanto o /search quanto o /privatesearch retornam até 4 resultados completos divididos em 2 páginas (2 resultados na Página 1 e 2 na Página 2), navegáveis pelos botões Previous page e Next Page.'
-              },
-              {
-                q: 'Qual a diferença entre /search e /privatesearch?',
-                a: 'O /search envia o Embed publicamente no canal para todos verem e inclui um botão Delete / Apagar + cooldown anti-spam. Já o /privatesearch envia uma mensagem efêmera ("Só você pode ver esta mensagem"), garantindo privacidade total sem poluir a conversa.'
-              },
-              {
-                q: 'Quais regiões e idiomas são suportados nas buscas?',
-                a: 'Você pode escolher entre 6 regiões direto na opção language do comando: BR (Brasil), US (Estados Unidos / Inglês), ES (Espanha), FR (França), DE (Alemanha) e IT (Itália).'
-              },
-              {
-                q: 'O bot é gratuito e salva minhas buscas?',
-                a: 'Sim, é 100% gratuito e não salvamos histórico de pesquisas. O termo digitado é usado apenas em tempo real via API oficial da Brave Search para devolver os resultados no Discord, pedindo apenas permissões mínimas para responder comandos slash.'
-              },
-              {
-                q: 'O Bing Search é um projeto oficial da Microsoft ou da Brave?',
-                a: 'Não. Este bot é um projeto independente criado pela comunidade para facilitar buscas rápidas no Discord, utilizando a API pública da Brave Search, sem qualquer afiliação ou vínculo oficial com Microsoft, Bing, Brave Software ou Discord Inc.'
-              }
-            ]
-          },
+         
           changelog: {
             back: '← Voltar para o início',
             title: 'Changelog & Releases',
@@ -1331,36 +1289,7 @@
             s3Title: "Browse up to 4 results",
             s3Desc: "Flip through 2 pages with interactive buttons, open links in 1 click, or delete public searches anytime.",
           },
-          faq: {
-            title: "Frequently Asked Questions",
-            subtitle: "Everything you need to know about v2.5 features, how Bing Search works, and your privacy.",
-            items: [
-              {
-                q: "What is new in version 2.5?",
-                a: "v2.5 adds Discord Embeds, 2-page interactive pagination for up to 4 results, quick link buttons, a Delete / Apagar button and anti-spam cooldown on /search, the new multilingual /help command, 6 search regions (BR, US, ES, FR, DE, IT), and migration to the official Brave Search API."
-              },
-              {
-                q: "How many results are returned per search?",
-                a: "Both /search and /privatesearch now return up to 4 complete results split across 2 pages (2 on Page 1 and 2 on Page 2), navigated using the Previous page and Next Page buttons."
-              },
-              {
-                q: "What is the difference between /search and /privatesearch?",
-                a: "/search posts an interactive Embed publicly in the channel with a Delete / Apagar button and anti-spam cooldown. /privatesearch sends an ephemeral reply (\"Only you can see this\"), giving you complete privacy without cluttering chat."
-              },
-              {
-                q: "Which regions and languages are supported?",
-                a: "You can choose from 6 regions right inside the command's language option: BR (Brazil), US (United States / English), ES (Spain), FR (France), DE (Germany), and IT (Italy)."
-              },
-              {
-                q: "Is the bot free and are my searches saved?",
-                a: "Yes, it is 100% free and we never store search histories. Your query is processed strictly in real time via the official Brave Search API to deliver results on Discord, requiring only minimal slash-command permissions."
-              },
-              {
-                q: "Is Bing Search an official Microsoft or Brave project?",
-                a: "No. This bot is an independent community project built for fast web searches on Discord using the public Brave Search API, with no official affiliation or endorsement from Microsoft, Bing, Brave Software, or Discord Inc."
-              }
-            ]
-          },
+          
           changelog: {
             back: "← Back to Home",
             title: "Changelog & Releases",
@@ -1662,36 +1591,7 @@
             s3Title: "Navega por 4 resultados",
             s3Desc: "Recorre las 2 páginas con los botones interactivos, abre enlaces en 1 clic o borra búsquedas públicas al instante.",
           },
-          faq: {
-            title: "Preguntas Frecuentes",
-            subtitle: "Resuelve tus dudas sobre las novedades de la v2.5, el funcionamiento y la privacidad de Bing Search.",
-            items: [
-              {
-                q: "¿Qué trae de nuevo la versión 2.5?",
-                a: "La v2.5 incorpora Embeds modernos en Discord, paginación interactiva de hasta 4 resultados (2 páginas), botones de enlace directo, botón Delete / Apagar y cooldown anti-spam en /search, nuevo comando /help multilingüe, soporte para 6 regiones (BR, US, ES, FR, DE, IT) y migración al motor oficial de Brave Search API."
-              },
-              {
-                q: "¿Cuántos resultados aparecen por búsqueda?",
-                a: "Tanto /search como /privatesearch ahora devuelven hasta 4 resultados completos divididos en 2 páginas (2 en la Página 1 y 2 en la Página 2), navegables con los botones Previous page y Next Page."
-              },
-              {
-                q: "¿Cuál es la diferencia entre /search y /privatesearch?",
-                a: "/search publica el Embed en el canal para todos e incluye botón Delete / Apagar y cooldown anti-spam. /privatesearch envía un mensaje efímero (\"Solo tú puedes ver esto\"), ofreciendo privacidad total sin saturar el chat."
-              },
-              {
-                q: "¿Qué regiones e idiomas están disponibles?",
-                a: "Puedes seleccionar entre 6 regiones desde la opción language del comando: BR (Brasil), US (Estados Unidos / Inglés), ES (España), FR (Francia), DE (Alemania) e IT (Italia)."
-              },
-              {
-                q: "¿El bot es gratis y guarda mis búsquedas?",
-                a: "Sí, es 100% gratuito y no guardamos historial de búsquedas. Tu consulta se procesa únicamente en tiempo real mediante la API oficial de Brave Search para mostrar los resultados en Discord, pidiendo solo permisos mínimos."
-              },
-              {
-                q: "¿Bing Search es un proyecto oficial de Microsoft o Brave?",
-                a: "No. Este bot es un proyecto independiente creado por la comunidad para búsquedas rápidas en Discord usando la API pública de Brave Search, sin afiliación ni vínculo oficial con Microsoft, Bing, Brave Software o Discord Inc."
-              }
-            ]
-          },
+         
           changelog: {
             back: "← Volver al inicio",
             title: "Changelog y Lanzamientos",
@@ -1993,36 +1893,7 @@
             s3Title: 'Parcourez 4 résultats',
             s3Desc: 'Naviguez entre les 2 pages via les boutons interactifs, ouvrez un lien en 1 clic ou supprimez une recherche publique quand vous voulez.',
           },
-          faq: {
-            title: 'Questions Fréquentes',
-            subtitle: 'Tout savoir sur les nouveautés v2.5, le fonctionnement et la confidentialité de Bing Search.',
-            items: [
-              {
-                q: 'Quelles sont les nouveautés de la version 2.5 ?',
-                a: 'La v2.5 introduit des Embeds Discord modernes, la pagination sur 2 pages jusqu\'à 4 résultats, des boutons de lien rapide, un bouton Delete / Supprimer et un cooldown anti-spam sur /search, la commande /help multilingue, 6 régions (BR, US, ES, FR, DE, IT) et le moteur officiel Brave Search API.'
-              },
-              {
-                q: 'Combien de résultats sont affichés par recherche ?',
-                a: '/search et /privatesearch retournent désormais jusqu\'à 4 résultats complets répartis sur 2 pages (2 en Page 1 et 2 en Page 2), accessibles via Previous page et Next Page.'
-              },
-              {
-                q: 'Quelle est la différence entre /search et /privatesearch ?',
-                a: '/search publie un Embed visible par tout le salon avec bouton Delete / Supprimer et cooldown anti-spam. /privatesearch envoie un message éphémère (« Seul vous pouvez voir ce message ») pour une confidentialité totale.'
-              },
-              {
-                q: 'Quelles régions et langues sont prises en charge ?',
-                a: 'Vous pouvez sélectionner 6 régions directement dans l\'option language de la commande : BR (Brésil), US (États-Unis / Anglais), ES (Espagne), FR (France), DE (Allemagne) et IT (Italie).'
-              },
-              {
-                q: 'Le bot est-il gratuit et mes recherches sont-elles enregistrées ?',
-                a: 'Oui, le bot est 100 % gratuit et aucun historique de recherche n\'est conservé. Votre requête est traitée en temps réel via l\'API officielle Brave Search avec des permissions minimales.'
-              },
-              {
-                q: 'Bing Search est-il un projet officiel de Microsoft ou de Brave ?',
-                a: 'Non. Ce bot est un projet communautaire indépendant conçu pour faciliter les recherches sur Discord via l\'API publique Brave Search, sans affiliation officielle avec Microsoft, Bing, Brave Software ou Discord Inc.'
-              }
-            ]
-          },
+         
           changelog: {
             back: '← Retour à l\'accueil',
             title: 'Changelog & Versions',
@@ -2324,36 +2195,7 @@
             s3Title: '4 Ergebnisse durchblättern',
             s3Desc: 'Blättere mit den Buttons durch 2 Seiten, öffne Links mit einem Klick oder lösche öffentliche Suchen sofort wieder.',
           },
-          faq: {
-            title: 'Häufig gestellte Fragen',
-            subtitle: 'Alles Wichtige zu den v2.5-Neuerungen, zur Funktionsweise und zum Datenschutz von Bing Search.',
-            items: [
-              {
-                q: 'Was ist neu in Version 2.5?',
-                a: 'v2.5 bringt moderne Discord-Embeds, 2-Seiten-Navigation für bis zu 4 Ergebnisse, Schnelllink-Buttons, einen Delete-Button und Anti-Spam-Cooldown für /search, den mehrsprachigen /help-Befehl, 6 Regionen (BR, US, ES, FR, DE, IT) sowie die offizielle Brave Search API.'
-              },
-              {
-                q: 'Wie viele Ergebnisse erscheinen pro Suche?',
-                a: 'Sowohl /search als auch /privatesearch liefern bis zu 4 vollständige Ergebnisse auf 2 Seiten (2 auf Seite 1, 2 auf Seite 2), bedienbar über Previous page und Next Page.'
-              },
-              {
-                q: 'Was ist der Unterschied zwischen /search und /privatesearch?',
-                a: '/search postet das Embed öffentlich im Kanal mit Delete-Button und Anti-Spam-Cooldown. /privatesearch sendet eine flüchtige Antwort („Nur du kannst dies sehen“) für volle Privatsphäre.'
-              },
-              {
-                q: 'Welche Regionen und Sprachen werden unterstützt?',
-                a: 'Du kannst direkt in der Option language zwischen 6 Regionen wählen: BR (Brasilien), US (USA / Englisch), ES (Spanien), FR (Frankreich), DE (Deutschland) und IT (Italien).'
-              },
-              {
-                q: 'Ist der Bot kostenlos und werden meine Suchen gespeichert?',
-                a: 'Ja, der Bot ist 100 % kostenlos und wir speichern keinen Suchverlauf. Deine Anfrage wird nur in Echtzeit über die offizielle Brave Search API verarbeitet und benötigt minimale Berechtigungen.'
-              },
-              {
-                q: 'Ist Bing Search ein offizielles Projekt von Microsoft oder Brave?',
-                a: 'Nein. Dieser Bot ist ein unabhängiges Community-Projekt für schnelle Websuchen in Discord mithilfe der öffentlichen Brave Search API — ohne offizielle Verbindung zu Microsoft, Bing, Brave Software oder Discord Inc.'
-              }
-            ]
-          },
+          
           changelog: {
             back: '← Zurück zur Startseite',
             title: 'Changelog & Releases',
@@ -2655,36 +2497,7 @@
             s3Title: 'Sfoglia i 4 risultati',
             s3Desc: 'Naviga tra le 2 pagine con i pulsanti interattivi, apri i link in 1 clic o elimina la ricerca pubblica quando vuoi.',
           },
-          faq: {
-            title: 'Domande Frequenti',
-            subtitle: 'Tutto quello che devi sapere sulle novità v2.5, sul funzionamento e sulla privacy di Bing Search.',
-            items: [
-              {
-                q: 'Cosa c\'è di nuovo nella versione 2.5?',
-                a: 'La v2.5 introduce Embed Discord moderni, paginazione su 2 pagine fino a 4 risultati, pulsanti link rapido, pulsante Delete / Elimina e cooldown anti-spam su /search, nuovo comando /help multilingua, 6 regioni (BR, US, ES, FR, DE, IT) e migrazione alla Brave Search API ufficiale.'
-              },
-              {
-                q: 'Quanti risultati vengono mostrati per ricerca?',
-                a: 'Sia /search che /privatesearch restituiscono fino a 4 risultati completi divisi in 2 pagine (2 nella Pagina 1 e 2 nella Pagina 2), sfogliabili con Previous page e Next Page.'
-              },
-              {
-                q: 'Qual è la differenza tra /search e /privatesearch?',
-                a: '/search pubblica l\'Embed nel canale per tutti con pulsante Delete / Elimina e cooldown anti-spam. /privatesearch invia un messaggio effimero ("Solo tu puoi vedere questo messaggio") garantendo la massima privacy.'
-              },
-              {
-                q: 'Quali regioni e lingue sono supportate?',
-                a: 'Puoi scegliere tra 6 regioni direttamente nell\'opzione language del comando: BR (Brasile), US (Stati Uniti / Inglese), ES (Spagna), FR (Francia), DE (Germania) e IT (Italia).'
-              },
-              {
-                q: 'Il bot è gratuito e salva le mie ricerche?',
-                a: 'Sì, è 100% gratuito e non salviamo alcuna cronologia di ricerca. Il termine viene elaborato in tempo reale tramite l\'API ufficiale Brave Search richiedendo solo i permessi minimi.'
-              },
-              {
-                q: 'Bing Search è un progetto ufficiale di Microsoft o Brave?',
-                a: 'No. Questo bot è un progetto indipendente creato dalla community per ricerche rapide su Discord tramite l\'API pubblica di Brave Search, senza alcuna affiliazione ufficiale con Microsoft, Bing, Brave Software o Discord Inc.'
-              }
-            ]
-          },
+         
           changelog: {
             back: '← Torna alla home',
             title: 'Changelog & Versioni',
@@ -2884,9 +2697,11 @@
       // =========================================================================
       function setLanguage(lang) {
         if (!TRANSLATIONS[lang]) return;
+       function setLanguage(lang) {
+        if (!TRANSLATIONS[lang]) return;
         currentLang = lang;
+        try { localStorage.setItem('bingsearch_lang', lang); } catch (e) {}
         const t = TRANSLATIONS[lang];
-
         document.documentElement.lang = t.htmlLang;
         document.title = t.pageTitle;
 
@@ -2940,7 +2755,6 @@
           simInput.placeholder = currentSimMode === 'help' ? t.sim.helpInputPlaceholder : t.sim.inputPlaceholder;
         }
         setSimMode(currentSimMode, false);
-        renderFaq();
 
         const changelogView = document.getElementById('view-changelog');
         if (changelogView && !changelogView.classList.contains('hidden')) {
@@ -3222,37 +3036,7 @@
       }
 
       // =========================================================================
-      // FAQ ACORDEÃO INTERATIVO
-      // =========================================================================
-      function renderFaq() {
-        const container = document.getElementById('faq-container');
-        if (!container) return;
-
-        const items = TRANSLATIONS[currentLang].faq.items;
-        container.innerHTML = items
-          .map((item, index) => {
-            const isOpen = openFaqIndex === index;
-            return `
-              <div class="rounded-2xl border transition-all ${
-                isOpen
-                  ? 'bg-discord-dark border-bing-cyan/35 shadow-lg'
-                  : 'bg-discord-dark/60 border-white/10 hover:border-white/20'
-              }">
-                <button type="button" data-faq-index="${index}" aria-expanded="${String(isOpen)}" class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer">
-                  <span class="font-bold text-sm sm:text-base text-white">${escapeHtml(item.q)}</span>
-                  <svg class="w-5 h-5 shrink-0 text-bing-cyan transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div class="${isOpen ? 'block' : 'hidden'} px-5 pb-5 text-sm text-discord-muted leading-relaxed border-t border-white/5 pt-3">
-                  ${escapeHtml(item.a)}
-                </div>
-              </div>
-            `;
-          })
-          .join('');
-      }
-
+     
       // =========================================================================
       // CHANGELOG ANIMADO ESTILO LINHA DE RASTREIO (TOP-TO-BOTTOM: v1.0 -> v2.5)
       // =========================================================================
@@ -3672,16 +3456,6 @@
             return;
           }
 
-          // 8. Perguntas Frequentes (FAQ Acordeão)
-          const faqBtn = target.closest('[data-faq-index]');
-          if (faqBtn) {
-            event.preventDefault();
-            const idx = Number(faqBtn.getAttribute('data-faq-index'));
-            openFaqIndex = openFaqIndex === idx ? -1 : idx;
-            renderFaq();
-            return;
-          }
-
           // 9. Botão Rever Animação do Changelog
           if (target.closest('#changelog-replay-btn')) {
             event.preventDefault();
@@ -3794,8 +3568,19 @@
 
         // Registra eventos e hidrata toda a interface imediatamente
         bindEvents();
-        setLanguage('pt');
+
+        let savedLang = 'pt';
+        try {
+          const stored = localStorage.getItem('bingsearch_lang');
+          if (stored && TRANSLATIONS[stored]) savedLang = stored;
+        } catch (e) {}
+
+        setLanguage(savedLang);
         setSimMode('public', false);
+
+        if (window.location.hash) {
+          applyRoute(window.location.hash, false);
+        }
       }
 
       try {
