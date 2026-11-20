@@ -3810,5 +3810,611 @@
       window.addEventListener('load', initApp);
     })();
   </script>
+  <!-- ==================== GAVETA DE AVISOS & STATUS (FIREBASE) ==================== -->
+<style>
+  /* Botão flutuante de Avisos */
+  .av-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9990;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #161b26;
+    color: #f1f5f9;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    padding: 11px 18px;
+    border-radius: 999px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+  .av-fab:hover {
+    transform: translateY(-2px);
+    border-color: #38bdf8;
+    background: #1d2433;
+  }
+  .av-fab-badge {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 12px;
+    height: 12px;
+    background: #ef4444;
+    border: 2px solid #0f172a;
+    border-radius: 50%;
+    display: none;
+    animation: av-pulse 1.8s infinite;
+  }
+  .av-fab-badge.show { display: block; }
+
+  @keyframes av-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+    70% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+  }
+
+  /* Fundo escurecido */
+  .av-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 8, 15, 0.65);
+    backdrop-filter: blur(4px);
+    z-index: 9995;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .av-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Gaveta lateral */
+  .av-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 420px;
+    height: 100dvh;
+    background: #141923;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #e2e8f0;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -12px 0 40px rgba(0, 0, 0, 0.55);
+  }
+  .av-drawer.open { transform: translateX(0); }
+
+  /* Cabeçalho da gaveta */
+  .av-header {
+    padding: 20px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .av-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .av-dot-online {
+    width: 10px;
+    height: 10px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #22c55e;
+  }
+  .av-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .av-subtitle {
+    font-size: 12px;
+    color: #94a3b8;
+    display: block;
+    margin-top: 2px;
+  }
+  .av-close {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .av-close:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+  }
+
+  /* Feed de avisos */
+  .av-feed {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .av-empty {
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+    margin-top: 40px;
+  }
+
+  /* Card de aviso */
+  .av-card {
+    background: #1c2331;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 14px 16px;
+    position: relative;
+  }
+  .av-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .av-author-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .av-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0ea5e9, #2563eb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .av-author {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f8fafc;
+  }
+  .av-dev-badge {
+    background: #2563eb;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    letter-spacing: 0.4px;
+  }
+  .av-time {
+    font-size: 11px;
+    color: #64748b;
+    white-space: nowrap;
+  }
+  .av-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .av-tag-MANUTENÇÃO { background: rgba(245, 158, 11, 0.18); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.35); }
+  .av-tag-NOVIDADE   { background: rgba(56, 189, 248, 0.18); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); }
+  .av-tag-ONLINE     { background: rgba(34, 197, 94, 0.18);  color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.35); }
+
+  .av-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #cbd5e1;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .av-del-btn {
+    margin-top: 10px;
+    background: transparent;
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #f87171;
+    font-size: 11px;
+    padding: 4px 9px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .av-del-btn:hover { background: rgba(239, 68, 68, 0.15); }
+
+  /* Rodapé trancado / Login / Admin */
+  .av-footer {
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: #10141d;
+  }
+  .av-locked-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    color: #94a3b8;
+    font-size: 12px;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .av-locked-bar:hover {
+    border-color: rgba(56, 189, 248, 0.35);
+    color: #cbd5e1;
+  }
+
+  /* Formulários internos */
+  .av-form {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .av-form.active { display: flex; }
+
+  .av-input, .av-select, .av-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background: #1c2331;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #f8fafc;
+    padding: 9px 12px;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+  }
+  .av-input:focus, .av-select:focus, .av-textarea:focus {
+    border-color: #38bdf8;
+  }
+  .av-textarea {
+    resize: vertical;
+    min-height: 76px;
+  }
+  .av-row {
+    display: flex;
+    gap: 8px;
+  }
+  .av-btn {
+    flex: 1;
+    padding: 9px 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .av-btn:hover { opacity: 0.9; }
+  .av-btn-primary { background: #0ea5e9; color: #082f49; }
+  .av-btn-ghost { background: rgba(255, 255, 255, 0.07); color: #cbd5e1; }
+  .av-error {
+    color: #f87171;
+    font-size: 12px;
+    margin: 0;
+    display: none;
+  }
+</style>
+
+<!-- Botão Flutuante -->
+<button class="av-fab" id="av-open-btn" type="button" aria-label="Abrir avisos">
+  <span>📢 Avisos</span>
+  <span class="av-fab-badge" id="av-badge"></span>
+</button>
+
+<!-- Overlay e Gaveta -->
+<div class="av-overlay" id="av-overlay"></div>
+
+<aside class="av-drawer" id="av-drawer" aria-label="Avisos e Status">
+  <div class="av-header">
+    <div class="av-title-wrap">
+      <span class="av-dot-online"></span>
+      <div>
+        <h2 class="av-title">Avisos &amp; Status</h2>
+        <span class="av-subtitle">Comunicados oficiais do bot</span>
+      </div>
+    </div>
+    <button class="av-close" id="av-close-btn" type="button" aria-label="Fechar">&times;</button>
+  </div>
+
+  <div class="av-feed" id="av-feed">
+    <div class="av-empty">Carregando avisos...</div>
+  </div>
+
+  <div class="av-footer">
+    <!-- Barra padrão (visitantes) -->
+    <div class="av-locked-bar" id="av-locked-bar" title="Acesso restrito ao desenvolvedor">
+      <span>🔒 Apenas o desenvolvedor pode publicar avisos.</span>
+    </div>
+
+    <!-- Formulário de Login (abre ao clicar no cadeado) -->
+    <form class="av-form" id="av-login-form">
+      <input class="av-input" id="av-email" type="email" placeholder="E-mail de administrador" required />
+      <input class="av-input" id="av-password" type="password" placeholder="Senha" required />
+      <p class="av-error" id="av-login-err"></p>
+      <div class="av-row">
+        <button class="av-btn av-btn-ghost" id="av-cancel-login" type="button">Cancelar</button>
+        <button class="av-btn av-btn-primary" type="submit">Entrar</button>
+      </div>
+    </form>
+
+    <!-- Painel de Publicação (só aparece logado com seu UID) -->
+    <form class="av-form" id="av-post-form">
+      <select class="av-select" id="av-tag-select">
+        <option value="NOVIDADE">🔵 NOVIDADE</option>
+        <option value="MANUTENÇÃO">🟠 MANUTENÇÃO</option>
+        <option value="ONLINE">🟢 ONLINE</option>
+      </select>
+      <textarea class="av-textarea" id="av-message" placeholder="Escreva o aviso para os usuários..." required></textarea>
+      <p class="av-error" id="av-post-err"></p>
+      <div class="av-row">
+        <button class="av-btn av-btn-ghost" id="av-logout-btn" type="button">Sair</button>
+        <button class="av-btn av-btn-primary" id="av-submit-btn" type="submit">Publicar aviso</button>
+      </div>
+    </form>
+  </div>
+</aside>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+  import { getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB4Ls-SnrDAW24377lOo8hz3BA1ympsXcs",
+    authDomain: "bing-search-avisos.firebaseapp.com",
+    projectId: "bing-search-avisos",
+    storageBucket: "bing-search-avisos.firebasestorage.app",
+    messagingSenderId: "511584041437",
+    appId: "1:511584041437:web:3e1821448931b798c0de34"
+  };
+
+  const ADMIN_UID = "ULI7YUc4L3c111Wm2dVnbsIN0Bp1";
+  const AUTHOR_NAME = "klinger230";
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  // Elementos
+  const openBtn = document.getElementById("av-open-btn");
+  const closeBtn = document.getElementById("av-close-btn");
+  const overlay = document.getElementById("av-overlay");
+  const drawer = document.getElementById("av-drawer");
+  const badge = document.getElementById("av-badge");
+  const feed = document.getElementById("av-feed");
+
+  const lockedBar = document.getElementById("av-locked-bar");
+  const loginForm = document.getElementById("av-login-form");
+  const cancelLogin = document.getElementById("av-cancel-login");
+  const loginErr = document.getElementById("av-login-err");
+
+  const postForm = document.getElementById("av-post-form");
+  const postErr = document.getElementById("av-post-err");
+  const logoutBtn = document.getElementById("av-logout-btn");
+  const submitBtn = document.getElementById("av-submit-btn");
+
+  let isAdmin = false;
+  let latestAvisoId = null;
+  let cachedDocs = [];
+
+  // Abrir / fechar gaveta
+  function abrirGaveta() {
+    drawer.classList.add("open");
+    overlay.classList.add("open");
+    if (latestAvisoId) {
+      localStorage.setItem("bing_ultimo_aviso_lido", latestAvisoId);
+      badge.classList.remove("show");
+    }
+  }
+  function fecharGaveta() {
+    drawer.classList.remove("open");
+    overlay.classList.remove("open");
+  }
+
+  window.abrirGavetaAvisos = abrirGaveta;
+  openBtn.addEventListener("click", abrirGaveta);
+  closeBtn.addEventListener("click", fecharGaveta);
+  overlay.addEventListener("click", fecharGaveta);
+
+  // Abrir login ao clicar no cadeado
+  lockedBar.addEventListener("click", () => {
+    lockedBar.style.display = "none";
+    loginForm.classList.add("active");
+    document.getElementById("av-email").focus();
+  });
+
+  cancelLogin.addEventListener("click", () => {
+    loginForm.classList.remove("active");
+    loginErr.style.display = "none";
+    lockedBar.style.display = "flex";
+  });
+
+  // Login
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    loginErr.style.display = "none";
+    const email = document.getElementById("av-email").value.trim();
+    const password = document.getElementById("av-password").value;
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      loginForm.reset();
+    } catch (err) {
+      loginErr.textContent = "E-mail ou senha inválidos.";
+      loginErr.style.display = "block";
+    }
+  });
+
+  // Logout
+  logoutBtn.addEventListener("click", async () => {
+    await signOut(auth);
+  });
+
+  // Monitorar estado de autenticação
+  onAuthStateChanged(auth, (user) => {
+    isAdmin = Boolean(user && user.uid === ADMIN_UID);
+    if (isAdmin) {
+      lockedBar.style.display = "none";
+      loginForm.classList.remove("active");
+      postForm.classList.add("active");
+    } else {
+      postForm.classList.remove("active");
+      loginForm.classList.remove("active");
+      lockedBar.style.display = "flex";
+    }
+    renderFeed();
+  });
+
+  // Publicar aviso
+  postForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!isAdmin) return;
+    postErr.style.display = "none";
+    const texto = document.getElementById("av-message").value.trim();
+    const tag = document.getElementById("av-tag-select").value;
+    if (!texto) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Enviando...";
+    try {
+      await addDoc(collection(db, "avisos"), {
+        texto,
+        tag,
+        createdAt: serverTimestamp()
+      });
+      document.getElementById("av-message").value = "";
+    } catch (err) {
+      postErr.textContent = "Erro ao publicar. Verifique as regras do Firestore.";
+      postErr.style.display = "block";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Publicar aviso";
+    }
+  });
+
+  // Formatar data
+  function formatarData(ts) {
+    if (!ts || !ts.toDate) return "agora";
+    const d = ts.toDate();
+    return d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" }) +
+      " às " + d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+  }
+
+  // Renderizar cards com segurança (sem innerHTML no texto do usuário)
+  function renderFeed() {
+    feed.innerHTML = "";
+    if (cachedDocs.length === 0) {
+      const empty = document.createElement("div");
+      empty.className = "av-empty";
+      empty.textContent = "Nenhum aviso publicado ainda.";
+      feed.appendChild(empty);
+      return;
+    }
+
+    cachedDocs.forEach(({ id, data }) => {
+      const card = document.createElement("article");
+      card.className = "av-card";
+
+      const top = document.createElement("div");
+      top.className = "av-card-top";
+
+      const authorBox = document.createElement("div");
+      authorBox.className = "av-author-box";
+
+      const avatar = document.createElement("div");
+      avatar.className = "av-avatar";
+      avatar.textContent = "K";
+
+      const author = document.createElement("span");
+      author.className = "av-author";
+      author.textContent = AUTHOR_NAME;
+
+      const devBadge = document.createElement("span");
+      devBadge.className = "av-dev-badge";
+      devBadge.textContent = "DEV";
+
+      authorBox.append(avatar, author, devBadge);
+
+      const time = document.createElement("span");
+      time.className = "av-time";
+      time.textContent = formatarData(data.createdAt);
+
+      top.append(authorBox, time);
+
+      const tag = document.createElement("span");
+      tag.className = `av-tag av-tag-${data.tag || "NOVIDADE"}`;
+      tag.textContent = data.tag || "NOVIDADE";
+
+      const text = document.createElement("p");
+      text.className = "av-text";
+      text.textContent = data.texto || "";
+
+      card.append(top, tag, text);
+
+      if (isAdmin) {
+        const delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.className = "av-del-btn";
+        delBtn.textContent = "Apagar aviso";
+        delBtn.addEventListener("click", async () => {
+          if (confirm("Deseja apagar este aviso?")) {
+            await deleteDoc(doc(db, "avisos", id));
+          }
+        });
+        card.appendChild(delBtn);
+      }
+
+      feed.appendChild(card);
+    });
+  }
+
+  // Escutar avisos em tempo real
+  const q = query(collection(db, "avisos"), orderBy("createdAt", "desc"));
+  onSnapshot(q, (snapshot) => {
+    cachedDocs = snapshot.docs.map((d) => ({ id: d.id, data: d.data() }));
+    if (cachedDocs.length > 0) {
+      latestAvisoId = cachedDocs[0].id;
+      const ultimoLido = localStorage.getItem("bing_ultimo_aviso_lido");
+      if (ultimoLido !== latestAvisoId && !drawer.classList.contains("open")) {
+        badge.classList.add("show");
+      }
+    }
+    renderFeed();
+  }, (err) => {
+    feed.innerHTML = '<div class="av-empty">Não foi possível carregar os avisos.</div>';
+    console.error("Erro Firestore:", err);
+  });
+</script>
+<!-- ==================== FIM GAVETA DE AVISOS ==================== -->
 </body>
 </html>
