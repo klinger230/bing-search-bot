@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bing Search — Buscas na Web direto no Discord</title>
+  <title>Bing Search v2.5 — Buscas na Web direto no Discord</title>
   <meta name="description" content="Faça buscas na web direto no Discord sem abrir o navegador. Embeds modernos, paginação com até 4 resultados, 6 regiões, /privatesearch, /help e motor oficial Brave Search API." />
 
   <!-- Favicon embutido (lupa azul/ciano/roxo do Bing Search) -->
@@ -74,7 +74,7 @@
     };
   </script>
 
-  <!-- Animações suaves da linha do tempo estilo rastreio (v1.0 -> v2.5) e Cursor Personalizado -->
+  <!-- Estilos customizados: cursor futurista dark-tech e animações da timeline -->
   <style>
     /* Cursor padrão futurista dark-tech */
     html,
@@ -102,8 +102,8 @@
     .changelog-card {
       opacity: 0;
       transform: translateY(-16px);
-      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-                  transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
                   border-color 0.5s ease,
                   box-shadow 0.5s ease;
     }
@@ -147,7 +147,7 @@
   </div>
 
   <!-- BARRA DE NAVEGAÇÃO FIXA COM GLASSMORPHISM -->
-  <header class="sticky top-0 z-40 w-full backdrop-blur-xl bg-discord-darkest/80 border-b border-white/10">
+  <header class="sticky top-0 z-40 w-full backdrop-blur-xl bg-discord-darkest/85 border-b border-white/10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 gap-3">
 
@@ -181,13 +181,13 @@
         <div class="flex items-center gap-2 sm:gap-3 shrink-0">
           <!-- Seletor de Idiomas PT | EN | ES -->
           <div class="flex items-center bg-discord-darker border border-white/10 rounded-xl p-1" role="group" aria-label="Seletor de idioma">
-            <button type="button" data-lang-btn="pt" class="lang-btn px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer">PT</button>
-            <button type="button" data-lang-btn="en" class="lang-btn px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer">EN</button>
-            <button type="button" data-lang-btn="es" class="lang-btn px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer">ES</button>
+            <button type="button" data-lang-btn="pt" aria-pressed="true" class="lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer bg-discord-blurple text-white shadow-sm">PT</button>
+            <button type="button" data-lang-btn="en" aria-pressed="false" class="lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white">EN</button>
+            <button type="button" data-lang-btn="es" aria-pressed="false" class="lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white">ES</button>
           </div>
 
           <!-- Botão Adicionar Desktop -->
-          <a href="#" data-invite-link target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-discord-blurple hover:bg-discord-blurpleHover text-white text-sm font-semibold transition-all shadow-md shadow-discord-blurple/25 hover:shadow-glow-blurple">
+          <a href="https://discord.com/oauth2/authorize?client_id=1442546622805577859" data-invite-link target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-discord-blurple hover:bg-discord-blurpleHover text-white text-sm font-semibold transition-all shadow-md shadow-discord-blurple/25 hover:shadow-glow-blurple">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
             </svg>
@@ -195,7 +195,7 @@
           </a>
 
           <!-- Botão Menu Mobile -->
-          <button type="button" id="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false" class="md:hidden p-2 rounded-xl bg-discord-darker border border-white/10 text-discord-text hover:text-white cursor-pointer">
+          <button type="button" id="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false" class="md:hidden p-2.5 rounded-xl bg-discord-darker border border-white/10 text-discord-text hover:text-white cursor-pointer">
             <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -209,15 +209,15 @@
 
     <!-- Menu Mobile Dropdown -->
     <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-discord-darker/95 backdrop-blur-xl px-4 py-4 space-y-2">
-      <a href="#simulador" data-route="#simulador" data-mobile-link data-i18n="nav.simulator" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">Simulador</a>
-      <a href="#recursos" data-route="#recursos" data-mobile-link data-i18n="nav.features" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">Recursos</a>
-      <a href="#comandos" data-route="#comandos" data-mobile-link data-i18n="nav.commands" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">Comandos</a>
-      <a href="#faq" data-route="#faq" data-mobile-link data-i18n="nav.faq" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">FAQ</a>
-      <a href="#changelog" data-route="#changelog" data-mobile-link class="flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">
+      <a href="#simulador" data-route="#simulador" data-mobile-link data-i18n="nav.simulator" class="block px-3 py-3 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">Simulador</a>
+      <a href="#recursos" data-route="#recursos" data-mobile-link data-i18n="nav.features" class="block px-3 py-3 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">Recursos</a>
+      <a href="#comandos" data-route="#comandos" data-mobile-link data-i18n="nav.commands" class="block px-3 py-3 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">Comandos</a>
+      <a href="#faq" data-route="#faq" data-mobile-link data-i18n="nav.faq" class="block px-3 py-3 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">FAQ</a>
+      <a href="#changelog" data-route="#changelog" data-mobile-link class="flex items-center justify-between px-3 py-3 rounded-xl text-sm font-medium text-discord-text hover:bg-discord-dark hover:text-white">
         <span data-i18n="nav.changelog">Changelog</span>
         <span class="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded-md bg-bing-cyan/15 text-bing-cyan border border-bing-cyan/30">v2.5</span>
       </a>
-      <a href="#" data-invite-link target="_blank" rel="noopener noreferrer" class="mt-2 flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-discord-blurple hover:bg-discord-blurpleHover text-white text-sm font-semibold">
+      <a href="https://discord.com/oauth2/authorize?client_id=1442546622805577859" data-invite-link target="_blank" rel="noopener noreferrer" class="mt-2 flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-discord-blurple hover:bg-discord-blurpleHover text-white text-sm font-semibold">
         <span data-i18n="hero.ctaPrimary">Adicionar ao Discord</span>
       </a>
     </div>
@@ -251,7 +251,7 @@
 
         <!-- Botões de Ação -->
         <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#" data-invite-link target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-discord-blurple hover:bg-discord-blurpleHover text-white font-bold text-base shadow-glow-blurple transition-all hover:-translate-y-0.5">
+          <a href="https://discord.com/oauth2/authorize?client_id=1442546622805577859" data-invite-link target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-discord-blurple hover:bg-discord-blurpleHover text-white font-bold text-base shadow-glow-blurple transition-all hover:-translate-y-0.5">
             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
             </svg>
@@ -296,24 +296,28 @@
         <!-- Controles do Simulador -->
         <div class="flex flex-col lg:flex-row items-center justify-between gap-4 mb-5">
           <!-- Toggle /search vs /privatesearch vs /help -->
-          <div class="inline-flex flex-wrap sm:flex-nowrap p-1.5 rounded-2xl bg-discord-darker border border-white/10 w-full lg:w-auto justify-center" role="tablist">
-            <button type="button" id="mode-btn-public" role="tab" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer">
+          <div class="inline-flex flex-wrap sm:flex-nowrap p-1.5 rounded-2xl bg-discord-darker border border-white/10 w-full lg:w-auto justify-center gap-1" role="tablist">
+            <button type="button" id="mode-btn-public" role="tab" aria-selected="true" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer bg-discord-dark text-white border border-white/10 shadow-md">
               <span aria-hidden="true">🌐</span>
               <span>/search</span>
             </button>
-            <button type="button" id="mode-btn-private" role="tab" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer">
+            <button type="button" id="mode-btn-private" role="tab" aria-selected="false" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-discord-muted hover:text-white">
               <span aria-hidden="true">🔒</span>
               <span>/privatesearch</span>
             </button>
-            <button type="button" id="mode-btn-help" role="tab" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer">
+            <button type="button" id="mode-btn-help" role="tab" aria-selected="false" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-discord-muted hover:text-white">
               <span aria-hidden="true">❓</span>
               <span>/help</span>
               <span class="px-1.5 py-0.5 rounded-md text-[10px] uppercase bg-bing-cyan/20 text-bing-cyan font-extrabold" data-i18n="badges.new">NOVO</span>
             </button>
           </div>
 
-          <!-- Chips de Exemplos Clicáveis -->
-          <div id="sim-presets" class="flex flex-wrap items-center justify-center gap-2"></div>
+          <!-- Chips de Exemplos Clicáveis (pré-populados e sincronizados pelo JS) -->
+          <div id="sim-presets" class="flex flex-wrap items-center justify-center gap-2">
+            <button type="button" data-preset-index="0" class="px-3 py-2 rounded-xl bg-discord-dark hover:bg-discord-blurple/20 border border-white/10 hover:border-bing-cyan/40 text-xs font-medium text-discord-text hover:text-white transition-all cursor-pointer">🔎 clima São Paulo</button>
+            <button type="button" data-preset-index="1" class="px-3 py-2 rounded-xl bg-discord-dark hover:bg-discord-blurple/20 border border-white/10 hover:border-bing-cyan/40 text-xs font-medium text-discord-text hover:text-white transition-all cursor-pointer">🔎 atalhos Discord</button>
+            <button type="button" data-preset-index="2" class="px-3 py-2 rounded-xl bg-discord-dark hover:bg-discord-blurple/20 border border-white/10 hover:border-bing-cyan/40 text-xs font-medium text-discord-text hover:text-white transition-all cursor-pointer">🔎 notícias tecnologia</button>
+          </div>
         </div>
 
         <!-- Janela do Discord -->
@@ -338,12 +342,12 @@
             <div id="sim-deleted-notice" class="hidden my-auto py-10 px-4 text-center rounded-xl bg-discord-dark/50 border border-dashed border-white/10">
               <div class="text-2xl mb-2">🗑️</div>
               <p class="text-sm font-semibold text-white" data-i18n="sim.deletedTitle">Mensagem apagada do canal público!</p>
-              <p class="text-xs text-discord-muted mt-1" data-i18n="sim.deletedDesc">No /search, qualquer usuário pode limpar o chat rapidamente clicando no botão Delete / Apagar.</p>
-              <button type="button" id="sim-restore-btn" class="mt-4 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-discord-blurple hover:bg-discord-blurpleHover text-white text-xs font-bold transition-colors cursor-pointer" data-i18n="sim.restoreBtn">Restaurar busca</button>
+              <p class="text-xs text-discord-muted mt-1" data-i18n="sim.deletedDesc">No /search, você pode limpar o chat rapidamente clicando no botão Delete / Apagar.</p>
+              <button type="button" id="sim-restore-btn" class="mt-4 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-discord-blurple hover:bg-discord-blurpleHover text-white text-xs font-bold transition-colors cursor-pointer" data-i18n="sim.restoreBtn">Restaurar busca</button>
             </div>
 
             <!-- Wrapper da Mensagem Ativa -->
-            <div id="sim-message-wrapper" class="rounded-xl p-3 sm:p-4 transition-all duration-300">
+            <div id="sim-message-wrapper" class="rounded-xl p-3 sm:p-4 transition-all duration-300 bg-transparent border-l-[3px] border-transparent hover:bg-discord-hover/30">
               <!-- Linha do Slash Command executado -->
               <div class="flex flex-wrap items-center gap-2 text-xs text-discord-muted mb-2.5 pl-1">
                 <div class="w-4 h-3 border-t-2 border-l-2 border-discord-muted/60 rounded-tl-md translate-y-1"></div>
@@ -352,7 +356,7 @@
                 <span data-i18n="sim.usedCommand">usou</span>
                 <span id="sim-slash-badge" class="px-1.5 py-0.5 rounded-md bg-discord-blurple/20 font-semibold text-indigo-300">/search</span>
                 <span id="sim-inline-query-pill" class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-discord-darker/80 text-discord-muted text-[11px]">
-                  busca: <strong id="sim-inline-query" class="text-discord-text font-medium"></strong>
+                  busca: <strong id="sim-inline-query" class="text-discord-text font-medium">clima São Paulo</strong>
                 </span>
                 <span id="sim-inline-lang-pill" class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-discord-darker/80 text-discord-muted text-[11px]">
                   language: <strong id="sim-inline-lang" class="text-bing-cyan font-semibold">BR</strong>
@@ -425,7 +429,7 @@
                     placeholder="Digite um termo para simular a busca..."
                   />
                   <!-- Seletor interativo das 6 regiões reais do bot -->
-                  <div id="sim-region-wrapper" class="inline-flex shrink-0 items-center gap-1 px-2 py-1 rounded-lg bg-discord-dark border border-white/5 text-[11px] text-discord-muted">
+                  <div id="sim-region-wrapper" class="inline-flex shrink-0 items-center gap-1 px-2.5 py-1.5 rounded-lg bg-discord-dark border border-white/5 text-[11px] text-discord-muted">
                     <span>language:</span>
                     <select id="sim-region-select" aria-label="Região da busca" class="bg-transparent text-bing-cyan font-bold focus:outline-none cursor-pointer">
                       <option value="BR" class="bg-discord-darker text-white">BR</option>
@@ -437,7 +441,7 @@
                     </select>
                   </div>
                 </div>
-                <button type="submit" id="sim-submit-btn" class="shrink-0 px-4 py-2 rounded-lg bg-discord-blurple hover:bg-discord-blurpleHover text-white text-xs sm:text-sm font-bold transition-colors cursor-pointer flex items-center justify-center gap-1.5">
+                <button type="submit" id="sim-submit-btn" class="shrink-0 px-4 py-2.5 rounded-lg bg-discord-blurple hover:bg-discord-blurpleHover text-white text-xs sm:text-sm font-bold transition-colors cursor-pointer flex items-center justify-center gap-1.5">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
                   <span data-i18n="sim.searchBtn">Pesquisar</span>
                 </button>
@@ -524,7 +528,7 @@
               </div>
               <div class="p-3.5 rounded-xl bg-discord-darkest border border-white/5 font-mono text-xs sm:text-sm text-white flex items-center justify-between gap-2">
                 <span class="truncate"><span class="text-discord-blurple font-bold">/search</span> <span class="text-discord-muted">busca:</span><span class="text-bing-cyan" data-i18n="commands.termPlaceholder">[termo]</span> <span class="text-discord-muted">language:</span><span class="text-indigo-300">[BR|US|ES|FR|DE|IT]</span></span>
-                <button type="button" data-copy-cmd="/search busca:" class="copy-cmd-btn shrink-0 px-3 py-1.5 rounded-lg bg-discord-dark hover:bg-discord-blurple text-xs font-sans font-semibold text-white transition-colors cursor-pointer flex items-center gap-1.5">
+                <button type="button" data-copy-cmd="/search busca:" class="copy-cmd-btn shrink-0 px-3 py-2 rounded-lg bg-discord-dark hover:bg-discord-blurple text-xs font-sans font-semibold text-white transition-colors cursor-pointer flex items-center gap-1.5">
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
                   <span data-i18n="commands.copyBtn">Copiar</span>
                 </button>
@@ -542,7 +546,7 @@
               </div>
               <div class="p-3.5 rounded-xl bg-discord-darkest border border-bing-cyan/20 font-mono text-xs sm:text-sm text-white flex items-center justify-between gap-2">
                 <span class="truncate"><span class="text-bing-cyan font-bold">/privatesearch</span> <span class="text-discord-muted">busca:</span><span class="text-indigo-300" data-i18n="commands.termPlaceholder">[termo]</span> <span class="text-discord-muted">language:</span><span class="text-bing-cyan">[BR|US|ES|FR|DE|IT]</span></span>
-                <button type="button" data-copy-cmd="/privatesearch busca:" class="copy-cmd-btn shrink-0 px-3 py-1.5 rounded-lg bg-bing-blue hover:bg-bing-cyan text-xs font-sans font-semibold text-white transition-colors cursor-pointer flex items-center gap-1.5">
+                <button type="button" data-copy-cmd="/privatesearch busca:" class="copy-cmd-btn shrink-0 px-3 py-2 rounded-lg bg-bing-blue hover:bg-bing-cyan text-xs font-sans font-semibold text-white transition-colors cursor-pointer flex items-center gap-1.5">
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
                   <span data-i18n="commands.copyBtn">Copiar</span>
                 </button>
@@ -563,7 +567,7 @@
           </div>
           <div class="p-3 rounded-xl bg-discord-darkest border border-white/5 font-mono text-sm text-white flex items-center justify-between gap-3 shrink-0 md:min-w-[260px]">
             <span class="text-indigo-300 font-bold">/help</span>
-            <button type="button" data-copy-cmd="/help" class="copy-cmd-btn shrink-0 px-3 py-1.5 rounded-lg bg-discord-blurple hover:bg-discord-blurpleHover text-xs font-sans font-semibold text-white transition-colors cursor-pointer flex items-center gap-1.5">
+            <button type="button" data-copy-cmd="/help" class="copy-cmd-btn shrink-0 px-3 py-2 rounded-lg bg-discord-blurple hover:bg-discord-blurpleHover text-xs font-sans font-semibold text-white transition-colors cursor-pointer flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
               <span data-i18n="commands.copyBtn">Copiar</span>
             </button>
@@ -609,7 +613,7 @@
         <h2 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="cta.title">Pronto para experimentar o Bing Search v2.5?</h2>
         <p class="mt-3 text-sm sm:text-base text-discord-text/85 max-w-xl mx-auto" data-i18n="cta.subtitle">Adicione gratuitamente ao seu servidor e aproveite Embeds interativos, 4 resultados paginados, 6 regiões e motor oficial de busca.</p>
         <div class="mt-7 flex justify-center">
-          <a href="#" data-invite-link target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-discord-blurple hover:bg-discord-blurpleHover text-white font-bold text-base shadow-glow-blurple transition-all hover:-translate-y-0.5">
+          <a href="https://discord.com/oauth2/authorize?client_id=1442546622805577859" data-invite-link target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-discord-blurple hover:bg-discord-blurpleHover text-white font-bold text-base shadow-glow-blurple transition-all hover:-translate-y-0.5">
             <span data-i18n="hero.ctaPrimary">Adicionar ao Discord</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
           </a>
@@ -682,7 +686,7 @@
         <a href="#changelog" data-route="#changelog" class="hover:text-white transition-colors" data-i18n="nav.changelog">Changelog</a>
         <a href="#termos" data-route="#termos" class="hover:text-white transition-colors" data-i18n="footer.terms">Termos de Serviço</a>
         <a href="#privacidade" data-route="#privacidade" class="hover:text-white transition-colors" data-i18n="footer.privacy">Política de Privacidade</a>
-        <a href="#" data-invite-link target="_blank" rel="noopener noreferrer" class="hover:text-bing-cyan transition-colors" data-i18n="footer.invite">Convidar Bot</a>
+        <a href="https://discord.com/oauth2/authorize?client_id=1442546622805577859" data-invite-link target="_blank" rel="noopener noreferrer" class="hover:text-bing-cyan transition-colors" data-i18n="footer.invite">Convidar Bot</a>
       </div>
     </div>
   </footer>
@@ -693,10 +697,10 @@
       <!-- Cabeçalho do Modal -->
       <div class="flex items-center justify-between gap-3 px-5 sm:px-6 py-4 bg-discord-darker border-b border-white/10">
         <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
-          <button type="button" id="legal-tab-terms" class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer" data-i18n="footer.terms">Termos de Serviço</button>
-          <button type="button" id="legal-tab-privacy" class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer" data-i18n="footer.privacy">Política de Privacidade</button>
+          <button type="button" id="legal-tab-terms" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer" data-i18n="footer.terms">Termos de Serviço</button>
+          <button type="button" id="legal-tab-privacy" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer" data-i18n="footer.privacy">Política de Privacidade</button>
         </div>
-        <button type="button" id="legal-close-x" aria-label="Fechar" class="p-2 rounded-xl bg-discord-dark hover:bg-white/10 text-discord-muted hover:text-white transition-colors cursor-pointer">
+        <button type="button" id="legal-close-x" aria-label="Fechar" class="p-2.5 rounded-xl bg-discord-dark hover:bg-white/10 text-discord-muted hover:text-white transition-colors cursor-pointer">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
@@ -723,7 +727,7 @@
     </div>
   </div>
 
-  <!-- JAVASCRIPT PRINCIPAL (ENCAPSULADO, SEM INLINE ONCLICK, INICIALIZAÇÃO GARANTIDA) -->
+  <!-- JAVASCRIPT PRINCIPAL (COM DELEGAÇÃO GLOBAL DE EVENTOS E INICIALIZAÇÃO IMEDIATA) -->
   <script>
     (function () {
       'use strict';
@@ -747,7 +751,7 @@
       let currentSimRegion = 'BR'; // BR | US | ES | FR | DE | IT
       let isSimDeleted = false;
       let openFaqIndex = 0;
-      let currentRoute = '';
+      let currentRoute = '#top';
       let activeLegalTab = null;
       let changelogActiveStep = -1;
       let toastTimeout = null;
@@ -798,7 +802,7 @@
             ephemeralNote: 'Só você pode ver esta mensagem',
             ephemeralSwitch: 'Testar modo público (/search)',
             inputPlaceholder: 'Digite um termo para simular a busca...',
-            helpInputPlaceholder: 'O comando /help não precisa de texto — clique em Enviar ou mude o modo',
+            helpInputPlaceholder: 'O comando /help não precisa de texto — clique em Executar ou mude o modo',
             searchBtn: 'Pesquisar',
             helpBtn: 'Executar /help',
             btnResult: 'Resultado',
@@ -1039,7 +1043,7 @@
                 isLatest: true,
                 title: 'Embeds, Paginação (4 Resultados), 6 Regiões & Brave Search API',
                 changes: [
-                  { tag: 'NOVO', color: 'emerald', text: 'Visual reformulado com <strong>Embeds azuis</strong>, rodapé com contador de páginas (<code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">Página 1/2</code>) e botões interativos <strong>Previous page</strong> e <strong>Next Page</strong> exibindo até <strong>4 resultados</strong>.' },
+                  { tag: 'NOVO', color: 'emerald', text: 'Visual reformulado com <strong>Embeds azuis</strong>, rodapé com contador de páginas (<code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">Página 1/2</code>) e botões interativos <strong>Previous page</strong> e <strong>Next Page</strong> mostrando até <strong>4 resultados</strong>.' },
                   { tag: 'NOVO', color: 'emerald', text: 'Botões de acesso rápido (<strong>Resultado 1 / Resultado 2</strong>) + botão vermelho <strong>Delete / Apagar</strong> e <strong>cooldown anti-spam</strong> no <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code>.' },
                   { tag: 'NOVO', color: 'emerald', text: 'Novo comando <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/help</code> multilíngue com guia rápido e botão direto para o site.' },
                   { tag: 'MELHORIA', color: 'indigo', text: 'Suporte expandido para <strong>6 regiões de pesquisa</strong> (<code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">BR, US, ES, FR, DE, IT</code>) no modo público e no privado.' },
@@ -1218,7 +1222,7 @@
                     url: 'https://arstechnica.com/'
                   },
                   {
-                    title: 'Tom\'s Hardware — PC Components, Benchmarks & Deals',
+                    title: 'Toms Hardware — PC Components, Benchmarks & Deals',
                     content: 'Independent GPU and CPU testing, build guides, gaming monitors, and breaking semiconductor news.',
                     url: 'https://www.tomshardware.com/'
                   }
@@ -1305,7 +1309,7 @@
               },
               {
                 q: 'Which regions and languages are supported?',
-                a: 'You can choose from 6 regions right inside the command\'s language option: BR (Brazil), US (United States / English), ES (Spain), FR (France), DE (Germany), and IT (Italy).'
+                a: 'You can choose from 6 regions right inside the command language option: BR (Brazil), US (United States / English), ES (Spain), FR (France), DE (Germany), and IT (Italy).'
               },
               {
                 q: 'Is the bot free and are my searches saved?',
@@ -1397,7 +1401,7 @@
               <h3 class="text-lg font-bold text-white pt-2">2. Command Functionality</h3>
               <p>The bot provides <code>/search</code> (public paginated Embeds with anti-spam cooldown and a Delete button), <code>/privatesearch</code> (ephemeral paginated Embeds visible only to the command user), and <code>/help</code> (usage guide), returning up to 4 search results across 2 pages via an official search API.</p>
               <h3 class="text-lg font-bold text-white pt-2">3. Responsible Use</h3>
-              <p>You agree not to use the bot for spamming, abusive automation, illegal queries, or any activity that violates Discord's Terms of Service or Community Guidelines. We reserve the right to restrict access in cases of abuse.</p>
+              <p>You agree not to use the bot for spamming, abusive automation, illegal queries, or any activity that violates Discord Terms of Service or Community Guidelines. We reserve the right to restrict access in cases of abuse.</p>
               <h3 class="text-lg font-bold text-white pt-2">4. Third-Party Content & Availability</h3>
               <p>Titles, summaries, and links returned belong to third-party websites indexed on the web. We do not guarantee 100% uninterrupted uptime and are not responsible for the content hosted on external sites.</p>
             `,
@@ -1407,7 +1411,7 @@
               <h3 class="text-lg font-bold text-white pt-2">1. No Search History Storage</h3>
               <p>The query entered in <code>busca</code> and region chosen in <code>language</code> are processed strictly in real time via the Brave Search API to fetch up to 4 web results inside Discord. <strong>We do not store search history</strong>, do not tie search terms to your Discord ID, and never sell or share data for advertising.</p>
               <h3 class="text-lg font-bold text-white pt-2">2. /privatesearch Ephemeral Privacy</h3>
-              <p>When using <code>/privatesearch</code>, results are delivered using Discord's native ephemeral message feature (<em>"Only you can see this"</em>). Other server members cannot view your results, and the message vanishes once dismissed or upon reloading Discord.</p>
+              <p>When using <code>/privatesearch</code>, results are delivered using Discord native ephemeral message feature (<em>"Only you can see this"</em>). Other server members cannot view your results, and the message vanishes once dismissed or upon reloading Discord.</p>
               <h3 class="text-lg font-bold text-white pt-2">3. Minimal Operational Data</h3>
               <p>The bot does not read regular messages in your channels — it only activates when a user explicitly invokes a slash command (<code>/search</code>, <code>/privatesearch</code>, or <code>/help</code>). Anti-spam cooldown tracking runs purely in temporary memory.</p>
               <h3 class="text-lg font-bold text-white pt-2">4. Independence & External Links</h3>
@@ -1725,7 +1729,7 @@
               <h3 class="text-lg font-bold text-white pt-2">2. Funcionamiento de los Comandos</h3>
               <p>El bot ofrece los comandos <code>/search</code> (Embeds públicos paginados con cooldown anti-spam y botón Delete / Apagar), <code>/privatesearch</code> (Embeds efímeros visibles solo para quien ejecuta el comando) y <code>/help</code> (guía de uso), devolviendo hasta 4 resultados distribuidos en 2 páginas mediante API oficial de búsqueda.</p>
               <h3 class="text-lg font-bold text-white pt-2">3. Uso Responsable</h3>
-              <p>El usuario se compromete a no utilizar el bot para spam, automatización abusiva, búsquedas de contenido ilegal o cualquier infracción de los Términos de Servicio y Directrices de la Comunidad de Discord. Nos reservamos el derecho de limitar el acceso en caso de abuso.</p>
+              <p>El usuario se compromete a no utilizar el bot para spam, automação abusiva, búsquedas de contenido ilegal o cualquier infracción de los Términos de Servicio y Directrices de la Comunidad de Discord. Nos reservamos el derecho de limitar el acceso en caso de abuso.</p>
               <h3 class="text-lg font-bold text-white pt-2">4. Contenido de Terceros y Disponibilidad</h3>
               <p>Los títulos, resúmenes y enlaces devueltos pertenecen a sitios web de terceros. No garantizamos disponibilidad ininterrumpida del 100% ni nos hacemos responsables por el contenido alojado en páginas externas.</p>
             `,
@@ -1750,11 +1754,11 @@
       // =========================================================================
       function escapeHtml(str) {
         return String(str)
-          .replace(/&/g, '&')
-          .replace(/</g, '<')
-          .replace(/>/g, '>')
-          .replace(/"/g, '"')
-          .replace(/'/g, ''');
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
       }
 
       function showToast(message) {
@@ -1859,9 +1863,9 @@
           const isActive = btn.getAttribute('data-lang-btn') === lang;
           btn.setAttribute('aria-pressed', String(isActive));
           if (isActive) {
-            btn.className = 'lang-btn px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer bg-discord-blurple text-white shadow-sm';
+            btn.className = 'lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer bg-discord-blurple text-white shadow-sm';
           } else {
-            btn.className = 'lang-btn px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white';
+            btn.className = 'lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white';
           }
         });
 
@@ -1942,9 +1946,9 @@
         if (deletedNotice) deletedNotice.classList.add('hidden');
         if (wrapper) wrapper.classList.remove('hidden');
 
-        const inactiveTabClass = 'flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-discord-muted hover:text-white';
-        const activeBlurpleClass = 'flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer bg-discord-blurple text-white shadow-md';
-        const activeDarkClass = 'flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer bg-discord-dark text-white border border-white/10 shadow-md';
+        const inactiveTabClass = 'flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-discord-muted hover:text-white';
+        const activeBlurpleClass = 'flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer bg-discord-blurple text-white shadow-md';
+        const activeDarkClass = 'flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer bg-discord-dark text-white border border-white/10 shadow-md';
 
         if (btnPublic) {
           btnPublic.setAttribute('aria-selected', String(currentSimMode === 'public'));
@@ -2014,25 +2018,12 @@
         if (!container) return;
 
         const presets = TRANSLATIONS[currentLang].sim.presets;
-        container.innerHTML = '';
-
-        presets.forEach((preset) => {
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'px-3 py-1.5 rounded-xl bg-discord-dark hover:bg-discord-blurple/20 border border-white/10 hover:border-bing-cyan/40 text-xs font-medium text-discord-text hover:text-white transition-all cursor-pointer';
-          btn.textContent = `🔎 ${preset.query}`;
-          btn.addEventListener('click', () => {
-            if (currentSimMode === 'help') {
-              setSimMode('public', false);
-            }
-            const simInput = document.getElementById('sim-input');
-            if (simInput) simInput.value = preset.query;
-            currentSimPage = 1;
-            isSimDeleted = false;
-            renderSimMessage(preset.query, true);
-          });
-          container.appendChild(btn);
-        });
+        container.innerHTML = presets
+          .map(
+            (preset, idx) =>
+              `<button type="button" data-preset-index="${idx}" class="px-3 py-2 rounded-xl bg-discord-dark hover:bg-discord-blurple/20 border border-white/10 hover:border-bing-cyan/40 text-xs font-medium text-discord-text hover:text-white transition-all cursor-pointer">🔎 ${escapeHtml(preset.query)}</button>`
+          )
+          .join('');
       }
 
       function renderSimMessage(query, animateLoading) {
@@ -2063,8 +2054,6 @@
         if (inlineLangEl) inlineLangEl.textContent = currentSimRegion;
 
         const renderContentNow = () => {
-          buttonsEl.innerHTML = '';
-
           // MODO /help
           if (currentSimMode === 'help') {
             contentEl.innerHTML = `
@@ -2078,16 +2067,12 @@
               <div class="pt-1 text-xs text-discord-muted">${tSim.helpRegions}</div>
             `;
             footerEl.textContent = `${tSim.helpFooter} • ${tSim.timestamp}`;
-
-            const siteBtn = document.createElement('a');
-            siteBtn.href = '#changelog';
-            siteBtn.className = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-discord-btnGray hover:bg-discord-btnGrayHover text-white text-xs font-semibold transition-colors';
-            siteBtn.innerHTML = `<span>🌐 ${escapeHtml(tSim.helpSiteBtn)}</span><span class="opacity-80">↗</span>`;
-            siteBtn.addEventListener('click', (e) => {
-              e.preventDefault();
-              applyRoute('#changelog', true);
-            });
-            buttonsEl.appendChild(siteBtn);
+            buttonsEl.innerHTML = `
+              <a href="#changelog" data-route="#changelog" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-md bg-discord-btnGray hover:bg-discord-btnGrayHover text-white text-xs font-semibold transition-colors">
+                <span>🌐 ${escapeHtml(tSim.helpSiteBtn)}</span>
+                <span class="opacity-80">↗</span>
+              </a>
+            `;
             return;
           }
 
@@ -2108,7 +2093,6 @@
               const safeUrl = escapeHtml(item.url);
 
               if (currentSimMode === 'private') {
-                // Visual fiel ao /privatesearch (título azul clicável + descrição limpa)
                 return `
                   <div class="space-y-1">
                     <div class="font-bold text-white">
@@ -2119,7 +2103,6 @@
                 `;
               }
 
-              // Visual fiel ao /search (título em negrito + descrição limpa + link abaixo)
               return `
                 <div class="space-y-1">
                   <div class="font-bold text-white">${num}. ${safeTitle}</div>
@@ -2141,63 +2124,44 @@
           const modeFooterText = currentSimMode === 'private' ? tSim.footerPrivate : tSim.footerPublic;
           footerEl.textContent = `${modeFooterText} • ${tSim.footerPage} ${currentSimPage}/2 • ${tSim.timestamp}`;
 
-          // Botões de Link Rápido (Resultado 1 e 2 da página atual)
-          pageResults.forEach((item, idx) => {
-            const num = startIdx + idx + 1;
-            const linkBtn = document.createElement('a');
-            linkBtn.href = item.url;
-            linkBtn.target = '_blank';
-            linkBtn.rel = 'noopener noreferrer';
-            linkBtn.className = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-discord-btnGray hover:bg-discord-btnGrayHover text-white text-xs font-semibold transition-colors';
-            linkBtn.innerHTML = `<span>🔗 ${escapeHtml(tSim.btnResult)} ${num}</span><svg class="w-3 h-3 opacity-80" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>`;
-            buttonsEl.appendChild(linkBtn);
-          });
+          // Monta os botões de ação abaixo do Embed
+          const linkButtonsHtml = pageResults
+            .map((item, idx) => {
+              const num = startIdx + idx + 1;
+              const safeUrl = escapeHtml(item.url);
+              return `
+                <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-md bg-discord-btnGray hover:bg-discord-btnGrayHover text-white text-xs font-semibold transition-colors">
+                  <span>🔗 ${escapeHtml(tSim.btnResult)} ${num}</span>
+                  <svg class="w-3 h-3 opacity-80" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              `;
+            })
+            .join('');
 
-          // Botão Delete / Apagar (apenas no /search público)
-          if (currentSimMode === 'public') {
-            const delBtn = document.createElement('button');
-            delBtn.type = 'button';
-            delBtn.className = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-discord-red hover:bg-discord-redHover text-white text-xs font-semibold transition-colors cursor-pointer';
-            delBtn.textContent = `🗑️ ${tSim.btnDelete}`;
-            delBtn.addEventListener('click', () => {
-              isSimDeleted = true;
-              showToast(tSim.deletedToast);
-              renderSimMessage(currentSimQuery, false);
-            });
-            buttonsEl.appendChild(delBtn);
-          }
+          const deleteButtonHtml =
+            currentSimMode === 'public'
+              ? `<button type="button" data-sim-action="delete" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-md bg-discord-red hover:bg-discord-redHover text-white text-xs font-semibold transition-colors cursor-pointer">🗑️ ${escapeHtml(tSim.btnDelete)}</button>`
+              : '';
 
-          // Botão Previous page
-          const prevBtn = document.createElement('button');
-          prevBtn.type = 'button';
-          prevBtn.disabled = currentSimPage <= 1;
-          prevBtn.className = currentSimPage <= 1
-            ? 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-discord-blurple/45 text-white/60 text-xs font-semibold cursor-not-allowed'
-            : 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-discord-blurple hover:bg-discord-blurpleHover text-white text-xs font-semibold transition-colors cursor-pointer';
-          prevBtn.textContent = `⬅️ ${tSim.btnPrev}`;
-          prevBtn.addEventListener('click', () => {
-            if (currentSimPage > 1) {
-              currentSimPage = 1;
-              renderSimMessage(currentSimQuery, false);
-            }
-          });
-          buttonsEl.appendChild(prevBtn);
+          const prevDisabled = currentSimPage <= 1;
+          const prevButtonHtml = `
+            <button type="button" data-sim-action="prev" ${prevDisabled ? 'disabled' : ''} class="${
+              prevDisabled
+                ? 'inline-flex items-center gap-1.5 px-3 py-2 rounded-md bg-discord-blurple/45 text-white/60 text-xs font-semibold cursor-not-allowed'
+                : 'inline-flex items-center gap-1.5 px-3 py-2 rounded-md bg-discord-blurple hover:bg-discord-blurpleHover text-white text-xs font-semibold transition-colors cursor-pointer'
+            }">⬅️ ${escapeHtml(tSim.btnPrev)}</button>
+          `;
 
-          // Botão Next Page
-          const nextBtn = document.createElement('button');
-          nextBtn.type = 'button';
-          nextBtn.disabled = currentSimPage >= 2;
-          nextBtn.className = currentSimPage >= 2
-            ? 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-discord-green/45 text-white/60 text-xs font-semibold cursor-not-allowed'
-            : 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-discord-green hover:bg-emerald-600 text-white text-xs font-semibold transition-colors cursor-pointer';
-          nextBtn.textContent = `➡️ ${tSim.btnNext}`;
-          nextBtn.addEventListener('click', () => {
-            if (currentSimPage < 2) {
-              currentSimPage = 2;
-              renderSimMessage(currentSimQuery, false);
-            }
-          });
-          buttonsEl.appendChild(nextBtn);
+          const nextDisabled = currentSimPage >= 2;
+          const nextButtonHtml = `
+            <button type="button" data-sim-action="next" ${nextDisabled ? 'disabled' : ''} class="${
+              nextDisabled
+                ? 'inline-flex items-center gap-1.5 px-3 py-2 rounded-md bg-discord-green/45 text-white/60 text-xs font-semibold cursor-not-allowed'
+                : 'inline-flex items-center gap-1.5 px-3 py-2 rounded-md bg-discord-green hover:bg-emerald-600 text-white text-xs font-semibold transition-colors cursor-pointer'
+            }">➡️ ${escapeHtml(tSim.btnNext)}</button>
+          `;
+
+          buttonsEl.innerHTML = `${linkButtonsHtml}${deleteButtonHtml}${prevButtonHtml}${nextButtonHtml}`;
         };
 
         clearTimeout(simLoadingTimeout);
@@ -2211,7 +2175,7 @@
             loadingEl.classList.add('hidden');
             embedCard.classList.remove('hidden');
             buttonsEl.classList.remove('hidden');
-          }, 240);
+          }, 220);
         } else {
           if (loadingEl) loadingEl.classList.add('hidden');
           embedCard.classList.remove('hidden');
@@ -2228,40 +2192,28 @@
         if (!container) return;
 
         const items = TRANSLATIONS[currentLang].faq.items;
-        container.innerHTML = '';
-
-        items.forEach((item, index) => {
-          const isOpen = openFaqIndex === index;
-          const card = document.createElement('div');
-          card.className = `rounded-2xl border transition-all ${
-            isOpen
-              ? 'bg-discord-dark border-bing-cyan/35 shadow-lg'
-              : 'bg-discord-dark/60 border-white/10 hover:border-white/20'
-          }`;
-
-          const triggerBtn = document.createElement('button');
-          triggerBtn.type = 'button';
-          triggerBtn.setAttribute('aria-expanded', String(isOpen));
-          triggerBtn.className = 'w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer';
-          triggerBtn.innerHTML = `
-            <span class="font-bold text-sm sm:text-base text-white">${escapeHtml(item.q)}</span>
-            <svg class="w-5 h-5 shrink-0 text-bing-cyan transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          `;
-          triggerBtn.addEventListener('click', () => {
-            openFaqIndex = openFaqIndex === index ? -1 : index;
-            renderFaq();
-          });
-
-          const body = document.createElement('div');
-          body.className = `${isOpen ? 'block' : 'hidden'} px-5 pb-5 text-sm text-discord-muted leading-relaxed border-t border-white/5 pt-3`;
-          body.textContent = item.a;
-
-          card.appendChild(triggerBtn);
-          card.appendChild(body);
-          container.appendChild(card);
-        });
+        container.innerHTML = items
+          .map((item, index) => {
+            const isOpen = openFaqIndex === index;
+            return `
+              <div class="rounded-2xl border transition-all ${
+                isOpen
+                  ? 'bg-discord-dark border-bing-cyan/35 shadow-lg'
+                  : 'bg-discord-dark/60 border-white/10 hover:border-white/20'
+              }">
+                <button type="button" data-faq-index="${index}" aria-expanded="${String(isOpen)}" class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer">
+                  <span class="font-bold text-sm sm:text-base text-white">${escapeHtml(item.q)}</span>
+                  <svg class="w-5 h-5 shrink-0 text-bing-cyan transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="${isOpen ? 'block' : 'hidden'} px-5 pb-5 text-sm text-discord-muted leading-relaxed border-t border-white/5 pt-3">
+                  ${escapeHtml(item.a)}
+                </div>
+              </div>
+            `;
+          })
+          .join('');
       }
 
       // =========================================================================
@@ -2417,8 +2369,8 @@
         changelogActiveStep = -1;
         syncChangelogTrackGeometry(-1, true);
 
-        const initialDelay = 300;
-        const stepDelay = 1100;
+        const initialDelay = 250;
+        const stepDelay = 950;
 
         for (let step = 0; step < total; step++) {
           const isLastStep = step === total - 1;
@@ -2460,13 +2412,13 @@
         if (activeLegalTab === 'terms') {
           titleEl.textContent = legal.termsTitle;
           bodyEl.innerHTML = legal.termsBody;
-          if (tabTerms) tabTerms.className = 'px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer bg-discord-blurple text-white';
-          if (tabPrivacy) tabPrivacy.className = 'px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer text-discord-muted hover:text-white hover:bg-white/5';
+          if (tabTerms) tabTerms.className = 'px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer bg-discord-blurple text-white';
+          if (tabPrivacy) tabPrivacy.className = 'px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer text-discord-muted hover:text-white hover:bg-white/5';
         } else {
           titleEl.textContent = legal.privacyTitle;
           bodyEl.innerHTML = legal.privacyBody;
-          if (tabPrivacy) tabPrivacy.className = 'px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer bg-discord-blurple text-white';
-          if (tabTerms) tabTerms.className = 'px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer text-discord-muted hover:text-white hover:bg-white/5';
+          if (tabPrivacy) tabPrivacy.className = 'px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer bg-discord-blurple text-white';
+          if (tabTerms) tabTerms.className = 'px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer text-discord-muted hover:text-white hover:bg-white/5';
         }
 
         modal.classList.remove('hidden');
@@ -2493,13 +2445,13 @@
           currentRoute = '#changelog';
           safeUpdateHash('#changelog');
         } else {
-          currentRoute = '';
+          currentRoute = '#top';
           safeClearHash();
         }
       }
 
       // =========================================================================
-      // ROTEAMENTO SEGURO (COMPATÍVEL COM IFRAME E GITHUB PAGES)
+      // ROTEAMENTO IN-MEMORY (100% COMPATÍVEL COM IFRAME SANDBOX E GITHUB PAGES)
       // =========================================================================
       function safeUpdateHash(hashValue) {
         try {
@@ -2522,14 +2474,14 @@
       }
 
       function applyRoute(rawHash, updateUrl) {
-        const hash = (rawHash || '').toLowerCase();
+        const hash = (rawHash || '#top').toLowerCase();
         const homeMain = document.getElementById('top');
         const changelogView = document.getElementById('view-changelog');
         const navChangelogLink = document.getElementById('nav-changelog-link');
 
         currentRoute = hash;
         if (updateUrl) {
-          if (hash) {
+          if (hash && hash !== '#top') {
             safeUpdateHash(hash);
           } else {
             safeClearHash();
@@ -2569,67 +2521,167 @@
               targetEl.scrollIntoView({ behavior: 'smooth' });
             }, 30);
           }
-        } else if (hash === '#top') {
+        } else {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }
 
       // =========================================================================
-      // REGISTRO DE TODOS OS EVENT LISTENERS
+      // DELEGAÇÃO GLOBAL DE EVENTOS (GARANTE RESPOSTA EM TODOS OS BOTÕES)
       // =========================================================================
       function bindEvents() {
-        // Botões de Idioma (PT | EN | ES)
-        document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
-          btn.addEventListener('click', () => {
-            const lang = btn.getAttribute('data-lang-btn');
-            setLanguage(lang);
-          });
-        });
+        document.addEventListener('click', (event) => {
+          const target = event.target;
+          if (!target || typeof target.closest !== 'function') return;
 
-        // Links internos de rota
-        document.querySelectorAll('[data-route]').forEach((link) => {
-          link.addEventListener('click', (event) => {
+          // 1. Botões de Idioma (PT | EN | ES)
+          const langBtn = target.closest('[data-lang-btn]');
+          if (langBtn) {
             event.preventDefault();
-            const targetRoute = link.getAttribute('data-route') || '#top';
-            if (link.hasAttribute('data-mobile-link')) {
+            setLanguage(langBtn.getAttribute('data-lang-btn'));
+            return;
+          }
+
+          // 2. Links internos de rota (#simulador, #recursos, #changelog, #termos, etc.)
+          const routeLink = target.closest('[data-route]');
+          if (routeLink) {
+            event.preventDefault();
+            const targetRoute = routeLink.getAttribute('data-route') || '#top';
+            if (routeLink.hasAttribute('data-mobile-link')) {
               closeMobileMenu();
             }
             applyRoute(targetRoute, true);
-          });
-        });
+            return;
+          }
 
-        // Menu Mobile
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        if (mobileMenuBtn) {
-          mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-        }
+          // 3. Menu Mobile
+          if (target.closest('#mobile-menu-btn')) {
+            event.preventDefault();
+            toggleMobileMenu();
+            return;
+          }
 
-        // Alternador do Simulador (/search vs /privatesearch vs /help)
-        const modeBtnPublic = document.getElementById('mode-btn-public');
-        const modeBtnPrivate = document.getElementById('mode-btn-private');
-        const modeBtnHelp = document.getElementById('mode-btn-help');
-        const ephemeralSwitchBtn = document.getElementById('sim-ephemeral-switch-btn');
-        const restoreBtn = document.getElementById('sim-restore-btn');
-        const regionSelect = document.getElementById('sim-region-select');
+          // 4. Tabs do Simulador (/search | /privatesearch | /help)
+          if (target.closest('#mode-btn-public')) {
+            event.preventDefault();
+            setSimMode('public', false);
+            return;
+          }
+          if (target.closest('#mode-btn-private')) {
+            event.preventDefault();
+            setSimMode('private', false);
+            return;
+          }
+          if (target.closest('#mode-btn-help')) {
+            event.preventDefault();
+            setSimMode('help', true);
+            return;
+          }
+          if (target.closest('#sim-ephemeral-switch-btn')) {
+            event.preventDefault();
+            setSimMode('public', false);
+            return;
+          }
 
-        if (modeBtnPublic) {
-          modeBtnPublic.addEventListener('click', () => setSimMode('public', false));
-        }
-        if (modeBtnPrivate) {
-          modeBtnPrivate.addEventListener('click', () => setSimMode('private', false));
-        }
-        if (modeBtnHelp) {
-          modeBtnHelp.addEventListener('click', () => setSimMode('help', true));
-        }
-        if (ephemeralSwitchBtn) {
-          ephemeralSwitchBtn.addEventListener('click', () => setSimMode('public', false));
-        }
-        if (restoreBtn) {
-          restoreBtn.addEventListener('click', () => {
+          // 5. Chips de Exemplos do Simulador
+          const presetBtn = target.closest('[data-preset-index]');
+          if (presetBtn) {
+            event.preventDefault();
+            const idx = Number(presetBtn.getAttribute('data-preset-index'));
+            const presets = TRANSLATIONS[currentLang].sim.presets;
+            const chosen = presets[idx] || presets[0];
+            if (currentSimMode === 'help') {
+              setSimMode('public', false);
+            }
+            const simInput = document.getElementById('sim-input');
+            if (simInput) simInput.value = chosen.query;
+            currentSimPage = 1;
+            isSimDeleted = false;
+            renderSimMessage(chosen.query, true);
+            return;
+          }
+
+          // 6. Botões de Ação do Simulador (Delete, Previous page, Next Page, Restaurar)
+          const simActionBtn = target.closest('[data-sim-action]');
+          if (simActionBtn) {
+            event.preventDefault();
+            const action = simActionBtn.getAttribute('data-sim-action');
+            if (action === 'delete') {
+              isSimDeleted = true;
+              showToast(TRANSLATIONS[currentLang].sim.deletedToast);
+              renderSimMessage(currentSimQuery, false);
+            } else if (action === 'prev' && currentSimPage > 1) {
+              currentSimPage = 1;
+              renderSimMessage(currentSimQuery, false);
+            } else if (action === 'next' && currentSimPage < 2) {
+              currentSimPage = 2;
+              renderSimMessage(currentSimQuery, false);
+            }
+            return;
+          }
+
+          if (target.closest('#sim-restore-btn')) {
+            event.preventDefault();
             isSimDeleted = false;
             renderSimMessage(currentSimQuery, true);
-          });
-        }
+            return;
+          }
+
+          // 7. Botões de Copiar Comando
+          const copyBtn = target.closest('[data-copy-cmd]');
+          if (copyBtn) {
+            event.preventDefault();
+            handleCopyCommand(copyBtn.getAttribute('data-copy-cmd') || '', copyBtn);
+            return;
+          }
+
+          // 8. Perguntas Frequentes (FAQ Acordeão)
+          const faqBtn = target.closest('[data-faq-index]');
+          if (faqBtn) {
+            event.preventDefault();
+            const idx = Number(faqBtn.getAttribute('data-faq-index'));
+            openFaqIndex = openFaqIndex === idx ? -1 : idx;
+            renderFaq();
+            return;
+          }
+
+          // 9. Botão Rever Animação do Changelog
+          if (target.closest('#changelog-replay-btn')) {
+            event.preventDefault();
+            renderChangelog(true);
+            return;
+          }
+
+          // 10. Controles do Modal Legal (#termos e #privacidade)
+          if (target.closest('#legal-tab-terms')) {
+            event.preventDefault();
+            applyRoute('#termos', true);
+            return;
+          }
+          if (target.closest('#legal-tab-privacy')) {
+            event.preventDefault();
+            applyRoute('#privacidade', true);
+            return;
+          }
+          if (target.closest('#legal-close-x')) {
+            event.preventDefault();
+            closeLegalModal();
+            return;
+          }
+          if (target.closest('#legal-close-btn')) {
+            event.preventDefault();
+            hideLegalModalElement();
+            applyRoute('#top', true);
+            return;
+          }
+          const legalModal = document.getElementById('legal-modal');
+          if (legalModal && target === legalModal) {
+            closeLegalModal();
+          }
+        });
+
+        // Seletor de Região (BR, US, ES, FR, DE, IT)
+        const regionSelect = document.getElementById('sim-region-select');
         if (regionSelect) {
           regionSelect.addEventListener('change', () => {
             currentSimRegion = regionSelect.value;
@@ -2662,50 +2714,6 @@
           });
         }
 
-        // Botões de Copiar Comando
-        document.querySelectorAll('[data-copy-cmd]').forEach((btn) => {
-          btn.addEventListener('click', () => {
-            const cmdText = btn.getAttribute('data-copy-cmd') || '';
-            handleCopyCommand(cmdText, btn);
-          });
-        });
-
-        // Botão Rever Animação no Changelog
-        const replayBtn = document.getElementById('changelog-replay-btn');
-        if (replayBtn) {
-          replayBtn.addEventListener('click', () => renderChangelog(true));
-        }
-
-        // Controles do Modal Legal (#termos e #privacidade)
-        const legalModal = document.getElementById('legal-modal');
-        const legalTabTerms = document.getElementById('legal-tab-terms');
-        const legalTabPrivacy = document.getElementById('legal-tab-privacy');
-        const legalCloseX = document.getElementById('legal-close-x');
-        const legalCloseBtn = document.getElementById('legal-close-btn');
-
-        if (legalTabTerms) {
-          legalTabTerms.addEventListener('click', () => applyRoute('#termos', true));
-        }
-        if (legalTabPrivacy) {
-          legalTabPrivacy.addEventListener('click', () => applyRoute('#privacidade', true));
-        }
-        if (legalCloseX) {
-          legalCloseX.addEventListener('click', closeLegalModal);
-        }
-        if (legalCloseBtn) {
-          legalCloseBtn.addEventListener('click', () => {
-            hideLegalModalElement();
-            applyRoute('#top', true);
-          });
-        }
-        if (legalModal) {
-          legalModal.addEventListener('click', (event) => {
-            if (event.target === legalModal) {
-              closeLegalModal();
-            }
-          });
-        }
-
         // Tecla ESC fecha o modal legal
         document.addEventListener('keydown', (event) => {
           if (event.key === 'Escape' && activeLegalTab) {
@@ -2720,18 +2728,10 @@
             syncChangelogTrackGeometry(changelogActiveStep, true);
           }
         });
-
-        // Suporte a navegação por hash (Voltar/Avançar do navegador e links diretos)
-        window.addEventListener('hashchange', () => {
-          const nextHash = (window.location.hash || '').toLowerCase();
-          if (nextHash !== currentRoute) {
-            applyRoute(nextHash, false);
-          }
-        });
       }
 
       // =========================================================================
-      // INICIALIZAÇÃO SEGURA (ANTES OU DEPOIS DO DOMContentLoaded)
+      // INICIALIZAÇÃO IMEDIATA E SEGURA
       // =========================================================================
       function initApp() {
         if (isInitialized) return;
@@ -2749,23 +2749,23 @@
         if (simBrand) simBrand.textContent = CONFIG.botName;
         if (footerBrand) footerBrand.textContent = CONFIG.botName;
 
-        // Registra eventos e inicializa estado padrão
+        // Registra eventos e hidrata toda a interface imediatamente
         bindEvents();
         setLanguage('pt');
         setSimMode('public', false);
+      }
 
-        // Aplica rota inicial caso abra direto em #changelog, #termos ou #privacidade
-        const initialHash = (window.location.hash || '').toLowerCase();
-        if (initialHash) {
-          applyRoute(initialHash, false);
-        }
+      // Executa imediatamente (já que o script está no final do <body>) e mantém fallbacks
+      try {
+        initApp();
+      } catch (err) {
+        console.error('Erro na inicialização:', err);
       }
 
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initApp);
-      } else {
-        initApp();
       }
+      window.addEventListener('load', initApp);
     })();
   </script>
 </body>
