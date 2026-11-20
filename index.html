@@ -135,6 +135,15 @@
     .dot-pulse-ring {
       animation: trackingPulse 2.2s ease-out infinite;
     }
+
+    /* Oculta barra de rolagem horizontal do seletor de idiomas em telas muito estreitas */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   </style>
 </head>
 <body class="bg-discord-darkest text-discord-text font-sans antialiased selection:bg-discord-blurple/40 selection:text-white overflow-x-hidden">
@@ -179,11 +188,14 @@
 
         <!-- Ações à Direita: Idioma + Adicionar + Menu Mobile -->
         <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-          <!-- Seletor de Idiomas PT | EN | ES -->
-          <div class="flex items-center bg-discord-darker border border-white/10 rounded-xl p-1" role="group" aria-label="Seletor de idioma">
-            <button type="button" data-lang-btn="pt" aria-pressed="true" class="lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer bg-discord-blurple text-white shadow-sm">PT</button>
-            <button type="button" data-lang-btn="en" aria-pressed="false" class="lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white">EN</button>
-            <button type="button" data-lang-btn="es" aria-pressed="false" class="lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white">ES</button>
+          <!-- Seletor de Idiomas PT | EN | ES | FR | DE | IT -->
+          <div class="flex items-center bg-discord-darker border border-white/10 rounded-xl p-1 max-w-[178px] sm:max-w-none overflow-x-auto no-scrollbar" role="group" aria-label="Seletor de idioma">
+            <button type="button" data-lang-btn="pt" aria-pressed="true" class="lang-btn shrink-0 px-2 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer bg-discord-blurple text-white shadow-sm">PT</button>
+            <button type="button" data-lang-btn="en" aria-pressed="false" class="lang-btn shrink-0 px-2 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white">EN</button>
+            <button type="button" data-lang-btn="es" aria-pressed="false" class="lang-btn shrink-0 px-2 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white">ES</button>
+            <button type="button" data-lang-btn="fr" aria-pressed="false" class="lang-btn shrink-0 px-2 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white">FR</button>
+            <button type="button" data-lang-btn="de" aria-pressed="false" class="lang-btn shrink-0 px-2 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white">DE</button>
+            <button type="button" data-lang-btn="it" aria-pressed="false" class="lang-btn shrink-0 px-2 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white">IT</button>
           </div>
 
           <!-- Botão Adicionar Desktop -->
@@ -758,7 +770,7 @@
       // =========================================================================
       const CONFIG = {
         inviteUrl: 'https://discord.com/oauth2/authorize?client_id=1442546622805577859',
-        // Cole aqui o link oficial do template no BotGhost Marketplace quando aprovar
+        // Cole aqui o link oficial do seu template assim que aprovar no BotGhost Marketplace
         marketplaceUrl: 'https://botghost.com/marketplace',
         botName: 'Bing Search',
         siteUrl: 'https://klinger230.github.io/bing-search-bot/'
@@ -774,7 +786,7 @@
       let currentSimRegion = 'BR'; // BR | US | ES | FR | DE | IT
       let isSimDeleted = false;
       let openFaqIndex = 0;
-      let currentRoute = '#top';
+      let currentRoute = '';
       let activeLegalTab = null;
       let changelogActiveStep = -1;
       let toastTimeout = null;
@@ -783,7 +795,7 @@
       let isInitialized = false;
 
       // =========================================================================
-      // DICIONÁRIO COMPLETO DE TRADUÇÕES (PT-BR | EN | ES)
+      // DICIONÁRIO COMPLETO DE TRADUÇÕES (PT-BR | EN | ES | FR | DE | IT)
       // Ordem do Changelog: v1.0 -> v1.5 -> v2.0 -> v2.5
       // =========================================================================
       const TRANSLATIONS = {
@@ -1778,6 +1790,999 @@
               <p>Este es un proyecto independiente sin vínculo oficial con Microsoft, Bing o Brave. Al hacer clic en cualquier enlace o botón de resultado, quedarás sujeto a las políticas de privacidad del sitio web de destino.</p>
             `
           }
+        },
+
+        fr: {
+          htmlLang: 'fr',
+          defaultRegion: 'FR',
+          pageTitle: `${CONFIG.botName} v2.5 — Recherches Web directement sur Discord`,
+          badges: { new: 'NOUVEAU', v25: 'v2.5' },
+          nav: {
+            simulator: 'Simulateur',
+            features: 'Fonctionnalités',
+            commands: 'Commandes',
+            faq: 'FAQ',
+            changelog: 'Changelog',
+            add: 'Ajouter',
+          },
+          hero: {
+            badgeText: 'Embeds + pagination jusqu\'à <strong class="text-bing-cyan">4 résultats</strong>, 6 régions et moteur officiel Brave Search API !',
+            titleStart: 'Recherchez sur le web dans',
+            titleHighlight: ' Discord',
+            titleEnd: ' — rapide, clair et interactif.',
+            subtitle: 'Des réponses affichées dans des <strong class="text-white">Embeds interactifs</strong> avec pagination sur 2 pages (jusqu\'à <strong class="text-white">4 résultats</strong>), 6 régions (<code class="text-bing-cyan">BR, US, ES, FR, DE, IT</code>), mode privé, bouton de suppression et nouveau moteur officiel haute vitesse.',
+            ctaPrimary: 'Ajouter à Discord',
+            ctaSecondary: 'Tester le Simulateur v2.5',
+            ctaMarketplace: 'BotGhost Marketplace',
+            pill1: '100 % Gratuit',
+            pill2: 'Embeds & Pagination (4 résultats)',
+            pill3: '6 Régions • Public, Privé & /help',
+            pill4: 'BotGhost Marketplace',
+          },
+          sim: {
+            title: 'Testez la nouvelle interface v2.5 sur Discord',
+            subtitle: 'Basculez entre /search, /privatesearch et /help, naviguez entre les pages 1/2 et 2/2 et essayez les boutons interactifs.',
+            channelName: 'général',
+            channelTopic: 'Simulation v2.5 : Embeds, pagination (4 résultats), 6 régions et boutons',
+            botOnline: 'En ligne',
+            demoUser: 'Vous',
+            usedCommand: 'a utilisé',
+            timestamp: 'Aujourd\'hui à 21:05',
+            resultsFor: 'Résultats pour :',
+            ephemeralNote: 'Seul vous pouvez voir ce message',
+            ephemeralSwitch: 'Tester le mode public (/search)',
+            inputPlaceholder: 'Tapez un terme pour simuler une recherche...',
+            helpInputPlaceholder: '/help ne nécessite aucun texte — cliquez sur Lancer ou changez de mode',
+            searchBtn: 'Rechercher',
+            helpBtn: 'Lancer /help',
+            btnResult: 'Résultat',
+            btnDelete: 'Delete / Supprimer',
+            btnPrev: 'Previous page',
+            btnNext: 'Next Page',
+            footerPublic: 'Bing Search • Public Search / Recherche Publique',
+            footerPrivate: 'Bing Search • Private Mode / Mode Privé',
+            footerPage: 'Page',
+            deletedTitle: 'Message supprimé du salon public !',
+            deletedDesc: 'Avec /search, vous pouvez nettoyer le salon à tout moment en cliquant sur le bouton Delete / Supprimer.',
+            deletedToast: 'Message supprimé du simulateur !',
+            restoreBtn: 'Restaurer la recherche',
+            helpTitle: '🔍 Aide — Bing Search v2.5',
+            helpIntro: 'Effectuez des recherches web sans quitter Discord grâce aux Embeds modernes, à la pagination jusqu\'à 4 résultats et aux 6 régions prises en charge :',
+            helpCmd1: '<strong>/search</strong> — Recherche publique sur 2 pages, boutons de lien rapide, cooldown anti-spam et bouton <em>Delete / Supprimer</em>.',
+            helpCmd2: '<strong>/privatesearch</strong> — Recherche privée (éphémère), visible uniquement par vous, sur 2 pages de résultats.',
+            helpCmd3: '<strong>/help</strong> — Affiche ce guide rapide multilingue et le lien vers le site officiel.',
+            helpRegions: '<strong>Régions disponibles :</strong> <code>BR</code>, <code>US</code>, <code>ES</code>, <code>FR</code>, <code>DE</code> et <code>IT</code>.',
+            helpFooter: 'Bing Search v2.5 • Propulsé par Brave Search API',
+            helpSiteBtn: 'Site Officiel & Changelog',
+            presets: [
+              {
+                query: 'météo Paris',
+                results: [
+                  {
+                    title: 'Météo Paris — Prévisions à 15 jours | Météo-France',
+                    content: 'Aujourd\'hui à Paris : éclaircies passagères, maximale de 18°C et minimale de 10°C, vent faible en après-midi et soirée calme.',
+                    url: 'https://meteofrance.com/previsions-meteo-france/paris/75000'
+                  },
+                  {
+                    title: 'Météo en direct à Paris — La Chaîne Météo',
+                    content: 'Températures heure par heure, radar de précipitations, indice UV et bulletins de vigilance pour l\'Île-de-France.',
+                    url: 'https://www.lachainemeteo.com/meteo-france/ville-39/previsions-meteo-paris-aujourdhui'
+                  },
+                  {
+                    title: 'Qualité de l\'air à Paris — Airparif',
+                    content: 'Indice quotidien de qualité de l\'air, prévisions de pollution et recommandations officielles pour le Grand Paris.',
+                    url: 'https://www.airparif.fr/'
+                  },
+                  {
+                    title: 'Radar pluie et nuages en temps réel — Météociel',
+                    content: 'Suivi en direct des averses, pression atmosphérique et relevés des stations météorologiques parisiennes.',
+                    url: 'https://www.meteociel.fr/'
+                  }
+                ]
+              },
+              {
+                query: 'raccourcis Discord',
+                results: [
+                  {
+                    title: 'Raccourcis clavier Discord — Centre d\'aide officiel',
+                    content: 'Gagnez du temps sur Discord : Ctrl+K pour la recherche rapide de salon, Ctrl+Maj+M pour couper le micro et Alt+Flèches pour naviguer.',
+                    url: 'https://support.discord.com/hc/fr'
+                  },
+                  {
+                    title: 'Guide de mise en forme Markdown sur Discord',
+                    content: 'Apprenez à utiliser le gras, l\'italique, les blocs de code, les spoilers et les liens sans aperçu dans vos messages.',
+                    url: 'https://support.discord.com/hc/fr/articles/210298617'
+                  },
+                  {
+                    title: 'Commandes Slash sur Discord : guide complet',
+                    content: 'Découvrez comment exécuter des commandes avec barre oblique (/), remplir les options et gérer les permissions par salon.',
+                    url: 'https://support.discord.com/hc/fr/articles/1500000368501'
+                  },
+                  {
+                    title: 'Centre de Sécurité et Confidentialité Discord',
+                    content: 'Activez l\'authentification à deux facteurs, filtrez les messages privés et protégez votre serveur contre le spam.',
+                    url: 'https://discord.com/safety'
+                  }
+                ]
+              },
+              {
+                query: 'actualités tech',
+                results: [
+                  {
+                    title: 'Frandroid — Actualités Tech, Smartphones & IA',
+                    content: 'Tests complets, guides d\'achat et dernières nouvelles sur les smartphones, PC, intelligence artificielle et mobilité électrique.',
+                    url: 'https://www.frandroid.com/'
+                  },
+                  {
+                    title: 'Numerama — Tech, Sciences et Culture Numérique',
+                    content: 'Enquêtes, décryptages et actualités quotidiennes sur Internet, cybersécurité, jeux vidéo et innovations scientifiques.',
+                    url: 'https://www.numerama.com/'
+                  },
+                  {
+                    title: 'Les Numériques — Comparatifs & Tests Produits',
+                    content: 'Analyses indépendantes de matériel informatique, écrans, cartes graphiques, audio et équipements high-tech.',
+                    url: 'https://www.lesnumeriques.com/'
+                  },
+                  {
+                    title: 'Clubic — Logiciels, Hardware et Nouvelles Technologies',
+                    content: 'Actualités informatiques, tutoriels pratiques, mises à jour logicielles et bons plans tech chaque jour.',
+                    url: 'https://www.clubic.com/'
+                  }
+                ]
+              }
+            ],
+            customTemplate: (q) => [
+              {
+                title: `${q} — Guide complet et informations clés`,
+                content: `Synthèse principale, définitions et références fiables trouvées sur le web à propos de « ${q} » directement dans Discord.`,
+                url: `https://fr.wikipedia.org/wiki/${encodeURIComponent(q.replace(/\s+/g, '_'))}`
+              },
+              {
+                title: `Tout savoir sur ${q} : articles et actualités`,
+                content: `Sélection de contenus récents, guides pratiques et liens utiles liés à « ${q} » sans ouvrir de navigateur.`,
+                url: `https://search.brave.com/search?q=${encodeURIComponent(q)}`
+              },
+              {
+                title: `${q} — Discussions et avis de la communauté`,
+                content: `Échanges, astuces et retours d'expérience partagés par des utilisateurs et passionnés sur « ${q} ».`,
+                url: `https://www.reddit.com/search/?q=${encodeURIComponent(q)}`
+              },
+              {
+                title: `Vidéos, analyses et résumés sur ${q}`,
+                content: `Découvrez des explications vidéo, tests et présentations récentes concernant « ${q} ».`,
+                url: `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`
+              }
+            ]
+          },
+          features: {
+            title: 'Conçu pour des recherches rapides et soignées',
+            subtitle: 'La version 2.5 apporte une refonte complète du design, de la pagination et de la fiabilité des recherches.',
+            f1Title: 'Embeds & Jusqu\'à 4 Résultats',
+            f1Desc: 'Des Embeds Discord bleus avec 2 pages interactives (Previous / Next Page) et des boutons d\'accès direct pour ouvrir chaque lien en un clic.',
+            f2Title: '6 Régions de Recherche',
+            f2Desc: 'Ciblez des résultats pour le Brésil (BR), les États-Unis (US), l\'Espagne (ES), la France (FR), l\'Allemagne (DE) ou l\'Italie (IT) dans chaque commande.',
+            f3Title: 'Moteur Officiel Brave Search API',
+            f3Desc: 'Migration vers l\'API officielle de Brave Search : plus de stabilité, des réponses rapides et des descriptions 100 % propres sans balises HTML.',
+            f4Title: 'Mode Privé (/privatesearch)',
+            f4Desc: 'Résultats en message éphémère visibles uniquement par vous, désormais enrichis d\'Embeds complets, de titres cliquables et de 4 résultats paginés.',
+            f5Title: 'Bouton Supprimer & Cooldown',
+            f5Desc: 'La commande publique /search intègre un bouton Delete / Supprimer pour garder le salon propre ainsi qu\'un cooldown anti-spam.',
+            f6Title: 'Aide Multilingue & Confidentialité',
+            f6Desc: 'Nouvelle commande /help multilingue, 100 % gratuite, sans historique de recherche enregistré et avec des permissions minimales.',
+          },
+          commands: {
+            title: 'Commandes & Utilisation',
+            subtitle: 'Trois commandes slash simples et efficaces — jusqu\'à 4 résultats paginés et 6 régions.',
+            publicTag: '🌐 Réponse Publique + Supprimer',
+            privateTag: '🔒 Réponse Privée',
+            helpTag: '❓ Guide Interactif',
+            fourItemsTag: 'Jusqu\'à 4 résultats (2 pages)',
+            termPlaceholder: '[terme]',
+            copyBtn: 'Copier',
+            copiedBtn: 'Copié !',
+            copiedToast: 'Commande copiée dans le presse-papiers !',
+            publicDesc: 'Recherche sur le web et publie un Embed public avec jusqu\'à 4 résultats sur 2 pages, boutons de lien rapide, cooldown anti-spam et bouton Delete / Supprimer.',
+            privateDesc: 'Recherche éphémère avec Embed bleu et titres cliquables : seul l\'utilisateur ayant lancé la commande voit les 2 pages de résultats.',
+            helpDesc: 'Affiche le panneau d\'aide multilingue directement dans Discord avec la liste des commandes, les régions disponibles et un bouton vers le site officiel.',
+          },
+          steps: {
+            s1Title: 'Ajoutez au serveur',
+            s1Desc: 'Cliquez sur « Ajouter à Discord » et autorisez le bot sur votre serveur en moins de 10 secondes.',
+            s2Title: 'Choisissez le mode et la région',
+            s2Desc: 'Utilisez <code class="text-white">/search</code> ou <code class="text-bing-cyan">/privatesearch</code> puis choisissez parmi 6 régions : <code class="text-white">BR, US, ES, FR, DE, IT</code>.',
+            s3Title: 'Parcourez 4 résultats',
+            s3Desc: 'Naviguez entre les 2 pages via les boutons interactifs, ouvrez un lien en 1 clic ou supprimez une recherche publique quand vous voulez.',
+          },
+          faq: {
+            title: 'Questions Fréquentes',
+            subtitle: 'Tout savoir sur les nouveautés v2.5, le fonctionnement et la confidentialité de Bing Search.',
+            items: [
+              {
+                q: 'Quelles sont les nouveautés de la version 2.5 ?',
+                a: 'La v2.5 introduit des Embeds Discord modernes, la pagination sur 2 pages jusqu\'à 4 résultats, des boutons de lien rapide, un bouton Delete / Supprimer et un cooldown anti-spam sur /search, la commande /help multilingue, 6 régions (BR, US, ES, FR, DE, IT) et le moteur officiel Brave Search API.'
+              },
+              {
+                q: 'Combien de résultats sont affichés par recherche ?',
+                a: '/search et /privatesearch retournent désormais jusqu\'à 4 résultats complets répartis sur 2 pages (2 en Page 1 et 2 en Page 2), accessibles via Previous page et Next Page.'
+              },
+              {
+                q: 'Quelle est la différence entre /search et /privatesearch ?',
+                a: '/search publie un Embed visible par tout le salon avec bouton Delete / Supprimer et cooldown anti-spam. /privatesearch envoie un message éphémère (« Seul vous pouvez voir ce message ») pour une confidentialité totale.'
+              },
+              {
+                q: 'Quelles régions et langues sont prises en charge ?',
+                a: 'Vous pouvez sélectionner 6 régions directement dans l\'option language de la commande : BR (Brésil), US (États-Unis / Anglais), ES (Espagne), FR (France), DE (Allemagne) et IT (Italie).'
+              },
+              {
+                q: 'Le bot est-il gratuit et mes recherches sont-elles enregistrées ?',
+                a: 'Oui, le bot est 100 % gratuit et aucun historique de recherche n\'est conservé. Votre requête est traitée en temps réel via l\'API officielle Brave Search avec des permissions minimales.'
+              },
+              {
+                q: 'Bing Search est-il un projet officiel de Microsoft ou de Brave ?',
+                a: 'Non. Ce bot est un projet communautaire indépendant conçu pour faciliter les recherches sur Discord via l\'API publique Brave Search, sans affiliation officielle avec Microsoft, Bing, Brave Software ou Discord Inc.'
+              }
+            ]
+          },
+          changelog: {
+            back: '← Retour à l\'accueil',
+            title: 'Changelog & Versions',
+            liveStatus: 'En ligne sur Discord',
+            subtitle: 'Suivez toute l\'évolution de Bing Search depuis son lancement jusqu\'à la version 2.5.',
+            replay: 'Rejouer l\'animation',
+            releases: [
+              {
+                version: 'v1.0',
+                statusLabel: 'Lancement',
+                date: '24 Novembre 2025',
+                isLatest: false,
+                title: 'Naissance de Bing Search',
+                changes: [
+                  { tag: 'RELEASE', color: 'amber', text: 'Création officielle du bot <strong>Bing Search</strong> sur Discord avec moteur de recherche web intégré.' },
+                  { tag: 'NOUVEAU', color: 'emerald', text: 'Mise en place de la commande de base <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> pour chercher sans quitter le chat.' },
+                  { tag: 'VISUEL', color: 'purple', text: 'Création complète de l\'identité visuelle : avatar, bannière et description officielle.' }
+                ]
+              },
+              {
+                version: 'v1.5',
+                statusLabel: 'Mise à jour',
+                date: '2026',
+                isLatest: false,
+                title: 'Site Officiel & Support Multilingue',
+                changes: [
+                  { tag: 'NOUVEAU', color: 'emerald', text: 'Publication du site officiel sur GitHub Pages avec traductions multilingues.' },
+                  { tag: 'NOUVEAU', color: 'emerald', text: 'Ajout des Conditions d\'Utilisation, de la Politique de Confidentialité et du message de bienvenue en MP.' },
+                  { tag: 'AMÉLIORÉ', color: 'indigo', text: 'Ajout du sélecteur de langue sur la commande publique <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code>.' }
+                ]
+              },
+              {
+                version: 'v2.0',
+                statusLabel: 'Mise à jour',
+                date: 'Novembre 2026',
+                isLatest: false,
+                title: 'Mode Privé, Langues & Résultats Multiples',
+                changes: [
+                  { tag: 'NOUVEAU', color: 'emerald', text: 'Lancement de <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/privatesearch</code> avec réponses éphémères visibles uniquement par l\'auteur.' },
+                  { tag: 'NOUVEAU', color: 'emerald', text: 'Filtre de langue intégré également en mode privé.' },
+                  { tag: 'AMÉLIORÉ', color: 'indigo', text: 'Support étendu jusqu\'à <strong>2 résultats complets</strong> par recherche et lancement du simulateur interactif.' }
+                ]
+              },
+              {
+                version: 'v2.5',
+                statusLabel: 'Version Actuelle',
+                date: 'Novembre 2026',
+                isLatest: true,
+                title: 'Embeds, Pagination (4 Résultats), 6 Régions & Brave Search API',
+                changes: [
+                  { tag: 'NOUVEAU', color: 'emerald', text: 'Nouvel affichage en <strong>Embeds bleus</strong>, pied de page (<code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">Page 1/2</code>) et boutons <strong>Previous page</strong> / <strong>Next Page</strong> affichant jusqu\'à <strong>4 résultats</strong>.' },
+                  { tag: 'NOUVEAU', color: 'emerald', text: 'Boutons de lien rapide (<strong>Résultat 1 / Résultat 2</strong>), bouton rouge <strong>Delete / Supprimer</strong> et <strong>cooldown anti-spam</strong> sur <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code>.' },
+                  { tag: 'NOUVEAU', color: 'emerald', text: 'Nouvelle commande <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/help</code> multilingue avec bouton vers le site officiel.' },
+                  { tag: 'AMÉLIORÉ', color: 'indigo', text: 'Prise en charge étendue à <strong>6 régions</strong> (<code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">BR, US, ES, FR, DE, IT</code>) en mode public et privé.' },
+                  { tag: 'MOTEUR', color: 'purple', text: 'Migration complète vers l\'API officielle <strong>Brave Search API</strong> avec clés sécurisées et descriptions nettoyées (sans balises HTML).' }
+                ]
+              }
+            ]
+          },
+          cta: {
+            title: 'Prêt à essayer Bing Search v2.5 ?',
+            subtitle: 'Ajoutez-le gratuitement à votre serveur et profitez des Embeds interactifs, de 4 résultats paginés, de 6 régions et du moteur officiel.',
+          },
+          footer: {
+            disclaimer: 'Projet indépendant pour Discord. Non affilié officiellement à Microsoft, Bing, Brave ou Discord Inc.',
+            terms: 'Conditions d\'Utilisation',
+            privacy: 'Politique de Confidentialité',
+            invite: 'Inviter le Bot',
+            marketplace: 'BotGhost Marketplace',
+          },
+          legal: {
+            backBtn: 'Retour à l\'accueil',
+            updated: 'Dernière mise à jour : Novembre 2026 (v2.5)',
+            termsTitle: 'Conditions d\'Utilisation',
+            termsBody: `
+              <p>En ajoutant ou en utilisant le bot <strong>${CONFIG.botName}</strong> sur Discord, vous acceptez les conditions décrites ci-dessous.</p>
+              <h3 class="text-lg font-bold text-white pt-2">1. Projet Indépendant</h3>
+              <p><strong>${CONFIG.botName}</strong> est un projet communautaire indépendant et gratuit conçu pour faciliter les recherches web dans Discord. Ce service <strong>n'est pas officiel</strong> et n'a aucune affiliation avec Microsoft Corporation, Bing, Brave Software ou Discord Inc.</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Fonctionnement des Commandes</h3>
+              <p>Le bot propose <code>/search</code> (Embeds publics paginés avec cooldown anti-spam et bouton Delete), <code>/privatesearch</code> (Embeds éphémères visibles uniquement par l'auteur) et <code>/help</code> (guide d'utilisation), retournant jusqu'à 4 résultats sur 2 pages via une API de recherche officielle.</p>
+              <h3 class="text-lg font-bold text-white pt-2">3. Utilisation Responsable</h3>
+              <p>Vous vous engagez à ne pas utiliser le bot pour du spam, de l'automatisation abusive, des recherches illégales ou toute infraction aux Conditions d'Utilisation de Discord. L'accès peut être restreint en cas d'abus.</p>
+              <h3 class="text-lg font-bold text-white pt-2">4. Contenu Tiers et Disponibilité</h3>
+              <p>Les titres, résumés et liens renvoyés appartiennent à des sites tiers indexés sur le web. Nous ne garantissons pas une disponibilité ininterrompue à 100 % et ne sommes pas responsables du contenu des sites externes.</p>
+            `,
+            privacyTitle: 'Politique de Confidentialité',
+            privacyBody: `
+              <p>Votre vie privée est essentielle sur <strong>${CONFIG.botName}</strong>. Cette politique explique comment les données sont traitées lors de l'utilisation des commandes sur Discord.</p>
+              <h3 class="text-lg font-bold text-white pt-2">1. Aucun Stockage de l'Historique</h3>
+              <p>Le terme saisi dans <code>busca</code> et la région choisie dans <code>language</code> sont traités uniquement en temps réel via la Brave Search API pour renvoyer jusqu'à 4 résultats. <strong>Nous ne stockons aucun historique de recherche</strong>, ne relions pas vos requêtes à votre identifiant Discord et ne vendons aucune donnée.</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Confidentialité Éphémère de /privatesearch</h3>
+              <p>Avec <code>/privatesearch</code>, la réponse utilise les messages éphémères natifs de Discord (<em>« Seul vous pouvez voir ce message »</em>). Les autres membres ne peuvent pas voir vos résultats et le message disparaît dès qu'il est fermé.</p>
+              <h3 class="text-lg font-bold text-white pt-2">3. Données Opérationnelles Minimales</h3>
+              <p>Le bot ne lit pas les messages ordinaires de vos salons : il réagit uniquement aux commandes slash (<code>/search</code>, <code>/privatesearch</code> ou <code>/help</code>). Le cooldown anti-spam fonctionne uniquement en mémoire temporaire.</p>
+              <h3 class="text-lg font-bold text-white pt-2">4. Indépendance et Liens Externes</h3>
+              <p>Ce projet est indépendant de Microsoft, Bing et Brave. En cliquant sur un lien de résultat, vous êtes soumis à la politique de confidentialité du site de destination.</p>
+            `
+          }
+        },
+
+        de: {
+          htmlLang: 'de',
+          defaultRegion: 'DE',
+          pageTitle: `${CONFIG.botName} v2.5 — Websuche direkt in Discord`,
+          badges: { new: 'NEU', v25: 'v2.5' },
+          nav: {
+            simulator: 'Simulator',
+            features: 'Funktionen',
+            commands: 'Befehle',
+            faq: 'FAQ',
+            changelog: 'Changelog',
+            add: 'Hinzufügen',
+          },
+          hero: {
+            badgeText: 'Embeds + Seitenwechsel mit bis zu <strong class="text-bing-cyan">4 Ergebnissen</strong>, 6 Regionen & offizieller Brave Search API!',
+            titleStart: 'Suche im Web direkt in',
+            titleHighlight: ' Discord',
+            titleEnd: ' — schnell, sauber & interaktiv.',
+            subtitle: 'Antworten in <strong class="text-white">interaktiven Embeds</strong> mit 2-Seiten-Navigation für bis zu <strong class="text-white">4 Ergebnisse</strong>, 6 Suchregionen (<code class="text-bing-cyan">BR, US, ES, FR, DE, IT</code>), Privatmodus, Löschen-Button und neuer offizieller Such-API.',
+            ctaPrimary: 'Zu Discord hinzufügen',
+            ctaSecondary: 'v2.5 Simulator testen',
+            ctaMarketplace: 'BotGhost Marketplace',
+            pill1: '100 % Kostenlos',
+            pill2: 'Embeds & Seitenwechsel (4 Ergebnisse)',
+            pill3: '6 Regionen • Öffentlich, Privat & /help',
+            pill4: 'BotGhost Marketplace',
+          },
+          sim: {
+            title: 'Teste das neue v2.5-Design in Discord',
+            subtitle: 'Wechsle zwischen /search, /privatesearch und /help, blättere durch Seite 1/2 und 2/2 und probiere alle echten Buttons aus.',
+            channelName: 'allgemein',
+            channelTopic: 'v2.5 Simulation: Embeds, Seitenwechsel (4 Ergebnisse), 6 Regionen & Buttons',
+            botOnline: 'Online',
+            demoUser: 'Du',
+            usedCommand: 'hat benutzt',
+            timestamp: 'Heute um 21:05',
+            resultsFor: 'Ergebnisse für:',
+            ephemeralNote: 'Nur du kannst dies sehen',
+            ephemeralSwitch: 'Öffentlichen Modus testen (/search)',
+            inputPlaceholder: 'Suchbegriff eingeben, um zu testen...',
+            helpInputPlaceholder: '/help benötigt keinen Text — klicke auf Ausführen oder wechsle den Modus',
+            searchBtn: 'Suchen',
+            helpBtn: '/help ausführen',
+            btnResult: 'Ergebnis',
+            btnDelete: 'Delete / Löschen',
+            btnPrev: 'Previous page',
+            btnNext: 'Next Page',
+            footerPublic: 'Bing Search • Public Search / Öffentliche Suche',
+            footerPrivate: 'Bing Search • Private Mode / Privater Modus',
+            footerPage: 'Seite',
+            deletedTitle: 'Nachricht im öffentlichen Kanal gelöscht!',
+            deletedDesc: 'Bei /search kannst du den Chat jederzeit sauber halten, indem du auf Delete / Löschen klickst.',
+            deletedToast: 'Simulierte Nachricht gelöscht!',
+            restoreBtn: 'Suche wiederherstellen',
+            helpTitle: '🔍 Hilfe — Bing Search v2.5',
+            helpIntro: 'Durchsuche das Web direkt in Discord mit modernen Embeds, 2 Seiten für bis zu 4 Ergebnisse und 6 wählbaren Regionen:',
+            helpCmd1: '<strong>/search</strong> — Öffentliche Suche mit 2 Seiten, Schnelllink-Buttons, Anti-Spam-Cooldown und <em>Delete / Löschen</em>-Button.',
+            helpCmd2: '<strong>/privatesearch</strong> — Private (flüchtige) Suche, nur für dich sichtbar, mit 2 Ergebnisseiten.',
+            helpCmd3: '<strong>/help</strong> — Zeigt diese mehrsprachige Kurzübersicht samt Link zur offiziellen Website.',
+            helpRegions: '<strong>Unterstützte Regionen:</strong> <code>BR</code>, <code>US</code>, <code>ES</code>, <code>FR</code>, <code>DE</code> und <code>IT</code>.',
+            helpFooter: 'Bing Search v2.5 • Powered by Brave Search API',
+            helpSiteBtn: 'Offizielle Website & Changelog',
+            presets: [
+              {
+                query: 'Wetter Berlin',
+                results: [
+                  {
+                    title: 'Wetter Berlin — 14-Tage-Vorhersage | wetter.com',
+                    content: 'Heute in Berlin: leicht bewölkt bei Höchstwerten um 16°C und Tiefstwerten von 8°C, schwacher Wind und trockener Abend.',
+                    url: 'https://www.wetter.com/deutschland/berlin/DE0001020.html'
+                  },
+                  {
+                    title: 'Deutscher Wetterdienst (DWD) — Berlin & Brandenburg',
+                    content: 'Aktuelle Messwerte, Regenradar, Windgeschwindigkeiten und amtliche Wetterwarnungen für die Hauptstadtregion.',
+                    url: 'https://www.dwd.de/'
+                  },
+                  {
+                    title: 'Stündliches Wetter und Regenradar Berlin — WetterOnline',
+                    content: 'Interaktive Niederschlagskarte, UV-Index, Luftfeuchtigkeit und Temperaturverlauf Stunde für Stunde.',
+                    url: 'https://www.wetteronline.de/wetter/berlin'
+                  },
+                  {
+                    title: 'Luftqualität & Pollenflug in Berlin — Umweltbundesamt',
+                    content: 'Aktuelle Luftdaten, Feinstaubwerte und stündliche Stationsmessungen aus allen Berliner Bezirken.',
+                    url: 'https://www.umweltbundesamt.de/daten/luft/luftdaten'
+                  }
+                ]
+              },
+              {
+                query: 'Discord Tastenkürzel',
+                results: [
+                  {
+                    title: 'Discord Tastenkombinationen — Offizielles Hilfe-Center',
+                    content: 'Schneller navigieren in Discord: Strg+K für den Schnellwechsler, Strg+Umschalt+M zum Stummschalten und Alt+Pfeile für Kanäle.',
+                    url: 'https://support.discord.com/hc/de'
+                  },
+                  {
+                    title: 'Markdown-Textformatierung in Discord — Anleitung',
+                    content: 'Lerne Fett, Kursiv, Codeblöcke, Spoiler und Links ohne Vorschau sauber in deinen Discord-Nachrichten zu nutzen.',
+                    url: 'https://support.discord.com/hc/de/articles/210298617'
+                  },
+                  {
+                    title: 'Slash-Befehle in Discord: FAQ & Verwaltung',
+                    content: 'Erfahre, wie Slash-Befehle (/), Pflichtoptionen, flüchtige Antworten und Kanalberechtigungen funktionieren.',
+                    url: 'https://support.discord.com/hc/de/articles/1500000368501'
+                  },
+                  {
+                    title: 'Discord Sicherheits- und Datenschutzcenter',
+                    content: 'Richte Zwei-Faktor-Authentifizierung ein, steuere Direktnachrichten und schütze deinen Server vor Spam.',
+                    url: 'https://discord.com/safety'
+                  }
+                ]
+              },
+              {
+                query: 'Tech News heute',
+                results: [
+                  {
+                    title: 'heise online — IT-News, KI, Hardware & Sicherheit',
+                    content: 'Aktuelle Meldungen aus Informatik, Künstlicher Intelligenz, Open Source, Netzpolitik und Cybersicherheit.',
+                    url: 'https://www.heise.de/'
+                  },
+                  {
+                    title: 'Golem.de — IT-News für Profis',
+                    content: 'Hintergrundberichte, Tests zu CPUs, Grafikkarten, Software-Updates und Entwicklungen aus der Tech-Branche.',
+                    url: 'https://www.golem.de/'
+                  },
+                  {
+                    title: 'ComputerBase — Hardware-Tests, Benchmarks & Gaming',
+                    content: 'Unabhängige Leistungsvergleiche, Kaufberatungen für PC-Komponenten, Monitore und aktuelle Gaming-News.',
+                    url: 'https://www.computerbase.de/'
+                  },
+                  {
+                    title: 't3n — Digital Pioneers, KI & Web-Trends',
+                    content: 'News und Analysen zu digitalen Tools, Startups, Webentwicklung und neuen Technologien im Alltag.',
+                    url: 'https://t3n.de/'
+                  }
+                ]
+              }
+            ],
+            customTemplate: (q) => [
+              {
+                title: `${q} — Überblick & wichtigste Informationen`,
+                content: `Kompakte Zusammenfassung, Definitionen und relevante Web-Referenzen zu „${q}“ direkt in Discord.`,
+                url: `https://de.wikipedia.org/wiki/${encodeURIComponent(q.replace(/\s+/g, '_'))}`
+              },
+              {
+                title: `Alles über ${q}: Ratgeber & aktuelle Artikel`,
+                content: `Ausgewählte Beiträge, Hintergründe und direkte Links rund um „${q}“, ohne den Browser zu öffnen.`,
+                url: `https://search.brave.com/search?q=${encodeURIComponent(q)}`
+              },
+              {
+                title: `${q} — Community-Diskussionen & Erfahrungen`,
+                content: `Aktuelle Threads, Tipps und praxisnahe Antworten von Nutzern und Experten zu „${q}“.`,
+                url: `https://www.reddit.com/search/?q=${encodeURIComponent(q)}`
+              },
+              {
+                title: `Videos, Tests & Erklärungen zu ${q}`,
+                content: `Entdecke aktuelle Video-Guides, Vergleiche und kurze Zusammenfassungen zum Thema „${q}“.`,
+                url: `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`
+              }
+            ]
+          },
+          features: {
+            title: 'Gemacht für schnelle, übersichtliche Suchen',
+            subtitle: 'Version 2.5 bringt ein komplettes Upgrade bei Design, Seitenwechsel, Regionalität und API-Stabilität.',
+            f1Title: 'Embeds & Bis zu 4 Ergebnisse',
+            f1Desc: 'Klare blaue Discord-Embeds mit 2 interaktiven Seiten (Previous / Next Page) und Direktlink-Buttons für jedes Ergebnis.',
+            f2Title: '6 Suchregionen',
+            f2Desc: 'Wähle gezielt Ergebnisse für Brasilien (BR), USA (US), Spanien (ES), Frankreich (FR), Deutschland (DE) oder Italien (IT) in jedem Befehl.',
+            f3Title: 'Offizielle Brave Search API',
+            f3Desc: 'Umstieg auf die offizielle Brave Search API: höhere Stabilität, schnellere Antworten und 100 % saubere Texte ohne HTML-Tags.',
+            f4Title: 'Privatmodus (/privatesearch)',
+            f4Desc: 'Flüchtige Antworten nur für dich sichtbar — jetzt ebenfalls mit vollständigem Embed, klickbaren Titeln und 4 Ergebnissen auf 2 Seiten.',
+            f5Title: 'Löschen-Button & Cooldown',
+            f5Desc: 'Der öffentliche Befehl /search bietet einen Delete / Löschen-Button für saubere Kanäle sowie einen integrierten Anti-Spam-Cooldown.',
+            f6Title: 'Mehrsprachiges /help & Datenschutz',
+            f6Desc: 'Neuer /help-Befehl, 100 % kostenlos, ohne Speicherung von Suchverläufen und mit minimalen Serverberechtigungen.',
+          },
+          commands: {
+            title: 'Befehle & Nutzung',
+            subtitle: 'Drei klare Slash-Befehle — mit bis zu 4 Ergebnissen auf 2 Seiten und 6 Regionen.',
+            publicTag: '🌐 Öffentliche Antwort + Löschen',
+            privateTag: '🔒 Private Antwort',
+            helpTag: '❓ Interaktive Hilfe',
+            fourItemsTag: 'Bis zu 4 Ergebnisse (2 Seiten)',
+            termPlaceholder: '[begriff]',
+            copyBtn: 'Kopieren',
+            copiedBtn: 'Kopiert!',
+            copiedToast: 'Befehl in die Zwischenablage kopiert!',
+            publicDesc: 'Durchsucht das Web und postet ein öffentliches Embed mit bis zu 4 Ergebnissen auf 2 Seiten, Schnelllink-Buttons, Anti-Spam-Cooldown und Delete-Button.',
+            privateDesc: 'Flüchtige Suche mit blauem Embed und klickbaren Titeln: Nur wer den Befehl ausführt, sieht beide Ergebnisseiten.',
+            helpDesc: 'Zeigt das mehrsprachige Hilfe-Panel direkt in Discord mit allen Befehlen, Regionen und einem Button zur offiziellen Website.',
+          },
+          steps: {
+            s1Title: 'Zum Server hinzufügen',
+            s1Desc: 'Klicke auf „Zu Discord hinzufügen“ und autorisiere den Bot in weniger als 10 Sekunden.',
+            s2Title: 'Modus & Region wählen',
+            s2Desc: 'Nutze <code class="text-white">/search</code> oder <code class="text-bing-cyan">/privatesearch</code> und wähle eine der 6 Regionen: <code class="text-white">BR, US, ES, FR, DE, IT</code>.',
+            s3Title: '4 Ergebnisse durchblättern',
+            s3Desc: 'Blättere mit den Buttons durch 2 Seiten, öffne Links mit einem Klick oder lösche öffentliche Suchen sofort wieder.',
+          },
+          faq: {
+            title: 'Häufig gestellte Fragen',
+            subtitle: 'Alles Wichtige zu den v2.5-Neuerungen, zur Funktionsweise und zum Datenschutz von Bing Search.',
+            items: [
+              {
+                q: 'Was ist neu in Version 2.5?',
+                a: 'v2.5 bringt moderne Discord-Embeds, 2-Seiten-Navigation für bis zu 4 Ergebnisse, Schnelllink-Buttons, einen Delete-Button und Anti-Spam-Cooldown für /search, den mehrsprachigen /help-Befehl, 6 Regionen (BR, US, ES, FR, DE, IT) sowie die offizielle Brave Search API.'
+              },
+              {
+                q: 'Wie viele Ergebnisse erscheinen pro Suche?',
+                a: 'Sowohl /search als auch /privatesearch liefern bis zu 4 vollständige Ergebnisse auf 2 Seiten (2 auf Seite 1, 2 auf Seite 2), bedienbar über Previous page und Next Page.'
+              },
+              {
+                q: 'Was ist der Unterschied zwischen /search und /privatesearch?',
+                a: '/search postet das Embed öffentlich im Kanal mit Delete-Button und Anti-Spam-Cooldown. /privatesearch sendet eine flüchtige Antwort („Nur du kannst dies sehen“) für volle Privatsphäre.'
+              },
+              {
+                q: 'Welche Regionen und Sprachen werden unterstützt?',
+                a: 'Du kannst direkt in der Option language zwischen 6 Regionen wählen: BR (Brasilien), US (USA / Englisch), ES (Spanien), FR (Frankreich), DE (Deutschland) und IT (Italien).'
+              },
+              {
+                q: 'Ist der Bot kostenlos und werden meine Suchen gespeichert?',
+                a: 'Ja, der Bot ist 100 % kostenlos und wir speichern keinen Suchverlauf. Deine Anfrage wird nur in Echtzeit über die offizielle Brave Search API verarbeitet und benötigt minimale Berechtigungen.'
+              },
+              {
+                q: 'Ist Bing Search ein offizielles Projekt von Microsoft oder Brave?',
+                a: 'Nein. Dieser Bot ist ein unabhängiges Community-Projekt für schnelle Websuchen in Discord mithilfe der öffentlichen Brave Search API — ohne offizielle Verbindung zu Microsoft, Bing, Brave Software oder Discord Inc.'
+              }
+            ]
+          },
+          changelog: {
+            back: '← Zurück zur Startseite',
+            title: 'Changelog & Releases',
+            liveStatus: 'Aktiv auf Discord',
+            subtitle: 'Verfolge die gesamte Entwicklung von Bing Search vom Start bis zur Version 2.5.',
+            replay: 'Animation wiederholen',
+            releases: [
+              {
+                version: 'v1.0',
+                statusLabel: 'Release',
+                date: '24. November 2025',
+                isLatest: false,
+                title: 'Start von Bing Search',
+                changes: [
+                  { tag: 'RELEASE', color: 'amber', text: 'Offizielle Erstellung des <strong>Bing Search</strong> Discord-Bots mit integrierter Websuche.' },
+                  { tag: 'NEU', color: 'emerald', text: 'Einführung des Basisbefehls <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> für Suchen direkt im Chat.' },
+                  { tag: 'DESIGN', color: 'purple', text: 'Vollständige Einrichtung der visuellen Identität: Profilbild, Banner und offizielle Beschreibung.' }
+                ]
+              },
+              {
+                version: 'v1.5',
+                statusLabel: 'Update',
+                date: '2026',
+                isLatest: false,
+                title: 'Offizielle Website & Mehrsprachigkeit',
+                changes: [
+                  { tag: 'NEU', color: 'emerald', text: 'Veröffentlichung der offiziellen Landingpage auf GitHub Pages mit mehrsprachiger Unterstützung.' },
+                  { tag: 'NEU', color: 'emerald', text: 'Nutzungsbedingungen, Datenschutzerklärung und mehrsprachige Willkommens-DM hinzugefügt.' },
+                  { tag: 'VERBESSERT', color: 'indigo', text: 'Sprachauswahl im öffentlichen Befehl <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> ergänzt.' }
+                ]
+              },
+              {
+                version: 'v2.0',
+                statusLabel: 'Update',
+                date: 'November 2026',
+                isLatest: false,
+                title: 'Privatmodus, Sprachen & mehrere Ergebnisse',
+                changes: [
+                  { tag: 'NEU', color: 'emerald', text: 'Start von <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/privatesearch</code> mit flüchtigen Antworten nur für den ausführenden Nutzer.' },
+                  { tag: 'NEU', color: 'emerald', text: 'Sprachfilter auch im privaten Modus integriert.' },
+                  { tag: 'VERBESSERT', color: 'indigo', text: 'Erweitert auf bis zu <strong>2 vollständige Ergebnisse</strong> pro Suche samt interaktivem Website-Simulator.' }
+                ]
+              },
+              {
+                version: 'v2.5',
+                statusLabel: 'Aktuelle Version',
+                date: 'November 2026',
+                isLatest: true,
+                title: 'Embeds, Seitenwechsel (4 Ergebnisse), 6 Regionen & Brave Search API',
+                changes: [
+                  { tag: 'NEU', color: 'emerald', text: 'Neues Design mit <strong>blauen Embeds</strong>, Seitenanzeige (<code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">Seite 1/2</code>) sowie <strong>Previous page</strong> / <strong>Next Page</strong> für bis zu <strong>4 Ergebnisse</strong>.' },
+                  { tag: 'NEU', color: 'emerald', text: 'Direktlink-Buttons (<strong>Ergebnis 1 / Ergebnis 2</strong>), roter <strong>Delete / Löschen</strong>-Button und <strong>Anti-Spam-Cooldown</strong> in <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code>.' },
+                  { tag: 'NEU', color: 'emerald', text: 'Neuer mehrsprachiger Befehl <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/help</code> mit direktem Website-Button.' },
+                  { tag: 'VERBESSERT', color: 'indigo', text: 'Suchlokalisierung auf <strong>6 Regionen</strong> (<code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">BR, US, ES, FR, DE, IT</code>) im öffentlichen und privaten Modus erweitert.' },
+                  { tag: 'ENGINE', color: 'purple', text: 'Vollständige Migration auf die offizielle <strong>Brave Search API</strong> mit geschützten Secrets und sauberen Beschreibungen (ohne HTML-Tags).' }
+                ]
+              }
+            ]
+          },
+          cta: {
+            title: 'Bereit für Bing Search v2.5?',
+            subtitle: 'Füge den Bot kostenlos deinem Server hinzu und nutze interaktive Embeds, 4 Ergebnisse auf 2 Seiten, 6 Regionen und die offizielle Such-API.',
+          },
+          footer: {
+            disclaimer: 'Unabhängiges Discord-Projekt. Keine offizielle Verbindung zu Microsoft, Bing, Brave oder Discord Inc.',
+            terms: 'Nutzungsbedingungen',
+            privacy: 'Datenschutz',
+            invite: 'Bot einladen',
+            marketplace: 'BotGhost Marketplace',
+          },
+          legal: {
+            backBtn: 'Zurück zur Startseite',
+            updated: 'Zuletzt aktualisiert: November 2026 (v2.5)',
+            termsTitle: 'Nutzungsbedingungen',
+            termsBody: `
+              <p>Durch das Hinzufügen oder Nutzen des Bots <strong>${CONFIG.botName}</strong> auf Discord stimmst du den folgenden Bedingungen zu.</p>
+              <h3 class="text-lg font-bold text-white pt-2">1. Unabhängiges Projekt</h3>
+              <p><strong>${CONFIG.botName}</strong> ist ein unabhängiges, kostenloses Community-Projekt für Websuchen in Discord. Dieser Dienst ist <strong>nicht offiziell</strong> und steht in keiner Verbindung zu Microsoft Corporation, Bing, Brave Software oder Discord Inc.</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Funktionsumfang der Befehle</h3>
+              <p>Der Bot stellt <code>/search</code> (öffentliche Embeds mit Seitenwechsel, Anti-Spam-Cooldown und Löschen-Button), <code>/privatesearch</code> (flüchtige Embeds nur für den Nutzer) und <code>/help</code> (Kurzübersicht) bereit und liefert bis zu 4 Ergebnisse auf 2 Seiten über eine offizielle Such-API.</p>
+              <h3 class="text-lg font-bold text-white pt-2">3. Verantwortungsvolle Nutzung</h3>
+              <p>Du verpflichtest dich, den Bot nicht für Spam, missbräuchliche Automatisierung, illegale Abfragen oder Verstöße gegen die Discord-Richtlinien einzusetzen. Bei Missbrauch kann der Zugang eingeschränkt werden.</p>
+              <h3 class="text-lg font-bold text-white pt-2">4. Inhalte Dritter & Verfügbarkeit</h3>
+              <p>Angezeigte Titel, Auszüge und Links stammen von externen Websites. Wir garantieren keine 100%ige Uptime und übernehmen keine Verantwortung für Inhalte verlinkter Seiten.</p>
+            `,
+            privacyTitle: 'Datenschutzerklärung',
+            privacyBody: `
+              <p>Der Schutz deiner Daten ist uns bei <strong>${CONFIG.botName}</strong> wichtig. Diese Erklärung beschreibt die Datenverarbeitung bei der Nutzung in Discord.</p>
+              <h3 class="text-lg font-bold text-white pt-2">1. Keine Speicherung von Suchverläufen</h3>
+              <p>Der Begriff in <code>busca</code> und die Region in <code>language</code> werden ausschließlich in Echtzeit über die Brave Search API verarbeitet, um bis zu 4 Ergebnisse anzuzeigen. <strong>Wir speichern keinen Suchverlauf</strong>, verknüpfen keine Anfragen mit deiner Discord-ID und verkaufen keine Daten.</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Flüchtige Privatsphäre bei /privatesearch</h3>
+              <p>Bei <code>/privatesearch</code> nutzt der Bot Discords native flüchtige Nachrichten (<em>„Nur du kannst dies sehen“</em>). Andere Servermitglieder sehen deine Ergebnisse nicht, und die Nachricht verschwindet beim Schließen.</p>
+              <h3 class="text-lg font-bold text-white pt-2">3. Minimale Betriebsdaten</h3>
+              <p>Der Bot liest keine regulären Kanalnachrichten — er reagiert ausschließlich auf explizite Slash-Befehle (<code>/search</code>, <code>/privatesearch</code> oder <code>/help</code>). Der Anti-Spam-Cooldown läuft nur temporär im Arbeitsspeicher.</p>
+              <h3 class="text-lg font-bold text-white pt-2">4. Unabhängigkeit & Externe Links</h3>
+              <p>Dieses Projekt ist unabhängig von Microsoft, Bing und Brave. Beim Öffnen externer Ergebnislinks gelten die Datenschutzbestimmungen der jeweiligen Zielseite.</p>
+            `
+          }
+        },
+
+        it: {
+          htmlLang: 'it',
+          defaultRegion: 'IT',
+          pageTitle: `${CONFIG.botName} v2.5 — Ricerche Web direttamente su Discord`,
+          badges: { new: 'NUOVO', v25: 'v2.5' },
+          nav: {
+            simulator: 'Simulatore',
+            features: 'Funzionalità',
+            commands: 'Comandi',
+            faq: 'FAQ',
+            changelog: 'Changelog',
+            add: 'Aggiungi',
+          },
+          hero: {
+            badgeText: 'Embed + paginazione fino a <strong class="text-bing-cyan">4 risultati</strong>, 6 regioni e motore ufficiale Brave Search API!',
+            titleStart: 'Cerca sul web direttamente su',
+            titleHighlight: ' Discord',
+            titleEnd: ' — veloce, pulito e interattivo.',
+            subtitle: 'Risposte in <strong class="text-white">Embed interattivi</strong> con paginazione su 2 pagine fino a <strong class="text-white">4 risultati</strong>, 6 regioni (<code class="text-bing-cyan">BR, US, ES, FR, DE, IT</code>), modalità privata, pulsante elimina e nuovo motore ufficiale ad alta velocità.',
+            ctaPrimary: 'Aggiungi a Discord',
+            ctaSecondary: 'Prova il Simulatore v2.5',
+            ctaMarketplace: 'BotGhost Marketplace',
+            pill1: '100% Gratuito',
+            pill2: 'Embed & Paginazione (4 risultati)',
+            pill3: '6 Regioni • Pubblico, Privato & /help',
+            pill4: 'BotGhost Marketplace',
+          },
+          sim: {
+            title: 'Prova il nuovo stile v2.5 su Discord',
+            subtitle: 'Alterna tra /search, /privatesearch e /help, sfoglia le pagine 1/2 e 2/2 e prova i pulsanti reali del bot.',
+            channelName: 'generale',
+            channelTopic: 'Simulazione v2.5: Embed, paginazione (4 risultati), 6 regioni e pulsanti',
+            botOnline: 'Online',
+            demoUser: 'Tu',
+            usedCommand: 'ha usato',
+            timestamp: 'Oggi alle 21:05',
+            resultsFor: 'Risultati per:',
+            ephemeralNote: 'Solo tu puoi vedere questo messaggio',
+            ephemeralSwitch: 'Prova modalità pubblica (/search)',
+            inputPlaceholder: 'Scrivi un termine per simulare la ricerca...',
+            helpInputPlaceholder: '/help non richiede testo — clicca Esegui o cambia modalità',
+            searchBtn: 'Cerca',
+            helpBtn: 'Esegui /help',
+            btnResult: 'Risultato',
+            btnDelete: 'Delete / Elimina',
+            btnPrev: 'Previous page',
+            btnNext: 'Next Page',
+            footerPublic: 'Bing Search • Public Search / Ricerca Pubblica',
+            footerPrivate: 'Bing Search • Private Mode / Modalità Privata',
+            footerPage: 'Pagina',
+            deletedTitle: 'Messaggio eliminato dal canale pubblico!',
+            deletedDesc: 'Con /search puoi pulire subito la chat cliccando sul pulsante Delete / Elimina.',
+            deletedToast: 'Messaggio eliminato dal simulatore!',
+            restoreBtn: 'Ripristina ricerca',
+            helpTitle: '🔍 Aiuto — Bing Search v2.5',
+            helpIntro: 'Fai ricerche sul web senza uscire da Discord con Embed moderni, paginazione fino a 4 risultati e 6 regioni supportate:',
+            helpCmd1: '<strong>/search</strong> — Ricerca pubblica su 2 pagine, pulsanti link rapido, cooldown anti-spam e pulsante <em>Delete / Elimina</em>.',
+            helpCmd2: '<strong>/privatesearch</strong> — Ricerca privata (effimera), visibile solo a te, con 2 pagine di risultati.',
+            helpCmd3: '<strong>/help</strong> — Mostra questa guida rapida multilingua e il link al sito ufficiale.',
+            helpRegions: '<strong>Regioni supportate:</strong> <code>BR</code>, <code>US</code>, <code>ES</code>, <code>FR</code>, <code>DE</code> e <code>IT</code>.',
+            helpFooter: 'Bing Search v2.5 • Powered by Brave Search API',
+            helpSiteBtn: 'Sito Ufficiale & Changelog',
+            presets: [
+              {
+                query: 'meteo Roma',
+                results: [
+                  {
+                    title: 'Meteo Roma — Previsioni a 15 giorni | 3BMeteo',
+                    content: 'Oggi a Roma: cielo sereno o poco nuvoloso, massima di 22°C e minima di 13°C, venti deboli nel pomeriggio e serata mite.',
+                    url: 'https://www.3bmeteo.com/meteo/roma'
+                  },
+                  {
+                    title: 'Previsioni Meteo Roma — Aeronautica Militare',
+                    content: 'Dati ufficiali su temperatura, umidità, vento, indice UV e allerte meteo aggiornate per il Lazio e Roma Capitale.',
+                    url: 'https://www.meteoam.it/'
+                  },
+                  {
+                    title: 'Radar pioggia e meteo ora per ora Roma — iLMeteo',
+                    content: 'Andamento orario dettagliato con mappe radar in tempo reale, pressione atmosferica e probabilità di precipitazioni.',
+                    url: 'https://www.ilmeteo.it/meteo/Roma'
+                  },
+                  {
+                    title: 'Qualità dell\'aria a Roma — ARPA Lazio',
+                    content: 'Bollettino giornaliero sulle stazioni di monitoraggio atmosferico e previsioni della qualità dell\'aria in città.',
+                    url: 'https://www.arpalazio.it/'
+                  }
+                ]
+              },
+              {
+                query: 'scorciatoie Discord',
+                results: [
+                  {
+                    title: 'Scorciatoie da tastiera Discord — Centro Assistenza',
+                    content: 'Usa Discord più velocemente: Ctrl+K per il selettore rapido, Ctrl+Maiusc+M per silenziare il microfono e Alt+Frecce per spostarti.',
+                    url: 'https://support.discord.com/hc/it'
+                  },
+                  {
+                    title: 'Guida alla formattazione Markdown su Discord',
+                    content: 'Scopri come scrivere in grassetto, corsivo, blocchi di codice, spoiler e link puliti senza anteprima nei messaggi.',
+                    url: 'https://support.discord.com/hc/it/articles/210298617'
+                  },
+                  {
+                    title: 'Comandi Slash su Discord: FAQ e permessi',
+                    content: 'Tutto su come attivare i comandi con barra (/), compilare le opzioni, usare messaggi effimeri e gestire i canali.',
+                    url: 'https://support.discord.com/hc/it/articles/1500000368501'
+                  },
+                  {
+                    title: 'Centro Sicurezza e Privacy di Discord',
+                    content: 'Attiva l\'autenticazione a due fattori, controlla i messaggi diretti e proteggi il tuo server dallo spam.',
+                    url: 'https://discord.com/safety'
+                  }
+                ]
+              },
+              {
+                query: 'notizie tecnologia',
+                results: [
+                  {
+                    title: 'HDblog — Notizie Tech, Smartphone e AI',
+                    content: 'Recensioni, anteprime e aggiornamenti quotidiani su smartphone, PC, intelligenza artificiale, auto elettriche e digitale.',
+                    url: 'https://www.hdblog.it/'
+                  },
+                  {
+                    title: 'Tom\'s Hardware Italia — Hardware, Gaming e Tech',
+                    content: 'Test su schede video, processori, guide all\'acquisto, sicurezza informatica e novità dal mondo PC.',
+                    url: 'https://www.tomshw.it/'
+                  },
+                  {
+                    title: 'DDay.it — Tecnologia, Audio, Video e Innovazione',
+                    content: 'Approfondimenti, prove su strada e notizie su TV, software, servizi streaming e tecnologia di consumo.',
+                    url: 'https://www.dday.it/'
+                  },
+                  {
+                    title: 'Punto Informatico — Internet, Software e Sicurezza',
+                    content: 'Aggiornamenti su cybersecurity, app, intelligenza artificiale e normative digitali spiegati in modo chiaro.',
+                    url: 'https://www.punto-informatico.it/'
+                  }
+                ]
+              }
+            ],
+            customTemplate: (q) => [
+              {
+                title: `${q} — Guida completa e informazioni aggiornate`,
+                content: `Sintesi principale, definizioni e fonti autorevoli trovate sul web riguardo a "${q}" direttamente su Discord.`,
+                url: `https://it.wikipedia.org/wiki/${encodeURIComponent(q.replace(/\s+/g, '_'))}`
+              },
+              {
+                title: `Tutto su ${q}: articoli, guide e novità`,
+                content: `Selezione di contenuti recenti, approfondimenti e link utili su "${q}" senza aprire il browser.`,
+                url: `https://search.brave.com/search?q=${encodeURIComponent(q)}`
+              },
+              {
+                title: `${q} — Discussioni e domande della community`,
+                content: `Consigli pratici, guide e thread recenti condivisi da utenti ed esperti su "${q}".`,
+                url: `https://www.reddit.com/search/?q=${encodeURIComponent(q)}`
+              },
+              {
+                title: `Video, recensioni e riassunti su ${q}`,
+                content: `Scopri spiegazioni video, confronti e approfondimenti aggiornati dedicati a "${q}".`,
+                url: `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`
+              }
+            ]
+          },
+          features: {
+            title: 'Progettato per ricerche rapide e ordinate',
+            subtitle: 'La versione 2.5 rinnova completamente il design, la navigazione a pagine e la stabilità delle ricerche.',
+            f1Title: 'Embed & Fino a 4 Risultati',
+            f1Desc: 'Embed blu in stile Discord con 2 pagine interattive (Previous / Next Page) e pulsanti link diretto per aprire ogni risultato in un clic.',
+            f2Title: '6 Regioni di Ricerca',
+            f2Desc: 'Ottieni risultati mirati per Brasile (BR), Stati Uniti (US), Spagna (ES), Francia (FR), Germania (DE) o Italia (IT) in ogni comando.',
+            f3Title: 'Motore Ufficiale Brave Search API',
+            f3Desc: 'Migrazione all\'API ufficiale Brave Search: maggiore stabilità, risposte più rapide e descrizioni 100% pulite senza tag HTML.',
+            f4Title: 'Modalità Privata (/privatesearch)',
+            f4Desc: 'Risultati in messaggio effimero visibili solo a te, ora con Embed completo, titoli cliccabili e paginazione fino a 4 risultati.',
+            f5Title: 'Pulsante Elimina & Cooldown',
+            f5Desc: 'Il comando pubblico /search include il pulsante Delete / Elimina per tenere pulito il canale e un cooldown anti-spam integrato.',
+            f6Title: 'Aiuto Multilingua & Privacy',
+            f6Desc: 'Nuovo comando /help multilingua, 100% gratuito, senza salvataggio della cronologia e con permessi minimi sul server.',
+          },
+          commands: {
+            title: 'Comandi & Come Usarlo',
+            subtitle: 'Tre comandi slash immediati — con supporto fino a 4 risultati paginati e 6 regioni.',
+            publicTag: '🌐 Risposta Pubblica + Elimina',
+            privateTag: '🔒 Risposta Privata',
+            helpTag: '❓ Guida Interattiva',
+            fourItemsTag: 'Fino a 4 risultati (2 pagine)',
+            termPlaceholder: '[termine]',
+            copyBtn: 'Copia',
+            copiedBtn: 'Copiato!',
+            copiedToast: 'Comando copiato negli appunti!',
+            publicDesc: 'Cerca sul web e invia un Embed pubblico con fino a 4 risultati su 2 pagine, pulsanti link rapido, cooldown anti-spam e pulsante Delete / Elimina.',
+            privateDesc: 'Ricerca effimera con Embed blu e titoli cliccabili: solo chi lancia il comando vede entrambe le pagine di risultati.',
+            helpDesc: 'Mostra il pannello di aiuto multilingua su Discord con tutti i comandi, le regioni disponibili e il pulsante per il sito ufficiale.',
+          },
+          steps: {
+            s1Title: 'Aggiungi al server',
+            s1Desc: 'Clicca su "Aggiungi a Discord" e autorizza il bot nel tuo server in meno di 10 secondi.',
+            s2Title: 'Scegli modalità e regione',
+            s2Desc: 'Usa <code class="text-white">/search</code> o <code class="text-bing-cyan">/privatesearch</code> e seleziona una delle 6 regioni: <code class="text-white">BR, US, ES, FR, DE, IT</code>.',
+            s3Title: 'Sfoglia i 4 risultati',
+            s3Desc: 'Naviga tra le 2 pagine con i pulsanti interattivi, apri i link in 1 clic o elimina la ricerca pubblica quando vuoi.',
+          },
+          faq: {
+            title: 'Domande Frequenti',
+            subtitle: 'Tutto quello che devi sapere sulle novità v2.5, sul funzionamento e sulla privacy di Bing Search.',
+            items: [
+              {
+                q: 'Cosa c\'è di nuovo nella versione 2.5?',
+                a: 'La v2.5 introduce Embed Discord moderni, paginazione su 2 pagine fino a 4 risultati, pulsanti link rapido, pulsante Delete / Elimina e cooldown anti-spam su /search, nuovo comando /help multilingua, 6 regioni (BR, US, ES, FR, DE, IT) e migrazione alla Brave Search API ufficiale.'
+              },
+              {
+                q: 'Quanti risultati vengono mostrati per ricerca?',
+                a: 'Sia /search che /privatesearch restituiscono fino a 4 risultati completi divisi in 2 pagine (2 nella Pagina 1 e 2 nella Pagina 2), sfogliabili con Previous page e Next Page.'
+              },
+              {
+                q: 'Qual è la differenza tra /search e /privatesearch?',
+                a: '/search pubblica l\'Embed nel canale per tutti con pulsante Delete / Elimina e cooldown anti-spam. /privatesearch invia un messaggio effimero ("Solo tu puoi vedere questo messaggio") garantendo la massima privacy.'
+              },
+              {
+                q: 'Quali regioni e lingue sono supportate?',
+                a: 'Puoi scegliere tra 6 regioni direttamente nell\'opzione language del comando: BR (Brasile), US (Stati Uniti / Inglese), ES (Spagna), FR (Francia), DE (Germania) e IT (Italia).'
+              },
+              {
+                q: 'Il bot è gratuito e salva le mie ricerche?',
+                a: 'Sì, è 100% gratuito e non salviamo alcuna cronologia di ricerca. Il termine viene elaborato in tempo reale tramite l\'API ufficiale Brave Search richiedendo solo i permessi minimi.'
+              },
+              {
+                q: 'Bing Search è un progetto ufficiale di Microsoft o Brave?',
+                a: 'No. Questo bot è un progetto indipendente creato dalla community per ricerche rapide su Discord tramite l\'API pubblica di Brave Search, senza alcuna affiliazione ufficiale con Microsoft, Bing, Brave Software o Discord Inc.'
+              }
+            ]
+          },
+          changelog: {
+            back: '← Torna alla home',
+            title: 'Changelog & Versioni',
+            liveStatus: 'Attivo su Discord',
+            subtitle: 'Segui tutta l\'evoluzione di Bing Search dal lancio fino alla versione 2.5.',
+            replay: 'Ripeti animazione',
+            releases: [
+              {
+                version: 'v1.0',
+                statusLabel: 'Lancio',
+                date: '24 Novembre 2025',
+                isLatest: false,
+                title: 'Nascita di Bing Search',
+                changes: [
+                  { tag: 'RELEASE', color: 'amber', text: 'Creazione ufficiale del bot <strong>Bing Search</strong> su Discord con motore di ricerca web integrato.' },
+                  { tag: 'NUOVO', color: 'emerald', text: 'Implementazione del comando base <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code> per cercare senza uscire dalla chat.' },
+                  { tag: 'DESIGN', color: 'purple', text: 'Configurazione completa dell\'identità visiva: immagine profilo, banner e descrizione ufficiale.' }
+                ]
+              },
+              {
+                version: 'v1.5',
+                statusLabel: 'Aggiornamento',
+                date: '2026',
+                isLatest: false,
+                title: 'Sito Ufficiale & Supporto Multilingua',
+                changes: [
+                  { tag: 'NUOVO', color: 'emerald', text: 'Pubblicazione della landing page ufficiale su GitHub Pages con traduzioni multilingua.' },
+                  { tag: 'NUOVO', color: 'emerald', text: 'Aggiunti Termini di Servizio, Informativa sulla Privacy e messaggio di benvenuto in DM.' },
+                  { tag: 'MIGLIORATO', color: 'indigo', text: 'Aggiunto il selettore lingua al comando pubblico <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code>.' }
+                ]
+              },
+              {
+                version: 'v2.0',
+                statusLabel: 'Aggiornamento',
+                date: 'Novembre 2026',
+                isLatest: false,
+                title: 'Modalità Privata, Lingue & Risultati Multipli',
+                changes: [
+                  { tag: 'NUOVO', color: 'emerald', text: 'Lancio di <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/privatesearch</code> con risposte effimere visibili solo a chi esegue il comando.' },
+                  { tag: 'NUOVO', color: 'emerald', text: 'Filtro lingua integrato anche nella modalità privata.' },
+                  { tag: 'MIGLIORATO', color: 'indigo', text: 'Supporto esteso fino a <strong>2 risultati completi</strong> per ricerca e lancio del simulatore interattivo sul sito.' }
+                ]
+              },
+              {
+                version: 'v2.5',
+                statusLabel: 'Versione Attuale',
+                date: 'Novembre 2026',
+                isLatest: true,
+                title: 'Embed, Paginazione (4 Risultati), 6 Regioni & Brave Search API',
+                changes: [
+                  { tag: 'NUOVO', color: 'emerald', text: 'Nuovo layout con <strong>Embed blu</strong>, piè di pagina (<code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">Pagina 1/2</code>) e pulsanti <strong>Previous page</strong> / <strong>Next Page</strong> fino a <strong>4 risultati</strong>.' },
+                  { tag: 'NUOVO', color: 'emerald', text: 'Pulsanti di accesso rapido (<strong>Risultato 1 / Risultato 2</strong>), pulsante rosso <strong>Delete / Elimina</strong> e <strong>cooldown anti-spam</strong> su <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/search</code>.' },
+                  { tag: 'NUOVO', color: 'emerald', text: 'Nuovo comando <code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">/help</code> multilingua con guida rapida e pulsante diretto al sito ufficiale.' },
+                  { tag: 'MIGLIORATO', color: 'indigo', text: 'Localizzazione estesa a <strong>6 regioni</strong> (<code class="px-1.5 py-0.5 rounded bg-black/40 text-bing-cyan">BR, US, ES, FR, DE, IT</code>) in modalità pubblica e privata.' },
+                  { tag: 'MOTORE', color: 'purple', text: 'Migrazione completa alla <strong>Brave Search API</strong> ufficiale con chiavi protette e descrizioni pulite (senza tag HTML).' }
+                ]
+              }
+            ]
+          },
+          cta: {
+            title: 'Pronto a provare Bing Search v2.5?',
+            subtitle: 'Aggiungilo gratis al tuo server e goditi Embed interattivi, 4 risultati paginati, 6 regioni e il motore di ricerca ufficiale.',
+          },
+          footer: {
+            disclaimer: 'Progetto indipendente per Discord. Non affiliato ufficialmente a Microsoft, Bing, Brave o Discord Inc.',
+            terms: 'Termini di Servizio',
+            privacy: 'Informativa sulla Privacy',
+            invite: 'Invita Bot',
+            marketplace: 'BotGhost Marketplace',
+          },
+          legal: {
+            backBtn: 'Torna alla home',
+            updated: 'Ultimo aggiornamento: Novembre 2026 (v2.5)',
+            termsTitle: 'Termini di Servizio',
+            termsBody: `
+              <p>Aggiungendo o utilizzando il bot <strong>${CONFIG.botName}</strong> su Discord, accetti i termini descritti di seguito.</p>
+              <h3 class="text-lg font-bold text-white pt-2">1. Progetto Indipendente</h3>
+              <p><strong>${CONFIG.botName}</strong> è un progetto indipendente e gratuito creato per facilitare le ricerche web su Discord. Questo servizio <strong>non è ufficiale</strong> e non ha alcuna affiliazione con Microsoft Corporation, Bing, Brave Software o Discord Inc.</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Funzionamento dei Comandi</h3>
+              <p>Il bot offre <code>/search</code> (Embed pubblici paginati con cooldown anti-spam e pulsante Delete), <code>/privatesearch</code> (Embed effimeri visibili solo a chi esegue il comando) e <code>/help</code> (guida rapida), restituendo fino a 4 risultati su 2 pagine tramite API di ricerca ufficiale.</p>
+              <h3 class="text-lg font-bold text-white pt-2">3. Uso Responsabile</h3>
+              <p>L'utente si impegna a non utilizzare il bot per spam, automazioni abusive, ricerche illegali o violazioni dei Termini di Servizio di Discord. L'accesso può essere limitato in caso di abuso.</p>
+              <h3 class="text-lg font-bold text-white pt-2">4. Contenuti di Terze Parti e Disponibilità</h3>
+              <p>Titoli, descrizioni e link appartengono a siti web esterni. Non garantiamo una disponibilità ininterrotta del 100% e non siamo responsabili dei contenuti ospitati su pagine di terze parti.</p>
+            `,
+            privacyTitle: 'Informativa sulla Privacy',
+            privacyBody: `
+              <p>La tua privacy è importante su <strong>${CONFIG.botName}</strong>. Questa informativa spiega come vengono gestiti i dati durante l'uso dei comandi su Discord.</p>
+              <h3 class="text-lg font-bold text-white pt-2">1. Nessuna Archiviazione della Cronologia</h3>
+              <p>Il termine inserito in <code>busca</code> e la regione scelta in <code>language</code> vengono elaborati solo in tempo reale tramite Brave Search API per restituire fino a 4 risultati. <strong>Non salviamo alcuna cronologia di ricerca</strong>, non associamo le query al tuo ID Discord e non vendiamo dati.</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Privacy Effimera di /privatesearch</h3>
+              <p>Con <code>/privatesearch</code> il bot usa i messaggi effimeri nativi di Discord (<em>"Solo tu puoi vedere questo messaggio"</em>). Gli altri membri non possono vedere i tuoi risultati e il messaggio scompare alla chiusura.</p>
+              <h3 class="text-lg font-bold text-white pt-2">3. Dati Operativi Minimi</h3>
+              <p>Il bot non legge i normali messaggi dei canali: si attiva solo quando invochi un comando slash (<code>/search</code>, <code>/privatesearch</code> o <code>/help</code>). Il cooldown anti-spam opera solo temporaneamente in memoria.</p>
+              <h3 class="text-lg font-bold text-white pt-2">4. Indipendenza e Link Esterni</h3>
+              <p>Questo progetto è indipendente da Microsoft, Bing e Brave. Cliccando su un link esterno nei risultati sarai soggetto alla privacy policy del sito di destinazione.</p>
+            `
+          }
         }
       };
 
@@ -1875,7 +2880,7 @@
       }
 
       // =========================================================================
-      // SISTEMA DE IDIOMAS (PT-BR | EN | ES)
+      // SISTEMA DE IDIOMAS (PT-BR | EN | ES | FR | DE | IT)
       // =========================================================================
       function setLanguage(lang) {
         if (!TRANSLATIONS[lang]) return;
@@ -1895,9 +2900,9 @@
           const isActive = btn.getAttribute('data-lang-btn') === lang;
           btn.setAttribute('aria-pressed', String(isActive));
           if (isActive) {
-            btn.className = 'lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer bg-discord-blurple text-white shadow-sm';
+            btn.className = 'lang-btn shrink-0 px-2 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer bg-discord-blurple text-white shadow-sm';
           } else {
-            btn.className = 'lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white';
+            btn.className = 'lang-btn shrink-0 px-2 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white';
           }
         });
 
