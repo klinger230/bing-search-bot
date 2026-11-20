@@ -3779,7 +3779,7 @@
   </script>
   <!-- ==================== GAVETA DE AVISOS & STATUS (FIREBASE) ==================== -->
 <style>
-    /* Fade suave para NOVIDADE e ONLINE */
+ /* Fade suave para NOVIDADE e ONLINE */
   @keyframes av-fade-suave {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.35; }
@@ -3789,11 +3789,11 @@
     animation: av-fade-suave 3.5s ease-in-out infinite;
   }
 
-  /* MANUTENÇÃO: vermelho chamativo + fade rápido de urgência */
+  /* MANUTENÇÃO: etiqueta vermelha forte + fade rápido de urgência */
   @keyframes av-alerta-urgente {
     0%, 100% {
       opacity: 1;
-      box-shadow: 0 0 12px rgba(239, 68, 68, 0.75);
+      box-shadow: 0 0 14px rgba(239, 68, 68, 0.9);
     }
     50% {
       opacity: 0.25;
@@ -3801,10 +3801,17 @@
     }
   }
   .av-tag-MANUTENÇÃO {
-    background: rgba(220, 38, 38, 0.35);
-    color: #fecaca;
-    border: 1px solid #ef4444;
-    animation: av-alerta-urgente 0.9s ease-in-out infinite;
+    background: #dc2626 !important;
+    color: #ffffff !important;
+    border: 1px solid #f87171 !important;
+    animation: av-alerta-urgente 0.9s ease-in-out infinite !important;
+  }
+
+  /* Caixa inteira do card de MANUTENÇÃO em vermelho chamativo */
+  .av-card:has(.av-tag-MANUTENÇÃO) {
+    background: linear-gradient(135deg, rgba(185, 28, 28, 0.55), rgba(69, 10, 10, 0.85)) !important;
+    border: 1.5px solid #ef4444 !important;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.35) !important;
   }
 
   /* Piscar bem devagar na bolinha verde */
