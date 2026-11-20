@@ -3220,7 +3220,40 @@
           renderContentNow();
         }
       }
-  // =========================================================================
+
+      // =========================================================================
+      // FAQ ACORDEÃO INTERATIVO
+      // =========================================================================
+      function renderFaq() {
+        const container = document.getElementById('faq-container');
+        if (!container) return;
+
+        const items = TRANSLATIONS[currentLang].faq.items;
+        container.innerHTML = items
+          .map((item, index) => {
+            const isOpen = openFaqIndex === index;
+            return `
+              <div class="rounded-2xl border transition-all ${
+                isOpen
+                  ? 'bg-discord-dark border-bing-cyan/35 shadow-lg'
+                  : 'bg-discord-dark/60 border-white/10 hover:border-white/20'
+              }">
+                <button type="button" data-faq-index="${index}" aria-expanded="${String(isOpen)}" class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer">
+                  <span class="font-bold text-sm sm:text-base text-white">${escapeHtml(item.q)}</span>
+                  <svg class="w-5 h-5 shrink-0 text-bing-cyan transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="${isOpen ? 'block' : 'hidden'} px-5 pb-5 text-sm text-discord-muted leading-relaxed border-t border-white/5 pt-3">
+                  ${escapeHtml(item.a)}
+                </div>
+              </div>
+            `;
+          })
+          .join('');
+      }
+
+      // =========================================================================
       // CHANGELOG ANIMADO ESTILO LINHA DE RASTREIO (TOP-TO-BOTTOM: v1.0 -> v2.5)
       // =========================================================================
       function clearChangelogTimers() {
@@ -3779,7 +3812,7 @@
   </script>
   <!-- ==================== GAVETA DE AVISOS & STATUS (FIREBASE) ==================== -->
 <style>
- /* Fade suave para NOVIDADE e ONLINE */
+/* Fade suave para NOVIDADE e ONLINE */
   @keyframes av-fade-suave {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.35; }
@@ -4187,7 +4220,7 @@
     <form class="av-form" id="av-post-form">
       <select class="av-select" id="av-tag-select">
         <option value="NOVIDADE">🔵 NOVIDADE</option>
-        <option value="MANUTENÇÃO">🔴 MANUTENÇÃO</option>
+        <option value="MANUTENÇÃO">🟠 MANUTENÇÃO</option>
         <option value="ONLINE">🟢 ONLINE</option>
       </select>
       <textarea class="av-textarea" id="av-message" placeholder="Escreva o aviso para os usuários..." required></textarea>
@@ -4432,37 +4465,5 @@
   });
 </script>
 <!-- ==================== FIM GAVETA DE AVISOS ==================== -->
-  
-      // =========================================================================
-      // FAQ ACORDEÃO INTERATIVO
-      // =========================================================================
-      function renderFaq() {
-        const container = document.getElementById('faq-container');
-        if (!container) return;
-
-        const items = TRANSLATIONS[currentLang].faq.items;
-        container.innerHTML = items
-          .map((item, index) => {
-            const isOpen = openFaqIndex === index;
-            return `
-              <div class="rounded-2xl border transition-all ${
-                isOpen
-                  ? 'bg-discord-dark border-bing-cyan/35 shadow-lg'
-                  : 'bg-discord-dark/60 border-white/10 hover:border-white/20'
-              }">
-                <button type="button" data-faq-index="${index}" aria-expanded="${String(isOpen)}" class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer">
-                  <span class="font-bold text-sm sm:text-base text-white">${escapeHtml(item.q)}</span>
-                  <svg class="w-5 h-5 shrink-0 text-bing-cyan transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div class="${isOpen ? 'block' : 'hidden'} px-5 pb-5 text-sm text-discord-muted leading-relaxed border-t border-white/5 pt-3">
-                  ${escapeHtml(item.a)}
-                </div>
-              </div>
-            `;
-          })
-          .join('');
-      }
 </body>
 </html>
