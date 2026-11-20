@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog — Bing Search v2.6</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-base: #0b0f14;
+      --bg-card: #1a1f26;
+      --bg-card-latest: linear-gradient(180deg, #1d242e 0%, #151a21 100%);
+      --border: #2a323d;
+      --text-main: #f3f6fa;
+      --text-muted: #9aa5b1;
+      --accent: #06b6d4;
+      --accent-soft: rgba(6, 182, 212, 0.14);
+      --blurple: #5865f2;
+      --green: #22c55e;
+      --green-soft: rgba(34, 197, 94, 0.16);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-base);
+      background-image:
+        radial-gradient(circle at 80% 10%, rgba(6, 182, 212, 0.12), transparent 40%),
+        radial-gradient(circle at 15% 85%, rgba(88, 101, 242, 0.09), transparent 45%);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11, 15, 20, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 800;
+      font-size: 1.15rem;
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #00c6ff, #2563eb);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 18px rgba(0, 198, 255, 0.35);
+    }
+
+    .app-badge {
+      background: var(--blurple);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.18rem 0.45rem;
+      border-radius: 5px;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.35rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.94rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--text-main); }
+
+    .nav-links a.active { color: var(--accent); font-weight: 600; }
+
+    .version-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(6, 182, 212, 0.45);
+      padding: 0.12rem 0.45rem;
+      border-radius: 6px;
+    }
+
+    .lang-select {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.42rem 0.7rem;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .lang-select:hover,
+    .lang-select:focus { border-color: var(--accent); }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 4.5rem;
+    }
+
+    .hero {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 2.65rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #4ade80;
+      background: var(--green-soft);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 620px;
+    }
+
+    .replay-btn {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.6rem 1rem;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .replay-btn:hover {
+      border-color: var(--accent);
+      background: #212832;
+    }
+
+    /* Timeline */
+    .timeline-wrap {
+      position: relative;
+      padding-left: 2.35rem;
+    }
+
+    .timeline-track {
+      position: absolute;
+      left: 9px;
+      top: 1.5rem;
+      width: 2px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .timeline-fill {
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 0;
+      background: linear-gradient(180deg, var(--blurple), var(--accent), var(--green));
+      transition: height 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .release-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      opacity: 0;
+      transform: translateY(-12px);
+      transition: opacity 0.65s ease, transform 0.65s ease, border-color 0.3s ease;
+    }
+
+    .release-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .release-card.latest {
+      background: var(--bg-card-latest);
+      border-color: rgba(34, 197, 94, 0.45);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    .release-dot {
+      position: absolute;
+      left: -2.35rem;
+      top: 1.55rem;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+    }
+
+    .release-dot span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #475569;
+      box-shadow: 0 0 0 4px var(--bg-base);
+      transition: all 0.35s ease;
+    }
+
+    .release-dot.active span {
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--bg-base), 0 0 14px var(--accent);
+    }
+
+    .release-dot.latest span {
+      width: 16px;
+      height: 16px;
+      background: var(--green);
+      box-shadow: 0 0 0 4px var(--bg-base), 0 0 16px rgba(34, 197, 94, 0.6);
+    }
+
+    .release-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+
+    .version-tag {
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #e2e8f0;
+    }
+
+    .release-card.latest .version-tag {
+      background: var(--green-soft);
+      border-color: rgba(34, 197, 94, 0.4);
+      color: #86efac;
+    }
+
+    .release-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .release-title {
+      font-size: 1.18rem;
+      font-weight: 800;
+      margin-bottom: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .release-card.latest .release-title {
+      color: #86efac;
+    }
+
+    .change-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .change-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.93rem;
+      color: #cbd5e1;
+    }
+
+    .change-item code {
+      background: rgba(0, 0, 0, 0.4);
+      color: #38bdf8;
+      padding: 0.1rem 0.38rem;
+      border-radius: 5px;
+      font-size: 0.86em;
+    }
+
+    .badge {
+      flex-shrink: 0;
+      margin-top: 0.18rem;
+      font-size: 0.66rem;
+      font-weight: 800;
+      padding: 0.14rem 0.45rem;
+      border-radius: 5px;
+      letter-spacing: 0.03em;
+      border: 1px solid transparent;
+    }
+
+    .badge-emerald { background: rgba(16, 185, 129, 0.18); color: #6ee7b7; border-color: rgba(16, 185, 129, 0.35); }
+    .badge-indigo  { background: rgba(99, 102, 241, 0.2);  color: #a5b4fc; border-color: rgba(99, 102, 241, 0.35); }
+    .badge-amber   { background: rgba(245, 158, 11, 0.18); color: #fcd34d; border-color: rgba(245, 158, 11, 0.35); }
+    .badge-purple  { background: rgba(168, 85, 247, 0.2);  color: #d8b4fe; border-color: rgba(168, 85, 247, 0.35); }
+
+    .footer {
+      text-align: center;
+      padding: 2rem 1.25rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </span>
+        <span>Bing Search</span>
+        <span class="app-badge">APP</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegação">
+        <a href="index.html#simulador" data-i18n="nav_sim">Simulador</a>
+        <a href="index.html#recursos" data-i18n="nav_feat">Recursos</a>
+        <a href="index.html#comandos" data-i18n="nav_cmd">Comandos</a>
+        <a href="faq.html">FAQ</a>
+        <a href="changelog.html" class="active">
+          <span>Changelog</span>
+          <span class="version-pill">V2.6</span>
+        </a>
+        <select id="langSelect" class="lang-select" aria-label="Language">
+          <option value="pt">🇧🇷 PT-BR</option>
+          <option value="en">🇺🇸 EN-US</option>
+          <option value="es">🇪🇸 ES</option>
+          <option value="fr">🇫🇷 FR</option>
+          <option value="de">🇩🇪 DE</option>
+          <option value="it">🇮🇹 IT</option>
+        </select>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="hero-top">
+          <h1 data-i18n="title">Changelog & Releases</h1>
+          <span class="live-pill">
+            <span class="live-dot"></span>
+            <span data-i18n="liveStatus">Ativo no Discord</span>
+          </span>
+        </div>
+        <p data-i18n="subtitle">Acompanhe toda a evolução do Bing Search desde o lançamento até a versão 2.6.</p>
+      </div>
+
+      <button type="button" id="replayBtn" class="replay-btn">
+        <span aria-hidden="true">↻</span>
+        <span data-i18n="replay">Rever animação</span>
+      </button>
+    </section>
+
+    <div class="timeline-wrap">
+      <div class="timeline-track" id="timelineTrack" aria-hidden="true">
+        <div class="timeline-fill" id="timelineFill"></div>
+      </div>
+      <div class="timeline-list" id="timelineList"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>
+      <span data-i18n="footer_back">Quer voltar para a página inicial?</span>
+      <a href="index.html" data-i18n="footer_link">Voltar ao início →</a>
+    </p>
+  </footer>
+  <script>
+    (function () {
+      "use strict";
+
+      const UI = {
+        pt: {
+          htmlLang: "pt-BR",
+          nav_sim: "Simulador",
+          nav_feat: "Recursos",
+          nav_cmd: "Comandos",
+          title: "Changelog & Releases",
+          liveStatus: "Ativo no Discord",
+          subtitle: "Acompanhe toda a evolução do Bing Search desde o lançamento até a versão 2.6.",
+          replay: "Rever animação",
+          footer_back: "Quer voltar para a página inicial?",
+          footer_link: "Voltar ao início →",
+          releases: [
+            {
+              version: "v1.0",
+              statusLabel: "Lançamento",
+              date: "24 de Novembro de 2025",
+              isLatest: false,
+              title: "Nascimento do Bing Search",
+              changes: [
+                { tag: "RELEASE", color: "amber", text: "Criação oficial do bot <strong>Bing Search</strong> no Discord com motor de busca web integrado." },
+                { tag: "NOVO", color: "emerald", text: "Implementação do recurso básico <code>/search</code> para pesquisar sem sair do chat." },
+                { tag: "VISUAL", color: "purple", text: "Configuração completa da identidade visual: foto de perfil, capa (banner) e descrição oficial." }
+              ]
+            },
+            {
+              version: "v1.5",
+              statusLabel: "Atualização",
+              date: "2026",
+              isLatest: false,
+              title: "Site Oficial & Suporte Multilíngue",
+              changes: [
+                { tag: "NOVO", color: "emerald", text: "Publicação da landing page oficial no GitHub Pages com tradução em PT, EN e ES." },
+                { tag: "NOVO", color: "emerald", text: "Inclusão dos Termos de Serviço, Política de Privacidade e mensagem de boas-vindas multilíngue na DM." },
+                { tag: "MELHORIA", color: "indigo", text: "Adição de seletor de idioma no comando público <code>/search</code>." }
+              ]
+            },
+            {
+              version: "v2.0",
+              statusLabel: "Atualização",
+              date: "Novembro de 2026",
+              isLatest: false,
+              title: "Modo Privado, Idiomas & Múltiplos Resultados",
+              changes: [
+                { tag: "NOVO", color: "emerald", text: "Lançamento do comando <code>/privatesearch</code> com respostas efêmeras visíveis apenas para quem fez a busca." },
+                { tag: "NOVO", color: "emerald", text: "Filtro de idioma integrado também no modo privado." },
+                { tag: "MELHORIA", color: "indigo", text: "Suporte ampliado para até <strong>2 resultados completos</strong> por pesquisa e lançamento do simulador interativo no site." }
+              ]
+            },
+            {
+              version: "v2.5",
+              statusLabel: "Atualização",
+              date: "Novembro de 2026",
+              isLatest: false,
+              title: "Embeds, Paginação (4 Resultados), 6 Regiões & Brave Search API",
+              changes: [
+                { tag: "NOVO", color: "emerald", text: "Visual reformulado com <strong>Embeds azuis</strong>, rodapé com contador de páginas (<code>Página 1/2</code>) e botões interativos <strong>Previous page</strong> e <strong>Next Page</strong> mostrando até <strong>4 resultados</strong>." },
+                { tag: "NOVO", color: "emerald", text: "Botões de acesso rápido (<strong>Resultado 1 / Resultado 2</strong>) + botão vermelho <strong>Delete / Apagar</strong> e <strong>cooldown anti-spam</strong> no <code>/search</code>." },
+                { tag: "NOVO", color: "emerald", text: "Novo comando <code>/help</code> multilíngue com guia rápido e botão direto para o site." },
+                { tag: "MELHORIA", color: "indigo", text: "Suporte expandido para <strong>6 regiões de pesquisa</strong> (<code>BR, US, ES, FR, DE, IT</code>) no modo público e no privado." },
+                { tag: "MOTOR", color: "purple", text: "Migração completa para a <strong>Brave Search API</strong> oficial com chaves seguras e descrições limpas (sem tags HTML no texto)." }
+              ]
+            },
+            {
+              version: "v2.6",
+              statusLabel: "Versão Atual",
+              date: "Novembro de 2026",
+              isLatest: true,
+              title: "Incognito Mode (/incognito search) & Tratamento de 0 Resultados",
+              changes: [
+                { tag: "NOVO", color: "emerald", text: "Transição oficial de <em>Private Mode</em> (<code>/privatesearch</code>) para <strong>Incognito Mode</strong> (<code>/incognito search</code>) com respostas efêmeras discretas." },
+                { tag: "NOVO", color: "emerald", text: "Tratamento dedicado quando a busca não retorna páginas: embed <strong>No results found</strong> com dicas de palavras-chave e região em <code>/search</code> e <code>/incognito search</code>." },
+                { tag: "MELHORIA", color: "indigo", text: "Padronização da nomenclatura e das mensagens nos 6 idiomas suportados mantendo a paginação de até 4 resultados." }
+              ]
+            }
+          ]
+        },
+
+        en: {
+          htmlLang: "en",
+          nav_sim: "Simulator",
+          nav_feat: "Features",
+          nav_cmd: "Commands",
+          title: "Changelog & Releases",
+          liveStatus: "Live on Discord",
+          subtitle: "Follow the full evolution of Bing Search from initial launch to version 2.6.",
+          replay: "Replay animation",
+          footer_back: "Want to go back to the homepage?",
+          footer_link: "Back to Home →",
+          releases: [
+            {
+              version: "v1.0",
+              statusLabel: "Launch",
+              date: "November 24, 2025",
+              isLatest: false,
+              title: "Birth of Bing Search",
+              changes: [
+                { tag: "RELEASE", color: "amber", text: "Official creation of the <strong>Bing Search</strong> Discord bot with integrated web search." },
+                { tag: "NEW", color: "emerald", text: "Implemented the core <code>/search</code> command to browse results without leaving Discord." },
+                { tag: "VISUAL", color: "purple", text: "Configured the complete visual identity: profile picture, banner cover, and official description." }
+              ]
+            },
+            {
+              version: "v1.5",
+              statusLabel: "Update",
+              date: "2026",
+              isLatest: false,
+              title: "Official Website & Multilingual Support",
+              changes: [
+                { tag: "NEW", color: "emerald", text: "Published the official landing page on GitHub Pages with PT, EN, and ES translations." },
+                { tag: "NEW", color: "emerald", text: "Added Terms of Service, Privacy Policy, and a multilingual welcome message via DM." },
+                { tag: "IMPROVED", color: "indigo", text: "Added language selector support to the public <code>/search</code> command." }
+              ]
+            },
+            {
+              version: "v2.0",
+              statusLabel: "Update",
+              date: "November 2026",
+              isLatest: false,
+              title: "Private Mode, Languages & Multiple Results",
+              changes: [
+                { tag: "NEW", color: "emerald", text: "Launched <code>/privatesearch</code> with ephemeral replies visible only to the user who ran the command." },
+                { tag: "NEW", color: "emerald", text: "Integrated language filter in private mode." },
+                { tag: "IMPROVED", color: "indigo", text: "Expanded support to up to <strong>2 complete results</strong> per search and launched the interactive website simulator." }
+              ]
+            },
+            {
+              version: "v2.5",
+              statusLabel: "Update",
+              date: "November 2026",
+              isLatest: false,
+              title: "Embeds, Pagination (4 Results), 6 Regions & Brave Search API",
+              changes: [
+                { tag: "NEW", color: "emerald", text: "Redesigned replies with <strong>blue Embeds</strong>, page footer (<code>Page 1/2</code>), and interactive <strong>Previous page</strong> / <strong>Next Page</strong> buttons delivering up to <strong>4 results</strong>." },
+                { tag: "NEW", color: "emerald", text: "Added quick link buttons (<strong>Result 1 / Result 2</strong>), a red <strong>Delete / Apagar</strong> button, and <strong>anti-spam cooldown</strong> to <code>/search</code>." },
+                { tag: "NEW", color: "emerald", text: "Introduced the multilingual <code>/help</code> command with a direct website button." },
+                { tag: "IMPROVED", color: "indigo", text: "Expanded search localization to <strong>6 regions</strong> (<code>BR, US, ES, FR, DE, IT</code>) in both public and private modes." },
+                { tag: "ENGINE", color: "purple", text: "Migrated backend to the official <strong>Brave Search API</strong> with secure Secrets and clean descriptions (no raw HTML markup)." }
+              ]
+            },
+            {
+              version: "v2.6",
+              statusLabel: "Current Release",
+              date: "November 2026",
+              isLatest: true,
+              title: "Incognito Mode (/incognito search) & Empty Search Handling",
+              changes: [
+                { tag: "NEW", color: "emerald", text: "Official transition from <em>Private Mode</em> (<code>/privatesearch</code>) to <strong>Incognito Mode</strong> (<code>/incognito search</code>) with discreet ephemeral replies." },
+                { tag: "NEW", color: "emerald", text: "Added clean handling when a query yields no pages: dedicated <strong>No results found</strong> embed with keyword and region tips in both <code>/search</code> and <code>/incognito search</code>." },
+                { tag: "IMPROVED", color: "indigo", text: "Unified command naming and notices across all 6 supported languages while preserving 2-page pagination for up to 4 results." }
+              ]
+            }
+          ]
+        },
+
+        es: {
+          htmlLang: "es",
+          nav_sim: "Simulador",
+          nav_feat: "Funciones",
+          nav_cmd: "Comandos",
+          title: "Changelog y Lanzamientos",
+          liveStatus: "Activo en Discord",
+          subtitle: "Sigue toda la evolución de Bing Search desde su creación hasta la versión 2.6.",
+          replay: "Repetir animación",
+          footer_back: "¿Quieres volver a la página principal?",
+          footer_link: "Volver al inicio →",
+          releases: [
+            {
+              version: "v1.0",
+              statusLabel: "Lanzamiento",
+              date: "24 de Noviembre de 2025",
+              isLatest: false,
+              title: "Nacimiento de Bing Search",
+              changes: [
+                { tag: "RELEASE", color: "amber", text: "Creación oficial del bot <strong>Bing Search</strong> en Discord con motor de búsqueda web integrado." },
+                { tag: "NUEVO", color: "emerald", text: "Implementación del comando básico <code>/search</code> para buscar sin salir del chat." },
+                { tag: "VISUAL", color: "purple", text: "Configuración completa de la identidad visual: foto de perfil, portada (banner) y descripción oficial." }
+              ]
+            },
+            {
+              version: "v1.5",
+              statusLabel: "Actualización",
+              date: "2026",
+              isLatest: false,
+              title: "Sitio Oficial y Soporte Multilingüe",
+              changes: [
+                { tag: "NUEVO", color: "emerald", text: "Publicación de la página oficial en GitHub Pages con traducción en PT, EN y ES." },
+                { tag: "NUEVO", color: "emerald", text: "Inclusión de los Términos de Servicio, Política de Privacidad y mensaje de bienvenida multilingüe por DM." },
+                { tag: "MEJORA", color: "indigo", text: "Se añadió selector de idioma al comando público <code>/search</code>." }
+              ]
+            },
+            {
+              version: "v2.0",
+              statusLabel: "Actualización",
+              date: "Noviembre de 2026",
+              isLatest: false,
+              title: "Modo Privado, Idiomas y Múltiples Resultados",
+              changes: [
+                { tag: "NUEVO", color: "emerald", text: "Lanzamiento del comando <code>/privatesearch</code> con respuestas efímeras visibles solo para quien buscó." },
+                { tag: "NUEVO", color: "emerald", text: "Filtro de idioma integrado también en el modo privado." },
+                { tag: "MEJORA", color: "indigo", text: "Soporte ampliado para hasta <strong>2 resultados completos</strong> por búsqueda y simulador interactivo en el sitio." }
+              ]
+            },
+            {
+              version: "v2.5",
+              statusLabel: "Actualización",
+              date: "Noviembre de 2026",
+              isLatest: false,
+              title: "Embeds, Paginación (4 Resultados), 6 Regiones y Brave Search API",
+              changes: [
+                { tag: "NUEVO", color: "emerald", text: "Diseño renovado con <strong>Embeds azules</strong>, pie de página (<code>Página 1/2</code>) y botones <strong>Previous page</strong> y <strong>Next Page</strong> mostrando hasta <strong>4 resultados</strong>." },
+                { tag: "NUEVO", color: "emerald", text: "Botones de acceso rápido (<strong>Resultado 1 / Resultado 2</strong>), botón rojo <strong>Delete / Apagar</strong> y <strong>cooldown anti-spam</strong> en <code>/search</code>." },
+                { tag: "NUEVO", color: "emerald", text: "Nuevo comando <code>/help</code> multilingüe con guía rápida y botón directo al sitio oficial." },
+                { tag: "MEJORA", color: "indigo", text: "Soporte ampliado a <strong>6 regiones de búsqueda</strong> (<code>BR, US, ES, FR, DE, IT</code>) en modo público y privado." },
+                { tag: "MOTOR", color: "purple", text: "Migración completa a la <strong>Brave Search API</strong> oficial con claves protegidas y descripciones limpias (sin etiquetas HTML)." }
+              ]
+            },
+            {
+              version: "v2.6",
+              statusLabel: "Versión Actual",
+              date: "Noviembre de 2026",
+              isLatest: true,
+              title: "Incognito Mode (/incognito search) y Manejo de 0 Resultados",
+              changes: [
+                { tag: "NUEVO", color: "emerald", text: "Cambio oficial de <em>Private Mode</em> (<code>/privatesearch</code>) a <strong>Incognito Mode</strong> (<code>/incognito search</code>) con respuestas efímeras discretas." },
+                { tag: "NUEVO", color: "emerald", text: "Aviso limpio cuando una búsqueda no devuelve resultados: embed <strong>No results found</strong> con sugerencias de palabras y región en <code>/search</code> y <code>/incognito search</code>." },
+                { tag: "MEJORA", color: "indigo", text: "Nomenclatura unificada en los 6 idiomas manteniendo la paginación de hasta 4 resultados en 2 páginas." }
+              ]
+            }
+          ]
+        },
+
+        fr: {
+          htmlLang: "fr",
+          nav_sim: "Simulateur",
+          nav_feat: "Fonctionnalités",
+          nav_cmd: "Commandes",
+          title: "Changelog & Versions",
+          liveStatus: "En ligne sur Discord",
+          subtitle: "Suivez toute l'évolution de Bing Search depuis son lancement jusqu'à la version 2.6.",
+          replay: "Rejouer l'animation",
+          footer_back: "Vous souhaitez revenir à la page d'accueil ?",
+          footer_link: "Retour à l'accueil →",
+          releases: [
+            {
+              version: "v1.0",
+              statusLabel: "Lancement",
+              date: "24 Novembre 2025",
+              isLatest: false,
+              title: "Naissance de Bing Search",
+              changes: [
+                { tag: "RELEASE", color: "amber", text: "Création officielle du bot <strong>Bing Search</strong> sur Discord avec moteur de recherche web intégré." },
+                { tag: "NOUVEAU", color: "emerald", text: "Mise en place de la commande de base <code>/search</code> pour chercher sans quitter le chat." },
+                { tag: "VISUEL", color: "purple", text: "Création complète de l'identité visuelle : avatar, bannière et description officielle." }
+              ]
+            },
+            {
+              version: "v1.5",
+              statusLabel: "Mise à jour",
+              date: "2026",
+              isLatest: false,
+              title: "Site Officiel & Support Multilingue",
+              changes: [
+                { tag: "NOUVEAU", color: "emerald", text: "Publication du site officiel sur GitHub Pages avec traductions multilingues." },
+                { tag: "NOUVEAU", color: "emerald", text: "Ajout des Conditions d'Utilisation, de la Politique de Confidentialité et du message de bienvenue en MP." },
+                { tag: "AMÉLIORÉ", color: "indigo", text: "Ajout du sélecteur de langue sur la commande publique <code>/search</code>." }
+              ]
+            },
+            {
+              version: "v2.0",
+              statusLabel: "Mise à jour",
+              date: "Novembre 2026",
+              isLatest: false,
+              title: "Mode Privé, Langues & Résultats Multiples",
+              changes: [
+                { tag: "NOUVEAU", color: "emerald", text: "Lancement de <code>/privatesearch</code> avec réponses éphémères visibles uniquement par l'auteur." },
+                { tag: "NOUVEAU", color: "emerald", text: "Filtre de langue intégré également en mode privé." },
+                { tag: "AMÉLIORÉ", color: "indigo", text: "Support étendu jusqu'à <strong>2 résultats complets</strong> par recherche et lancement du simulateur interactif." }
+              ]
+            },
+            {
+              version: "v2.5",
+              statusLabel: "Mise à jour",
+              date: "Novembre 2026",
+              isLatest: false,
+              title: "Embeds, Pagination (4 Résultats), 6 Régions & Brave Search API",
+              changes: [
+                { tag: "NOUVEAU", color: "emerald", text: "Nouvel affichage en <strong>Embeds bleus</strong>, pied de page (<code>Page 1/2</code>) et boutons <strong>Previous page</strong> / <strong>Next Page</strong> affichant jusqu'à <strong>4 résultats</strong>." },
+                { tag: "NOUVEAU", color: "emerald", text: "Boutons de lien rapide (<strong>Résultat 1 / Résultat 2</strong>), bouton rouge <strong>Delete / Supprimer</strong> et <strong>cooldown anti-spam</strong> sur <code>/search</code>." },
+                { tag: "NOUVEAU", color: "emerald", text: "Nouvelle commande <code>/help</code> multilingue avec bouton vers le site officiel." },
+                { tag: "AMÉLIORÉ", color: "indigo", text: "Prise en charge étendue à <strong>6 régions</strong> (<code>BR, US, ES, FR, DE, IT</code>) en mode public et privé." },
+                { tag: "MOTEUR", color: "purple", text: "Migration complète vers l'API officielle <strong>Brave Search API</strong> avec clés sécurisées et descriptions nettoyées (sans balises HTML)." }
+              ]
+            },
+            {
+              version: "v2.6",
+              statusLabel: "Version Actuelle",
+              date: "Novembre 2026",
+              isLatest: true,
+              title: "Incognito Mode (/incognito search) & Gestion des 0 Résultat",
+              changes: [
+                { tag: "NOUVEAU", color: "emerald", text: "Passage officiel du <em>Private Mode</em> (<code>/privatesearch</code>) à l'<strong>Incognito Mode</strong> (<code>/incognito search</code>) avec réponses éphémères discrètes." },
+                { tag: "NOUVEAU", color: "emerald", text: "Gestion dédiée lorsqu'une requête ne renvoie aucun résultat : embed <strong>No results found</strong> avec conseils de mots-clés et de région dans <code>/search</code> et <code>/incognito search</code>." },
+                { tag: "AMÉLIORÉ", color: "indigo", text: "Harmonisation des libellés dans les 6 langues tout en conservant la pagination sur 2 pages jusqu'à 4 résultats." }
+              ]
+            }
+          ]
+        },
+
+        de: {
+          htmlLang: "de",
+          nav_sim: "Simulator",
+          nav_feat: "Funktionen",
+          nav_cmd: "Befehle",
+          title: "Changelog & Releases",
+          liveStatus: "Aktiv auf Discord",
+          subtitle: "Verfolge die gesamte Entwicklung von Bing Search vom Start bis zur Version 2.6.",
+          replay: "Animation wiederholen",
+          footer_back: "Zurück zur Startseite?",
+          footer_link: "Zur Startseite →",
+          releases: [
+            {
+              version: "v1.0",
+              statusLabel: "Release",
+              date: "24. November 2025",
+              isLatest: false,
+              title: "Start von Bing Search",
+              changes: [
+                { tag: "RELEASE", color: "amber", text: "Offizielle Erstellung des <strong>Bing Search</strong> Discord-Bots mit integrierter Websuche." },
+                { tag: "NEU", color: "emerald", text: "Einführung des Basisbefehls <code>/search</code> für Suchen direkt im Chat." },
+                { tag: "DESIGN", color: "purple", text: "Vollständige Einrichtung der visuellen Identität: Profilbild, Banner und offizielle Beschreibung." }
+              ]
+            },
+            {
+              version: "v1.5",
+              statusLabel: "Update",
+              date: "2026",
+              isLatest: false,
+              title: "Offizielle Website & Mehrsprachigkeit",
+              changes: [
+                { tag: "NEU", color: "emerald", text: "Veröffentlichung der offiziellen Landingpage auf GitHub Pages mit mehrsprachiger Unterstützung." },
+                { tag: "NEU", color: "emerald", text: "Nutzungsbedingungen, Datenschutzerklärung und mehrsprachige Willkommens-DM hinzugefügt." },
+                { tag: "VERBESSERT", color: "indigo", text: "Sprachauswahl im öffentlichen Befehl <code>/search</code> ergänzt." }
+              ]
+            },
+            {
+              version: "v2.0",
+              statusLabel: "Update",
+              date: "November 2026",
+              isLatest: false,
+              title: "Privatmodus, Sprachen & mehrere Ergebnisse",
+              changes: [
+                { tag: "NEU", color: "emerald", text: "Start von <code>/privatesearch</code> mit flüchtigen Antworten nur für den ausführenden Nutzer." },
+                { tag: "NEU", color: "emerald", text: "Sprachfilter auch im privaten Modus integriert." },
+                { tag: "VERBESSERT", color: "indigo", text: "Erweitert auf bis zu <strong>2 vollständige Ergebnisse</strong> pro Suche samt interaktivem Website-Simulator." }
+              ]
+            },
+            {
+              version: "v2.5",
+              statusLabel: "Update",
+              date: "November 2026",
+              isLatest: false,
+              title: "Embeds, Seitenwechsel (4 Ergebnisse), 6 Regionen & Brave Search API",
+              changes: [
+                { tag: "NEU", color: "emerald", text: "Neues Design mit <strong>blauen Embeds</strong>, Seitenanzeige (<code>Seite 1/2</code>) sowie <strong>Previous page</strong> / <strong>Next Page</strong> für bis zu <strong>4 Ergebnisse</strong>." },
+                { tag: "NEU", color: "emerald", text: "Direktlink-Buttons (<strong>Ergebnis 1 / Ergebnis 2</strong>), roter <strong>Delete / Löschen</strong>-Button und <strong>Anti-Spam-Cooldown</strong> in <code>/search</code>." },
+                { tag: "NEU", color: "emerald", text: "Neuer mehrsprachiger Befehl <code>/help</code> mit direktem Website-Button." },
+                { tag: "VERBESSERT", color: "indigo", text: "Suchlokalisierung auf <strong>6 Regionen</strong> (<code>BR, US, ES, FR, DE, IT</code>) im öffentlichen und privaten Modus erweitert." },
+                { tag: "ENGINE", color: "purple", text: "Vollständige Migration auf die offizielle <strong>Brave Search API</strong> mit geschützten Secrets und sauberen Beschreibungen (ohne HTML-Tags)." }
+              ]
+            },
+            {
+              version: "v2.6",
+              statusLabel: "Aktuelle Version",
+              date: "November 2026",
+              isLatest: true,
+              title: "Incognito Mode (/incognito search) & Behandlung leerer Suchen",
+              changes: [
+                { tag: "NEU", color: "emerald", text: "Offizieller Wechsel vom <em>Private Mode</em> (<code>/privatesearch</code>) zum <strong>Incognito Mode</strong> (<code>/incognito search</code>) mit dezenten flüchtigen Antworten." },
+                { tag: "NEU", color: "emerald", text: "Saubere Rückmeldung ohne Treffer: eigenes <strong>No results found</strong>-Embed mit Tipps zu Suchbegriffen und Region in <code>/search</code> und <code>/incognito search</code>." },
+                { tag: "VERBESSERT", color: "indigo", text: "Einheitliche Begriffe in allen 6 Sprachen bei weiterhin bis zu 4 Ergebnissen auf 2 Seiten." }
+              ]
+            }
+          ]
+        },
+
+        it: {
+          htmlLang: "it",
+          nav_sim: "Simulatore",
+          nav_feat: "Funzionalità",
+          nav_cmd: "Comandi",
+          title: "Changelog & Versioni",
+          liveStatus: "Attivo su Discord",
+          subtitle: "Segui tutta l'evoluzione di Bing Search dal lancio fino alla versione 2.6.",
+          replay: "Ripeti animazione",
+          footer_back: "Vuoi tornare alla pagina principale?",
+          footer_link: "Torna alla home →",
+          releases: [
+            {
+              version: "v1.0",
+              statusLabel: "Lancio",
+              date: "24 Novembre 2025",
+              isLatest: false,
+              title: "Nascita di Bing Search",
+              changes: [
+                { tag: "RELEASE", color: "amber", text: "Creazione ufficiale del bot <strong>Bing Search</strong> su Discord con motore di ricerca web integrato." },
+                { tag: "NUOVO", color: "emerald", text: "Implementazione del comando base <code>/search</code> per cercare senza uscire dalla chat." },
+                { tag: "DESIGN", color: "purple", text: "Configurazione completa dell'identità visiva: immagine profilo, banner e descrizione ufficiale." }
+              ]
+            },
+            {
+              version: "v1.5",
+              statusLabel: "Aggiornamento",
+              date: "2026",
+              isLatest: false,
+              title: "Sito Ufficiale & Supporto Multilingua",
+              changes: [
+                { tag: "NUOVO", color: "emerald", text: "Pubblicazione della landing page ufficiale su GitHub Pages con traduzioni multilingua." },
+                { tag: "NUOVO", color: "emerald", text: "Aggiunti Termini di Servizio, Informativa sulla Privacy e messaggio di benvenuto in DM." },
+                { tag: "MIGLIORATO", color: "indigo", text: "Aggiunto il selettore lingua al comando pubblico <code>/search</code>." }
+              ]
+            },
+            {
+              version: "v2.0",
+              statusLabel: "Aggiornamento",
+              date: "Novembre 2026",
+              isLatest: false,
+              title: "Modalità Privata, Lingue & Risultati Multipli",
+              changes: [
+                { tag: "NUOVO", color: "emerald", text: "Lancio di <code>/privatesearch</code> con risposte effimere visibili solo a chi esegue il comando." },
+                { tag: "NUOVO", color: "emerald", text: "Filtro lingua integrato anche nella modalità privata." },
+                { tag: "MIGLIORATO", color: "indigo", text: "Supporto esteso fino a <strong>2 risultati completi</strong> per ricerca e lancio del simulatore interattivo sul sito." }
+              ]
+            },
+            {
+              version: "v2.5",
+              statusLabel: "Aggiornamento",
+              date: "Novembre 2026",
+              isLatest: false,
+              title: "Embed, Paginazione (4 Risultati), 6 Regioni & Brave Search API",
+              changes: [
+                { tag: "NUOVO", color: "emerald", text: "Nuovo layout con <strong>Embed blu</strong>, piè di pagina (<code>Pagina 1/2</code>) e pulsanti <strong>Previous page</strong> / <strong>Next Page</strong> fino a <strong>4 risultati</strong>." },
+                { tag: "NUOVO", color: "emerald", text: "Pulsanti di accesso rapido (<strong>Risultato 1 / Risultato 2</strong>), pulsante rosso <strong>Delete / Elimina</strong> e <strong>cooldown anti-spam</strong> su <code>/search</code>." },
+                { tag: "NUOVO", color: "emerald", text: "Nuovo comando <code>/help</code> multilingua con guida rapida e pulsante diretto al sito ufficiale." },
+                { tag: "MIGLIORATO", color: "indigo", text: "Localizzazione estesa a <strong>6 regioni</strong> (<code>BR, US, ES, FR, DE, IT</code>) in modalità pubblica e privata." },
+                { tag: "MOTORE", color: "purple", text: "Migrazione completa alla <strong>Brave Search API</strong> ufficiale con chiavi protette e descrizioni pulite (senza tag HTML)." }
+              ]
+            },
+            {
+              version: "v2.6",
+              statusLabel: "Versione Attuale",
+              date: "Novembre 2026",
+              isLatest: true,
+              title: "Incognito Mode (/incognito search) & Gestione 0 Risultati",
+              changes: [
+                { tag: "NUOVO", color: "emerald", text: "Passaggio ufficiale da <em>Private Mode</em> (<code>/privatesearch</code>) a <strong>Incognito Mode</strong> (<code>/incognito search</code>) con risposte effimere discrete." },
+                { tag: "NUOVO", color: "emerald", text: "Gestione dedicata quando una ricerca non trova pagine: embed <strong>No results found</strong> con consigli su parole chiave e regione in <code>/search</code> e <code>/incognito search</code>." },
+                { tag: "MIGLIORATO", color: "indigo", text: "Terminologia allineata in tutte e 6 le lingue mantenendo fino a 4 risultati su 2 pagine." }
+              ]
+            }
+          ]
+        }
+      };
+
+      const langSelect = document.getElementById("langSelect");
+      const timelineList = document.getElementById("timelineList");
+      const timelineTrack = document.getElementById("timelineTrack");
+      const timelineFill = document.getElementById("timelineFill");
+      const replayBtn = document.getElementById("replayBtn");
+
+      let timers = [];
+      let currentLang = detectLanguage();
+
+      function detectLanguage() {
+        try {
+          const saved = localStorage.getItem("bingsearch_lang");
+          if (saved && UI[saved]) return saved;
+        } catch (e) {}
+        const browser = (navigator.language || "pt").slice(0, 2).toLowerCase();
+        return UI[browser] ? browser : "pt";
+      }
+
+      function clearTimers() {
+        timers.forEach((id) => clearTimeout(id));
+        timers = [];
+      }
+
+      function syncTrackHeight() {
+        const cards = timelineList ? timelineList.querySelectorAll(".release-card") : [];
+        if (!timelineTrack || cards.length < 2) return;
+        const firstTop = cards[0].offsetTop + 28;
+        const lastTop = cards[cards.length - 1].offsetTop + 28;
+        timelineTrack.style.top = `${firstTop}px`;
+        timelineTrack.style.height = `${Math.max(0, lastTop - firstTop)}px`;
+      }
+
+      function renderTimeline(animate) {
+        clearTimers();
+        if (!timelineList) return;
+
+        const releases = UI[currentLang].releases;
+        timelineList.innerHTML = releases.map((rel, idx) => {
+          const itemsHtml = rel.changes.map((ch) => `
+            <li class="change-item">
+              <span class="badge badge-${ch.color}">${ch.tag}</span>
+              <span>${ch.text}</span>
+            </li>
+          `).join("");
+
+          return `
+            <article class="release-card ${rel.isLatest ? "latest" : ""}" id="rel-card-${idx}">
+              <div class="release-dot ${rel.isLatest ? "latest" : ""}" id="rel-dot-${idx}">
+                <span></span>
+              </div>
+              <div class="release-meta">
+                <span class="version-tag">${rel.version} — ${rel.statusLabel}</span>
+                <span class="release-date">${rel.date}</span>
+              </div>
+              <h2 class="release-title">${rel.title}</h2>
+              <ul class="change-list">${itemsHtml}</ul>
+            </article>
+          `;
+        }).join("");
+
+        requestAnimationFrame(() => {
+          syncTrackHeight();
+
+          if (!animate) {
+            timelineList.querySelectorAll(".release-card").forEach((c) => c.classList.add("visible"));
+            timelineList.querySelectorAll(".release-dot").forEach((d, i) => {
+              d.classList.toggle("active", !releases[i].isLatest);
+            });
+            if (timelineFill) timelineFill.style.height = "100%";
+            return;
+          }
+
+          if (timelineFill) timelineFill.style.height = "0px";
+
+          releases.forEach((_, idx) => {
+            const delay = 200 + idx * 550;
+            const id = setTimeout(() => {
+              const card = document.getElementById(`rel-card-${idx}`);
+              const dot = document.getElementById(`rel-dot-${idx}`);
+              if (card) card.classList.add("visible");
+              if (dot && !releases[idx].isLatest) dot.classList.add("active");
+
+              if (timelineFill && idx > 0) {
+                const pct = Math.round((idx / (releases.length - 1)) * 100);
+                timelineFill.style.height = `${pct}%`;
+              }
+            }, delay);
+            timers.push(id);
+          });
+        });
+      }
+
+      function applyLanguage(animate) {
+        const t = UI[currentLang];
+        document.documentElement.lang = t.htmlLang;
+        if (langSelect) langSelect.value = currentLang;
+
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (t[key]) el.textContent = t[key];
+        });
+
+        renderTimeline(animate);
+      }
+
+      if (langSelect) {
+        langSelect.addEventListener("change", () => {
+          currentLang = langSelect.value;
+          try {
+            localStorage.setItem("bingsearch_lang", currentLang);
+          } catch (e) {}
+          applyLanguage(false);
+        });
+      }
+
+      if (replayBtn) {
+        replayBtn.addEventListener("click", () => renderTimeline(true));
+      }
+
+      window.addEventListener("resize", syncTrackHeight);
+
+      applyLanguage(true);
+    })();
+  </script>
+</body>
+</html>
