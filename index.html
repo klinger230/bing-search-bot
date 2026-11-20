@@ -250,7 +250,7 @@
         </p>
 
         <!-- Botões de Ação -->
-        <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div class="mt-9 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4">
           <a href="https://discord.com/oauth2/authorize?client_id=1442546622805577859" data-invite-link target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-discord-blurple hover:bg-discord-blurpleHover text-white font-bold text-base shadow-glow-blurple transition-all hover:-translate-y-0.5">
             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
@@ -265,10 +265,23 @@
             </svg>
             <span data-i18n="hero.ctaSecondary">Testar Simulador v2.5</span>
           </a>
+
+          <!-- Botão dedicado do BotGhost Marketplace -->
+          <a href="https://botghost.com/marketplace" data-marketplace-link target="_blank" rel="noopener noreferrer" class="group relative w-full sm:w-auto inline-flex items-center justify-center p-[1.5px] rounded-2xl bg-gradient-to-r from-bing-cyan via-discord-blurple to-amber-400 shadow-lg shadow-bing-cyan/15 hover:shadow-glow-bing transition-all hover:-translate-y-0.5">
+            <span class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-[14.5px] rounded-[14.5px] bg-discord-darker/95 group-hover:bg-discord-dark text-white font-bold text-base transition-colors">
+              <svg class="w-5 h-5 text-bing-cyan group-hover:text-amber-300 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              <span data-i18n="hero.ctaMarketplace">BotGhost Marketplace</span>
+              <svg class="w-4 h-4 text-discord-muted group-hover:text-white group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </span>
+          </a>
         </div>
 
         <!-- Destaques rápidos -->
-        <div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs sm:text-sm text-discord-muted">
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-xs sm:text-sm text-discord-muted">
           <div class="flex items-center gap-1.5">
             <span class="w-2 h-2 rounded-full bg-discord-green"></span>
             <span data-i18n="hero.pill1">100% Gratuito</span>
@@ -281,341 +294,29 @@
             <span class="w-2 h-2 rounded-full bg-discord-blurple"></span>
             <span data-i18n="hero.pill3">6 Regiões • Público, Privado & /help</span>
           </div>
+          <a href="https://botghost.com/marketplace" data-marketplace-link target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-200 hover:border-bing-cyan/50 hover:text-white transition-colors">
+            <span class="w-2 h-2 rounded-full bg-gradient-to-r from-amber-400 to-bing-cyan"></span>
+            <span class="font-semibold" data-i18n="hero.pill4">BotGhost Marketplace</span>
+          </a>
         </div>
       </div>
     </section>
-
-    <!-- SIMULADOR INTERATIVO DE CHAT DO DISCORD (v2.5 COM EMBEDS, BOTÕES E PAGINAÇÃO) -->
-    <section id="simulador" class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 scroll-mt-20">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-8">
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="sim.title">Teste o novo visual v2.5 no Discord</h2>
-          <p class="mt-2 text-sm sm:text-base text-discord-muted" data-i18n="sim.subtitle">Alterne entre /search, /privatesearch e /help, navegue pelas páginas 1/2 e 2/2 e teste os botões reais do bot.</p>
-        </div>
-
-        <!-- Controles do Simulador -->
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-4 mb-5">
-          <!-- Toggle /search vs /privatesearch vs /help -->
-          <div class="inline-flex flex-wrap sm:flex-nowrap p-1.5 rounded-2xl bg-discord-darker border border-white/10 w-full lg:w-auto justify-center gap-1" role="tablist">
-            <button type="button" id="mode-btn-public" role="tab" aria-selected="true" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer bg-discord-dark text-white border border-white/10 shadow-md">
-              <span aria-hidden="true">🌐</span>
-              <span>/search</span>
-            </button>
-            <button type="button" id="mode-btn-private" role="tab" aria-selected="false" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-discord-muted hover:text-white">
-              <span aria-hidden="true">🔒</span>
-              <span>/privatesearch</span>
-            </button>
-            <button type="button" id="mode-btn-help" role="tab" aria-selected="false" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-discord-muted hover:text-white">
-              <span aria-hidden="true">❓</span>
-              <span>/help</span>
-              <span class="px-1.5 py-0.5 rounded-md text-[10px] uppercase bg-bing-cyan/20 text-bing-cyan font-extrabold" data-i18n="badges.new">NOVO</span>
-            </button>
-          </div>
-
-          <!-- Chips de Exemplos Clicáveis (pré-populados e sincronizados pelo JS) -->
-          <div id="sim-presets" class="flex flex-wrap items-center justify-center gap-2">
-            <button type="button" data-preset-index="0" class="px-3 py-2 rounded-xl bg-discord-dark hover:bg-discord-blurple/20 border border-white/10 hover:border-bing-cyan/40 text-xs font-medium text-discord-text hover:text-white transition-all cursor-pointer">🔎 clima São Paulo</button>
-            <button type="button" data-preset-index="1" class="px-3 py-2 rounded-xl bg-discord-dark hover:bg-discord-blurple/20 border border-white/10 hover:border-bing-cyan/40 text-xs font-medium text-discord-text hover:text-white transition-all cursor-pointer">🔎 atalhos Discord</button>
-            <button type="button" data-preset-index="2" class="px-3 py-2 rounded-xl bg-discord-dark hover:bg-discord-blurple/20 border border-white/10 hover:border-bing-cyan/40 text-xs font-medium text-discord-text hover:text-white transition-all cursor-pointer">🔎 notícias tecnologia</button>
-          </div>
-        </div>
-
-        <!-- Janela do Discord -->
-        <div class="rounded-2xl overflow-hidden bg-discord-chat border border-white/10 shadow-2xl shadow-black/50">
-          <!-- Cabeçalho do Canal -->
-          <div class="flex items-center justify-between px-4 py-3 bg-discord-dark border-b border-black/30">
-            <div class="flex items-center gap-2 min-w-0">
-              <span class="text-discord-muted text-xl font-semibold">#</span>
-              <span id="sim-channel-name" class="text-white font-bold text-sm truncate">geral</span>
-              <span class="hidden sm:inline-block h-4 w-[1px] bg-white/10 mx-1"></span>
-              <span id="sim-channel-topic" class="hidden sm:inline text-xs text-discord-muted truncate" data-i18n="sim.channelTopic">Simulando v2.5: Embeds, paginação (4 resultados), 6 regiões e botões</span>
-            </div>
-            <div class="flex items-center gap-1.5 shrink-0">
-              <span class="w-2.5 h-2.5 rounded-full bg-discord-green"></span>
-              <span class="text-xs font-semibold text-discord-muted" data-i18n="sim.botOnline">Online</span>
-            </div>
-          </div>
-
-          <!-- Área de Mensagem do Chat -->
-          <div class="p-4 sm:p-6 min-h-[340px] flex flex-col justify-between">
-            <!-- Estado: Mensagem apagada pelo botão Delete -->
-            <div id="sim-deleted-notice" class="hidden my-auto py-10 px-4 text-center rounded-xl bg-discord-dark/50 border border-dashed border-white/10">
-              <div class="text-2xl mb-2">🗑️</div>
-              <p class="text-sm font-semibold text-white" data-i18n="sim.deletedTitle">Mensagem apagada do canal público!</p>
-              <p class="text-xs text-discord-muted mt-1" data-i18n="sim.deletedDesc">No /search, você pode limpar o chat rapidamente clicando no botão Delete / Apagar.</p>
-              <button type="button" id="sim-restore-btn" class="mt-4 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-discord-blurple hover:bg-discord-blurpleHover text-white text-xs font-bold transition-colors cursor-pointer" data-i18n="sim.restoreBtn">Restaurar busca</button>
-            </div>
-
-            <!-- Wrapper da Mensagem Ativa -->
-            <div id="sim-message-wrapper" class="rounded-xl p-3 sm:p-4 transition-all duration-300 bg-transparent border-l-[3px] border-transparent hover:bg-discord-hover/30">
-              <!-- Linha do Slash Command executado -->
-              <div class="flex flex-wrap items-center gap-2 text-xs text-discord-muted mb-2.5 pl-1">
-                <div class="w-4 h-3 border-t-2 border-l-2 border-discord-muted/60 rounded-tl-md translate-y-1"></div>
-                <div class="w-4 h-4 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-[9px] text-white font-bold">U</div>
-                <span class="font-semibold text-white/90" data-i18n="sim.demoUser">Você</span>
-                <span data-i18n="sim.usedCommand">usou</span>
-                <span id="sim-slash-badge" class="px-1.5 py-0.5 rounded-md bg-discord-blurple/20 font-semibold text-indigo-300">/search</span>
-                <span id="sim-inline-query-pill" class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-discord-darker/80 text-discord-muted text-[11px]">
-                  busca: <strong id="sim-inline-query" class="text-discord-text font-medium">clima São Paulo</strong>
-                </span>
-                <span id="sim-inline-lang-pill" class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-discord-darker/80 text-discord-muted text-[11px]">
-                  language: <strong id="sim-inline-lang" class="text-bing-cyan font-semibold">BR</strong>
-                </span>
-              </div>
-
-              <!-- Corpo da Mensagem do Bot -->
-              <div class="flex items-start gap-3 sm:gap-4">
-                <!-- Avatar do Bot -->
-                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-bing-cyan via-bing-blue to-discord-blurple flex items-center justify-center shrink-0 shadow-md shadow-bing-blue/30">
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-                    <circle cx="11" cy="11" r="7"></circle>
-                    <path stroke-linecap="round" d="M20 20l-3.5-3.5"></path>
-                  </svg>
-                </div>
-
-                <!-- Conteúdo da Resposta (Embed + Botões) -->
-                <div class="flex-1 min-w-0">
-                  <div class="flex flex-wrap items-center gap-2 mb-2">
-                    <span class="font-bold text-white text-sm sm:text-base" id="sim-bot-name">Bing Search</span>
-                    <span class="inline-flex items-center gap-0.5 px-1.5 py-[1px] rounded text-[10px] font-bold uppercase tracking-wide bg-discord-blurple text-white">
-                      <svg class="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                      APP
-                    </span>
-                    <span class="text-[11px] text-discord-muted" data-i18n="sim.timestamp">Hoje às 21:05</span>
-                  </div>
-
-                  <!-- Skeleton de carregamento -->
-                  <div id="sim-loading" class="hidden max-w-xl rounded-lg bg-discord-dark border-l-4 border-bing-blue p-4 space-y-2.5 animate-pulse">
-                    <div class="h-4 w-48 bg-white/10 rounded"></div>
-                    <div class="h-3.5 w-3/4 bg-white/10 rounded"></div>
-                    <div class="h-3 w-full bg-white/10 rounded"></div>
-                    <div class="h-3 w-5/6 bg-white/10 rounded"></div>
-                    <div class="h-3 w-56 bg-bing-cyan/20 rounded"></div>
-                  </div>
-
-                  <!-- Card de Embed Oficial do Discord -->
-                  <div id="sim-embed-card" class="max-w-xl rounded-lg bg-discord-dark border-l-4 border-bing-blue p-4 shadow-md">
-                    <div id="sim-response-content" class="text-sm text-discord-text leading-relaxed space-y-3.5 break-words"></div>
-                    <div id="sim-embed-footer" class="mt-3.5 pt-2.5 border-t border-white/5 text-[11px] text-discord-muted flex flex-wrap items-center gap-1.5"></div>
-                  </div>
-
-                  <!-- Botões Interativos Abaixo do Embed -->
-                  <div id="sim-action-buttons" class="mt-2.5 flex flex-wrap items-center gap-2 max-w-xl"></div>
-
-                  <!-- Rodapé Efêmero do Discord (visível no /privatesearch e /help) -->
-                  <div id="sim-ephemeral-footer" class="hidden mt-3 flex flex-wrap items-center gap-2 text-xs text-discord-muted">
-                    <span class="inline-flex items-center gap-1.5 text-[#a5b4fc] font-medium">
-                      <span aria-hidden="true">👁️</span>
-                      <span data-i18n="sim.ephemeralNote">Só você pode ver esta mensagem</span>
-                    </span>
-                    <span class="text-discord-muted/50">•</span>
-                    <button type="button" id="sim-ephemeral-switch-btn" class="text-bing-cyan hover:underline cursor-pointer" data-i18n="sim.ephemeralSwitch">Testar modo público (/search)</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Input de Slash Command na base do Chat -->
-            <form id="sim-form" class="mt-5">
-              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 p-2 rounded-xl bg-[#383a40] border border-white/5 focus-within:border-bing-cyan/50 transition-colors">
-                <div class="flex flex-wrap sm:flex-nowrap items-center gap-2 flex-1 min-w-0 px-1.5">
-                  <span id="sim-input-cmd" class="shrink-0 px-2 py-1 rounded-lg bg-discord-darkest/80 text-indigo-300 font-mono text-xs font-bold">/search</span>
-                  <span id="sim-input-query-label" class="shrink-0 px-1.5 py-0.5 rounded bg-discord-dark text-[11px] font-semibold text-discord-muted">busca:</span>
-                  <input
-                    type="text"
-                    id="sim-input"
-                    autocomplete="off"
-                    class="flex-1 min-w-[130px] bg-transparent text-sm text-white placeholder-discord-muted focus:outline-none py-1.5"
-                    placeholder="Digite um termo para simular a busca..."
-                  />
-                  <!-- Seletor interativo das 6 regiões reais do bot -->
-                  <div id="sim-region-wrapper" class="inline-flex shrink-0 items-center gap-1 px-2.5 py-1.5 rounded-lg bg-discord-dark border border-white/5 text-[11px] text-discord-muted">
-                    <span>language:</span>
-                    <select id="sim-region-select" aria-label="Região da busca" class="bg-transparent text-bing-cyan font-bold focus:outline-none cursor-pointer">
-                      <option value="BR" class="bg-discord-darker text-white">BR</option>
-                      <option value="US" class="bg-discord-darker text-white">US</option>
-                      <option value="ES" class="bg-discord-darker text-white">ES</option>
-                      <option value="FR" class="bg-discord-darker text-white">FR</option>
-                      <option value="DE" class="bg-discord-darker text-white">DE</option>
-                      <option value="IT" class="bg-discord-darker text-white">IT</option>
-                    </select>
-                  </div>
-                </div>
-                <button type="submit" id="sim-submit-btn" class="shrink-0 px-4 py-2.5 rounded-lg bg-discord-blurple hover:bg-discord-blurpleHover text-white text-xs sm:text-sm font-bold transition-colors cursor-pointer flex items-center justify-center gap-1.5">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
-                  <span data-i18n="sim.searchBtn">Pesquisar</span>
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SEÇÃO DE RECURSOS (6 CARDS v2.5) -->
-    <section id="recursos" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 scroll-mt-20">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white" data-i18n="features.title">Feito para buscas rápidas, limpas e modernas</h2>
-          <p class="mt-3 text-sm sm:text-base text-discord-muted" data-i18n="features.subtitle">A versão 2.5 traz uma reformulação completa no visual, na navegação e na estabilidade das pesquisas.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          <!-- Card 1: Embeds & Paginação -->
-          <div class="relative rounded-2xl p-6 bg-gradient-to-b from-discord-dark to-discord-darker border border-bing-cyan/40 shadow-glow-bing hover:-translate-y-1 transition-all">
-            <span class="absolute top-4 right-4 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-gradient-to-r from-bing-blue to-bing-cyan text-white" data-i18n="badges.new">NOVO</span>
-            <div class="w-12 h-12 rounded-xl bg-bing-cyan/15 border border-bing-cyan/30 flex items-center justify-center text-2xl mb-4">📑</div>
-            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f1Title">Embeds & Até 4 Resultados</h3>
-            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f1Desc">Respostas em Embeds azuis com 2 páginas interativas (Previous / Next Page) e botões de link direto para abrir qualquer resultado em um clique.</p>
-          </div>
-
-          <!-- Card 2: 6 Regiões / Idiomas -->
-          <div class="relative rounded-2xl p-6 bg-gradient-to-b from-discord-dark to-discord-darker border border-discord-blurple/50 shadow-glow-blurple hover:-translate-y-1 transition-all">
-            <span class="absolute top-4 right-4 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-discord-blurple text-white" data-i18n="badges.new">NOVO</span>
-            <div class="w-12 h-12 rounded-xl bg-discord-blurple/20 border border-discord-blurple/40 flex items-center justify-center text-2xl mb-4">🌍</div>
-            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f2Title">6 Regiões de Pesquisa</h3>
-            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f2Desc">Escolha resultados direcionados para Brasil (BR), Estados Unidos (US), Espanha (ES), França (FR), Alemanha (DE) ou Itália (IT) em qualquer comando.</p>
-          </div>
-
-          <!-- Card 3: Motor Oficial Brave Search API -->
-          <div class="relative rounded-2xl p-6 bg-gradient-to-b from-discord-dark to-discord-darker border border-emerald-500/35 hover:-translate-y-1 transition-all">
-            <span class="absolute top-4 right-4 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-discord-green text-white" data-i18n="badges.new">NOVO</span>
-            <div class="w-12 h-12 rounded-xl bg-discord-green/15 border border-discord-green/35 flex items-center justify-center text-2xl mb-4">⚡</div>
-            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f3Title">Motor Oficial Brave Search API</h3>
-            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f3Desc">Backend migrado para a API oficial da Brave Search: respostas mais estáveis, rápidas e descrições 100% limpas, sem tags HTML sobrando no texto.</p>
-          </div>
-
-          <!-- Card 4: Busca Privada -->
-          <div class="rounded-2xl p-6 bg-discord-dark/70 border border-white/10 hover:border-white/20 hover:-translate-y-1 transition-all">
-            <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-4">🔒</div>
-            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f4Title">Modo Privado (/privatesearch)</h3>
-            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f4Desc">Resultados em mensagem efêmera visíveis somente para você, agora também com Embed completo, títulos clicáveis e paginação de 4 resultados.</p>
-          </div>
-
-          <!-- Card 5: Controle no Chat + Anti-Spam -->
-          <div class="rounded-2xl p-6 bg-discord-dark/70 border border-white/10 hover:border-white/20 hover:-translate-y-1 transition-all">
-            <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-4">🗑️</div>
-            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f5Title">Botão Apagar & Cooldown</h3>
-            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f5Desc">O comando público /search inclui botão Delete / Apagar para manter o canal limpo e sistema de cooldown anti-spam para proteger o servidor.</p>
-          </div>
-
-          <!-- Card 6: Comando /help e Privacidade -->
-          <div class="rounded-2xl p-6 bg-discord-dark/70 border border-white/10 hover:border-white/20 hover:-translate-y-1 transition-all">
-            <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-4">🛡️</div>
-            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f6Title">Ajuda Multilíngue & Privacidade</h3>
-            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f6Desc">Novo comando /help em PT/EN/ES, 100% gratuito, sem salvar histórico de pesquisas e pedindo apenas as permissões mínimas no servidor.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COMANDOS & COMO USAR -->
-    <section id="comandos" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-discord-darker/60 border-y border-white/5 scroll-mt-20">
-      <div class="max-w-5xl mx-auto">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white" data-i18n="commands.title">Comandos & Como Usar</h2>
-          <p class="mt-3 text-sm sm:text-base text-discord-muted" data-i18n="commands.subtitle">Três comandos slash diretos ao ponto — com suporte a até 4 resultados paginados e 6 regiões.</p>
-        </div>
-
-        <!-- Cards de Comandos -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <!-- Comando /search -->
-          <div class="rounded-2xl p-6 bg-discord-dark border border-white/10 flex flex-col justify-between gap-5">
-            <div>
-              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 text-xs font-semibold text-discord-text" data-i18n="commands.publicTag">🌐 Resposta Pública + Delete</span>
-                <span class="text-xs font-medium text-bing-cyan" data-i18n="commands.fourItemsTag">Até 4 resultados (2 págs)</span>
-              </div>
-              <div class="p-3.5 rounded-xl bg-discord-darkest border border-white/5 font-mono text-xs sm:text-sm text-white flex items-center justify-between gap-2">
-                <span class="truncate"><span class="text-discord-blurple font-bold">/search</span> <span class="text-discord-muted">busca:</span><span class="text-bing-cyan" data-i18n="commands.termPlaceholder">[termo]</span> <span class="text-discord-muted">language:</span><span class="text-indigo-300">[BR|US|ES|FR|DE|IT]</span></span>
-                <button type="button" data-copy-cmd="/search busca:" class="copy-cmd-btn shrink-0 px-3 py-2 rounded-lg bg-discord-dark hover:bg-discord-blurple text-xs font-sans font-semibold text-white transition-colors cursor-pointer flex items-center gap-1.5">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                  <span data-i18n="commands.copyBtn">Copiar</span>
-                </button>
-              </div>
-              <p class="mt-3.5 text-sm text-discord-muted leading-relaxed" data-i18n="commands.publicDesc">Pesquisa na web e envia um Embed público com até 4 resultados distribuídos em 2 páginas, botões de link rápido, proteção anti-spam (cooldown) e botão Delete / Apagar.</p>
-            </div>
-          </div>
-
-          <!-- Comando /privatesearch -->
-          <div class="rounded-2xl p-6 bg-discord-dark border border-bing-cyan/40 shadow-glow-bing flex flex-col justify-between gap-5">
-            <div>
-              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-bing-cyan/15 text-xs font-semibold text-bing-cyan" data-i18n="commands.privateTag">🔒 Resposta Privada</span>
-                <span class="text-xs font-medium text-bing-cyan" data-i18n="commands.fourItemsTag">Até 4 resultados (2 págs)</span>
-              </div>
-              <div class="p-3.5 rounded-xl bg-discord-darkest border border-bing-cyan/20 font-mono text-xs sm:text-sm text-white flex items-center justify-between gap-2">
-                <span class="truncate"><span class="text-bing-cyan font-bold">/privatesearch</span> <span class="text-discord-muted">busca:</span><span class="text-indigo-300" data-i18n="commands.termPlaceholder">[termo]</span> <span class="text-discord-muted">language:</span><span class="text-bing-cyan">[BR|US|ES|FR|DE|IT]</span></span>
-                <button type="button" data-copy-cmd="/privatesearch busca:" class="copy-cmd-btn shrink-0 px-3 py-2 rounded-lg bg-bing-blue hover:bg-bing-cyan text-xs font-sans font-semibold text-white transition-colors cursor-pointer flex items-center gap-1.5">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                  <span data-i18n="commands.copyBtn">Copiar</span>
-                </button>
-              </div>
-              <p class="mt-3.5 text-sm text-discord-muted leading-relaxed" data-i18n="commands.privateDesc">Pesquisa efêmera com Embed azul e títulos clicáveis: somente quem executou o comando vê as 2 páginas de resultados, mantendo o chat 100% limpo.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Comando /help (Destaque Horizontal Novo) -->
-        <div class="rounded-2xl p-6 bg-discord-dark border border-discord-blurple/40 mb-14 flex flex-col md:flex-row md:items-center justify-between gap-5">
-          <div class="flex-1 min-w-0">
-            <div class="flex flex-wrap items-center gap-2 mb-2.5">
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-discord-blurple/20 text-xs font-semibold text-indigo-300" data-i18n="commands.helpTag">❓ Guia Interativo</span>
-              <span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-gradient-to-r from-bing-blue to-bing-cyan text-white" data-i18n="badges.new">NOVO</span>
-            </div>
-            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="commands.helpDesc">Exibe o painel de ajuda multilíngue direto no Discord explicando os comandos disponíveis, regiões suportadas e um botão rápido para o site oficial.</p>
-          </div>
-          <div class="p-3 rounded-xl bg-discord-darkest border border-white/5 font-mono text-sm text-white flex items-center justify-between gap-3 shrink-0 md:min-w-[260px]">
-            <span class="text-indigo-300 font-bold">/help</span>
-            <button type="button" data-copy-cmd="/help" class="copy-cmd-btn shrink-0 px-3 py-2 rounded-lg bg-discord-blurple hover:bg-discord-blurpleHover text-xs font-sans font-semibold text-white transition-colors cursor-pointer flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-              <span data-i18n="commands.copyBtn">Copiar</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Passo a Passo em 3 Etapas -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div class="rounded-2xl p-5 bg-discord-dark/60 border border-white/5">
-            <div class="w-8 h-8 rounded-full bg-discord-blurple text-white font-extrabold text-sm flex items-center justify-center mb-3">1</div>
-            <h3 class="font-bold text-white text-base mb-1.5" data-i18n="steps.s1Title">Adicione ao servidor</h3>
-            <p class="text-sm text-discord-muted" data-i18n="steps.s1Desc">Clique em "Adicionar ao Discord" e autorize o bot no seu servidor em menos de 10 segundos.</p>
-          </div>
-          <div class="rounded-2xl p-5 bg-discord-dark/60 border border-white/5">
-            <div class="w-8 h-8 rounded-full bg-bing-blue text-white font-extrabold text-sm flex items-center justify-center mb-3">2</div>
-            <h3 class="font-bold text-white text-base mb-1.5" data-i18n="steps.s2Title">Escolha o modo e a região</h3>
-            <p class="text-sm text-discord-muted" data-i18n="steps.s2Desc">Use <code class="text-white">/search</code> ou <code class="text-bing-cyan">/privatesearch</code> e selecione entre as 6 regiões: <code class="text-white">BR, US, ES, FR, DE, IT</code>.</p>
-          </div>
-          <div class="rounded-2xl p-5 bg-discord-dark/60 border border-white/5">
-            <div class="w-8 h-8 rounded-full bg-bing-cyan text-discord-darkest font-extrabold text-sm flex items-center justify-center mb-3">3</div>
-            <h3 class="font-bold text-white text-base mb-1.5" data-i18n="steps.s3Title">Navegue pelos 4 resultados</h3>
-            <p class="text-sm text-discord-muted" data-i18n="steps.s3Desc">Explore as 2 páginas com os botões interativos, abra links em 1 clique ou apague a busca pública quando quiser.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ ACORDEÃO INTERATIVO -->
-    <section id="faq" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 scroll-mt-20">
-      <div class="max-w-3xl mx-auto">
-        <div class="text-center mb-10">
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white" data-i18n="faq.title">Perguntas Frequentes</h2>
-          <p class="mt-2 text-sm sm:text-base text-discord-muted" data-i18n="faq.subtitle">Tire suas dúvidas sobre o funcionamento, novidades da v2.5 e privacidade do Bing Search.</p>
-        </div>
-
-        <div id="faq-container" class="space-y-3"></div>
-      </div>
-    </section>
-
     <!-- CTA FINAL -->
     <section class="py-14 px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-discord-blurple/25 via-discord-dark to-bing-blue/25 border border-white/10 text-center shadow-2xl">
         <h2 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="cta.title">Pronto para experimentar o Bing Search v2.5?</h2>
         <p class="mt-3 text-sm sm:text-base text-discord-text/85 max-w-xl mx-auto" data-i18n="cta.subtitle">Adicione gratuitamente ao seu servidor e aproveite Embeds interativos, 4 resultados paginados, 6 regiões e motor oficial de busca.</p>
-        <div class="mt-7 flex justify-center">
-          <a href="https://discord.com/oauth2/authorize?client_id=1442546622805577859" data-invite-link target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-discord-blurple hover:bg-discord-blurpleHover text-white font-bold text-base shadow-glow-blurple transition-all hover:-translate-y-0.5">
+        <div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="https://discord.com/oauth2/authorize?client_id=1442546622805577859" data-invite-link target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-discord-blurple hover:bg-discord-blurpleHover text-white font-bold text-base shadow-glow-blurple transition-all hover:-translate-y-0.5">
             <span data-i18n="hero.ctaPrimary">Adicionar ao Discord</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+
+          <a href="https://botghost.com/marketplace" data-marketplace-link target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-discord-darker/90 hover:bg-discord-dark border border-bing-cyan/35 hover:border-amber-300/60 text-white font-bold text-base transition-all hover:-translate-y-0.5">
+            <svg class="w-5 h-5 text-bing-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span data-i18n="hero.ctaMarketplace">BotGhost Marketplace</span>
           </a>
         </div>
       </div>
@@ -687,6 +388,7 @@
         <a href="#termos" data-route="#termos" class="hover:text-white transition-colors" data-i18n="footer.terms">Termos de Serviço</a>
         <a href="#privacidade" data-route="#privacidade" class="hover:text-white transition-colors" data-i18n="footer.privacy">Política de Privacidade</a>
         <a href="https://discord.com/oauth2/authorize?client_id=1442546622805577859" data-invite-link target="_blank" rel="noopener noreferrer" class="hover:text-bing-cyan transition-colors" data-i18n="footer.invite">Convidar Bot</a>
+        <a href="https://botghost.com/marketplace" data-marketplace-link target="_blank" rel="noopener noreferrer" class="hover:text-amber-300 transition-colors" data-i18n="footer.marketplace">BotGhost Marketplace</a>
       </div>
     </div>
   </footer>
@@ -737,6 +439,8 @@
       // =========================================================================
       const CONFIG = {
         inviteUrl: 'https://discord.com/oauth2/authorize?client_id=1442546622805577859',
+        // Cole aqui a URL oficial do template no BotGhost Marketplace assim que for aprovado:
+        marketplaceUrl: 'https://botghost.com/marketplace',
         botName: 'Bing Search',
         siteUrl: 'https://klinger230.github.io/bing-search-bot/'
       };
@@ -785,9 +489,11 @@
             subtitle: 'Respostas organizadas em <strong class="text-white">Embeds interativos</strong> com paginação de até <strong class="text-white">4 resultados</strong>, 6 regiões de busca (<code class="text-bing-cyan">BR, US, ES, FR, DE, IT</code>), modo privado, botão de apagar e novo motor oficial de alta velocidade.',
             ctaPrimary: 'Adicionar ao Discord',
             ctaSecondary: 'Testar Simulador v2.5',
+            ctaMarketplace: 'BotGhost Marketplace',
             pill1: '100% Gratuito',
             pill2: 'Embeds & Paginação (4 resultados)',
             pill3: '6 Regiões • Público, Privado & /help',
+            pill4: 'BotGhost Marketplace',
           },
           sim: {
             title: 'Teste o novo visual v2.5 no Discord',
@@ -1061,6 +767,7 @@
             terms: 'Termos de Serviço',
             privacy: 'Política de Privacidade',
             invite: 'Convidar Bot',
+            marketplace: 'BotGhost Marketplace',
           },
           legal: {
             backBtn: 'Voltar à página inicial',
@@ -1113,9 +820,11 @@
             subtitle: 'Results delivered in <strong class="text-white">interactive Embeds</strong> with 2-page pagination for up to <strong class="text-white">4 results</strong>, 6 search regions (<code class="text-bing-cyan">BR, US, ES, FR, DE, IT</code>), private mode, delete button, and a fast new official search engine.',
             ctaPrimary: 'Add to Discord',
             ctaSecondary: 'Try v2.5 Simulator',
+            ctaMarketplace: 'BotGhost Marketplace',
             pill1: '100% Free',
             pill2: 'Embeds & Pagination (4 results)',
             pill3: '6 Regions • Public, Private & /help',
+            pill4: 'BotGhost Marketplace',
           },
           sim: {
             title: 'Try the new v2.5 experience on Discord',
@@ -1389,6 +1098,7 @@
             terms: 'Terms of Service',
             privacy: 'Privacy Policy',
             invite: 'Invite Bot',
+            marketplace: 'BotGhost Marketplace',
           },
           legal: {
             backBtn: 'Back to Home',
@@ -1441,9 +1151,11 @@
             subtitle: 'Respuestas organizadas en <strong class="text-white">Embeds interactivos</strong> con paginación de hasta <strong class="text-white">4 resultados</strong>, 6 regiones (<code class="text-bing-cyan">BR, US, ES, FR, DE, IT</code>), modo privado, botón de borrar y nuevo motor oficial de alta velocidad.',
             ctaPrimary: 'Añadir a Discord',
             ctaSecondary: 'Probar Simulador v2.5',
+            ctaMarketplace: 'BotGhost Marketplace',
             pill1: '100% Gratis',
             pill2: 'Embeds y Paginación (4 resultados)',
             pill3: '6 Regiones • Público, Privado y /help',
+            pill4: 'BotGhost Marketplace',
           },
           sim: {
             title: 'Prueba el nuevo diseño v2.5 en Discord',
@@ -1717,6 +1429,7 @@
             terms: 'Términos de Servicio',
             privacy: 'Política de Privacidad',
             invite: 'Invitar Bot',
+            marketplace: 'BotGhost Marketplace',
           },
           legal: {
             backBtn: 'Volver al inicio',
@@ -2740,6 +2453,12 @@
         // Aplica configurações globais do bot
         document.querySelectorAll('[data-invite-link]').forEach((link) => {
           link.href = CONFIG.inviteUrl;
+        });
+
+        document.querySelectorAll('[data-marketplace-link]').forEach((link) => {
+          link.href = CONFIG.marketplaceUrl;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
         });
 
         const navBrand = document.getElementById('nav-brand-name');
