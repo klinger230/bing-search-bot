@@ -3276,9 +3276,139 @@
       loginForm.classList.remove("active");
       lockedBar.style.display = "flex";
     }
-    renderFeed();
-  });
+    const traducoesCache = new Map();
 
+  function getIdiomaAlvo() {
+    const lang = localStorage.getItem("bingsearch_lang") || "pt";
+    return ["en", "es", "fr", "de", "it"].includes(lang) ? lang : "pt";
+  }
+
+  async function traduzirTexto(texto, langAlvo) {
+    const cacheKey = `${langAlvo}::${texto}`;
+    if (traducoesCache.has(cacheKey)) {
+      return traducoesCache.get(cacheKey);
+    }
+
+    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(texto)}&langpair=pt|${encodeURIComponent(langAlvo)}`;
+    const resp = await fetch(url);
+    if (!resp.ok) throw new Error("Falha na requisição de tradução");
+
+    const data = await resp.json();
+    const traduzido = data?.responseData?.translatedText;
+    if (!traduzido) throw new Error("Resposta vazia da API");
+
+    traducoesCache.set(cacheKey, traduzido);
+    return traduzido;
+  }
+    // Renderizar cards com segurança (sem innerHTML no texto do usuário)
+  function renderFeed() {
+    feed.innerHTML = "";
+    if (cachedDocs.length === 0) {
+      const empty = document.createElement("div");
+      empty.className = "av-empty";
+      empty.textContent = "Nenhum aviso publicado ainda.";
+      feed.appendChild(empty);
+      return;
+    }
+
+    cachedDocs.forEach(({ id, data }) => {
+      const card = document.createElement("article");
+      card.className = "av-card";
+
+      const top = document.createElement("div");
+      top.className = "av-card-top";
+
+      const authorBox = document.createElement("div");
+      authorBox.className = "av-author-box";
+
+      const avatar = document.createElement("div");
+      avatar.className = "av-avatar";
+      avatar.textContent = "K";
+
+      const author = document.createElement("span");
+      author.className = "av-author";
+      author.textContent = AUTHOR_NAME;
+
+      const devBadge = document.createElement("span");
+      devBadge.className = "av-dev-badge";
+      devBadge.textContent = "DEV";
+
+      authorBox.append(avatar, author, devBadge);
+
+      const time = document.createElement("span");
+      time.className = "av-time";
+      time.textContent = formatarData(data.createdAt);
+
+      top.append(authorBox, time);
+
+      const tag = document.createElement("span");
+      tag.className = `av-tag av-tag-${data.tag || "NOVIDADE"}`;
+      tag.textContent = data.tag || "NOVIDADE";
+
+      const text = document.createElement("p");
+      text.className = "av-text";
+      text.textContent = data.texto || "";
+
+      card.append(top, tag, text);
+
+      const langAlvo = getIdiomaAlvo();
+      if (langAlvo !== "pt" && (data.texto || "").trim()) {
+        const transBtn = document.createElement("button");
+        transBtn.type = "button";
+        transBtn.className = "av-del-btn";
+        transBtn.style.marginTop = "10px";
+        transBtn.style.marginRight = "6px";
+        transBtn.style.borderColor = "rgba(56, 189, 248, 0.35)";
+        transBtn.style.color = "#38bdf8";
+        transBtn.textContent = `Traduzir (${langAlvo.toUpperCase()})`;
+
+        let mostrandoTraducao = false;
+        const textoOriginal = data.texto || "";
+
+        transBtn.addEventListener("click", async () => {
+          if (mostrandoTraducao) {
+            text.textContent = textoOriginal;
+            mostrandoTraducao = false;
+            transBtn.textContent = `Traduzir (${langAlvo.toUpperCase()})`;
+            return;
+          }
+
+          transBtn.disabled = true;
+          transBtn.textContent = "Traduzindo...";
+          try {
+            text.textContent = await traduzirTexto(textoOriginal, langAlvo);
+            mostrandoTraducao = true;
+            transBtn.textContent = "Ver original (PT)";
+          } catch (err) {
+            transBtn.textContent = "Erro ao traduzir";
+            setTimeout(() => {
+              transBtn.textContent = `Traduzir (${langAlvo.toUpperCase()})`;
+            }, 1800);
+          } finally {
+            transBtn.disabled = false;
+          }
+        });
+
+        card.appendChild(transBtn);
+      }
+
+      if (isAdmin) {
+        const delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.className = "av-del-btn";
+        delBtn.textContent = "Apagar aviso";
+        delBtn.addEventListener("click", async () => {
+          if (confirm("Deseja apagar este aviso?")) {
+            await deleteDoc(doc(db, "avisos", id));
+          }
+        });
+        card.appendChild(delBtn);
+      }
+
+      feed.appendChild(card);
+    });
+  }
+    
   // Publicar aviso
   postForm.addEventListener("submit", async (e) => {
     e.preventDefault();
