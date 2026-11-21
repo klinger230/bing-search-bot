@@ -2038,13 +2038,13 @@
       // =========================================================================
       // UTILITÁRIOS DE SEGURANÇA, CLIPBOARD E TOAST
       // =========================================================================
-  function escapeHtml(str) {
+        function escapeHtml(str) {
         return String(str)
-          .replace(/&/g, '&')
-          .replace(/</g, '<')
-          .replace(/>/g, '>')
-          .replace(/"/g, '"')
-          .replace(/'/g, ''');
+          .replace(/&/g, "&")
+          .replace(/</g, "<")
+          .replace(/>/g, ">")
+          .replace(/"/g, """)
+          .replace(/'/g, "'");
       }
 
       function showToast(message) {
