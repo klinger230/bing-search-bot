@@ -3319,9 +3319,7 @@
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getFirestore(app);
-  const q = query(collection(db, "avisos"), orderBy("createdAt", "desc"));
-  onSnapshot(q, (snapshot) => {
-    const docs = snapshot.docs.map((d) => d.data());
+     const docs = snapshot.docs.map((d) => d.data());
     if (docs.length > 0 && typeof window.setBannerStatusFromFirestore === "function") {
       const tagMaisRecente = docs[0]?.tag;
       if (tagMaisRecente) {
@@ -3593,8 +3591,15 @@
   // Escutar avisos em tempo real
   const q = query(collection(db, "avisos"), orderBy("createdAt", "desc"));
   onSnapshot(q, (snapshot) => {
-    cachedDocs = snapshot.docs.map((d) => ({ id: d.id, data: d.data() }));
+  cachedDocs = snapshot.docs.map((d) => ({ id: d.id, data: d.data() }));
     if (cachedDocs.length > 0) {
+      if (typeof window.setBannerStatusFromFirestore === "function") {
+        const tagMaisRecente = cachedDocs[0].data?.tag;
+        if (tagMaisRecente) {
+          window.setBannerStatusFromFirestore(tagMaisRecente);
+        }
+      }
+    }
       latestAvisoId = cachedDocs[0].id;
       const ultimoLido = localStorage.getItem("bing_ultimo_aviso_lido");
       if (ultimoLido !== latestAvisoId && !drawer.classList.contains("open")) {
