@@ -220,8 +220,7 @@
       </div>
 
       <!-- Chave seletora rápida de status -->
-      <label class="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-discord-darkest/80 border border-white/15 text-[11px] font-bold text-discord-muted hover:text-white cursor-pointer">
-        <span>🔑</span>
+        <label id="status-key-label" class="hidden shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-discord-darkest/80 border border-white/15 text-[11px] font-bold text-discord-muted hover:text-white cursor-pointer">        <span>🔑</span>
         <select id="status-key-select" aria-label="Chave de status do banner" class="bg-transparent text-white font-bold focus:outline-none cursor-pointer">
           <option value="ONLINE" class="bg-discord-darker text-emerald-400">ONLINE</option>
           <option value="MANUTENÇÃO" class="bg-discord-darker text-red-400">MANUTENÇÃO</option>
@@ -2098,7 +2097,7 @@
         return String(str ?? '');
       }
 
-      function applyBannerStatus(status) {
+    function applyBannerStatus(status) {
         const key = BANNER_STATES[status] ? status : 'ONLINE';
         const cfg = BANNER_STATES[key];
         const bar = document.getElementById('status-marquee-bar');
@@ -2113,6 +2112,18 @@
         });
       }
 
+      window.setBannerStatusFromFirestore = function (status) {
+        if (status && BANNER_STATES[status]) {
+          applyBannerStatus(status);
+        }
+      };
+      
+      window.setBannerStatusFromFirestore = function (status) {
+        if (status && BANNER_STATES[status]) {
+          applyBannerStatus(status);
+        }
+      };
+      
       function showToast(message) {
         const toast = document.getElementById('toast');
         const toastMsg = document.getElementById('toast-message');
@@ -2820,7 +2831,20 @@
           if (st && BANNER_STATES[st]) savedStatus = st;
         } catch (e) {}
         applyBannerStatus(savedStatus);
-
+        const keyLabel = document.getElementById('status-key-label');
+        if (keyLabel) {
+          let unlockKey = false;
+          try {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('key') === '1') {
+              unlockKey = true;
+              localStorage.setItem('bingsearch_key_unlocked', '1');
+            } else if (localStorage.getItem('bingsearch_key_unlocked') === '1') {
+              unlockKey = true;
+            }
+          } catch (e) {}
+          if (unlockKey) keyLabel.classList.remove('hidden');
+        }
         let initialLang = 'en';
         try {
           const stored = localStorage.getItem('bingsearch_lang');
@@ -3295,7 +3319,16 @@
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getFirestore(app);
-
+  const q = query(collection(db, "avisos"), orderBy("createdAt", "desc"));
+  onSnapshot(q, (snapshot) => {
+    const docs = snapshot.docs.map((d) => d.data());
+    if (docs.length > 0 && typeof window.setBannerStatusFromFirestore === "function") {
+      const tagMaisRecente = docs[0]?.tag;
+      if (tagMaisRecente) {
+        window.setBannerStatusFromFirestore(tagMaisRecente);
+      }
+    }
+  });
   // Elementos
   const openBtn = document.getElementById("av-open-btn");
   const closeBtn = document.getElementById("av-close-btn");
