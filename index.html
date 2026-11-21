@@ -100,6 +100,18 @@
     }
 
     /* Oculta barra de rolagem horizontal do seletor de idiomas em telas muito estreitas */
+    @keyframes bingMarqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-33.333%); }
+    }
+    .animate-marquee {
+      display: inline-flex;
+      width: max-content;
+      animation: bingMarqueeScroll 18s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
@@ -198,6 +210,29 @@
     </div>
   </header>
   <!-- CONTEÚDO PRINCIPAL (HOME) -->
+  <!-- BANNER ANIMADO DE STATUS (ONLINE / MANUTENÇÃO / NOVIDADE) -->
+  <div id="status-marquee-bar" class="relative z-30 w-full overflow-hidden border-b border-emerald-500/30 bg-gradient-to-r from-emerald-950/90 via-discord-darker to-emerald-950/90 text-xs sm:text-sm font-semibold text-white transition-colors duration-300">
+    <div class="flex items-center justify-between gap-2 px-3 sm:px-6 py-2">
+      <!-- Faixa que se mexe -->
+      <div class="relative flex-1 overflow-hidden whitespace-nowrap select-none">
+        <div id="status-marquee-track" class="inline-flex items-center gap-8 animate-marquee">
+          <span class="inline-flex items-center gap-2 status-marquee-msg"></span>
+          <span class="inline-flex items-center gap-2 status-marquee-msg" aria-hidden="true"></span>
+          <span class="inline-flex items-center gap-2 status-marquee-msg" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <!-- Chave seletora rápida de status -->
+      <label class="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-discord-darkest/80 border border-white/15 text-[11px] font-bold text-discord-muted hover:text-white cursor-pointer">
+        <span>🔑</span>
+        <select id="status-key-select" aria-label="Chave de status do banner" class="bg-transparent text-white font-bold focus:outline-none cursor-pointer">
+          <option value="ONLINE" class="bg-discord-darker text-emerald-400">ONLINE</option>
+          <option value="MANUTENÇÃO" class="bg-discord-darker text-red-400">MANUTENÇÃO</option>
+          <option value="NOVIDADE" class="bg-discord-darker text-sky-400">NOVIDADE</option>
+        </select>
+      </label>
+    </div>
+  </div>
   <main id="top">
     <!-- HERO SECTION -->
     <section class="relative pt-14 pb-16 sm:pt-20 sm:pb-24 px-4 sm:px-6 lg:px-8">
@@ -2718,7 +2753,19 @@
         if (footerBrand) footerBrand.textContent = CONFIG.botName;
 
         bindEvents();
+        let savedStatus = "ONLINE";
+        try {
+          const st = localStorage.getItem(STATUS_KEY_STORAGE);
+          if (st && BANNER_STATES[st]) savedStatus = st;
+        } catch (e) {}
+        applyBannerStatus(savedStatus);
 
+        const statusSelect = document.getElementById("status-key-select");
+        if (statusSelect) {
+          statusSelect.addEventListener("change", (ev) => {
+            applyBannerStatus(ev.target.value);
+          });
+        }
         let savedLang = 'pt';
         try {
           const stored = localStorage.getItem('bingsearch_lang');
