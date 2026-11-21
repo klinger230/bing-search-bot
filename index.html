@@ -2328,19 +2328,6 @@
         if (inlineQueryEl) inlineQueryEl.textContent = query;
         if (inlineLangEl) inlineLangEl.textContent = currentSimRegion;
 
-        const renderContentNow = () => {
-          // MODO /help
-          if (currentSimMode === 'help') {
-            contentEl.innerHTML = `
-              <div class="text-base font-extrabold text-white">${escapeHtml(tSim.helpTitle)}</div>
-              <p class="text-discord-text/90">${escapeHtml(tSim.helpIntro)}</p>
-              <ul class="space-y-2 text-discord-text/95">
-                <li>🌐 ${tSim.helpCmd1}</li>
-                <li>🕶️ ${tSim.helpCmd2}</li>
-                <li>❓ ${tSim.helpCmd3}</li>
-              </ul>
-              <div class="pt-1 text-xs text-discord-muted">${tSim.helpRegions}</div>
-            `;
             footerEl.textContent = `${tSim.helpFooter} • ${tSim.timestamp}`;
             buttonsEl.innerHTML = `
               <a href="${escapeHtml(CONFIG.changelogUrl)}" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-md bg-discord-btnGray hover:bg-discord-btnGrayHover text-white text-xs font-semibold transition-colors">
@@ -2455,23 +2442,10 @@
         };
 
         clearTimeout(simLoadingTimeout);
-
-        if (animateLoading && loadingEl) {
-          embedCard.classList.add('hidden');
-          buttonsEl.classList.add('hidden');
-          loadingEl.classList.remove('hidden');
-          simLoadingTimeout = setTimeout(() => {
-            renderContentNow();
-            loadingEl.classList.add('hidden');
-            embedCard.classList.remove('hidden');
-            buttonsEl.classList.remove('hidden');
-          }, 220);
-        } else {
-          if (loadingEl) loadingEl.classList.add('hidden');
-          embedCard.classList.remove('hidden');
-          buttonsEl.classList.remove('hidden');
-          renderContentNow();
-        }
+        if (loadingEl) loadingEl.classList.add('hidden');
+        embedCard.classList.remove('hidden');
+        buttonsEl.classList.remove('hidden');
+        renderContentNow();
       }
 
       // =========================================================================
