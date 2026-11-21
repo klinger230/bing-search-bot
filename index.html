@@ -116,6 +116,42 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+
+    @keyframes banner-pulse-slow {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    @keyframes banner-pulse-fast {
+      0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 14px rgba(239, 68, 68, 0.9);
+      }
+      50% {
+        opacity: 0.25;
+        box-shadow: 0 0 2px rgba(239, 68, 68, 0.15);
+      }
+    }
+
+    .status-marquee-msg > span:first-child {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      vertical-align: middle;
+    }
+
+    .banner-blink-slow {
+      animation: banner-pulse-slow 3.5s ease-in-out infinite;
+    }
+
+    .banner-blink-fast {
+      animation: banner-pulse-fast 0.9s ease-in-out infinite;
+    }
   </style>
 </head>
 <body class="bg-discord-darkest text-discord-text font-sans antialiased selection:bg-discord-blurple/40 selection:text-white overflow-x-hidden">
@@ -760,19 +796,19 @@
           badge: '🟢 ONLINE',
           text: 'All Bing Search v3.0 systems operational • Web & YouTube Video Search active • 6 regions available',
           barClass: 'relative z-30 w-full overflow-hidden border-b border-emerald-500/30 bg-gradient-to-r from-emerald-950/90 via-discord-darker to-emerald-950/90 text-xs sm:text-sm font-semibold text-white transition-colors duration-300',
-          badgeClass: 'px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40'
+          badgeClass: 'inline-flex items-center justify-center leading-none px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 banner-blink-slow'
         },
         'MANUTENÇÃO': {
           badge: '🔴 MANUTENÇÃO',
           text: 'Scheduled maintenance or temporary instability in progress • Some searches may experience delays',
           barClass: 'relative z-30 w-full overflow-hidden border-b border-red-500/50 bg-gradient-to-r from-red-950/95 via-red-900/70 to-red-950/95 text-xs sm:text-sm font-semibold text-white transition-colors duration-300',
-          badgeClass: 'px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-red-600 text-white border border-red-300/50'
+          badgeClass: 'inline-flex items-center justify-center leading-none px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-red-600 text-white border border-red-300/50 banner-blink-fast'
         },
         NOVIDADE: {
           badge: '🔵 NOVIDADE',
           text: 'Bing Search v3.0 live: /searchvideos & /incognito videos with native YouTube player, 3 pages & 6 regions',
           barClass: 'relative z-30 w-full overflow-hidden border-b border-sky-400/40 bg-gradient-to-r from-sky-950/90 via-discord-darker to-indigo-950/90 text-xs sm:text-sm font-semibold text-white transition-colors duration-300',
-          badgeClass: 'px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-sky-500/20 text-sky-300 border border-sky-400/40'
+          badgeClass: 'inline-flex items-center justify-center leading-none px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-sky-500/20 text-sky-300 border border-sky-400/40 banner-blink-slow'
         }
       };
 
