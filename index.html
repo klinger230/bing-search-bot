@@ -1115,8 +1115,8 @@
               <p>Ao adicionar ou utilizar o bot <strong>${CONFIG.botName}</strong> no Discord, você concorda com os termos descritos abaixo.</p>
               <h3 class="text-lg font-bold text-white pt-2">1. Natureza Independente do Projeto</h3>
               <p>O <strong>${CONFIG.botName}</strong> é um projeto independente e gratuito desenvolvido para facilitar pesquisas na web e de vídeos dentro do Discord. Este serviço <strong>não é oficial</strong> e não possui afiliação, endosso ou vínculo com a Microsoft Corporation, Bing, Brave Software, YouTube ou Discord Inc.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Funcionamento dos Comandos</h3>
-              <p>O bot disponibiliza <code>/search</code>, <code>/incognito search</code>, <code>/searchvideos</code>, <code>/incognito videos</code> e <code>/help</code>, retornando resultados web e links de vídeo via API oficial de busca.</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Funcionamento dos Comandos e Limites do Incognito Mode</h3>
+              <p>O bot disponibiliza <code>/search</code>, <code>/incognito search</code>, <code>/searchvideos</code>, <code>/incognito videos</code> e <code>/help</code>, retornando resultados web e links de vídeo via API oficial de busca. O <strong>Incognito Mode</strong> atua apenas como um atalho de resposta efêmera dentro do Discord e <strong>não substitui uma guia anônima de navegador ou do YouTube</strong>; ao assistir vídeos ou abrir links estando logado em serviços externos (como Google/YouTube), o acesso poderá ser registrado normalmente no histórico dessas contas e do navegador.</p>
               <h3 class="text-lg font-bold text-white pt-2">3. Uso Responsável</h3>
               <p>O usuário compromete-se a não utilizar o bot para spam, automação abusiva, buscas de conteúdo ilegal ou violação dos Termos de Serviço do Discord.</p>
               <h3 class="text-lg font-bold text-white pt-2">4. Conteúdo de Terceiros e Disponibilidade</h3>
@@ -1127,8 +1127,8 @@
               <p>A sua privacidade é prioridade no <strong>${CONFIG.botName}</strong>. Esta política explica como os dados são tratados durante o uso dos comandos no Discord.</p>
               <h3 class="text-lg font-bold text-white pt-2">1. Não Armazenamento de Histórico de Pesquisas</h3>
               <p>Os termos pesquisados e a região selecionada em <code>language</code> são processados exclusivamente em tempo real via Brave Search API. <strong>Não armazenamos histórico de buscas</strong>, não vinculamos consultas ao seu ID do Discord e não vendemos dados.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Privacidade do Incognito Mode</h3>
-              <p>Ao utilizar <code>/incognito search</code> ou <code>/incognito videos</code>, a resposta é enviada via mensagem efêmera nativa do Discord (<em>"Só você pode ver esta mensagem"</em>).</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Privacidade e Limites do Incognito Mode</h3>
+              <p>Ao utilizar <code>/incognito search</code> ou <code>/incognito videos</code>, a resposta é enviada via mensagem efêmera nativa do Discord (<em>"Só você pode ver esta mensagem"</em>), ocultando o resultado apenas para outros membros do canal. O comando funciona como um atalho para os resultados e <strong>não</strong> como uma guia anônima: se você estiver logado na sua conta Google/YouTube e reproduzir um vídeo ou abrir um link externo, a atividade será registrada normalmente no seu histórico do YouTube e do navegador.</p>
               <h3 class="text-lg font-bold text-white pt-2">3. Dados Mínimos de Operação</h3>
               <p>O bot não lê mensagens comuns enviadas nos canais — ele só é acionado quando um usuário invoca explicitamente um comando slash.</p>
               <h3 class="text-lg font-bold text-white pt-2">4. Independência e Links Externos</h3>
@@ -1422,8 +1422,8 @@
               <p>By adding or using the <strong>${CONFIG.botName}</strong> Discord bot, you agree to the terms outlined below.</p>
               <h3 class="text-lg font-bold text-white pt-2">1. Independent Project</h3>
               <p><strong>${CONFIG.botName}</strong> is an independent, free community project created to enable convenient web and video searches inside Discord. This service is <strong>not official</strong> and has no affiliation with Microsoft Corporation, Bing, Brave Software, YouTube, or Discord Inc.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Command Functionality</h3>
-              <p>The bot provides <code>/search</code>, <code>/incognito search</code>, <code>/searchvideos</code>, <code>/incognito videos</code>, and <code>/help</code>, returning web and YouTube video results via an official search API.</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Command Functionality & Incognito Mode Scope</h3>
+              <p>The bot provides <code>/search</code>, <code>/incognito search</code>, <code>/searchvideos</code>, <code>/incognito videos</code>, and <code>/help</code>, returning web and YouTube video results via an official search API. <strong>Incognito Mode</strong> only acts as a shortcut delivering an ephemeral reply inside Discord and <strong>does not replace a browser or YouTube incognito tab</strong>; watching videos or opening links while signed into external services (such as Google/YouTube) may still be recorded normally in your account and browser history.</p>
               <h3 class="text-lg font-bold text-white pt-2">3. Responsible Use</h3>
               <p>You agree not to use the bot for spamming, abusive automation, illegal queries, or any activity that violates Discord's Terms of Service.</p>
               <h3 class="text-lg font-bold text-white pt-2">4. Third-Party Content & Availability</h3>
@@ -1434,8 +1434,8 @@
               <p>Your privacy matters when using <strong>${CONFIG.botName}</strong>. This policy explains how information is handled when you run commands on Discord.</p>
               <h3 class="text-lg font-bold text-white pt-2">1. No Search History Storage</h3>
               <p>Queries and regions chosen in <code>language</code> are processed strictly in real time via the Brave Search API. <strong>We do not store search history</strong>, do not tie search terms to your Discord ID, and never sell data.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Incognito Mode Privacy</h3>
-              <p>When using <code>/incognito search</code> or <code>/incognito videos</code>, results are delivered using Discord's native ephemeral message feature (<em>"Only you can see this"</em>).</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Incognito Mode Privacy & Limitations</h3>
+              <p>When using <code>/incognito search</code> or <code>/incognito videos</code>, results are delivered using Discord's native ephemeral message feature (<em>"Only you can see this"</em>), hiding them only from other channel members. It acts as a shortcut to results rather than a browser incognito tab: if you are signed into your Google/YouTube account and watch a video or open an external link, that activity will still be logged normally in your YouTube and browser history.</p>
               <h3 class="text-lg font-bold text-white pt-2">3. Minimal Operational Data</h3>
               <p>The bot does not read regular messages in your channels — it only activates when a user explicitly invokes a slash command.</p>
               <h3 class="text-lg font-bold text-white pt-2">4. Independence & External Links</h3>
@@ -1728,8 +1728,8 @@
               <p>Al añadir o utilizar el bot <strong>${CONFIG.botName}</strong> en Discord, aceptas los términos descritos a continuación.</p>
               <h3 class="text-lg font-bold text-white pt-2">1. Naturaleza Independiente del Proyecto</h3>
               <p><strong>${CONFIG.botName}</strong> es un proyecto independiente y gratuito creado para facilitar búsquedas web y de video en Discord. No tiene afiliación con Microsoft, Bing, Brave, YouTube ni Discord Inc.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Funcionamiento de los Comandos</h3>
-              <p>El bot ofrece <code>/search</code>, <code>/incognito search</code>, <code>/searchvideos</code>, <code>/incognito videos</code> y <code>/help</code> mediante API oficial de búsqueda.</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Funcionamiento de los Comandos y Alcance del Incognito Mode</h3>
+              <p>El bot ofrece <code>/search</code>, <code>/incognito search</code>, <code>/searchvideos</code>, <code>/incognito videos</code> y <code>/help</code> mediante API oficial de búsqueda. El <strong>Incognito Mode</strong> funciona solo como un atajo con respuesta efímera dentro de Discord y <strong>no reemplaza una pestaña de incógnito del navegador o de YouTube</strong>; si ves videos o abres enlaces con tu cuenta de Google/YouTube iniciada, la actividad podrá registrarse normalmente en tu historial.</p>
               <h3 class="text-lg font-bold text-white pt-2">3. Uso Responsable</h3>
               <p>El usuario se compromete a no utilizar el bot para spam, automación abusiva, búsquedas ilegales o infracciones de los Términos de Discord.</p>
               <h3 class="text-lg font-bold text-white pt-2">4. Contenido de Terceros y Disponibilidad</h3>
@@ -1740,8 +1740,8 @@
               <p>Tu privacidad es fundamental en <strong>${CONFIG.botName}</strong>. Esta política explica cómo se gestionan los datos al usar los comandos en Discord.</p>
               <h3 class="text-lg font-bold text-white pt-2">1. No Almacenamiento del Historial</h3>
               <p>Las búsquedas y regiones se procesan en tiempo real mediante Brave Search API. <strong>No almacenamos historial de búsquedas</strong> ni vendemos datos.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Privacidad en Incognito Mode</h3>
-              <p>Al usar <code>/incognito search</code> o <code>/incognito videos</code>, la respuesta se envía como mensaje efímero de Discord (<em>"Solo tú puedes ver esto"</em>).</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Privacidad y Límites del Incognito Mode</h3>
+              <p>Al usar <code>/incognito search</code> o <code>/incognito videos</code>, la respuesta se envía como mensaje efímero de Discord (<em>"Solo tú puedes ver esto"</em>), ocultándola solo para los demás miembros del canal. Actúa como un atajo y <strong>no</strong> como una pestaña de incógnito: si tienes tu cuenta de Google/YouTube iniciada y reproduces un video o abres un enlace, se registrará normalmente en tu historial de YouTube y del navegador.</p>
               <h3 class="text-lg font-bold text-white pt-2">3. Datos Mínimos de Operación</h3>
               <p>El bot no lee mensajes normales en los canales; solo se activa cuando invocas explícitamente un comando slash.</p>
               <h3 class="text-lg font-bold text-white pt-2">4. Independencia y Enlaces Externos</h3>
@@ -2035,8 +2035,8 @@
               <p>En ajoutant ou en utilisant le bot <strong>${CONFIG.botName}</strong> sur Discord, vous acceptez les conditions ci-dessous.</p>
               <h3 class="text-lg font-bold text-white pt-2">1. Projet Indépendant</h3>
               <p><strong>${CONFIG.botName}</strong> est un projet indépendant et gratuit sans affiliation avec Microsoft, Bing, Brave, YouTube ou Discord Inc.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Fonctionnement des Commandes</h3>
-              <p>Le bot propose <code>/search</code>, <code>/incognito search</code>, <code>/searchvideos</code>, <code>/incognito videos</code> et <code>/help</code> via une API officielle.</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Fonctionnement des Commandes et Limites de l'Incognito Mode</h3>
+              <p>Le bot propose <code>/search</code>, <code>/incognito search</code>, <code>/searchvideos</code>, <code>/incognito videos</code> et <code>/help</code> via une API officielle. L'<strong>Incognito Mode</strong> agit uniquement comme un raccourci éphémère sur Discord et <strong>ne remplace pas la navigation privée du navigateur ou de YouTube</strong> ; regarder des vidéos ou ouvrir des liens en étant connecté à Google/YouTube reste enregistré normalement dans votre historique.</p>
               <h3 class="text-lg font-bold text-white pt-2">3. Utilisation Responsable</h3>
               <p>Vous vous engagez à ne pas utiliser le bot pour du spam, de l'automatisation abusive ou des recherches illégales.</p>
               <h3 class="text-lg font-bold text-white pt-2">4. Contenu Tiers et Disponibilité</h3>
@@ -2047,8 +2047,8 @@
               <p>Votre vie privée est essentielle sur <strong>${CONFIG.botName}</strong>.</p>
               <h3 class="text-lg font-bold text-white pt-2">1. Aucun Stockage de l'Historique</h3>
               <p>Les requêtes sont traitées uniquement en temps réel via Brave Search API. <strong>Aucun historique n'est enregistré</strong>.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Confidentialité de l'Incognito Mode</h3>
-              <p>Avec <code>/incognito search</code> ou <code>/incognito videos</code>, les réponses sont éphémères (<em>« Seul vous pouvez voir ce message »</em>).</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Confidentialité et Limites de l'Incognito Mode</h3>
+              <p>Avec <code>/incognito search</code> ou <code>/incognito videos</code>, les réponses sont éphémères (<em>« Seul vous pouvez voir ce message »</em>), masquées uniquement aux autres membres du salon. Il s'agit d'un raccourci et <strong>non</strong> d'un onglet privé : si vous êtes connecté à votre compte Google/YouTube et regardez une vidéo ou ouvrez un lien, cela sera enregistré normalement dans votre historique YouTube et de navigateur.</p>
               <h3 class="text-lg font-bold text-white pt-2">3. Données Opérationnelles Minimales</h3>
               <p>Le bot ne lit pas les messages ordinaires et réagit uniquement aux commandes slash.</p>
               <h3 class="text-lg font-bold text-white pt-2">4. Liens Externes</h3>
@@ -2342,8 +2342,8 @@
               <p>Durch die Nutzung von <strong>${CONFIG.botName}</strong> auf Discord stimmst du diesen Bedingungen zu.</p>
               <h3 class="text-lg font-bold text-white pt-2">1. Unabhängiges Projekt</h3>
               <p><strong>${CONFIG.botName}</strong> ist unabhängig und nicht mit Microsoft, Bing, Brave, YouTube oder Discord Inc. verbunden.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Befehle</h3>
-              <p>Der Bot bietet <code>/search</code>, <code>/incognito search</code>, <code>/searchvideos</code>, <code>/incognito videos</code> und <code>/help</code> über eine offizielle Such-API.</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Befehle & Grenzen des Incognito Mode</h3>
+              <p>Der Bot bietet <code>/search</code>, <code>/incognito search</code>, <code>/searchvideos</code>, <code>/incognito videos</code> und <code>/help</code> über eine offizielle Such-API. Der <strong>Incognito Mode</strong> dient nur als Abkürzung für flüchtige Antworten innerhalb von Discord und <strong>ersetzt keinen Inkognito-Tab im Browser oder auf YouTube</strong>; beim Ansehen von Videos oder Öffnen von Links mit angemeldetem Google-/YouTube-Konto wird die Aktivität normal im Verlauf gespeichert.</p>
               <h3 class="text-lg font-bold text-white pt-2">3. Verantwortungsvolle Nutzung</h3>
               <p>Kein Spam, keine missbräuchliche Automatisierung und keine Verstöße gegen Discord-Richtlinien.</p>
               <h3 class="text-lg font-bold text-white pt-2">4. Inhalte Dritter</h3>
@@ -2354,8 +2354,8 @@
               <p>Der Schutz deiner Daten ist uns bei <strong>${CONFIG.botName}</strong> wichtig.</p>
               <h3 class="text-lg font-bold text-white pt-2">1. Kein Suchverlauf</h3>
               <p>Suchbegriffe werden nur in Echtzeit über die Brave Search API verarbeitet. <strong>Wir speichern keinen Suchverlauf</strong>.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Incognito Mode</h3>
-              <p>Bei <code>/incognito search</code> und <code>/incognito videos</code> sind Antworten flüchtig (<em>„Nur du kannst dies sehen“</em>).</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Incognito Mode & Einschränkungen</h3>
+              <p>Bei <code>/incognito search</code> und <code>/incognito videos</code> sind Antworten flüchtig (<em>„Nur du kannst dies sehen“</em>) und nur vor anderen Kanalmitgliedern verborgen. Der Befehl ist eine Abkürzung und <strong>kein</strong> Inkognito-Browserfenster: Wenn du in deinem Google-/YouTube-Konto angemeldet bist und ein Video anschaust oder einen Link öffnest, wird dies regulär im YouTube- und Browserverlauf protokolliert.</p>
               <h3 class="text-lg font-bold text-white pt-2">3. Minimale Betriebsdaten</h3>
               <p>Der Bot liest keine regulären Kanalnachrichten, sondern reagiert nur auf Slash-Befehle.</p>
               <h3 class="text-lg font-bold text-white pt-2">4. Externe Links</h3>
@@ -2649,8 +2649,8 @@
               <p>Utilizzando <strong>${CONFIG.botName}</strong> su Discord accetti questi termini.</p>
               <h3 class="text-lg font-bold text-white pt-2">1. Progetto Indipendente</h3>
               <p><strong>${CONFIG.botName}</strong> è indipendente e non affiliato a Microsoft, Bing, Brave, YouTube o Discord Inc.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Comandi</h3>
-              <p>Il bot offre <code>/search</code>, <code>/incognito search</code>, <code>/searchvideos</code>, <code>/incognito videos</code> e <code>/help</code> tramite API ufficiale.</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Comandi e Limiti dell'Incognito Mode</h3>
+              <p>Il bot offre <code>/search</code>, <code>/incognito search</code>, <code>/searchvideos</code>, <code>/incognito videos</code> e <code>/help</code> tramite API ufficiale. L'<strong>Incognito Mode</strong> funge solo da scorciatoia con risposta effimera dentro Discord e <strong>non sostituisce una scheda in incognito del browser o di YouTube</strong>; guardando video o aprendo link con l'account Google/YouTube connesso, l'attività verrà registrata normalmente nella cronologia.</p>
               <h3 class="text-lg font-bold text-white pt-2">3. Uso Responsabile</h3>
               <p>Vietato l'uso per spam, automazioni abusive o violazioni dei Termini di Discord.</p>
               <h3 class="text-lg font-bold text-white pt-2">4. Contenuti Esterni</h3>
@@ -2661,8 +2661,8 @@
               <p>La tua privacy è importante su <strong>${CONFIG.botName}</strong>.</p>
               <h3 class="text-lg font-bold text-white pt-2">1. Nessuna Cronologia</h3>
               <p>Le query sono elaborate solo in tempo reale via Brave Search API. <strong>Non salviamo cronologia di ricerca</strong>.</p>
-              <h3 class="text-lg font-bold text-white pt-2">2. Incognito Mode</h3>
-              <p>Con <code>/incognito search</code> e <code>/incognito videos</code> le risposte sono effimere (<em>"Solo tu puoi vedere questo messaggio"</em>).</p>
+              <h3 class="text-lg font-bold text-white pt-2">2. Incognito Mode e Limitazioni</h3>
+              <p>Con <code>/incognito search</code> e <code>/incognito videos</code> le risposte sono effimere (<em>"Solo tu puoi vedere questo messaggio"</em>), nascoste solo agli altri membri del canale. Funziona come scorciatoia e <strong>non</strong> come navigazione in incognito: se hai effettuato l'accesso a Google/YouTube e guardi un video o apri un link esterno, l'attività verrà comunque salvata nella cronologia di YouTube e del browser.</p>
               <h3 class="text-lg font-bold text-white pt-2">3. Dati Minimi</h3>
               <p>Il bot non legge i normali messaggi dei canali e risponde solo ai comandi slash.</p>
               <h3 class="text-lg font-bold text-white pt-2">4. Link Esterni</h3>
@@ -4326,6 +4326,3 @@
   <!-- ==================== FIM GAVETA DE AVISOS ==================== -->
 </body>
 </html>
-        }
-      };
-      
