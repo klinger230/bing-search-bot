@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Changelog — Bing Search v2.6</title>
+  <title>Changelog — Bing Search v3.0</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -177,12 +177,18 @@
       border-radius: 999px;
     }
 
+    @keyframes slowPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.85); }
+    }
+
     .live-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: var(--green);
       box-shadow: 0 0 8px var(--green);
+      animation: slowPulse 3.6s ease-in-out infinite;
     }
 
     .hero p {
@@ -233,7 +239,7 @@
       inset: 0 0 auto 0;
       height: 0;
       background: linear-gradient(180deg, var(--blurple), var(--accent), var(--green));
-      transition: height 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: height 1.8s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .timeline-list {
@@ -249,8 +255,8 @@
       border-radius: 16px;
       padding: 1.5rem;
       opacity: 0;
-      transform: translateY(-12px);
-      transition: opacity 0.65s ease, transform 0.65s ease, border-color 0.3s ease;
+      transform: translateY(-16px);
+      transition: opacity 1.25s cubic-bezier(0.22, 1, 0.36, 1), transform 1.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.5s ease;
     }
 
     .release-card.visible {
@@ -280,7 +286,7 @@
       border-radius: 50%;
       background: #475569;
       box-shadow: 0 0 0 4px var(--bg-base);
-      transition: all 0.35s ease;
+      transition: all 0.7s ease;
     }
 
     .release-dot.active span {
@@ -293,6 +299,7 @@
       height: 16px;
       background: var(--green);
       box-shadow: 0 0 0 4px var(--bg-base), 0 0 16px rgba(34, 197, 94, 0.6);
+      animation: slowPulse 3.6s ease-in-out infinite;
     }
 
     .release-meta {
@@ -375,6 +382,7 @@
     .badge-indigo  { background: rgba(99, 102, 241, 0.2);  color: #a5b4fc; border-color: rgba(99, 102, 241, 0.35); }
     .badge-amber   { background: rgba(245, 158, 11, 0.18); color: #fcd34d; border-color: rgba(245, 158, 11, 0.35); }
     .badge-purple  { background: rgba(168, 85, 247, 0.2);  color: #d8b4fe; border-color: rgba(168, 85, 247, 0.35); }
+    .badge-rose    { background: rgba(244, 63, 94, 0.18);  color: #fda4af; border-color: rgba(244, 63, 94, 0.35); }
 
     .footer {
       text-align: center;
@@ -414,7 +422,7 @@
         <a href="faq.html">FAQ</a>
         <a href="changelog.html" class="active">
           <span>Changelog</span>
-          <span class="version-pill">V2.6</span>
+          <span class="version-pill">v3.0</span>
         </a>
         <select id="langSelect" class="lang-select" aria-label="Language">
           <option value="pt">🇧🇷 PT-BR</option>
@@ -438,7 +446,7 @@
             <span data-i18n="liveStatus">Ativo no Discord</span>
           </span>
         </div>
-        <p data-i18n="subtitle">Acompanhe toda a evolução do Bing Search desde o lançamento até a versão 2.6.</p>
+        <p data-i18n="subtitle">Acompanhe toda a evolução do Bing Search desde o lançamento até a versão 3.0.</p>
       </div>
 
       <button type="button" id="replayBtn" class="replay-btn">
@@ -461,6 +469,7 @@
       <a href="index.html" data-i18n="footer_link">Voltar ao início →</a>
     </p>
   </footer>
+
   <script>
     (function () {
       "use strict";
@@ -473,7 +482,7 @@
           nav_cmd: "Comandos",
           title: "Changelog & Releases",
           liveStatus: "Ativo no Discord",
-          subtitle: "Acompanhe toda a evolução do Bing Search desde o lançamento até a versão 2.6.",
+          subtitle: "Acompanhe toda a evolução do Bing Search desde o lançamento até a versão 3.0.",
           replay: "Rever animação",
           footer_back: "Quer voltar para a página inicial?",
           footer_link: "Voltar ao início →",
@@ -525,19 +534,32 @@
                 { tag: "NOVO", color: "emerald", text: "Botões de acesso rápido (<strong>Resultado 1 / Resultado 2</strong>) + botão vermelho <strong>Delete / Apagar</strong> e <strong>cooldown anti-spam</strong> no <code>/search</code>." },
                 { tag: "NOVO", color: "emerald", text: "Novo comando <code>/help</code> multilíngue com guia rápido e botão direto para o site." },
                 { tag: "MELHORIA", color: "indigo", text: "Suporte expandido para <strong>6 regiões de pesquisa</strong> (<code>BR, US, ES, FR, DE, IT</code>) no modo público e no privado." },
-                { tag: "MOTOR", color: "purple", text: "Migração completa para a <strong>Brave Search API</strong> oficial com chaves seguras e descrições limpas (sem tags HTML no texto)." }
+                { tag: "MOTOR", color: "purple", text: "Migração completa para a <strong>Brave Search API</strong> oficial com chaves seguras e descrições limpas (sem tags HTML)." }
               ]
             },
             {
               version: "v2.6",
-              statusLabel: "Versão Atual",
+              statusLabel: "Atualização",
               date: "Novembro de 2026",
-              isLatest: true,
+              isLatest: false,
               title: "Incognito Mode (/incognito search) & Tratamento de 0 Resultados",
               changes: [
                 { tag: "NOVO", color: "emerald", text: "Transição oficial de <em>Private Mode</em> (<code>/privatesearch</code>) para <strong>Incognito Mode</strong> (<code>/incognito search</code>) com respostas efêmeras discretas." },
                 { tag: "NOVO", color: "emerald", text: "Tratamento dedicado quando a busca não retorna páginas: embed <strong>No results found</strong> com dicas de palavras-chave e região em <code>/search</code> e <code>/incognito search</code>." },
                 { tag: "MELHORIA", color: "indigo", text: "Padronização da nomenclatura e das mensagens nos 6 idiomas suportados mantendo a paginação de até 4 resultados." }
+              ]
+            },
+            {
+              version: "v3.0",
+              statusLabel: "Versão Atual",
+              date: "Novembro de 2026",
+              isLatest: true,
+              title: "Busca de Vídeos do YouTube com Player Nativo & 3 Páginas",
+              changes: [
+                { tag: "VÍDEO", color: "rose", text: "Novos comandos <code>/searchvideos</code> (público com botão <strong>Delete</strong>) e <code>/incognito videos</code> (efêmero, visível só para você) para buscar vídeos do YouTube." },
+                { tag: "NOVO", color: "emerald", text: "Player nativo do YouTube direto no chat do Discord com navegação entre até <strong>3 vídeos</strong> em <strong>3 páginas</strong> (<strong>Previous Page</strong> / <strong>Next Page</strong>)." },
+                { tag: "MELHORIA", color: "indigo", text: "Suporte às <strong>6 regiões</strong> (<code>BR, US, ES, FR, DE, IT</code>) nas buscas de vídeo e aviso <strong>No results found</strong> quando não há resultados." },
+                { tag: "SITE", color: "purple", text: "Simulador interativo v3.0 no site com player de vídeo, modo incógnito, <code>/help</code> e gaveta de avisos em tempo real." }
               ]
             }
           ]
@@ -550,7 +572,7 @@
           nav_cmd: "Commands",
           title: "Changelog & Releases",
           liveStatus: "Live on Discord",
-          subtitle: "Follow the full evolution of Bing Search from initial launch to version 2.6.",
+          subtitle: "Follow the full evolution of Bing Search from initial launch to version 3.0.",
           replay: "Replay animation",
           footer_back: "Want to go back to the homepage?",
           footer_link: "Back to Home →",
@@ -607,14 +629,27 @@
             },
             {
               version: "v2.6",
-              statusLabel: "Current Release",
+              statusLabel: "Update",
               date: "November 2026",
-              isLatest: true,
+              isLatest: false,
               title: "Incognito Mode (/incognito search) & Empty Search Handling",
               changes: [
                 { tag: "NEW", color: "emerald", text: "Official transition from <em>Private Mode</em> (<code>/privatesearch</code>) to <strong>Incognito Mode</strong> (<code>/incognito search</code>) with discreet ephemeral replies." },
                 { tag: "NEW", color: "emerald", text: "Added clean handling when a query yields no pages: dedicated <strong>No results found</strong> embed with keyword and region tips in both <code>/search</code> and <code>/incognito search</code>." },
                 { tag: "IMPROVED", color: "indigo", text: "Unified command naming and notices across all 6 supported languages while preserving 2-page pagination for up to 4 results." }
+              ]
+            },
+            {
+              version: "v3.0",
+              statusLabel: "Current Release",
+              date: "November 2026",
+              isLatest: true,
+              title: "YouTube Video Search with Native Player & 3-Page Pagination",
+              changes: [
+                { tag: "VIDEO", color: "rose", text: "Added <code>/searchvideos</code> (public with <strong>Delete</strong> button) and <code>/incognito videos</code> (ephemeral, visible only to you) to search YouTube videos." },
+                { tag: "NEW", color: "emerald", text: "Native YouTube player right inside Discord chat with navigation across up to <strong>3 videos</strong> on <strong>3 pages</strong> (<strong>Previous Page</strong> / <strong>Next Page</strong>)." },
+                { tag: "IMPROVED", color: "indigo", text: "Support for all <strong>6 regions</strong> (<code>BR, US, ES, FR, DE, IT</code>) in video searches plus <strong>No results found</strong> notices when nothing matches." },
+                { tag: "SITE", color: "purple", text: "Updated interactive v3.0 website simulator with video player, Incognito Mode, <code>/help</code>, and live status announcements." }
               ]
             }
           ]
@@ -627,7 +662,7 @@
           nav_cmd: "Comandos",
           title: "Changelog y Lanzamientos",
           liveStatus: "Activo en Discord",
-          subtitle: "Sigue toda la evolución de Bing Search desde su creación hasta la versión 2.6.",
+          subtitle: "Sigue toda la evolución de Bing Search desde su creación hasta la versión 3.0.",
           replay: "Repetir animación",
           footer_back: "¿Quieres volver a la página principal?",
           footer_link: "Volver al inicio →",
@@ -684,14 +719,27 @@
             },
             {
               version: "v2.6",
-              statusLabel: "Versión Actual",
+              statusLabel: "Actualización",
               date: "Noviembre de 2026",
-              isLatest: true,
+              isLatest: false,
               title: "Incognito Mode (/incognito search) y Manejo de 0 Resultados",
               changes: [
                 { tag: "NUEVO", color: "emerald", text: "Cambio oficial de <em>Private Mode</em> (<code>/privatesearch</code>) a <strong>Incognito Mode</strong> (<code>/incognito search</code>) con respuestas efímeras discretas." },
                 { tag: "NUEVO", color: "emerald", text: "Aviso limpio cuando una búsqueda no devuelve resultados: embed <strong>No results found</strong> con sugerencias de palabras y región en <code>/search</code> y <code>/incognito search</code>." },
                 { tag: "MEJORA", color: "indigo", text: "Nomenclatura unificada en los 6 idiomas manteniendo la paginación de hasta 4 resultados en 2 páginas." }
+              ]
+            },
+            {
+              version: "v3.0",
+              statusLabel: "Versión Actual",
+              date: "Noviembre de 2026",
+              isLatest: true,
+              title: "Búsqueda de Videos de YouTube con Reproductor Nativo y 3 Páginas",
+              changes: [
+                { tag: "VIDEO", color: "rose", text: "Nuevos comandos <code>/searchvideos</code> (público con botón <strong>Delete</strong>) e <code>/incognito videos</code> (efímero, visible solo para ti) para buscar videos de YouTube." },
+                { tag: "NUEVO", color: "emerald", text: "Reproductor nativo de YouTube en Discord con navegación entre hasta <strong>3 videos</strong> en <strong>3 páginas</strong> (<strong>Previous Page</strong> / <strong>Next Page</strong>)." },
+                { tag: "MEJORA", color: "indigo", text: "Soporte para las <strong>6 regiones</strong> (<code>BR, US, ES, FR, DE, IT</code>) en videos y aviso <strong>No results found</strong> sin coincidencias." },
+                { tag: "WEB", color: "purple", text: "Simulador v3.0 actualizado en el sitio con reproductor de video, Incognito Mode, <code>/help</code> y avisos en vivo." }
               ]
             }
           ]
@@ -704,7 +752,7 @@
           nav_cmd: "Commandes",
           title: "Changelog & Versions",
           liveStatus: "En ligne sur Discord",
-          subtitle: "Suivez toute l'évolution de Bing Search depuis son lancement jusqu'à la version 2.6.",
+          subtitle: "Suivez toute l'évolution de Bing Search depuis son lancement jusqu'à la version 3.0.",
           replay: "Rejouer l'animation",
           footer_back: "Vous souhaitez revenir à la page d'accueil ?",
           footer_link: "Retour à l'accueil →",
@@ -761,14 +809,27 @@
             },
             {
               version: "v2.6",
-              statusLabel: "Version Actuelle",
+              statusLabel: "Mise à jour",
               date: "Novembre 2026",
-              isLatest: true,
+              isLatest: false,
               title: "Incognito Mode (/incognito search) & Gestion des 0 Résultat",
               changes: [
                 { tag: "NOUVEAU", color: "emerald", text: "Passage officiel du <em>Private Mode</em> (<code>/privatesearch</code>) à l'<strong>Incognito Mode</strong> (<code>/incognito search</code>) avec réponses éphémères discrètes." },
                 { tag: "NOUVEAU", color: "emerald", text: "Gestion dédiée lorsqu'une requête ne renvoie aucun résultat : embed <strong>No results found</strong> avec conseils de mots-clés et de région dans <code>/search</code> et <code>/incognito search</code>." },
                 { tag: "AMÉLIORÉ", color: "indigo", text: "Harmonisation des libellés dans les 6 langues tout en conservant la pagination sur 2 pages jusqu'à 4 résultats." }
+              ]
+            },
+            {
+              version: "v3.0",
+              statusLabel: "Version Actuelle",
+              date: "Novembre 2026",
+              isLatest: true,
+              title: "Recherche de Vidéos YouTube avec Lecteur Natif & 3 Pages",
+              changes: [
+                { tag: "VIDÉO", color: "rose", text: "Nouvelles commandes <code>/searchvideos</code> (public avec bouton <strong>Delete</strong>) et <code>/incognito videos</code> (éphémère, visible uniquement par vous) pour chercher des vidéos YouTube." },
+                { tag: "NOUVEAU", color: "emerald", text: "Lecteur natif YouTube dans Discord avec navigation jusqu'à <strong>3 vidéos</strong> sur <strong>3 pages</strong> (<strong>Previous Page</strong> / <strong>Next Page</strong>)." },
+                { tag: "AMÉLIORÉ", color: "indigo", text: "Prise en charge des <strong>6 régions</strong> (<code>BR, US, ES, FR, DE, IT</code>) pour les vidéos et message <strong>No results found</strong> sans correspondance." },
+                { tag: "SITE", color: "purple", text: "Simulateur v3.0 mis à jour sur le site avec lecteur vidéo, Incognito Mode, <code>/help</code> et annonces en direct." }
               ]
             }
           ]
@@ -781,7 +842,7 @@
           nav_cmd: "Befehle",
           title: "Changelog & Releases",
           liveStatus: "Aktiv auf Discord",
-          subtitle: "Verfolge die gesamte Entwicklung von Bing Search vom Start bis zur Version 2.6.",
+          subtitle: "Verfolge die gesamte Entwicklung von Bing Search vom Start bis zur Version 3.0.",
           replay: "Animation wiederholen",
           footer_back: "Zurück zur Startseite?",
           footer_link: "Zur Startseite →",
@@ -838,14 +899,27 @@
             },
             {
               version: "v2.6",
-              statusLabel: "Aktuelle Version",
+              statusLabel: "Update",
               date: "November 2026",
-              isLatest: true,
+              isLatest: false,
               title: "Incognito Mode (/incognito search) & Behandlung leerer Suchen",
               changes: [
                 { tag: "NEU", color: "emerald", text: "Offizieller Wechsel vom <em>Private Mode</em> (<code>/privatesearch</code>) zum <strong>Incognito Mode</strong> (<code>/incognito search</code>) mit dezenten flüchtigen Antworten." },
                 { tag: "NEU", color: "emerald", text: "Saubere Rückmeldung ohne Treffer: eigenes <strong>No results found</strong>-Embed mit Tipps zu Suchbegriffen und Region in <code>/search</code> und <code>/incognito search</code>." },
                 { tag: "VERBESSERT", color: "indigo", text: "Einheitliche Begriffe in allen 6 Sprachen bei weiterhin bis zu 4 Ergebnissen auf 2 Seiten." }
+              ]
+            },
+            {
+              version: "v3.0",
+              statusLabel: "Aktuelle Version",
+              date: "November 2026",
+              isLatest: true,
+              title: "YouTube-Videosuche mit nativem Player & 3 Seiten",
+              changes: [
+                { tag: "VIDEO", color: "rose", text: "Neue Befehle <code>/searchvideos</code> (öffentlich mit <strong>Delete</strong>-Button) und <code>/incognito videos</code> (flüchtig, nur für dich sichtbar) für YouTube-Videos." },
+                { tag: "NEU", color: "emerald", text: "Nativer YouTube-Player direkt in Discord mit Navigation über bis zu <strong>3 Videos</strong> auf <strong>3 Seiten</strong> (<strong>Previous Page</strong> / <strong>Next Page</strong>)." },
+                { tag: "VERBESSERT", color: "indigo", text: "Unterstützung für alle <strong>6 Regionen</strong> (<code>BR, US, ES, FR, DE, IT</code>) bei Videos sowie <strong>No results found</strong>-Hinweis ohne Treffer." },
+                { tag: "WEB", color: "purple", text: "Aktualisierter v3.0-Simulator auf der Website mit Videoplayer, Incognito Mode, <code>/help</code> und Live-Hinweisen." }
               ]
             }
           ]
@@ -858,7 +932,7 @@
           nav_cmd: "Comandi",
           title: "Changelog & Versioni",
           liveStatus: "Attivo su Discord",
-          subtitle: "Segui tutta l'evoluzione di Bing Search dal lancio fino alla versione 2.6.",
+          subtitle: "Segui tutta l'evoluzione di Bing Search dal lancio fino alla versione 3.0.",
           replay: "Ripeti animazione",
           footer_back: "Vuoi tornare alla pagina principale?",
           footer_link: "Torna alla home →",
@@ -915,14 +989,27 @@
             },
             {
               version: "v2.6",
-              statusLabel: "Versione Attuale",
+              statusLabel: "Aggiornamento",
               date: "Novembre 2026",
-              isLatest: true,
+              isLatest: false,
               title: "Incognito Mode (/incognito search) & Gestione 0 Risultati",
               changes: [
                 { tag: "NUOVO", color: "emerald", text: "Passaggio ufficiale da <em>Private Mode</em> (<code>/privatesearch</code>) a <strong>Incognito Mode</strong> (<code>/incognito search</code>) con risposte effimere discrete." },
                 { tag: "NUOVO", color: "emerald", text: "Gestione dedicata quando una ricerca non trova pagine: embed <strong>No results found</strong> con consigli su parole chiave e regione in <code>/search</code> e <code>/incognito search</code>." },
                 { tag: "MIGLIORATO", color: "indigo", text: "Terminologia allineata in tutte e 6 le lingue mantenendo fino a 4 risultati su 2 pagine." }
+              ]
+            },
+            {
+              version: "v3.0",
+              statusLabel: "Versione Attuale",
+              date: "Novembre 2026",
+              isLatest: true,
+              title: "Ricerca Video YouTube con Player Nativo & 3 Pagine",
+              changes: [
+                { tag: "VIDEO", color: "rose", text: "Nuovi comandi <code>/searchvideos</code> (pubblico con pulsante <strong>Delete</strong>) e <code>/incognito videos</code> (effimero, visibile solo a te) per cercare video YouTube." },
+                { tag: "NUOVO", color: "emerald", text: "Player nativo YouTube su Discord con navigazione fino a <strong>3 video</strong> su <strong>3 pagine</strong> (<strong>Previous Page</strong> / <strong>Next Page</strong>)." },
+                { tag: "MIGLIORATO", color: "indigo", text: "Supporto per le <strong>6 regioni</strong> (<code>BR, US, ES, FR, DE, IT</code>) nei video e avviso <strong>No results found</strong> senza corrispondenze." },
+                { tag: "SITO", color: "purple", text: "Simulatore v3.0 aggiornato sul sito con player video, Incognito Mode, <code>/help</code> e avvisi in tempo reale." }
               ]
             }
           ]
@@ -1004,7 +1091,7 @@
           if (timelineFill) timelineFill.style.height = "0px";
 
           releases.forEach((_, idx) => {
-            const delay = 200 + idx * 550;
+            const delay = 350 + idx * 1050;
             const id = setTimeout(() => {
               const card = document.getElementById(`rel-card-${idx}`);
               const dot = document.getElementById(`rel-dot-${idx}`);
