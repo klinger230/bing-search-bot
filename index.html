@@ -2742,18 +2742,23 @@
           }
         });
 
-        const statusSelect = document.getElementById('status-key-select');
-        if (statusSelect) {
-          statusSelect.addEventListener('change', (ev) => {
-            applyBannerStatus(ev.target.value);
-        const statusSelect = document.getElementById('status-key-select');
+     const statusSelect = document.getElementById('status-key-select');
         if (statusSelect) {
           statusSelect.addEventListener('change', (ev) => {
             applyBannerStatus(ev.target.value);
           });
-        }}
         }
 
+        const regionSelect = document.getElementById('sim-region-select');
+        if (regionSelect) {
+          regionSelect.addEventListener('change', () => {
+            currentSimRegion = regionSelect.value;
+            currentSimPage = 1;
+            isSimDeleted = false;
+            renderSimMessage(currentSimQuery, true);
+          });
+        }
+        
         const regionSelect = document.getElementById('sim-region-select');
         if (regionSelect) {
           regionSelect.addEventListener('change', () => {
