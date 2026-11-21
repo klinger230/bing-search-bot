@@ -233,6 +233,67 @@
       </label>
     </div>
   </div>
+  
+  const STATUS_KEY_STORAGE = "bingsearch_banner_status";
+      const BANNER_STATES = {
+        ONLINE: {
+          badge: "🟢 ONLINE",
+          text: "Todos os sistemas do Bing Search v2.6 operacionais • Brave Search API ativa • 6 regiões disponíveis",
+          barClass: "relative z-30 w-full overflow-hidden border-b border-emerald-500/30 bg-gradient-to-r from-emerald-950/90 via-discord-darker to-emerald-950/90 text-xs sm:text-sm font-semibold text-white transition-colors duration-300",
+          badgeClass: "px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40"
+        },
+        "MANUTENÇÃO": {
+          badge: "🔴 MANUTENÇÃO",
+          text: "Manutenção programada ou instabilidade temporária em andamento • Algumas buscas podem sofrer atraso",
+          barClass: "relative z-30 w-full overflow-hidden border-b border-red-500/50 bg-gradient-to-r from-red-950/95 via-red-900/70 to-red-950/95 text-xs sm:text-sm font-semibold text-white transition-colors duration-300",
+          badgeClass: "px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-red-600 text-white border border-red-300/50"
+        },
+        NOVIDADE: {
+          badge: "🔵 NOVIDADE",
+          text: "Bing Search v2.6 no ar: Incognito Mode (/incognito search), até 4 resultados paginados, 6 regiões e /help",
+          barClass: "relative z-30 w-full overflow-hidden border-b border-sky-400/40 bg-gradient-to-r from-sky-950/90 via-discord-darker to-indigo-950/90 text-xs sm:text-sm font-semibold text-white transition-colors duration-300",
+          badgeClass: "px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-sky-500/20 text-sky-300 border border-sky-400/40"
+        }
+      };
+
+      function applyBannerStatus(status) {
+        const key = BANNER_STATES[status] ? status : "ONLINE";
+        const cfg = BANNER_STATES[key];
+        const bar = document.getElementById("status-marquee-bar");
+        const select = document.getElementById("status-key-select");
+
+        try { localStorage.setItem(STATUS_KEY_STORAGE, key); } catch (e) {}
+        if (select) select.value = key;
+        if (bar) bar.className = cfg.barClass;
+
+        document.querySelectorAll(".status-marquee-msg").forEach((el) => {
+          el.innerHTML = `<span class="${cfg.badgeClass}">${cfg.badge}</span><span>${cfg.text}</span>`;
+        });
+      }
+
+      function initStatusMarquee() {
+        let savedStatus = "ONLINE";
+        try {
+          const st = localStorage.getItem(STATUS_KEY_STORAGE);
+          if (st && BANNER_STATES[st]) savedStatus = st;
+        } catch (e) {}
+        applyBannerStatus(savedStatus);
+
+        const statusSelect = document.getElementById("status-key-select");
+        if (statusSelect && !statusSelect.dataset.bound) {
+          statusSelect.dataset.bound = "1";
+          statusSelect.addEventListener("change", (ev) => {
+            applyBannerStatus(ev.target.value);
+          });
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initStatusMarquee);
+      } else {
+        initStatusMarquee();
+      }
+
   <main id="top">
     <!-- HERO SECTION -->
     <section class="relative pt-14 pb-16 sm:pt-20 sm:pb-24 px-4 sm:px-6 lg:px-8">
