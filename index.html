@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth dark">
+<html lang="en" class="scroll-smooth dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bing Search v2.6 — Buscas na Web direto no Discord</title>
-  <meta name="description" content="Faça buscas na web direto no Discord sem abrir o navegador. Embeds modernos, paginação com até 4 resultados, 6 regiões, /incognito search, /help e motor oficial Brave Search API." />
+  <title>Bing Search v2.6 — Web Search right inside Discord</title>
+  <meta name="description" content="Search the web right inside Discord without opening a browser. Modern embeds, pagination up to 4 results, 6 regions, /incognito search, /help and official Brave Search API." />
 
   <!-- Favicon embutido (lupa azul/ciano/roxo do Bing Search) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300B4D8'/%3E%3Cstop offset='50%25' stop-color='%230078D4'/%3E%3Cstop offset='100%25' stop-color='%235865F2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='13' fill='none' stroke='%23ffffff' stroke-width='5.5'/%3E%3Cpath d='M38 38l11 11' stroke='%23ffffff' stroke-width='5.5' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300B4D8'/%3E%3Cstop offset='50%25' stop-color='%230078D4'/%3E%3Cstop offset='100%25' stop-color='%235865F2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='13' fill='none' stroke='%23ffffff' stroke-width='5.5'/%3E%3Cpath d='M38 38l11 11' stroke='%23ffffff' stroke-width='5.5' stroke-linecap='round'/%3E%3C/svg%3E" />
 
   <!-- Cor da barra lateral no Discord e barra do navegador no celular -->
   <meta name="theme-color" content="#0078D4" />
@@ -15,14 +15,14 @@
   <!-- Open Graph (Discord, WhatsApp, Telegram e redes sociais) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://klinger230.github.io/bing-search-bot/" />
-  <meta property="og:title" content="Bing Search v2.6 — Buscas na Web direto no Discord" />
-  <meta property="og:description" content="Embeds modernos, paginação com até 4 resultados, 6 regiões (BR, US, ES, FR, DE, IT), /incognito search, /help e motor oficial Brave Search API." />
+  <meta property="og:title" content="Bing Search v2.6 — Web Search right inside Discord" />
+  <meta property="og:description" content="Modern embeds, pagination up to 4 results, 6 regions (BR, US, ES, FR, DE, IT), /incognito search, /help and official Brave Search API." />
   <meta property="og:image" content="https://klinger230.github.io/bing-search-bot/preview.jpg" />
 
   <!-- Twitter / X e card expandido no Discord -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Bing Search v2.6 — Buscas na Web direto no Discord" />
-  <meta name="twitter:description" content="Embeds modernos, paginação com até 4 resultados, 6 regiões (BR, US, ES, FR, DE, IT), /incognito search, /help e motor oficial Brave Search API." />
+  <meta name="twitter:title" content="Bing Search v2.6 — Web Search right inside Discord" />
+  <meta name="twitter:description" content="Modern embeds, pagination up to 4 results, 6 regions (BR, US, ES, FR, DE, IT), /incognito search, /help and official Brave Search API." />
   <meta name="twitter:image" content="https://klinger230.github.io/bing-search-bot/preview.jpg" />
 
   <!-- Fonte Inter via Google Fonts -->
@@ -74,15 +74,13 @@
     };
   </script>
 
-  <!-- Estilos customizados: cursor futurista dark-tech -->
+  <!-- Estilos customizados: cursor futurista dark-tech + banner animado -->
   <style>
-    /* Cursor padrão futurista dark-tech */
     html,
     body {
       cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M2.5 2.5L21.8 13L13.8 15.2L17.9 22.8L14.7 24.5L10.6 16.9L5.2 21.4Z' fill='%23111214' stroke='%2300B4D8' stroke-width='2.6' stroke-linejoin='round'/%3E%3Cpath d='M2.5 2.5L21.8 13L13.8 15.2L17.9 22.8L14.7 24.5L10.6 16.9L5.2 21.4Z' fill='%23111214' stroke='%23ffffff' stroke-width='1.15' stroke-linejoin='round'/%3E%3Cpath d='M5.8 6.8L14.4 11.7L10.8 12.7Z' fill='%2300B4D8' fill-opacity='0.9'/%3E%3C/svg%3E") 2 2, auto;
     }
 
-    /* Cursor interativo (mãozinha customizada em roxo Discord + brilho ciano com borda branca) */
     a,
     button,
     [role="button"],
@@ -93,13 +91,11 @@
       cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M5.4 14.2V4.2C5.4 2.8 6.1 2.2 7.1 2.2C8.1 2.2 8.8 2.8 8.8 4.2V11C9.2 10.4 9.9 10 10.8 10C12 10 12.9 10.8 13 11.9C13.4 11.4 14.1 11.1 14.9 11.1C16 11.1 16.9 11.9 17 12.9C17.4 12.5 18 12.3 18.7 12.3C20.1 12.3 21.2 13.4 21.2 14.8V18.6C21.2 22.4 18.3 25.2 14.5 25.2H11.4C9.1 25.2 7.1 23.9 6 21.9L2.9 16.4C2.3 15.3 2.7 14 3.7 13.4C4.5 13 5 13.3 5.4 14.2Z' fill='%235865F2' stroke='%2300B4D8' stroke-width='2.6' stroke-linejoin='round'/%3E%3Cpath d='M5.4 14.2V4.2C5.4 2.8 6.1 2.2 7.1 2.2C8.1 2.2 8.8 2.8 8.8 4.2V11C9.2 10.4 9.9 10 10.8 10C12 10 12.9 10.8 13 11.9C13.4 11.4 14.1 11.1 14.9 11.1C16 11.1 16.9 11.9 17 12.9C17.4 12.5 18 12.3 18.7 12.3C20.1 12.3 21.2 13.4 21.2 14.8V18.6C21.2 22.4 18.3 25.2 14.5 25.2H11.4C9.1 25.2 7.1 23.9 6 21.9L2.9 16.4C2.3 15.3 2.7 14 3.7 13.4C4.5 13 5 13.3 5.4 14.2Z' fill='%235865F2' stroke='%23ffffff' stroke-width='1.35' stroke-linejoin='round'/%3E%3Crect x='6.4' y='4.2' width='1.4' height='6.2' rx='0.7' fill='%2300B4D8'/%3E%3C/svg%3E") 6 2, pointer !important;
     }
 
-    /* Mantém cursor de texto limpo em campos de digitação */
     input[type="text"],
     textarea {
       cursor: text !important;
     }
 
-    /* Oculta barra de rolagem horizontal do seletor de idiomas em telas muito estreitas */
     @keyframes bingMarqueeScroll {
       0% { transform: translateX(0%); }
       100% { transform: translateX(-33.333%); }
@@ -112,6 +108,7 @@
     .animate-marquee:hover {
       animation-play-state: paused;
     }
+
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
@@ -165,8 +162,8 @@
         <div class="flex items-center gap-2 sm:gap-3 shrink-0">
           <!-- Seletor de Idiomas PT | EN | ES | FR | DE | IT -->
           <div class="flex items-center bg-discord-darker border border-white/10 rounded-xl p-1 max-w-[178px] sm:max-w-none overflow-x-auto no-scrollbar" role="group" aria-label="Seletor de idioma">
-            <button type="button" data-lang-btn="pt" aria-pressed="true" class="lang-btn shrink-0 px-2 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer bg-discord-blurple text-white shadow-sm">PT</button>
-            <button type="button" data-lang-btn="en" aria-pressed="false" class="lang-btn shrink-0 px-2 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white">EN</button>
+            <button type="button" data-lang-btn="pt" aria-pressed="false" class="lang-btn shrink-0 px-2 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white">PT</button>
+            <button type="button" data-lang-btn="en" aria-pressed="true" class="lang-btn shrink-0 px-2 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer bg-discord-blurple text-white shadow-sm">EN</button>
             <button type="button" data-lang-btn="es" aria-pressed="false" class="lang-btn shrink-0 px-2 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white">ES</button>
             <button type="button" data-lang-btn="fr" aria-pressed="false" class="lang-btn shrink-0 px-2 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white">FR</button>
             <button type="button" data-lang-btn="de" aria-pressed="false" class="lang-btn shrink-0 px-2 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer text-discord-muted hover:text-white">DE</button>
@@ -209,7 +206,7 @@
       </a>
     </div>
   </header>
-  <!-- CONTEÚDO PRINCIPAL (HOME) -->
+
   <!-- BANNER ANIMADO DE STATUS (ONLINE / MANUTENÇÃO / NOVIDADE) -->
   <div id="status-marquee-bar" class="relative z-30 w-full overflow-hidden border-b border-emerald-500/30 bg-gradient-to-r from-emerald-950/90 via-discord-darker to-emerald-950/90 text-xs sm:text-sm font-semibold text-white transition-colors duration-300">
     <div class="flex items-center justify-between gap-2 px-3 sm:px-6 py-2">
@@ -233,67 +230,8 @@
       </label>
     </div>
   </div>
-  
-  const STATUS_KEY_STORAGE = "bingsearch_banner_status";
-      const BANNER_STATES = {
-        ONLINE: {
-          badge: "🟢 ONLINE",
-          text: "Todos os sistemas do Bing Search v2.6 operacionais • Brave Search API ativa • 6 regiões disponíveis",
-          barClass: "relative z-30 w-full overflow-hidden border-b border-emerald-500/30 bg-gradient-to-r from-emerald-950/90 via-discord-darker to-emerald-950/90 text-xs sm:text-sm font-semibold text-white transition-colors duration-300",
-          badgeClass: "px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40"
-        },
-        "MANUTENÇÃO": {
-          badge: "🔴 MANUTENÇÃO",
-          text: "Manutenção programada ou instabilidade temporária em andamento • Algumas buscas podem sofrer atraso",
-          barClass: "relative z-30 w-full overflow-hidden border-b border-red-500/50 bg-gradient-to-r from-red-950/95 via-red-900/70 to-red-950/95 text-xs sm:text-sm font-semibold text-white transition-colors duration-300",
-          badgeClass: "px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-red-600 text-white border border-red-300/50"
-        },
-        NOVIDADE: {
-          badge: "🔵 NOVIDADE",
-          text: "Bing Search v2.6 no ar: Incognito Mode (/incognito search), até 4 resultados paginados, 6 regiões e /help",
-          barClass: "relative z-30 w-full overflow-hidden border-b border-sky-400/40 bg-gradient-to-r from-sky-950/90 via-discord-darker to-indigo-950/90 text-xs sm:text-sm font-semibold text-white transition-colors duration-300",
-          badgeClass: "px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-sky-500/20 text-sky-300 border border-sky-400/40"
-        }
-      };
 
-      function applyBannerStatus(status) {
-        const key = BANNER_STATES[status] ? status : "ONLINE";
-        const cfg = BANNER_STATES[key];
-        const bar = document.getElementById("status-marquee-bar");
-        const select = document.getElementById("status-key-select");
-
-        try { localStorage.setItem(STATUS_KEY_STORAGE, key); } catch (e) {}
-        if (select) select.value = key;
-        if (bar) bar.className = cfg.barClass;
-
-        document.querySelectorAll(".status-marquee-msg").forEach((el) => {
-          el.innerHTML = `<span class="${cfg.badgeClass}">${cfg.badge}</span><span>${cfg.text}</span>`;
-        });
-      }
-
-      function initStatusMarquee() {
-        let savedStatus = "ONLINE";
-        try {
-          const st = localStorage.getItem(STATUS_KEY_STORAGE);
-          if (st && BANNER_STATES[st]) savedStatus = st;
-        } catch (e) {}
-        applyBannerStatus(savedStatus);
-
-        const statusSelect = document.getElementById("status-key-select");
-        if (statusSelect && !statusSelect.dataset.bound) {
-          statusSelect.dataset.bound = "1";
-          statusSelect.addEventListener("change", (ev) => {
-            applyBannerStatus(ev.target.value);
-          });
-        }
-      }
-
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initStatusMarquee);
-      } else {
-        initStatusMarquee();
-      }
-
+  <!-- CONTEÚDO PRINCIPAL (HOME) -->
   <main id="top">
     <!-- HERO SECTION -->
     <section class="relative pt-14 pb-16 sm:pt-20 sm:pb-24 px-4 sm:px-6 lg:px-8">
@@ -303,20 +241,20 @@
         <a href="changelog.html" class="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-discord-dark/90 border border-bing-cyan/35 shadow-glow-bing hover:border-bing-cyan transition-colors mb-7">
           <span class="px-2 py-0.5 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-gradient-to-r from-bing-blue to-bing-cyan text-white" data-i18n="badges.v26">v2.6</span>
           <span class="text-xs sm:text-sm font-medium text-white/95" data-i18n="hero.badgeText">
-            Incognito Mode (<code class="text-bing-cyan">/incognito search</code>), tratamento de 0 resultados, 4 resultados paginados e 6 regiões!
+            Incognito Mode (<code class="text-bing-cyan">/incognito search</code>), empty search handling, 4 paginated results & 6 regions!
           </span>
         </a>
 
         <!-- Título Principal -->
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1] max-w-4xl mx-auto">
-          <span data-i18n="hero.titleStart">Pesquise na web direto no</span>
+          <span data-i18n="hero.titleStart">Search the web right inside</span>
           <span class="bg-gradient-to-r from-bing-cyan via-bing-blue to-discord-blurple bg-clip-text text-transparent" data-i18n="hero.titleHighlight"> Discord</span>
-          <span data-i18n="hero.titleEnd"> — rápido, limpo e interativo.</span>
+          <span data-i18n="hero.titleEnd"> — fast, clean & interactive.</span>
         </h1>
 
         <!-- Subtítulo -->
         <p class="mt-6 text-base sm:text-lg lg:text-xl text-discord-muted max-w-2xl mx-auto leading-relaxed" data-i18n="hero.subtitle">
-          Respostas organizadas em <strong class="text-white">Embeds interativos</strong> com paginação de até <strong class="text-white">4 resultados</strong>, 6 regiões de busca (<code class="text-bing-cyan">BR, US, ES, FR, DE, IT</code>), <strong>Incognito Mode</strong>, botão de apagar e motor oficial Brave Search API.
+          Results delivered in <strong class="text-white">interactive Embeds</strong> with 2-page pagination for up to <strong class="text-white">4 results</strong>, 6 search regions (<code class="text-bing-cyan">BR, US, ES, FR, DE, IT</code>), <strong>Incognito Mode</strong>, delete button, and a fast new official search engine.
         </p>
 
         <!-- Botões de Ação (Adicionar ao Discord, BotGhost Marketplace e Simulador v2.6) -->
@@ -325,7 +263,7 @@
             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
             </svg>
-            <span data-i18n="hero.ctaPrimary">Adicionar ao Discord</span>
+            <span data-i18n="hero.ctaPrimary">Add to Discord</span>
           </a>
 
           <!-- Botão dedicado do BotGhost Marketplace -->
@@ -346,7 +284,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span data-i18n="hero.ctaSecondary">Testar Simulador v2.6</span>
+            <span data-i18n="hero.ctaSecondary">Try v2.6 Simulator</span>
           </a>
         </div>
 
@@ -354,15 +292,15 @@
         <div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-xs sm:text-sm text-discord-muted">
           <div class="flex items-center gap-1.5">
             <span class="w-2 h-2 rounded-full bg-discord-green"></span>
-            <span data-i18n="hero.pill1">100% Gratuito</span>
+            <span data-i18n="hero.pill1">100% Free</span>
           </div>
           <div class="flex items-center gap-1.5">
             <span class="w-2 h-2 rounded-full bg-bing-cyan"></span>
-            <span data-i18n="hero.pill2">Embeds & Paginação (4 resultados)</span>
+            <span data-i18n="hero.pill2">Embeds & Pagination (4 results)</span>
           </div>
           <div class="flex items-center gap-1.5">
             <span class="w-2 h-2 rounded-full bg-discord-blurple"></span>
-            <span data-i18n="hero.pill3">6 Regiões • Público, Incognito & /help</span>
+            <span data-i18n="hero.pill3">6 Regions • Public, Incognito & /help</span>
           </div>
           <a href="https://botghost.com/marketplace" data-marketplace-link target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-200 hover:border-bing-cyan/50 hover:text-white transition-colors">
             <span class="w-2 h-2 rounded-full bg-gradient-to-r from-amber-400 to-bing-cyan"></span>
@@ -376,8 +314,8 @@
     <section id="simulador" class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 scroll-mt-20">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-8">
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="sim.title">Teste o novo visual v2.6 no Discord</h2>
-          <p class="mt-2 text-sm sm:text-base text-discord-muted" data-i18n="sim.subtitle">Alterne entre /search, /incognito search e /help, navegue pelas páginas 1/2 e 2/2 e teste os botões reais do bot.</p>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="sim.title">Try the new v2.6 experience on Discord</h2>
+          <p class="mt-2 text-sm sm:text-base text-discord-muted" data-i18n="sim.subtitle">Switch between /search, /incognito search, and /help, browse pages 1/2 and 2/2, and test the real interactive buttons.</p>
         </div>
 
         <!-- Controles do Simulador -->
@@ -408,9 +346,9 @@
           <div class="flex items-center justify-between px-4 py-3 bg-discord-dark border-b border-black/30">
             <div class="flex items-center gap-2 min-w-0">
               <span class="text-discord-muted text-xl font-semibold">#</span>
-              <span id="sim-channel-name" class="text-white font-bold text-sm truncate">geral</span>
+              <span id="sim-channel-name" class="text-white font-bold text-sm truncate">general</span>
               <span class="hidden sm:inline-block h-4 w-[1px] bg-white/10 mx-1"></span>
-              <span id="sim-channel-topic" class="hidden sm:inline text-xs text-discord-muted truncate" data-i18n="sim.channelTopic">Simulando v2.6: Incognito Mode, Embeds, paginação (4 resultados) e 6 regiões</span>
+              <span id="sim-channel-topic" class="hidden sm:inline text-xs text-discord-muted truncate" data-i18n="sim.channelTopic">Simulating v2.6: Incognito Mode, Embeds, pagination (4 results) & 6 regions</span>
             </div>
             <div class="flex items-center gap-1.5 shrink-0">
               <span class="w-2.5 h-2.5 rounded-full bg-discord-green"></span>
@@ -423,9 +361,9 @@
             <!-- Estado: Mensagem apagada pelo botão Delete -->
             <div id="sim-deleted-notice" class="hidden my-auto py-10 px-4 text-center rounded-xl bg-discord-dark/50 border border-dashed border-white/10">
               <div class="text-2xl mb-2">🗑️</div>
-              <p class="text-sm font-semibold text-white" data-i18n="sim.deletedTitle">Mensagem apagada do canal público!</p>
-              <p class="text-xs text-discord-muted mt-1" data-i18n="sim.deletedDesc">No /search, você pode limpar o chat rapidamente clicando no botão Delete / Apagar.</p>
-              <button type="button" id="sim-restore-btn" class="mt-4 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-discord-blurple hover:bg-discord-blurpleHover text-white text-xs font-bold transition-colors cursor-pointer" data-i18n="sim.restoreBtn">Restaurar busca</button>
+              <p class="text-sm font-semibold text-white" data-i18n="sim.deletedTitle">Message deleted from the public channel!</p>
+              <p class="text-xs text-discord-muted mt-1" data-i18n="sim.deletedDesc">In /search, you can keep the chat tidy anytime by clicking the Delete / Apagar button.</p>
+              <button type="button" id="sim-restore-btn" class="mt-4 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-discord-blurple hover:bg-discord-blurpleHover text-white text-xs font-bold transition-colors cursor-pointer" data-i18n="sim.restoreBtn">Restore search</button>
             </div>
 
             <!-- Wrapper da Mensagem Ativa -->
@@ -434,14 +372,14 @@
               <div class="flex flex-wrap items-center gap-2 text-xs text-discord-muted mb-2.5 pl-1">
                 <div class="w-4 h-3 border-t-2 border-l-2 border-discord-muted/60 rounded-tl-md translate-y-1"></div>
                 <div class="w-4 h-4 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-[9px] text-white font-bold">U</div>
-                <span class="font-semibold text-white/90" data-i18n="sim.demoUser">Você</span>
-                <span data-i18n="sim.usedCommand">usou</span>
+                <span class="font-semibold text-white/90" data-i18n="sim.demoUser">You</span>
+                <span data-i18n="sim.usedCommand">used</span>
                 <span id="sim-slash-badge" class="px-1.5 py-0.5 rounded-md bg-discord-blurple/20 font-semibold text-indigo-300">/search</span>
                 <span id="sim-inline-query-pill" class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-discord-darker/80 text-discord-muted text-[11px]">
                   busca: <strong id="sim-inline-query" class="text-discord-text font-medium"></strong>
                 </span>
                 <span id="sim-inline-lang-pill" class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-discord-darker/80 text-discord-muted text-[11px]">
-                  language: <strong id="sim-inline-lang" class="text-bing-cyan font-semibold">BR</strong>
+                  language: <strong id="sim-inline-lang" class="text-bing-cyan font-semibold">US</strong>
                 </span>
               </div>
 
@@ -463,7 +401,7 @@
                       <svg class="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                       APP
                     </span>
-                    <span class="text-[11px] text-discord-muted" data-i18n="sim.timestamp">Hoje às 21:05</span>
+                    <span class="text-[11px] text-discord-muted" data-i18n="sim.timestamp">Today at 9:05 PM</span>
                   </div>
 
                   <!-- Skeleton de carregamento -->
@@ -488,10 +426,10 @@
                   <div id="sim-ephemeral-footer" class="hidden mt-3 flex flex-wrap items-center gap-2 text-xs text-discord-muted">
                     <span class="inline-flex items-center gap-1.5 text-[#a5b4fc] font-medium">
                       <span aria-hidden="true">👁️</span>
-                      <span data-i18n="sim.ephemeralNote">Só você pode ver esta mensagem</span>
+                      <span data-i18n="sim.ephemeralNote">Only you can see this</span>
                     </span>
                     <span class="text-discord-muted/50">•</span>
-                    <button type="button" id="sim-ephemeral-switch-btn" class="text-bing-cyan hover:underline cursor-pointer" data-i18n="sim.ephemeralSwitch">Testar modo público (/search)</button>
+                    <button type="button" id="sim-ephemeral-switch-btn" class="text-bing-cyan hover:underline cursor-pointer" data-i18n="sim.ephemeralSwitch">Try public mode (/search)</button>
                   </div>
                 </div>
               </div>
@@ -508,7 +446,7 @@
                     id="sim-input"
                     autocomplete="off"
                     class="flex-1 min-w-[130px] bg-transparent text-sm text-white placeholder-discord-muted focus:outline-none py-1.5"
-                    placeholder="Digite um termo para simular a busca..."
+                    placeholder="Type anything to simulate a search..."
                   />
                   <!-- Seletor interativo das 6 regiões reais do bot -->
                   <div id="sim-region-wrapper" class="inline-flex shrink-0 items-center gap-1 px-2 py-1 rounded-lg bg-discord-dark border border-white/5 text-[11px] text-discord-muted">
@@ -525,7 +463,7 @@
                 </div>
                 <button type="submit" id="sim-submit-btn" class="shrink-0 px-4 py-2 rounded-lg bg-discord-blurple hover:bg-discord-blurpleHover text-white text-xs sm:text-sm font-bold transition-colors cursor-pointer flex items-center justify-center gap-1.5">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
-                  <span data-i18n="sim.searchBtn">Pesquisar</span>
+                  <span data-i18n="sim.searchBtn">Search</span>
                 </button>
               </div>
             </form>
@@ -533,58 +471,57 @@
         </div>
       </div>
     </section>
-
     <!-- SEÇÃO DE RECURSOS (6 CARDS v2.6) -->
     <section id="recursos" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 scroll-mt-20">
       <div class="max-w-6xl mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-12">
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white" data-i18n="features.title">Feito para buscas rápidas, limpas e modernas</h2>
-          <p class="mt-3 text-sm sm:text-base text-discord-muted" data-i18n="features.subtitle">A versão 2.6 consolida o Incognito Mode, o aviso de 0 resultados, a paginação de 4 itens e as 6 regiões.</p>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white" data-i18n="features.title">Built for fast, clean, modern searches</h2>
+          <p class="mt-3 text-sm sm:text-base text-discord-muted" data-i18n="features.subtitle">Version 2.6 brings Incognito Mode, empty search notices, 4-result pagination, and 6 regions.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           <!-- Card 1: Embeds & Paginação -->
           <div class="relative rounded-2xl p-6 bg-gradient-to-b from-discord-dark to-discord-darker border border-bing-cyan/40 shadow-glow-bing hover:-translate-y-1 transition-all">
             <div class="w-12 h-12 rounded-xl bg-bing-cyan/15 border border-bing-cyan/30 flex items-center justify-center text-2xl mb-4">📑</div>
-            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f1Title">Embeds & Até 4 Resultados</h3>
-            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f1Desc">Respostas em Embeds azuis com 2 páginas interativas (Previous / Next Page) e botões de link direto para abrir qualquer resultado em um clique.</p>
+            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f1Title">Embeds & Up to 4 Results</h3>
+            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f1Desc">Clean blue Discord Embeds with 2 interactive pages (Previous / Next Page) and quick link buttons to open any result in one click.</p>
           </div>
 
           <!-- Card 2: 6 Regiões / Idiomas -->
           <div class="relative rounded-2xl p-6 bg-gradient-to-b from-discord-dark to-discord-darker border border-discord-blurple/50 shadow-glow-blurple hover:-translate-y-1 transition-all">
             <div class="w-12 h-12 rounded-xl bg-discord-blurple/20 border border-discord-blurple/40 flex items-center justify-center text-2xl mb-4">🌍</div>
-            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f2Title">6 Regiões de Pesquisa</h3>
-            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f2Desc">Escolha resultados direcionados para Brasil (BR), Estados Unidos (US), Espanha (ES), França (FR), Alemanha (DE) ou Itália (IT) em qualquer comando.</p>
+            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f2Title">6 Search Regions</h3>
+            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f2Desc">Target results for Brazil (BR), United States (US), Spain (ES), France (FR), Germany (DE), or Italy (IT) directly in any search command.</p>
           </div>
 
           <!-- Card 3: Motor Oficial Brave Search API -->
           <div class="relative rounded-2xl p-6 bg-gradient-to-b from-discord-dark to-discord-darker border border-emerald-500/35 hover:-translate-y-1 transition-all">
             <div class="w-12 h-12 rounded-xl bg-discord-green/15 border border-discord-green/35 flex items-center justify-center text-2xl mb-4">⚡</div>
-            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f3Title">Motor Oficial Brave Search API</h3>
-            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f3Desc">Backend migrado para a API oficial da Brave Search: respostas mais estáveis, rápidas e descrições 100% limpas, sem tags HTML sobrando no texto.</p>
+            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f3Title">Official Brave Search API</h3>
+            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f3Desc">Migrated to the official Brave Search API for higher stability, faster responses, and 100% clean descriptions without raw HTML tags.</p>
           </div>
 
           <!-- Card 4: Incognito Mode -->
           <div class="relative rounded-2xl p-6 bg-discord-dark/70 border border-bing-cyan/35 hover:border-bing-cyan/60 hover:-translate-y-1 transition-all">
-            <span class="absolute top-4 right-4 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-bing-cyan/20 text-bing-cyan border border-bing-cyan/35" data-i18n="badges.new">NOVO</span>
+            <span class="absolute top-4 right-4 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-bing-cyan/20 text-bing-cyan border border-bing-cyan/35" data-i18n="badges.new">NEW</span>
             <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-4">🕶️</div>
             <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f4Title">Incognito Mode (/incognito search)</h3>
-            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f4Desc">Resultados em mensagem efêmera visíveis somente para você, com Embed completo, títulos clicáveis e paginação de 4 resultados.</p>
+            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f4Desc">Ephemeral messages visible only to you, upgraded with full Embeds, clickable titles, and 2-page pagination for 4 results.</p>
           </div>
 
           <!-- Card 5: Controle no Chat + Anti-Spam -->
           <div class="rounded-2xl p-6 bg-discord-dark/70 border border-white/10 hover:border-white/20 hover:-translate-y-1 transition-all">
             <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-4">🗑️</div>
-            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f5Title">Botão Apagar & Cooldown</h3>
-            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f5Desc">O comando público /search inclui botão Delete / Apagar para manter o canal limpo e sistema de cooldown anti-spam para proteger o servidor.</p>
+            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f5Title">Delete Button & Cooldown</h3>
+            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f5Desc">Public /search includes a Delete / Apagar button to keep channels clean plus built-in anti-spam cooldown protection.</p>
           </div>
 
           <!-- Card 6: Sem Resultados + /help -->
           <div class="relative rounded-2xl p-6 bg-discord-dark/70 border border-white/10 hover:border-white/20 hover:-translate-y-1 transition-all">
-            <span class="absolute top-4 right-4 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-discord-blurple/25 text-indigo-300 border border-discord-blurple/40" data-i18n="badges.new">NOVO</span>
+            <span class="absolute top-4 right-4 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-discord-blurple/25 text-indigo-300 border border-discord-blurple/40" data-i18n="badges.new">NEW</span>
             <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-4">🛡️</div>
-            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f6Title">Aviso "No results found" & /help</h3>
-            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f6Desc">Tratamento dedicado para buscas sem retorno (No results found), guia /help, 100% gratuito e sem salvar histórico de pesquisas.</p>
+            <h3 class="text-lg font-bold text-white mb-2" data-i18n="features.f6Title">"No results found" & /help</h3>
+            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="features.f6Desc">Dedicated notice when queries return no pages (No results found), /help guide, 100% free, and zero search history logging.</p>
           </div>
         </div>
       </div>
@@ -594,8 +531,8 @@
     <section id="comandos" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-discord-darker/60 border-y border-white/5 scroll-mt-20">
       <div class="max-w-5xl mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-12">
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white" data-i18n="commands.title">Comandos & Como Usar</h2>
-          <p class="mt-3 text-sm sm:text-base text-discord-muted" data-i18n="commands.subtitle">Três comandos slash diretos ao ponto — com suporte a até 4 resultados paginados e 6 regiões.</p>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white" data-i18n="commands.title">Commands & How to Use</h2>
+          <p class="mt-3 text-sm sm:text-base text-discord-muted" data-i18n="commands.subtitle">Three straightforward slash commands — supporting up to 4 paginated results and 6 regions.</p>
         </div>
 
         <!-- Cards de Comandos -->
@@ -604,17 +541,17 @@
           <div class="rounded-2xl p-6 bg-discord-dark border border-white/10 flex flex-col justify-between gap-5">
             <div>
               <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 text-xs font-semibold text-discord-text" data-i18n="commands.publicTag">🌐 Resposta Pública + Delete</span>
-                <span class="text-xs font-medium text-bing-cyan" data-i18n="commands.fourItemsTag">Até 4 resultados (2 págs)</span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 text-xs font-semibold text-discord-text" data-i18n="commands.publicTag">🌐 Public Reply + Delete</span>
+                <span class="text-xs font-medium text-bing-cyan" data-i18n="commands.fourItemsTag">Up to 4 results (2 pages)</span>
               </div>
               <div class="p-3.5 rounded-xl bg-discord-darkest border border-white/5 font-mono text-xs sm:text-sm text-white flex items-center justify-between gap-2">
-                <span class="truncate"><span class="text-discord-blurple font-bold">/search</span> <span class="text-discord-muted">busca:</span><span class="text-bing-cyan" data-i18n="commands.termPlaceholder">[termo]</span> <span class="text-discord-muted">language:</span><span class="text-indigo-300">[BR|US|ES|FR|DE|IT]</span></span>
+                <span class="truncate"><span class="text-discord-blurple font-bold">/search</span> <span class="text-discord-muted">busca:</span><span class="text-bing-cyan" data-i18n="commands.termPlaceholder">[query]</span> <span class="text-discord-muted">language:</span><span class="text-indigo-300">[BR|US|ES|FR|DE|IT]</span></span>
                 <button type="button" data-copy-cmd="/search busca:" class="copy-cmd-btn shrink-0 px-3 py-1.5 rounded-lg bg-discord-dark hover:bg-discord-blurple text-xs font-sans font-semibold text-white transition-colors cursor-pointer flex items-center gap-1.5">
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                  <span data-i18n="commands.copyBtn">Copiar</span>
+                  <span data-i18n="commands.copyBtn">Copy</span>
                 </button>
               </div>
-              <p class="mt-3.5 text-sm text-discord-muted leading-relaxed" data-i18n="commands.publicDesc">Pesquisa na web e envia um Embed público com até 4 resultados distribuídos em 2 páginas, botões de link rápido, proteção anti-spam (cooldown) e botão Delete / Apagar.</p>
+              <p class="mt-3.5 text-sm text-discord-muted leading-relaxed" data-i18n="commands.publicDesc">Searches the web and posts a public Embed with up to 4 results across 2 pages, quick link buttons, anti-spam cooldown, and a Delete / Apagar button.</p>
             </div>
           </div>
 
@@ -623,16 +560,16 @@
             <div>
               <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                 <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-bing-cyan/15 text-xs font-semibold text-bing-cyan" data-i18n="commands.privateTag">🕶️ Incognito Mode</span>
-                <span class="text-xs font-medium text-bing-cyan" data-i18n="commands.fourItemsTag">Até 4 resultados (2 págs)</span>
+                <span class="text-xs font-medium text-bing-cyan" data-i18n="commands.fourItemsTag">Up to 4 results (2 pages)</span>
               </div>
               <div class="p-3.5 rounded-xl bg-discord-darkest border border-bing-cyan/20 font-mono text-xs sm:text-sm text-white flex items-center justify-between gap-2">
-                <span class="truncate"><span class="text-bing-cyan font-bold">/incognito search</span> <span class="text-discord-muted">busca:</span><span class="text-indigo-300" data-i18n="commands.termPlaceholder">[termo]</span> <span class="text-discord-muted">language:</span><span class="text-bing-cyan">[BR|US|ES|FR|DE|IT]</span></span>
+                <span class="truncate"><span class="text-bing-cyan font-bold">/incognito search</span> <span class="text-discord-muted">busca:</span><span class="text-indigo-300" data-i18n="commands.termPlaceholder">[query]</span> <span class="text-discord-muted">language:</span><span class="text-bing-cyan">[BR|US|ES|FR|DE|IT]</span></span>
                 <button type="button" data-copy-cmd="/incognito search busca:" class="copy-cmd-btn shrink-0 px-3 py-1.5 rounded-lg bg-bing-blue hover:bg-bing-cyan text-xs font-sans font-semibold text-white transition-colors cursor-pointer flex items-center gap-1.5">
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                  <span data-i18n="commands.copyBtn">Copiar</span>
+                  <span data-i18n="commands.copyBtn">Copy</span>
                 </button>
               </div>
-              <p class="mt-3.5 text-sm text-discord-muted leading-relaxed" data-i18n="commands.privateDesc">Pesquisa efêmera com Embed azul e títulos clicáveis: somente quem executou o comando vê as 2 páginas de resultados, mantendo o chat 100% limpo.</p>
+              <p class="mt-3.5 text-sm text-discord-muted leading-relaxed" data-i18n="commands.privateDesc">Ephemeral Incognito Mode search with a clean Embed and clickable titles: only the user who ran the command sees both pages of results.</p>
             </div>
           </div>
         </div>
@@ -641,15 +578,15 @@
         <div class="rounded-2xl p-6 bg-discord-dark border border-discord-blurple/40 mb-14 flex flex-col md:flex-row md:items-center justify-between gap-5">
           <div class="flex-1 min-w-0">
             <div class="flex flex-wrap items-center gap-2 mb-2.5">
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-discord-blurple/20 text-xs font-semibold text-indigo-300" data-i18n="commands.helpTag">❓ Guia Interativo</span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-discord-blurple/20 text-xs font-semibold text-indigo-300" data-i18n="commands.helpTag">❓ Interactive Guide</span>
             </div>
-            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="commands.helpDesc">Exibe o painel de ajuda multilíngue direto no Discord explicando os comandos disponíveis, regiões suportadas e um botão rápido para o site oficial.</p>
+            <p class="text-sm text-discord-muted leading-relaxed" data-i18n="commands.helpDesc">Displays the multilingual help panel inside Discord listing all commands, supported regions, and a quick button to the official website.</p>
           </div>
           <div class="p-3 rounded-xl bg-discord-darkest border border-white/5 font-mono text-sm text-white flex items-center justify-between gap-3 shrink-0 md:min-w-[260px]">
             <span class="text-indigo-300 font-bold">/help</span>
             <button type="button" data-copy-cmd="/help" class="copy-cmd-btn shrink-0 px-3 py-1.5 rounded-lg bg-discord-blurple hover:bg-discord-blurpleHover text-xs font-sans font-semibold text-white transition-colors cursor-pointer flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-              <span data-i18n="commands.copyBtn">Copiar</span>
+              <span data-i18n="commands.copyBtn">Copy</span>
             </button>
           </div>
         </div>
@@ -658,18 +595,18 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div class="rounded-2xl p-5 bg-discord-dark/60 border border-white/5">
             <div class="w-8 h-8 rounded-full bg-discord-blurple text-white font-extrabold text-sm flex items-center justify-center mb-3">1</div>
-            <h3 class="font-bold text-white text-base mb-1.5" data-i18n="steps.s1Title">Adicione ao servidor</h3>
-            <p class="text-sm text-discord-muted" data-i18n="steps.s1Desc">Clique em "Adicionar ao Discord" e autorize o bot no seu servidor em menos de 10 segundos.</p>
+            <h3 class="font-bold text-white text-base mb-1.5" data-i18n="steps.s1Title">Add to your server</h3>
+            <p class="text-sm text-discord-muted" data-i18n="steps.s1Desc">Click "Add to Discord" and authorize the bot on your server in under 10 seconds.</p>
           </div>
           <div class="rounded-2xl p-5 bg-discord-dark/60 border border-white/5">
             <div class="w-8 h-8 rounded-full bg-bing-blue text-white font-extrabold text-sm flex items-center justify-center mb-3">2</div>
-            <h3 class="font-bold text-white text-base mb-1.5" data-i18n="steps.s2Title">Escolha o modo e a região</h3>
-            <p class="text-sm text-discord-muted" data-i18n="steps.s2Desc">Use <code class="text-white">/search</code> ou <code class="text-bing-cyan">/incognito search</code> e selecione entre as 6 regiões: <code class="text-white">BR, US, ES, FR, DE, IT</code>.</p>
+            <h3 class="font-bold text-white text-base mb-1.5" data-i18n="steps.s2Title">Pick mode & region</h3>
+            <p class="text-sm text-discord-muted" data-i18n="steps.s2Desc">Use <code class="text-white">/search</code> or <code class="text-bing-cyan">/incognito search</code> and pick from 6 regions: <code class="text-white">BR, US, ES, FR, DE, IT</code>.</p>
           </div>
           <div class="rounded-2xl p-5 bg-discord-dark/60 border border-white/5">
             <div class="w-8 h-8 rounded-full bg-bing-cyan text-discord-darkest font-extrabold text-sm flex items-center justify-center mb-3">3</div>
-            <h3 class="font-bold text-white text-base mb-1.5" data-i18n="steps.s3Title">Navegue pelos 4 resultados</h3>
-            <p class="text-sm text-discord-muted" data-i18n="steps.s3Desc">Explore as 2 páginas com os botões interativos, abra links em 1 clique ou apague a busca pública quando quiser.</p>
+            <h3 class="font-bold text-white text-base mb-1.5" data-i18n="steps.s3Title">Browse up to 4 results</h3>
+            <p class="text-sm text-discord-muted" data-i18n="steps.s3Desc">Flip through 2 pages with interactive buttons, open links in 1 click, or delete public searches anytime.</p>
           </div>
         </div>
       </div>
@@ -678,11 +615,11 @@
     <!-- CTA FINAL -->
     <section class="py-14 px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-discord-blurple/25 via-discord-dark to-bing-blue/25 border border-white/10 text-center shadow-2xl">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="cta.title">Pronto para experimentar o Bing Search v2.6?</h2>
-        <p class="mt-3 text-sm sm:text-base text-discord-text/85 max-w-xl mx-auto" data-i18n="cta.subtitle">Adicione gratuitamente ao seu servidor e aproveite Embeds interativos, 4 resultados paginados, 6 regiões e Incognito Mode.</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="cta.title">Ready to try Bing Search v2.6?</h2>
+        <p class="mt-3 text-sm sm:text-base text-discord-text/85 max-w-xl mx-auto" data-i18n="cta.subtitle">Add it to your server for free and enjoy interactive Embeds, 4 paginated results, 6 regions, and Incognito Mode.</p>
         <div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="https://discord.com/oauth2/authorize?client_id=1442546622805577859" data-invite-link target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-discord-blurple hover:bg-discord-blurpleHover text-white font-bold text-base shadow-glow-blurple transition-all hover:-translate-y-0.5">
-            <span data-i18n="hero.ctaPrimary">Adicionar ao Discord</span>
+            <span data-i18n="hero.ctaPrimary">Add to Discord</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
           </a>
 
@@ -696,6 +633,7 @@
       </div>
     </section>
   </main>
+
   <!-- RODAPÉ -->
   <footer class="border-t border-white/10 bg-discord-darker/80 py-10 px-4 sm:px-6 lg:px-8">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -709,14 +647,14 @@
           </div>
           <span class="font-bold text-white" id="footer-brand-name">Bing Search</span>
         </div>
-        <p class="mt-2 text-xs text-discord-muted max-w-md" data-i18n="footer.disclaimer">Projeto independente para Discord. Não possui vínculo oficial com a Microsoft, Bing, Brave ou Discord Inc.</p>
+        <p class="mt-2 text-xs text-discord-muted max-w-md" data-i18n="footer.disclaimer">Independent Discord project. Not officially affiliated with Microsoft, Bing, Brave, or Discord Inc.</p>
       </div>
 
       <div class="flex flex-wrap items-center justify-center gap-5 text-sm font-medium text-discord-muted">
         <a href="changelog.html" class="hover:text-white transition-colors" data-i18n="nav.changelog">Changelog</a>
-        <a href="#termos" data-route="#termos" class="hover:text-white transition-colors" data-i18n="footer.terms">Termos de Serviço</a>
-        <a href="#privacidade" data-route="#privacidade" class="hover:text-white transition-colors" data-i18n="footer.privacy">Política de Privacidade</a>
-        <a href="https://discord.com/oauth2/authorize?client_id=1442546622805577859" data-invite-link target="_blank" rel="noopener noreferrer" class="hover:text-bing-cyan transition-colors" data-i18n="footer.invite">Convidar Bot</a>
+        <a href="#termos" data-route="#termos" class="hover:text-white transition-colors" data-i18n="footer.terms">Terms of Service</a>
+        <a href="#privacidade" data-route="#privacidade" class="hover:text-white transition-colors" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="https://discord.com/oauth2/authorize?client_id=1442546622805577859" data-invite-link target="_blank" rel="noopener noreferrer" class="hover:text-bing-cyan transition-colors" data-i18n="footer.invite">Invite Bot</a>
         <a href="https://botghost.com/marketplace" data-marketplace-link target="_blank" rel="noopener noreferrer" class="hover:text-amber-300 transition-colors" data-i18n="footer.marketplace">BotGhost Marketplace</a>
       </div>
     </div>
@@ -728,8 +666,8 @@
       <!-- Cabeçalho do Modal -->
       <div class="flex items-center justify-between gap-3 px-5 sm:px-6 py-4 bg-discord-darker border-b border-white/10">
         <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
-          <button type="button" id="legal-tab-terms" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer" data-i18n="footer.terms">Termos de Serviço</button>
-          <button type="button" id="legal-tab-privacy" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer" data-i18n="footer.privacy">Política de Privacidade</button>
+          <button type="button" id="legal-tab-terms" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer" data-i18n="footer.terms">Terms of Service</button>
+          <button type="button" id="legal-tab-privacy" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer" data-i18n="footer.privacy">Privacy Policy</button>
         </div>
         <button type="button" id="legal-close-x" aria-label="Fechar" class="p-2.5 rounded-xl bg-discord-dark hover:bg-white/10 text-discord-muted hover:text-white transition-colors cursor-pointer">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -745,7 +683,7 @@
 
       <!-- Rodapé do Modal -->
       <div class="px-5 sm:px-6 py-4 bg-discord-darker border-t border-white/10 flex justify-end">
-        <button type="button" id="legal-close-btn" class="px-5 py-2.5 rounded-xl bg-discord-blurple hover:bg-discord-blurpleHover text-white text-sm font-bold transition-colors cursor-pointer" data-i18n="legal.backBtn">Voltar à página inicial</button>
+        <button type="button" id="legal-close-btn" class="px-5 py-2.5 rounded-xl bg-discord-blurple hover:bg-discord-blurpleHover text-white text-sm font-bold transition-colors cursor-pointer" data-i18n="legal.backBtn">Back to Home</button>
       </div>
     </div>
   </div>
@@ -754,7 +692,7 @@
   <div id="toast" class="fixed bottom-5 right-5 z-50 pointer-events-none opacity-0 translate-y-3 transition-all duration-300" role="status" aria-live="polite">
     <div class="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-discord-darker border border-bing-cyan/40 text-white text-sm font-semibold shadow-2xl">
       <span class="w-2 h-2 rounded-full bg-discord-green"></span>
-      <span id="toast-message">Copiado!</span>
+      <span id="toast-message">Copied!</span>
     </div>
   </div>
   <!-- JAVASCRIPT PRINCIPAL (DELEGAÇÃO GLOBAL DE EVENTOS + INICIALIZAÇÃO SEGURA) -->
@@ -774,14 +712,36 @@
         changelogUrl: 'changelog.html'
       };
 
+      const STATUS_KEY_STORAGE = 'bingsearch_banner_status';
+      const BANNER_STATES = {
+        ONLINE: {
+          badge: '🟢 ONLINE',
+          text: 'All Bing Search v2.6 systems operational • Brave Search API active • 6 regions available',
+          barClass: 'relative z-30 w-full overflow-hidden border-b border-emerald-500/30 bg-gradient-to-r from-emerald-950/90 via-discord-darker to-emerald-950/90 text-xs sm:text-sm font-semibold text-white transition-colors duration-300',
+          badgeClass: 'px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40'
+        },
+        'MANUTENÇÃO': {
+          badge: '🔴 MANUTENÇÃO',
+          text: 'Scheduled maintenance or temporary instability in progress • Some searches may experience delays',
+          barClass: 'relative z-30 w-full overflow-hidden border-b border-red-500/50 bg-gradient-to-r from-red-950/95 via-red-900/70 to-red-950/95 text-xs sm:text-sm font-semibold text-white transition-colors duration-300',
+          badgeClass: 'px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-red-600 text-white border border-red-300/50'
+        },
+        NOVIDADE: {
+          badge: '🔵 NOVIDADE',
+          text: 'Bing Search v2.6 live: Incognito Mode (/incognito search), up to 4 paginated results, 6 regions & /help',
+          barClass: 'relative z-30 w-full overflow-hidden border-b border-sky-400/40 bg-gradient-to-r from-sky-950/90 via-discord-darker to-indigo-950/90 text-xs sm:text-sm font-semibold text-white transition-colors duration-300',
+          badgeClass: 'px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-sky-500/20 text-sky-300 border border-sky-400/40'
+        }
+      };
+
       // =========================================================================
       // ESTADO INTERNO DA APLICAÇÃO
       // =========================================================================
-      let currentLang = 'pt';
+      let currentLang = 'en';
       let currentSimMode = 'public'; // 'public' | 'incognito' | 'help'
       let currentSimQuery = '';
       let currentSimPage = 1; // 1 ou 2
-      let currentSimRegion = 'BR'; // BR | US | ES | FR | DE | IT
+      let currentSimRegion = 'US'; // BR | US | ES | FR | DE | IT
       let isSimDeleted = false;
       let activeLegalTab = null;
       let toastTimeout = null;
@@ -2132,10 +2092,30 @@
       };
 
       // =========================================================================
-      // UTILITÁRIOS DE SEGURANÇA, CLIPBOARD E TOAST
+      // UTILITÁRIOS DE SEGURANÇA, CLIPBOARD, TOAST E BANNER DE STATUS
       // =========================================================================
-       function escapeHtml(str) {
-        return String(str);
+      function escapeHtml(str) {
+        return String(str)
+          .replaceAll('&', '&')
+          .replaceAll('<', '<')
+          .replaceAll('>', '>')
+          .replaceAll('"', '"')
+          .replaceAll("'", ''');
+      }
+
+      function applyBannerStatus(status) {
+        const key = BANNER_STATES[status] ? status : 'ONLINE';
+        const cfg = BANNER_STATES[key];
+        const bar = document.getElementById('status-marquee-bar');
+        const select = document.getElementById('status-key-select');
+
+        try { localStorage.setItem(STATUS_KEY_STORAGE, key); } catch (e) {}
+        if (select) select.value = key;
+        if (bar) bar.className = cfg.barClass;
+
+        document.querySelectorAll('.status-marquee-msg').forEach((el) => {
+          el.innerHTML = `<span class="${cfg.badgeClass}">${escapeHtml(cfg.badge)}</span><span>${escapeHtml(cfg.text)}</span>`;
+        });
       }
 
       function showToast(message) {
@@ -2279,6 +2259,10 @@
         if (activeLegalTab) {
           openLegalModal(activeLegalTab);
         }
+
+        if (typeof window.refreshAvisosFeed === 'function') {
+          window.refreshAvisosFeed();
+        }
       }
 
       // =========================================================================
@@ -2418,6 +2402,7 @@
 
         if (inlineQueryEl) inlineQueryEl.textContent = query;
         if (inlineLangEl) inlineLangEl.textContent = currentSimRegion;
+
         const renderContentNow = () => {
           // MODO /help
           if (currentSimMode === 'help') {
@@ -2545,10 +2530,22 @@
         };
 
         clearTimeout(simLoadingTimeout);
-        if (loadingEl) loadingEl.classList.add('hidden');
-        embedCard.classList.remove('hidden');
-        buttonsEl.classList.remove('hidden');
-        renderContentNow();
+        if (animateLoading && loadingEl) {
+          embedCard.classList.add('hidden');
+          buttonsEl.classList.add('hidden');
+          loadingEl.classList.remove('hidden');
+          simLoadingTimeout = setTimeout(() => {
+            loadingEl.classList.add('hidden');
+            embedCard.classList.remove('hidden');
+            buttonsEl.classList.remove('hidden');
+            renderContentNow();
+          }, 260);
+        } else {
+          if (loadingEl) loadingEl.classList.add('hidden');
+          embedCard.classList.remove('hidden');
+          buttonsEl.classList.remove('hidden');
+          renderContentNow();
+        }
       }
 
       // =========================================================================
@@ -2750,6 +2747,13 @@
           }
         });
 
+        const statusSelect = document.getElementById('status-key-select');
+        if (statusSelect) {
+          statusSelect.addEventListener('change', (ev) => {
+            applyBannerStatus(ev.target.value);
+          });
+        }
+
         const regionSelect = document.getElementById('sim-region-select');
         if (regionSelect) {
           regionSelect.addEventListener('change', () => {
@@ -2790,7 +2794,7 @@
       }
 
       // =========================================================================
-      // INICIALIZAÇÃO IMEDIATA E SEGURA
+      // INICIALIZAÇÃO IMEDIATA E SEGURA (INICIA EM 'en' POR PADRÃO)
       // =========================================================================
       function initApp() {
         if (isInitialized) return;
@@ -2814,26 +2818,25 @@
         if (footerBrand) footerBrand.textContent = CONFIG.botName;
 
         bindEvents();
-        let savedStatus = "ONLINE";
+
+        let savedStatus = 'ONLINE';
         try {
           const st = localStorage.getItem(STATUS_KEY_STORAGE);
           if (st && BANNER_STATES[st]) savedStatus = st;
         } catch (e) {}
         applyBannerStatus(savedStatus);
 
-        const statusSelect = document.getElementById("status-key-select");
-        if (statusSelect) {
-          statusSelect.addEventListener("change", (ev) => {
-            applyBannerStatus(ev.target.value);
-          });
-        }
-        let savedLang = 'pt';
+        let initialLang = 'en';
         try {
           const stored = localStorage.getItem('bingsearch_lang');
-          if (stored && TRANSLATIONS[stored]) savedLang = stored;
+          if (stored && TRANSLATIONS[stored]) {
+            initialLang = stored;
+          } else {
+            localStorage.setItem('bingsearch_lang', 'en');
+          }
         } catch (e) {}
 
-        setLanguage(savedLang);
+        setLanguage(initialLang);
         setSimMode('public', false);
 
         if (window.location.hash === '#termos' || window.location.hash === '#privacidade') {
@@ -2853,9 +2856,9 @@
       window.addEventListener('load', initApp);
     })();
   </script>
-<!-- ==================== GAVETA DE AVISOS & STATUS (FIREBASE) ==================== -->
+  <!-- ==================== GAVETA DE AVISOS & STATUS (FIREBASE) ==================== -->
 <style>
-/* Fade suave para NOVIDADE e ONLINE */
+  /* Fade suave para NOVIDADE e ONLINE */
   @keyframes av-fade-suave {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.35; }
@@ -2904,6 +2907,7 @@
   .av-dot-online {
     animation: av-piscar-verde 3.5s ease-in-out infinite;
   }
+
   /* Botão flutuante de Avisos */
   .av-fab {
     position: fixed;
@@ -3425,7 +3429,7 @@
 
   // Tradução (PT -> idioma ativo do site)
   function getIdiomaAlvo() {
-    const lang = localStorage.getItem("bingsearch_lang") || "pt";
+    const lang = localStorage.getItem("bingsearch_lang") || "en";
     return ["en", "es", "fr", "de", "it"].includes(lang) ? lang : "pt";
   }
 
@@ -3555,6 +3559,8 @@
       feed.appendChild(card);
     });
   }
+
+  window.refreshAvisosFeed = renderFeed;
 
   // Escutar avisos em tempo real
   const q = query(collection(db, "avisos"), orderBy("createdAt", "desc"));
