@@ -3210,6 +3210,7 @@
   let isAdmin = false;
   let latestAvisoId = null;
   let cachedDocs = [];
+  const traducoesCache = new Map();
 
   // Abrir / fechar gaveta
   function abrirGaveta() {
@@ -3276,8 +3277,45 @@
       loginForm.classList.remove("active");
       lockedBar.style.display = "flex";
     }
-    const traducoesCache = new Map();
+    renderFeed();
+  });
 
+  // Publicar aviso
+  postForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!isAdmin) return;
+    postErr.style.display = "none";
+    const texto = document.getElementById("av-message").value.trim();
+    const tag = document.getElementById("av-tag-select").value;
+    if (!texto) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Enviando...";
+    try {
+      await addDoc(collection(db, "avisos"), {
+        texto,
+        tag,
+        createdAt: serverTimestamp()
+      });
+      document.getElementById("av-message").value = "";
+    } catch (err) {
+      postErr.textContent = "Erro ao publicar. Verifique as regras do Firestore.";
+      postErr.style.display = "block";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Publicar aviso";
+    }
+  });
+
+  // Formatar data
+  function formatarData(ts) {
+    if (!ts || !ts.toDate) return "agora";
+    const d = ts.toDate();
+    return d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" }) +
+      " às " + d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+  }
+
+  // Tradução (PT -> idioma ativo do site)
   function getIdiomaAlvo() {
     const lang = localStorage.getItem("bingsearch_lang") || "pt";
     return ["en", "es", "fr", "de", "it"].includes(lang) ? lang : "pt";
@@ -3300,7 +3338,8 @@
     traducoesCache.set(cacheKey, traduzido);
     return traduzido;
   }
-    // Renderizar cards com segurança (sem innerHTML no texto do usuário)
+
+  // Renderizar cards com segurança (sem innerHTML no texto do usuário)
   function renderFeed() {
     feed.innerHTML = "";
     if (cachedDocs.length === 0) {
@@ -3391,109 +3430,6 @@
 
         card.appendChild(transBtn);
       }
-
-      if (isAdmin) {
-        const delBtn = document.createElement("button");
-        delBtn.type = "button";
-        delBtn.className = "av-del-btn";
-        delBtn.textContent = "Apagar aviso";
-        delBtn.addEventListener("click", async () => {
-          if (confirm("Deseja apagar este aviso?")) {
-            await deleteDoc(doc(db, "avisos", id));
-          }
-        });
-        card.appendChild(delBtn);
-      }
-
-      feed.appendChild(card);
-    });
-  }
-    
-  // Publicar aviso
-  postForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    if (!isAdmin) return;
-    postErr.style.display = "none";
-    const texto = document.getElementById("av-message").value.trim();
-    const tag = document.getElementById("av-tag-select").value;
-    if (!texto) return;
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Enviando...";
-    try {
-      await addDoc(collection(db, "avisos"), {
-        texto,
-        tag,
-        createdAt: serverTimestamp()
-      });
-      document.getElementById("av-message").value = "";
-    } catch (err) {
-      postErr.textContent = "Erro ao publicar. Verifique as regras do Firestore.";
-      postErr.style.display = "block";
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Publicar aviso";
-    }
-  });
-
-  // Formatar data
-  function formatarData(ts) {
-    if (!ts || !ts.toDate) return "agora";
-    const d = ts.toDate();
-    return d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" }) +
-      " às " + d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
-  }
-
-  // Renderizar cards com segurança (sem innerHTML no texto do usuário)
-  function renderFeed() {
-    feed.innerHTML = "";
-    if (cachedDocs.length === 0) {
-      const empty = document.createElement("div");
-      empty.className = "av-empty";
-      empty.textContent = "Nenhum aviso publicado ainda.";
-      feed.appendChild(empty);
-      return;
-    }
-
-    cachedDocs.forEach(({ id, data }) => {
-      const card = document.createElement("article");
-      card.className = "av-card";
-
-      const top = document.createElement("div");
-      top.className = "av-card-top";
-
-      const authorBox = document.createElement("div");
-      authorBox.className = "av-author-box";
-
-      const avatar = document.createElement("div");
-      avatar.className = "av-avatar";
-      avatar.textContent = "K";
-
-      const author = document.createElement("span");
-      author.className = "av-author";
-      author.textContent = AUTHOR_NAME;
-
-      const devBadge = document.createElement("span");
-      devBadge.className = "av-dev-badge";
-      devBadge.textContent = "DEV";
-
-      authorBox.append(avatar, author, devBadge);
-
-      const time = document.createElement("span");
-      time.className = "av-time";
-      time.textContent = formatarData(data.createdAt);
-
-      top.append(authorBox, time);
-
-      const tag = document.createElement("span");
-      tag.className = `av-tag av-tag-${data.tag || "NOVIDADE"}`;
-      tag.textContent = data.tag || "NOVIDADE";
-
-      const text = document.createElement("p");
-      text.className = "av-text";
-      text.textContent = data.texto || "";
-
-      card.append(top, tag, text);
 
       if (isAdmin) {
         const delBtn = document.createElement("button");
