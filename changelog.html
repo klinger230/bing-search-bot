@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Changelog — Bing Search v3.0</title>
+  <title>Changelog — Bing Search v3.1</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -422,7 +422,7 @@
         <a href="faq.html">FAQ</a>
         <a href="changelog.html" class="active">
           <span>Changelog</span>
-          <span class="version-pill">v3.0</span>
+          <span class="version-pill">v3.1</span>
         </a>
         <select id="langSelect" class="lang-select" aria-label="Language">
           <option value="pt">🇧🇷 PT-BR</option>
@@ -446,7 +446,7 @@
             <span data-i18n="liveStatus">Ativo no Discord</span>
           </span>
         </div>
-        <p data-i18n="subtitle">Acompanhe toda a evolução do Bing Search desde o lançamento até a versão 3.0.</p>
+        <p data-i18n="subtitle">Acompanhe toda a evolução do Bing Search desde o lançamento até a versão 3.1.</p>
       </div>
 
       <button type="button" id="replayBtn" class="replay-btn">
@@ -482,7 +482,7 @@
           nav_cmd: "Comandos",
           title: "Changelog & Releases",
           liveStatus: "Ativo no Discord",
-          subtitle: "Acompanhe toda a evolução do Bing Search desde o lançamento até a versão 3.0.",
+          subtitle: "Acompanhe toda a evolução do Bing Search desde o lançamento até a versão 3.1.",
           replay: "Rever animação",
           footer_back: "Quer voltar para a página inicial?",
           footer_link: "Voltar ao início →",
@@ -551,15 +551,28 @@
             },
             {
               version: "v3.0",
-              statusLabel: "Versão Atual",
+              statusLabel: "Atualização",
               date: "Novembro de 2026",
-              isLatest: true,
+              isLatest: false,
               title: "Busca de Vídeos do YouTube com Player Nativo & 3 Páginas",
               changes: [
                 { tag: "VÍDEO", color: "rose", text: "Novos comandos <code>/searchvideos</code> (público com botão <strong>Delete</strong>) e <code>/incognito videos</code> (efêmero, visível só para você) para buscar vídeos do YouTube." },
                 { tag: "NOVO", color: "emerald", text: "Player nativo do YouTube direto no chat do Discord com navegação entre até <strong>3 vídeos</strong> em <strong>3 páginas</strong> (<strong>Previous Page</strong> / <strong>Next Page</strong>)." },
                 { tag: "MELHORIA", color: "indigo", text: "Suporte às <strong>6 regiões</strong> (<code>BR, US, ES, FR, DE, IT</code>) nas buscas de vídeo e aviso <strong>No results found</strong> quando não há resultados." },
                 { tag: "SITE", color: "purple", text: "Simulador interativo v3.0 no site com player de vídeo, modo incógnito, <code>/help</code> e gaveta de avisos em tempo real." }
+              ]
+            },
+            {
+              version: "v3.1",
+              statusLabel: "Versão Atual",
+              date: "Novembro de 2026",
+              isLatest: true,
+              title: "Tradutor Integrado (25 Idiomas), /help Expandido & Transparência de Privacidade",
+              changes: [
+                { tag: "TRADUTOR", color: "emerald", text: "Novos comandos <code>/translate</code> (público com botão <strong>Delete</strong>) e <code>/incognitotranslate</code> (efêmero, visível só para você) com detecção automática do idioma de origem via <strong>MyMemory API</strong>." },
+                { tag: "NOVO", color: "indigo", text: "Suporte a <strong>25 idiomas de destino</strong> numerados de <code>1</code> a <code>25</code> para seleção rápida direto no Discord." },
+                { tag: "MELHORIA", color: "amber", text: "Comando <code>/help</code> atualizado com todos os comandos de tradução e a lista completa dos 25 idiomas suportados." },
+                { tag: "PRIVACIDADE", color: "purple", text: "FAQ, Termos de Serviço e Política de Privacidade atualizados nos 6 idiomas esclarecendo os limites do <strong>Incognito Mode</strong>, além do simulador no site com tradução ao vivo." }
               ]
             }
           ]
@@ -572,7 +585,7 @@
           nav_cmd: "Commands",
           title: "Changelog & Releases",
           liveStatus: "Live on Discord",
-          subtitle: "Follow the full evolution of Bing Search from initial launch to version 3.0.",
+          subtitle: "Follow the full evolution of Bing Search from initial launch to version 3.1.",
           replay: "Replay animation",
           footer_back: "Want to go back to the homepage?",
           footer_link: "Back to Home →",
@@ -641,15 +654,28 @@
             },
             {
               version: "v3.0",
-              statusLabel: "Current Release",
+              statusLabel: "Update",
               date: "November 2026",
-              isLatest: true,
+              isLatest: false,
               title: "YouTube Video Search with Native Player & 3-Page Pagination",
               changes: [
                 { tag: "VIDEO", color: "rose", text: "Added <code>/searchvideos</code> (public with <strong>Delete</strong> button) and <code>/incognito videos</code> (ephemeral, visible only to you) to search YouTube videos." },
                 { tag: "NEW", color: "emerald", text: "Native YouTube player right inside Discord chat with navigation across up to <strong>3 videos</strong> on <strong>3 pages</strong> (<strong>Previous Page</strong> / <strong>Next Page</strong>)." },
                 { tag: "IMPROVED", color: "indigo", text: "Support for all <strong>6 regions</strong> (<code>BR, US, ES, FR, DE, IT</code>) in video searches plus <strong>No results found</strong> notices when nothing matches." },
                 { tag: "SITE", color: "purple", text: "Updated interactive v3.0 website simulator with video player, Incognito Mode, <code>/help</code>, and live status announcements." }
+              ]
+            },
+            {
+              version: "v3.1",
+              statusLabel: "Current Release",
+              date: "November 2026",
+              isLatest: true,
+              title: "Built-in Translator (25 Languages), Expanded /help & Privacy Clarity",
+              changes: [
+                { tag: "TRANSLATOR", color: "emerald", text: "Added <code>/translate</code> (public with <strong>Delete</strong> button) and <code>/incognitotranslate</code> (ephemeral, visible only to you) with automatic source language detection powered by <strong>MyMemory API</strong>." },
+                { tag: "NEW", color: "indigo", text: "Support for <strong>25 target languages</strong> numbered <code>1</code> through <code>25</code> for fast selection right in Discord." },
+                { tag: "IMPROVED", color: "amber", text: "Updated <code>/help</code> with the new translator commands and the full list of all 25 supported languages." },
+                { tag: "PRIVACY", color: "purple", text: "Updated FAQ, Terms of Service, and Privacy Policy across all 6 languages clarifying <strong>Incognito Mode</strong> limits, plus live translation in the website simulator." }
               ]
             }
           ]
@@ -662,7 +688,7 @@
           nav_cmd: "Comandos",
           title: "Changelog y Lanzamientos",
           liveStatus: "Activo en Discord",
-          subtitle: "Sigue toda la evolución de Bing Search desde su creación hasta la versión 3.0.",
+          subtitle: "Sigue toda la evolución de Bing Search desde su creación hasta la versión 3.1.",
           replay: "Repetir animación",
           footer_back: "¿Quieres volver a la página principal?",
           footer_link: "Volver al inicio →",
@@ -731,15 +757,28 @@
             },
             {
               version: "v3.0",
-              statusLabel: "Versión Actual",
+              statusLabel: "Actualización",
               date: "Noviembre de 2026",
-              isLatest: true,
+              isLatest: false,
               title: "Búsqueda de Videos de YouTube con Reproductor Nativo y 3 Páginas",
               changes: [
                 { tag: "VIDEO", color: "rose", text: "Nuevos comandos <code>/searchvideos</code> (público con botón <strong>Delete</strong>) e <code>/incognito videos</code> (efímero, visible solo para ti) para buscar videos de YouTube." },
                 { tag: "NUEVO", color: "emerald", text: "Reproductor nativo de YouTube en Discord con navegación entre hasta <strong>3 videos</strong> en <strong>3 páginas</strong> (<strong>Previous Page</strong> / <strong>Next Page</strong>)." },
                 { tag: "MEJORA", color: "indigo", text: "Soporte para las <strong>6 regiones</strong> (<code>BR, US, ES, FR, DE, IT</code>) en videos y aviso <strong>No results found</strong> sin coincidencias." },
                 { tag: "WEB", color: "purple", text: "Simulador v3.0 actualizado en el sitio con reproductor de video, Incognito Mode, <code>/help</code> y avisos en vivo." }
+              ]
+            },
+            {
+              version: "v3.1",
+              statusLabel: "Versión Actual",
+              date: "Noviembre de 2026",
+              isLatest: true,
+              title: "Traductor Integrado (25 Idiomas), /help Ampliado y Privacidad Clara",
+              changes: [
+                { tag: "TRADUCTOR", color: "emerald", text: "Nuevos comandos <code>/translate</code> (público con botón <strong>Delete</strong>) e <code>/incognitotranslate</code> (efímero, visible solo para ti) con detección automática del idioma original vía <strong>MyMemory API</strong>." },
+                { tag: "NUEVO", color: "indigo", text: "Soporte para <strong>25 idiomas de destino</strong> numerados del <code>1</code> al <code>25</code> para selección rápida en Discord." },
+                { tag: "MEJORA", color: "amber", text: "Comando <code>/help</code> actualizado con los comandos del traductor y la lista completa de los 25 idiomas compatibles." },
+                { tag: "PRIVACIDAD", color: "purple", text: "FAQ, Términos de Servicio y Política de Privacidad actualizados en los 6 idiomas aclarando los límites del <strong>Incognito Mode</strong>, además de traducción en vivo en el simulador." }
               ]
             }
           ]
@@ -752,7 +791,7 @@
           nav_cmd: "Commandes",
           title: "Changelog & Versions",
           liveStatus: "En ligne sur Discord",
-          subtitle: "Suivez toute l'évolution de Bing Search depuis son lancement jusqu'à la version 3.0.",
+          subtitle: "Suivez toute l'évolution de Bing Search depuis son lancement jusqu'à la version 3.1.",
           replay: "Rejouer l'animation",
           footer_back: "Vous souhaitez revenir à la page d'accueil ?",
           footer_link: "Retour à l'accueil →",
@@ -821,15 +860,28 @@
             },
             {
               version: "v3.0",
-              statusLabel: "Version Actuelle",
+              statusLabel: "Mise à jour",
               date: "Novembre 2026",
-              isLatest: true,
+              isLatest: false,
               title: "Recherche de Vidéos YouTube avec Lecteur Natif & 3 Pages",
               changes: [
                 { tag: "VIDÉO", color: "rose", text: "Nouvelles commandes <code>/searchvideos</code> (public avec bouton <strong>Delete</strong>) et <code>/incognito videos</code> (éphémère, visible uniquement par vous) pour chercher des vidéos YouTube." },
                 { tag: "NOUVEAU", color: "emerald", text: "Lecteur natif YouTube dans Discord avec navigation jusqu'à <strong>3 vidéos</strong> sur <strong>3 pages</strong> (<strong>Previous Page</strong> / <strong>Next Page</strong>)." },
                 { tag: "AMÉLIORÉ", color: "indigo", text: "Prise en charge des <strong>6 régions</strong> (<code>BR, US, ES, FR, DE, IT</code>) pour les vidéos et message <strong>No results found</strong> sans correspondance." },
                 { tag: "SITE", color: "purple", text: "Simulateur v3.0 mis à jour sur le site avec lecteur vidéo, Incognito Mode, <code>/help</code> et annonces en direct." }
+              ]
+            },
+            {
+              version: "v3.1",
+              statusLabel: "Version Actuelle",
+              date: "Novembre 2026",
+              isLatest: true,
+              title: "Traducteur Intégré (25 Langues), /help Enrichi & Clarté sur la Confidentialité",
+              changes: [
+                { tag: "TRADUCTEUR", color: "emerald", text: "Nouvelles commandes <code>/translate</code> (public avec bouton <strong>Delete</strong>) et <code>/incognitotranslate</code> (éphémère, visible uniquement par vous) avec détection automatique via <strong>MyMemory API</strong>." },
+                { tag: "NOUVEAU", color: "indigo", text: "Prise en charge de <strong>25 langues cibles</strong> numérotées de <code>1</code> à <code>25</code> pour une sélection rapide sur Discord." },
+                { tag: "AMÉLIORÉ", color: "amber", text: "Commande <code>/help</code> mise à jour avec le traducteur et la liste complète des 25 langues disponibles." },
+                { tag: "CONFIDENTIALITÉ", color: "purple", text: "FAQ, Conditions d'Utilisation et Politique de Confidentialité mis à jour dans les 6 langues précisant les limites de l'<strong>Incognito Mode</strong>, plus la traduction en direct sur le simulateur." }
               ]
             }
           ]
@@ -842,7 +894,7 @@
           nav_cmd: "Befehle",
           title: "Changelog & Releases",
           liveStatus: "Aktiv auf Discord",
-          subtitle: "Verfolge die gesamte Entwicklung von Bing Search vom Start bis zur Version 3.0.",
+          subtitle: "Verfolge die gesamte Entwicklung von Bing Search vom Start bis zur Version 3.1.",
           replay: "Animation wiederholen",
           footer_back: "Zurück zur Startseite?",
           footer_link: "Zur Startseite →",
@@ -911,15 +963,28 @@
             },
             {
               version: "v3.0",
-              statusLabel: "Aktuelle Version",
+              statusLabel: "Update",
               date: "November 2026",
-              isLatest: true,
+              isLatest: false,
               title: "YouTube-Videosuche mit nativem Player & 3 Seiten",
               changes: [
                 { tag: "VIDEO", color: "rose", text: "Neue Befehle <code>/searchvideos</code> (öffentlich mit <strong>Delete</strong>-Button) und <code>/incognito videos</code> (flüchtig, nur für dich sichtbar) für YouTube-Videos." },
                 { tag: "NEU", color: "emerald", text: "Nativer YouTube-Player direkt in Discord mit Navigation über bis zu <strong>3 Videos</strong> auf <strong>3 Seiten</strong> (<strong>Previous Page</strong> / <strong>Next Page</strong>)." },
                 { tag: "VERBESSERT", color: "indigo", text: "Unterstützung für alle <strong>6 Regionen</strong> (<code>BR, US, ES, FR, DE, IT</code>) bei Videos sowie <strong>No results found</strong>-Hinweis ohne Treffer." },
                 { tag: "WEB", color: "purple", text: "Aktualisierter v3.0-Simulator auf der Website mit Videoplayer, Incognito Mode, <code>/help</code> und Live-Hinweisen." }
+              ]
+            },
+            {
+              version: "v3.1",
+              statusLabel: "Aktuelle Version",
+              date: "November 2026",
+              isLatest: true,
+              title: "Integrierter Übersetzer (25 Sprachen), Erweitertes /help & Datenschutz-Klarheit",
+              changes: [
+                { tag: "ÜBERSETZER", color: "emerald", text: "Neue Befehle <code>/translate</code> (öffentlich mit <strong>Delete</strong>-Button) und <code>/incognitotranslate</code> (flüchtig, nur für dich sichtbar) mit automatischer Spracherkennung via <strong>MyMemory API</strong>." },
+                { tag: "NEU", color: "indigo", text: "Unterstützung für <strong>25 Zielsprachen</strong> nummeriert von <code>1</code> bis <code>25</code> zur schnellen Auswahl direkt in Discord." },
+                { tag: "VERBESSERT", color: "amber", text: "Befehl <code>/help</code> um den Übersetzer und die vollständige Liste aller 25 unterstützten Sprachen erweitert." },
+                { tag: "DATENSCHUTZ", color: "purple", text: "FAQ, Nutzungsbedingungen und Datenschutzerklärung in allen 6 Sprachen um die Grenzen des <strong>Incognito Mode</strong> ergänzt, plus Live-Übersetzung im Website-Simulator." }
               ]
             }
           ]
@@ -932,7 +997,7 @@
           nav_cmd: "Comandi",
           title: "Changelog & Versioni",
           liveStatus: "Attivo su Discord",
-          subtitle: "Segui tutta l'evoluzione di Bing Search dal lancio fino alla versione 3.0.",
+          subtitle: "Segui tutta l'evoluzione di Bing Search dal lancio fino alla versione 3.1.",
           replay: "Ripeti animazione",
           footer_back: "Vuoi tornare alla pagina principale?",
           footer_link: "Torna alla home →",
@@ -1001,15 +1066,28 @@
             },
             {
               version: "v3.0",
-              statusLabel: "Versione Attuale",
+              statusLabel: "Aggiornamento",
               date: "Novembre 2026",
-              isLatest: true,
+              isLatest: false,
               title: "Ricerca Video YouTube con Player Nativo & 3 Pagine",
               changes: [
                 { tag: "VIDEO", color: "rose", text: "Nuovi comandi <code>/searchvideos</code> (pubblico con pulsante <strong>Delete</strong>) e <code>/incognito videos</code> (effimero, visibile solo a te) per cercare video YouTube." },
                 { tag: "NUOVO", color: "emerald", text: "Player nativo YouTube su Discord con navigazione fino a <strong>3 video</strong> su <strong>3 pagine</strong> (<strong>Previous Page</strong> / <strong>Next Page</strong>)." },
                 { tag: "MIGLIORATO", color: "indigo", text: "Supporto per le <strong>6 regioni</strong> (<code>BR, US, ES, FR, DE, IT</code>) nei video e avviso <strong>No results found</strong> senza corrispondenze." },
                 { tag: "SITO", color: "purple", text: "Simulatore v3.0 aggiornato sul sito con player video, Incognito Mode, <code>/help</code> e avvisi in tempo reale." }
+              ]
+            },
+            {
+              version: "v3.1",
+              statusLabel: "Versione Attuale",
+              date: "Novembre 2026",
+              isLatest: true,
+              title: "Traduttore Integrato (25 Lingue), /help Espanso & Chiarezza sulla Privacy",
+              changes: [
+                { tag: "TRADUTTORE", color: "emerald", text: "Nuovi comandi <code>/translate</code> (pubblico con pulsante <strong>Delete</strong>) e <code>/incognitotranslate</code> (effimero, visibile solo a te) con rilevamento automatico della lingua tramite <strong>MyMemory API</strong>." },
+                { tag: "NUOVO", color: "indigo", text: "Supporto per <strong>25 lingue di destinazione</strong> numerate da <code>1</code> a <code>25</code> per una selezione rapida su Discord." },
+                { tag: "MIGLIORATO", color: "amber", text: "Comando <code>/help</code> aggiornato con i comandi del traduttore e l'elenco completo delle 25 lingue supportate." },
+                { tag: "PRIVACY", color: "purple", text: "FAQ, Termini di Servizio e Informativa sulla Privacy aggiornati nelle 6 lingue sui limiti dell'<strong>Incognito Mode</strong>, più traduzione live nel simulatore del sito." }
               ]
             }
           ]
