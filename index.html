@@ -373,6 +373,14 @@
               <span aria-hidden="true">🕵️</span>
               <span>/incognito videos</span>
             </button>
+            <button type="button" id="mode-btn-translate" role="tab" aria-selected="false" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-discord-muted hover:text-white">
+              <span aria-hidden="true">🌍</span>
+              <span>/translate</span>
+            </button>
+            <button type="button" id="mode-btn-incognito-translate" role="tab" aria-selected="false" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-discord-muted hover:text-white">
+              <span aria-hidden="true">🕶️</span>
+              <span>/incognitotranslate</span>
+            </button>
             <button type="button" id="mode-btn-help" role="tab" aria-selected="false" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-discord-muted hover:text-white">
               <span aria-hidden="true">❓</span>
               <span>/help</span>
@@ -422,7 +430,7 @@
                   <span id="sim-inline-param-name">busca:</span> <strong id="sim-inline-query" class="text-discord-text font-medium"></strong>
                 </span>
                 <span id="sim-inline-lang-pill" class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-discord-darker/80 text-discord-muted text-[11px]">
-                  language: <strong id="sim-inline-lang" class="text-bing-cyan font-semibold">US</strong>
+                  <span id="sim-inline-lang-label">language:</span> <strong id="sim-inline-lang" class="text-bing-cyan font-semibold">US</strong>
                 </span>
               </div>
 
@@ -504,6 +512,37 @@
                       <option value="FR" class="bg-discord-darker text-white">FR</option>
                       <option value="DE" class="bg-discord-darker text-white">DE</option>
                       <option value="IT" class="bg-discord-darker text-white">IT</option>
+                    </select>
+                  </div>
+                  <!-- Seletor interativo dos 25 idiomas do tradutor -->
+                  <div id="sim-target-lang-wrapper" class="hidden inline-flex shrink-0 items-center gap-1 px-2 py-1 rounded-lg bg-discord-dark border border-white/5 text-[11px] text-discord-muted">
+                    <span>to:</span>
+                    <select id="sim-target-lang-select" aria-label="Idioma de destino" class="bg-transparent text-emerald-400 font-bold focus:outline-none cursor-pointer max-w-[140px]">
+                      <option value="pt-BR" class="bg-discord-darker text-white">1 🇧🇷 Portuguese (BR)</option>
+                      <option value="en" selected class="bg-discord-darker text-white">2 🇺🇸 English</option>
+                      <option value="es" class="bg-discord-darker text-white">3 🇪🇸 Spanish</option>
+                      <option value="fr" class="bg-discord-darker text-white">4 🇫🇷 French</option>
+                      <option value="de" class="bg-discord-darker text-white">5 🇩🇪 German</option>
+                      <option value="it" class="bg-discord-darker text-white">6 🇮🇹 Italian</option>
+                      <option value="ja" class="bg-discord-darker text-white">7 🇯🇵 Japanese</option>
+                      <option value="ko" class="bg-discord-darker text-white">8 🇰🇷 Korean</option>
+                      <option value="zh-CN" class="bg-discord-darker text-white">9 🇨🇳 Chinese</option>
+                      <option value="ru" class="bg-discord-darker text-white">10 🇷🇺 Russian</option>
+                      <option value="ar" class="bg-discord-darker text-white">11 🇸🇦 Arabic</option>
+                      <option value="hi" class="bg-discord-darker text-white">12 🇮🇳 Hindi</option>
+                      <option value="nl" class="bg-discord-darker text-white">13 🇳🇱 Dutch</option>
+                      <option value="pl" class="bg-discord-darker text-white">14 🇵🇱 Polish</option>
+                      <option value="tr" class="bg-discord-darker text-white">15 🇹🇷 Turkish</option>
+                      <option value="sv" class="bg-discord-darker text-white">16 🇸🇪 Swedish</option>
+                      <option value="uk" class="bg-discord-darker text-white">17 🇺🇦 Ukrainian</option>
+                      <option value="id" class="bg-discord-darker text-white">18 🇮🇩 Indonesian</option>
+                      <option value="vi" class="bg-discord-darker text-white">19 🇻🇳 Vietnamese</option>
+                      <option value="th" class="bg-discord-darker text-white">20 🇹🇭 Thai</option>
+                      <option value="el" class="bg-discord-darker text-white">21 🇬🇷 Greek</option>
+                      <option value="cs" class="bg-discord-darker text-white">22 🇨🇿 Czech</option>
+                      <option value="ro" class="bg-discord-darker text-white">23 🇷🇴 Romanian</option>
+                      <option value="hu" class="bg-discord-darker text-white">24 🇭🇺 Hungarian</option>
+                      <option value="he" class="bg-discord-darker text-white">25 🇮🇱 Hebrew</option>
                     </select>
                   </div>
                 </div>
@@ -820,6 +859,9 @@
       let currentSimQuery = '';
       let currentSimPage = 1; // 1-2 para Web | 1-3 para Vídeos
       let currentSimRegion = 'US'; // BR | US | ES | FR | DE | IT
+      let currentSimTargetLang = 'en'; // 25 idiomas do tradutor
+      const simTranslateCache = new Map();
+      let simTranslateReqId = 0;
       let isSimDeleted = false;
       let activeLegalTab = null;
       let toastTimeout = null;
@@ -2848,22 +2890,40 @@
       // =========================================================================
       // SIMULADOR INTERATIVO DO DISCORD v3.0 (WEB + YOUTUBE PLAYER + INCOGNITO)
       // =========================================================================
+      const SIM_TRANSLATE_PRESETS = [
+        { query: 'asa de frango', fallback: { en: 'chicken wing', es: 'ala de pollo', el: 'φτερούγα κοτόπουλου', fr: 'aile de poulet', de: 'Hähnchenflügel', it: 'ala di pollo', 'pt-BR': 'asa de frango' } },
+        { query: 'qualquer coisa', fallback: { en: 'anything', es: 'cualquier cosa', el: 'οτιδήποτε', fr: 'n\'importe quoi', de: 'irgendetwas', it: 'qualsiasi cosa', 'pt-BR': 'qualquer coisa' } },
+        { query: 'Hello Discord community!', fallback: { 'pt-BR': 'Olá comunidade do Discord!', es: '¡Hola comunidad de Discord!', fr: 'Bonjour la communauté Discord !', de: 'Hallo Discord-Community!', it: 'Ciao community di Discord!', en: 'Hello Discord community!' } }
+      ];
+
       function isVideoSimMode(mode) {
         return mode === 'videos' || mode === 'incognito_videos';
       }
 
+      function isTranslateSimMode(mode) {
+        return mode === 'translate' || mode === 'incognito_translate';
+      }
+
       function setSimMode(mode, animate) {
-        const validModes = ['public', 'incognito', 'videos', 'incognito_videos', 'help'];
-        const prevWasVideo = isVideoSimMode(currentSimMode);
+        const validModes = ['public', 'incognito', 'videos', 'incognito_videos', 'translate', 'incognito_translate', 'help'];
+        const prevCategory = isVideoSimMode(currentSimMode) ? 'video' : (isTranslateSimMode(currentSimMode) ? 'translate' : 'web');
         currentSimMode = validModes.includes(mode) ? mode : 'public';
         const nowIsVideo = isVideoSimMode(currentSimMode);
+        const nowIsTranslate = isTranslateSimMode(currentSimMode);
+        const nowCategory = nowIsVideo ? 'video' : (nowIsTranslate ? 'translate' : 'web');
 
         isSimDeleted = false;
         currentSimPage = 1;
 
         const tSim = TRANSLATIONS[currentLang].sim;
-        if (prevWasVideo !== nowIsVideo || !currentSimQuery) {
-          currentSimQuery = nowIsVideo ? tSim.videoPresets[0].query : tSim.presets[0].query;
+        if (prevCategory !== nowCategory || !currentSimQuery) {
+          if (nowIsVideo) {
+            currentSimQuery = tSim.videoPresets[0].query;
+          } else if (nowIsTranslate) {
+            currentSimQuery = SIM_TRANSLATE_PRESETS[0].query;
+          } else {
+            currentSimQuery = tSim.presets[0].query;
+          }
           const simInputClear = document.getElementById('sim-input');
           if (simInputClear) simInputClear.value = '';
         }
@@ -2873,6 +2933,8 @@
           incognito: document.getElementById('mode-btn-private'),
           videos: document.getElementById('mode-btn-videos'),
           incognito_videos: document.getElementById('mode-btn-incognito-videos'),
+          translate: document.getElementById('mode-btn-translate'),
+          incognito_translate: document.getElementById('mode-btn-incognito-translate'),
           help: document.getElementById('mode-btn-help'),
         };
 
@@ -2880,6 +2942,7 @@
         const activeDarkClass = 'flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer bg-discord-dark text-white border border-white/10 shadow-md';
         const activeBlurpleClass = 'flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer bg-discord-blurple text-white shadow-md';
         const activeRedClass = 'flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer bg-red-600 text-white shadow-md';
+        const activeGreenClass = 'flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer bg-emerald-600 text-white shadow-md';
 
         Object.entries(tabMap).forEach(([key, btn]) => {
           if (!btn) return;
@@ -2891,6 +2954,8 @@
             btn.className = activeDarkClass;
           } else if (key === 'videos') {
             btn.className = activeRedClass;
+          } else if (key === 'translate') {
+            btn.className = activeGreenClass;
           } else {
             btn.className = activeBlurpleClass;
           }
@@ -2902,9 +2967,11 @@
         const inlineQueryPill = document.getElementById('sim-inline-query-pill');
         const inlineParamName = document.getElementById('sim-inline-param-name');
         const inlineLangPill = document.getElementById('sim-inline-lang-pill');
+        const inlineLangLabel = document.getElementById('sim-inline-lang-label');
         const inputCmd = document.getElementById('sim-input-cmd');
         const inputQueryLabel = document.getElementById('sim-input-query-label');
         const regionWrapper = document.getElementById('sim-region-wrapper');
+        const targetLangWrapper = document.getElementById('sim-target-lang-wrapper');
         const simInput = document.getElementById('sim-input');
         const submitBtnSpan = document.querySelector('#sim-submit-btn span');
         const ephemeralFooter = document.getElementById('sim-ephemeral-footer');
@@ -2912,7 +2979,7 @@
         if (deletedNotice) deletedNotice.classList.add('hidden');
         if (wrapper) wrapper.classList.remove('hidden');
 
-        const isEphemeral = currentSimMode === 'incognito' || currentSimMode === 'incognito_videos' || currentSimMode === 'help';
+        const isEphemeral = currentSimMode === 'incognito' || currentSimMode === 'incognito_videos' || currentSimMode === 'incognito_translate' || currentSimMode === 'help';
 
         if (wrapper) {
           wrapper.className = isEphemeral
@@ -2934,6 +3001,7 @@
           }
           if (inputQueryLabel) inputQueryLabel.classList.add('hidden');
           if (regionWrapper) regionWrapper.classList.add('hidden');
+          if (targetLangWrapper) targetLangWrapper.classList.add('hidden');
           if (simInput) {
             simInput.disabled = true;
             simInput.placeholder = tSim.helpInputPlaceholder;
@@ -2944,19 +3012,24 @@
             public: '/search',
             incognito: '/incognito search',
             videos: '/searchvideos',
-            incognito_videos: '/incognito videos'
+            incognito_videos: '/incognito videos',
+            translate: '/translate',
+            incognito_translate: '/incognitotranslate'
           };
           const cmdColors = {
             public: 'text-indigo-300',
             incognito: 'text-bing-cyan',
             videos: 'text-red-400',
-            incognito_videos: 'text-purple-300'
+            incognito_videos: 'text-purple-300',
+            translate: 'text-emerald-400',
+            incognito_translate: 'text-emerald-300'
           };
-          const paramLabel = nowIsVideo ? 'search:' : 'busca:';
+          const paramLabel = nowIsTranslate ? 'text:' : (nowIsVideo ? 'search:' : 'busca:');
           if (slashBadge) slashBadge.textContent = cmdLabels[currentSimMode];
           if (inlineQueryPill) inlineQueryPill.classList.remove('hidden');
           if (inlineParamName) inlineParamName.textContent = paramLabel;
           if (inlineLangPill) inlineLangPill.classList.remove('hidden');
+          if (inlineLangLabel) inlineLangLabel.textContent = nowIsTranslate ? 'to:' : 'language:';
           if (inputCmd) {
             inputCmd.textContent = cmdLabels[currentSimMode];
             inputCmd.className = `shrink-0 px-2 py-1 rounded-lg bg-discord-darkest/80 ${cmdColors[currentSimMode]} font-mono text-xs font-bold`;
@@ -2965,12 +3038,19 @@
             inputQueryLabel.classList.remove('hidden');
             inputQueryLabel.textContent = paramLabel;
           }
-          if (regionWrapper) regionWrapper.classList.remove('hidden');
+          if (regionWrapper) regionWrapper.classList.toggle('hidden', nowIsTranslate);
+          if (targetLangWrapper) targetLangWrapper.classList.toggle('hidden', !nowIsTranslate);
           if (simInput) {
             simInput.disabled = false;
-            simInput.placeholder = nowIsVideo ? tSim.videoInputPlaceholder : tSim.inputPlaceholder;
+            if (nowIsTranslate) {
+              simInput.placeholder = currentLang === 'pt' ? 'Digite qualquer texto para traduzir...' : 'Type any text to translate...';
+            } else {
+              simInput.placeholder = nowIsVideo ? tSim.videoInputPlaceholder : tSim.inputPlaceholder;
+            }
           }
-          if (submitBtnSpan) submitBtnSpan.textContent = tSim.searchBtn;
+          if (submitBtnSpan) {
+            submitBtnSpan.textContent = nowIsTranslate ? (currentLang === 'pt' ? 'Traduzir' : 'Translate') : tSim.searchBtn;
+          }
         }
 
         renderSimPresets();
@@ -2983,8 +3063,9 @@
 
         const tSim = TRANSLATIONS[currentLang].sim;
         const isVideo = isVideoSimMode(currentSimMode);
-        const list = isVideo ? tSim.videoPresets : tSim.presets;
-        const icon = isVideo ? '🎬' : '🔎';
+        const isTrans = isTranslateSimMode(currentSimMode);
+        const list = isTrans ? SIM_TRANSLATE_PRESETS : (isVideo ? tSim.videoPresets : tSim.presets);
+        const icon = isTrans ? '🌍' : (isVideo ? '🎬' : '🔎');
 
         container.innerHTML = list
           .map(
@@ -3020,9 +3101,80 @@
         }
 
         if (inlineQueryEl) inlineQueryEl.textContent = query;
-        if (inlineLangEl) inlineLangEl.textContent = currentSimRegion;
+        if (inlineLangEl) inlineLangEl.textContent = isTranslateSimMode(currentSimMode) ? currentSimTargetLang : currentSimRegion;
 
         const renderContentNow = () => {
+          // 0) MODOS TRADUTOR (/translate e /incognitotranslate)
+          if (isTranslateSimMode(currentSimMode)) {
+            embedCard.classList.remove('hidden');
+            embedCard.className = 'max-w-xl rounded-lg bg-discord-dark border-l-4 border-emerald-500 p-4 shadow-md';
+            videoContainer.classList.add('hidden');
+
+            const isPublicTrans = currentSimMode === 'translate';
+            const safeQuery = escapeHtml(query);
+            const targetLang = currentSimTargetLang || 'en';
+            const footerLabel = isPublicTrans
+              ? 'Bing Translate • Powered by MyMemory API'
+              : 'Bing Translate • Incognito Mode • Powered by MyMemory API';
+
+            const renderTranslationResult = (detected, translated) => {
+              contentEl.innerHTML = `
+                <div class="text-base font-extrabold text-white">🌐 Translation (${escapeHtml(detected)} → ${escapeHtml(targetLang)})</div>
+                <div class="space-y-1">
+                  <div class="font-bold text-white text-xs uppercase tracking-wide">Original:</div>
+                  <div class="text-discord-text/95 text-sm">${safeQuery}</div>
+                </div>
+                <div class="space-y-1">
+                  <div class="font-bold text-white text-xs uppercase tracking-wide">Translated:</div>
+                  <div class="text-emerald-300 font-medium text-sm">${escapeHtml(translated)}</div>
+                </div>
+              `;
+              footerEl.textContent = `${footerLabel} • ${tSim.timestamp}`;
+              buttonsEl.innerHTML = isPublicTrans
+                ? `<button type="button" data-sim-action="delete" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-md bg-discord-red hover:bg-discord-redHover text-white text-xs font-semibold transition-colors cursor-pointer">🗑️ ${escapeHtml(tSim.btnDelete)}</button>`
+                : '';
+            };
+
+            const cacheKey = `${targetLang}::${query}`;
+            if (simTranslateCache.has(cacheKey)) {
+              const cached = simTranslateCache.get(cacheKey);
+              renderTranslationResult(cached.detected, cached.translated);
+              return;
+            }
+
+            const matchedPreset = SIM_TRANSLATE_PRESETS.find((p) => p.query.toLowerCase() === query.toLowerCase());
+            if (matchedPreset && matchedPreset.fallback && matchedPreset.fallback[targetLang]) {
+              const detectedGuess = query.toLowerCase().includes('hello') ? 'en' : 'pt';
+              renderTranslationResult(detectedGuess, matchedPreset.fallback[targetLang]);
+              return;
+            }
+
+            // Tradução ao vivo via MyMemory API (mesma API do bot!)
+            const reqId = ++simTranslateReqId;
+            renderTranslationResult('auto', '...');
+            fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(query)}&langpair=autodetect|${encodeURIComponent(targetLang)}`)
+              .then((r) => r.json())
+              .then((data) => {
+                if (reqId !== simTranslateReqId || !isTranslateSimMode(currentSimMode)) return;
+                const translated = data?.responseData?.translatedText;
+                const detected = data?.responseData?.detectedLanguage || 'auto';
+                if (data?.responseStatus === 200 && translated) {
+                  simTranslateCache.set(cacheKey, { detected, translated });
+                  renderTranslationResult(detected, translated);
+                } else {
+                  renderTranslationResult('auto', '⚠️ Translation unavailable right now. Try again in a few seconds.');
+                }
+              })
+              .catch(() => {
+                if (reqId !== simTranslateReqId || !isTranslateSimMode(currentSimMode)) return;
+                renderTranslationResult('auto', '⚠️ Connection error while translating.');
+              });
+            return;
+          }
+
+          // Restaura cor azul padrão do embed para Web e /help
+          embedCard.className = 'max-w-xl rounded-lg bg-discord-dark border-l-4 border-bing-blue p-4 shadow-md';
+
           // 1) MODO /help
           if (currentSimMode === 'help') {
             embedCard.classList.remove('hidden');
@@ -3386,6 +3538,16 @@
             setSimMode('incognito_videos', false);
             return;
           }
+          if (target.closest('#mode-btn-translate')) {
+            event.preventDefault();
+            setSimMode('translate', false);
+            return;
+          }
+          if (target.closest('#mode-btn-incognito-translate')) {
+            event.preventDefault();
+            setSimMode('incognito_translate', false);
+            return;
+          }
           if (target.closest('#mode-btn-help')) {
             event.preventDefault();
             setSimMode('help', true);
@@ -3393,7 +3555,8 @@
           }
           if (target.closest('#sim-ephemeral-switch-btn')) {
             event.preventDefault();
-            setSimMode(currentSimMode === 'incognito_videos' ? 'videos' : 'public', false);
+            const nextPub = currentSimMode === 'incognito_videos' ? 'videos' : (currentSimMode === 'incognito_translate' ? 'translate' : 'public');
+            setSimMode(nextPub, false);
             return;
           }
 
@@ -3405,7 +3568,7 @@
             if (currentSimMode === 'help') {
               setSimMode('public', false);
             }
-            const list = isVideoSimMode(currentSimMode) ? tSim.videoPresets : tSim.presets;
+            const list = isTranslateSimMode(currentSimMode) ? SIM_TRANSLATE_PRESETS : (isVideoSimMode(currentSimMode) ? tSim.videoPresets : tSim.presets);
             const chosen = list[idx] || list[0];
             const simInput = document.getElementById('sim-input');
             if (simInput) simInput.value = chosen.query;
@@ -3486,6 +3649,15 @@
           });
         }
 
+        const targetLangSelect = document.getElementById('sim-target-lang-select');
+        if (targetLangSelect) {
+          targetLangSelect.addEventListener('change', () => {
+            currentSimTargetLang = targetLangSelect.value;
+            isSimDeleted = false;
+            renderSimMessage(currentSimQuery, true);
+          });
+        }
+
         const simForm = document.getElementById('sim-form');
         if (simForm) {
           simForm.addEventListener('submit', (event) => {
@@ -3500,7 +3672,7 @@
             isSimDeleted = false;
             if (!typed) {
               const tSim = TRANSLATIONS[currentLang].sim;
-              const fallbackQuery = isVideoSimMode(currentSimMode) ? tSim.videoPresets[0].query : tSim.presets[0].query;
+              const fallbackQuery = isTranslateSimMode(currentSimMode) ? SIM_TRANSLATE_PRESETS[0].query : (isVideoSimMode(currentSimMode) ? tSim.videoPresets[0].query : tSim.presets[0].query);
               if (simInput) simInput.value = fallbackQuery;
               renderSimMessage(fallbackQuery, true);
               return;
