@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bing Search v3.0 — Web & YouTube Video Search right inside Discord</title>
-  <meta name="description" content="Search the web and watch YouTube videos right inside Discord. Modern embeds, native YouTube player with 3-page pagination, 6 regions, Incognito Mode, /help and official Brave Search API." />
+  <title>Bing Search v3.1 — Web, YouTube & Translator right inside Discord</title>
+  <meta name="description" content="Search the web, watch YouTube videos, and translate into 25 languages right inside Discord. Modern embeds, native YouTube player, Incognito Mode, /translate, /help, and official Brave Search API." />
 
   <!-- Favicon embutido (lupa azul/ciano/roxo do Bing Search) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300B4D8'/%3E%3Cstop offset='50%25' stop-color='%230078D4'/%3E%3Cstop offset='100%25' stop-color='%235865F2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='13' fill='none' stroke='%23ffffff' stroke-width='5.5'/%3E%3Cpath d='M38 38l11 11' stroke='%23ffffff' stroke-width='5.5' stroke-linecap='round'/%3E%3C/svg%3E" />
@@ -15,14 +15,14 @@
   <!-- Open Graph (Discord, WhatsApp, Telegram e redes sociais) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://klinger230.github.io/bing-search-bot/" />
-  <meta property="og:title" content="Bing Search v3.0 — Web & YouTube Video Search right inside Discord" />
-  <meta property="og:description" content="Modern embeds, native YouTube video search (/searchvideos & /incognito videos), 6 regions (BR, US, ES, FR, DE, IT), /incognito search, /help and official Brave Search API." />
+  <meta property="og:title" content="Bing Search v3.1 — Web, YouTube & Translator right inside Discord" />
+  <meta property="og:description" content="Modern embeds, native YouTube video search (/searchvideos & /incognito videos), 25-language translator (/translate & /incognitotranslate), 6 regions, Incognito Mode, and /help." />
   <meta property="og:image" content="https://klinger230.github.io/bing-search-bot/preview.jpg" />
 
   <!-- Twitter / X e card expandido no Discord -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Bing Search v3.0 — Web & YouTube Video Search right inside Discord" />
-  <meta name="twitter:description" content="Modern embeds, native YouTube video search (/searchvideos & /incognito videos), 6 regions (BR, US, ES, FR, DE, IT), /incognito search, /help and official Brave Search API." />
+  <meta name="twitter:title" content="Bing Search v3.1 — Web, YouTube & Translator right inside Discord" />
+  <meta name="twitter:description" content="Modern embeds, native YouTube video search (/searchvideos & /incognito videos), 25-language translator (/translate & /incognitotranslate), 6 regions, Incognito Mode, and /help." />
   <meta name="twitter:image" content="https://klinger230.github.io/bing-search-bot/preview.jpg" />
 
   <!-- Fonte Inter via Google Fonts -->
@@ -303,7 +303,7 @@
           </a>
 
           <!-- Botão dedicado do BotGhost Marketplace -->
-          <a href="https://botghost.com/marketplace" data-marketplace-link target="_blank" rel="noopener noreferrer" class="group relative w-full sm:w-auto inline-flex items-center justify-center p-[1.5px] rounded-2xl bg-gradient-to-r from-bing-cyan via-discord-blurple to-amber-400 shadow-lg shadow-bing-cyan/15 hover:shadow-glow-bing transition-all hover:-translate-y-0.5">
+          <a href="https://botghost.com/market/listing/bing-search-a47dbb4c" data-marketplace-link target="_blank" rel="noopener noreferrer" class="group relative w-full sm:w-auto inline-flex items-center justify-center p-[1.5px] rounded-2xl bg-gradient-to-r from-bing-cyan via-discord-blurple to-amber-400 shadow-lg shadow-bing-cyan/15 hover:shadow-glow-bing transition-all hover:-translate-y-0.5">
             <span class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-[14.5px] rounded-[14.5px] bg-discord-darker/95 group-hover:bg-discord-dark text-white font-bold text-base transition-colors">
               <svg class="w-5 h-5 text-bing-cyan group-hover:text-amber-300 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -338,7 +338,7 @@
             <span class="w-2 h-2 rounded-full bg-discord-blurple"></span>
             <span data-i18n="hero.pill3">6 Regions • Public, Incognito & /help</span>
           </div>
-          <a href="https://botghost.com/marketplace" data-marketplace-link target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-200 hover:border-bing-cyan/50 hover:text-white transition-colors">
+          <a href="https://botghost.com/market/listing/bing-search-a47dbb4c" data-marketplace-link target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-200 hover:border-bing-cyan/50 hover:text-white transition-colors">
             <span class="w-2 h-2 rounded-full bg-gradient-to-r from-amber-400 to-bing-cyan"></span>
             <span class="font-semibold" data-i18n="hero.pill4">BotGhost Marketplace</span>
           </a>
@@ -744,7 +744,7 @@
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
           </a>
 
-          <a href="https://botghost.com/marketplace" data-marketplace-link target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-discord-darker/90 hover:bg-discord-dark border border-bing-cyan/35 hover:border-amber-300/60 text-white font-bold text-base transition-all hover:-translate-y-0.5">
+          <a href="https://botghost.com/market/listing/bing-search-a47dbb4c" data-marketplace-link target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-discord-darker/90 hover:bg-discord-dark border border-bing-cyan/35 hover:border-amber-300/60 text-white font-bold text-base transition-all hover:-translate-y-0.5">
             <svg class="w-5 h-5 text-bing-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
@@ -776,7 +776,7 @@
         <a href="#termos" data-route="#termos" class="hover:text-white transition-colors" data-i18n="footer.terms">Terms of Service</a>
         <a href="#privacidade" data-route="#privacidade" class="hover:text-white transition-colors" data-i18n="footer.privacy">Privacy Policy</a>
         <a href="https://discord.com/oauth2/authorize?client_id=1442546622805577859" data-invite-link target="_blank" rel="noopener noreferrer" class="hover:text-bing-cyan transition-colors" data-i18n="footer.invite">Invite Bot</a>
-        <a href="https://botghost.com/marketplace" data-marketplace-link target="_blank" rel="noopener noreferrer" class="hover:text-amber-300 transition-colors" data-i18n="footer.marketplace">BotGhost Marketplace</a>
+        <a href="https://botghost.com/market/listing/bing-search-a47dbb4c" data-marketplace-link target="_blank" rel="noopener noreferrer" class="hover:text-amber-300 transition-colors" data-i18n="footer.marketplace">BotGhost Marketplace</a>
       </div>
     </div>
   </footer>
@@ -823,7 +823,7 @@
       // =========================================================================
       const CONFIG = {
         inviteUrl: 'https://discord.com/oauth2/authorize?client_id=1442546622805577859',
-        marketplaceUrl: 'https://botghost.com/marketplace',
+        marketplaceUrl: 'https://botghost.com/market/listing/bing-search-a47dbb4c',
         botName: 'Bing Search',
         siteUrl: 'https://klinger230.github.io/bing-search-bot/',
         changelogUrl: 'changelog.html'
@@ -875,7 +875,7 @@
         pt: {
           htmlLang: 'pt-BR',
           defaultRegion: 'BR',
-          pageTitle: `${CONFIG.botName} v3.0 — Buscas na Web e Vídeos do YouTube no Discord`,
+          pageTitle: `${CONFIG.botName} v3.1 — Web, YouTube e Tradutor direto no Discord`,
           badges: { new: 'NOVO', v30: 'v3.0' },
           nav: {
             simulator: 'Simulador',
@@ -1182,7 +1182,7 @@
         en: {
           htmlLang: 'en',
           defaultRegion: 'US',
-          pageTitle: `${CONFIG.botName} v3.0 — Web & YouTube Video Search right inside Discord`,
+          pageTitle: `${CONFIG.botName} v3.1 — Web, YouTube & Translator right inside Discord`,
           badges: { new: 'NEW', v30: 'v3.0' },
           nav: {
             simulator: 'Simulator',
@@ -1488,7 +1488,7 @@
         es: {
           htmlLang: 'es',
           defaultRegion: 'ES',
-          pageTitle: `${CONFIG.botName} v3.0 — Búsquedas Web y Videos de YouTube en Discord`,
+          pageTitle: `${CONFIG.botName} v3.1 — Web, YouTube y Traductor en Discord`,
           badges: { new: 'NUEVO', v30: 'v3.0' },
           nav: {
             simulator: 'Simulador',
@@ -1795,7 +1795,7 @@
         fr: {
           htmlLang: 'fr',
           defaultRegion: 'FR',
-          pageTitle: `${CONFIG.botName} v3.0 — Recherches Web et Vidéos YouTube sur Discord`,
+          pageTitle: `${CONFIG.botName} v3.1 — Web, YouTube & Traducteur sur Discord`,
           badges: { new: 'NOUVEAU', v30: 'v3.0' },
           nav: {
             simulator: 'Simulateur',
@@ -2102,7 +2102,7 @@
         de: {
           htmlLang: 'de',
           defaultRegion: 'DE',
-          pageTitle: `${CONFIG.botName} v3.0 — Web- & YouTube-Videosuche direkt in Discord`,
+          pageTitle: `${CONFIG.botName} v3.1 — Web, YouTube & Übersetzer direkt in Discord`,
           badges: { new: 'NEU', v30: 'v3.0' },
           nav: {
             simulator: 'Simulator',
@@ -2409,7 +2409,7 @@
         it: {
           htmlLang: 'it',
           defaultRegion: 'IT',
-          pageTitle: `${CONFIG.botName} v3.0 — Ricerche Web e Video YouTube su Discord`,
+          pageTitle: `${CONFIG.botName} v3.1 — Web, YouTube e Traduttore su Discord`,
           badges: { new: 'NUOVO', v30: 'v3.0' },
           nav: {
             simulator: 'Simulatore',
