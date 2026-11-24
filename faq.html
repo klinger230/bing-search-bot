@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQ — Bing Search v3.1</title>
+  <title>FAQ — Bing Search v4.0</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -168,7 +168,7 @@
     .hero p {
       color: var(--text-muted);
       font-size: 1.02rem;
-      max-width: 640px;
+      max-width: 660px;
       margin: 0 auto;
     }
 
@@ -364,7 +364,7 @@
         <a href="faq.html" class="active">FAQ</a>
         <a href="changelog.html">
           <span>Changelog</span>
-          <span class="version-pill">v3.1</span>
+          <span class="version-pill">v4.0</span>
         </a>
         <select id="langSelect" class="lang-select" aria-label="Language">
           <option value="pt">🇧🇷 PT-BR</option>
@@ -381,7 +381,7 @@
   <main class="container">
     <section class="hero">
       <h1 data-i18n="title">Perguntas Frequentes</h1>
-      <p data-i18n="subtitle">Tire suas dúvidas sobre o funcionamento, novidades da v3.1, busca web, vídeos no YouTube, tradutor e privacidade do Bing Search.</p>
+      <p data-i18n="subtitle">Tire suas dúvidas sobre o Rework v4.0, os novos comandos /news e /weather, incognito-mode unificado, busca web, YouTube, tradutor e privacidade do Bing Search.</p>
     </section>
 
     <div class="search-wrap">
@@ -409,69 +409,75 @@
     const UI = {
       pt: {
         htmlLang: "pt-BR",
+        pageTitle: "FAQ — Bing Search v4.0",
         nav_sim: "Simulador", nav_feat: "Recursos", nav_cmd: "Comandos",
         title: "Perguntas Frequentes",
-        subtitle: "Tire suas dúvidas sobre o funcionamento, novidades da v3.1, busca web, vídeos no YouTube, tradutor e privacidade do Bing Search.",
-        searchPlaceholder: "Buscar uma dúvida (ex: tradutor, vídeos, capivara, incognito, idioma)...",
+        subtitle: "Tire suas dúvidas sobre o Rework v4.0, os novos comandos /news e /weather, incognito-mode unificado, busca web, YouTube, tradutor e privacidade do Bing Search.",
+        searchPlaceholder: "Buscar uma dúvida (ex: news, weather, incognito-mode, tradutor, vídeos, capivara)...",
         empty: "Nenhuma pergunta encontrada para essa busca.",
         footer_back: "Quer voltar para a página inicial?",
         footer_link: "Voltar ao início →",
-        cats: { all: "Todas", general: "Geral & v3.1", commands: "Comandos, Vídeos & Tradutor", privacy: "Privacidade & Limites", support: "Servidores" }
+        cats: { all: "Todas", general: "Geral & v4.0", commands: "Comandos, Notícias & Clima", privacy: "Privacidade & Limites", support: "Servidores" }
       },
       en: {
         htmlLang: "en",
+        pageTitle: "FAQ — Bing Search v4.0",
         nav_sim: "Simulator", nav_feat: "Features", nav_cmd: "Commands",
         title: "Frequently Asked Questions",
-        subtitle: "Find answers about how Bing Search works, what's new in v3.1, web & YouTube search, the translator, and your privacy.",
-        searchPlaceholder: "Search a question (e.g. translate, videos, capybara, incognito, region)...",
+        subtitle: "Find answers about the v4.0 Rework, the new /news and /weather commands, unified incognito-mode, web & YouTube search, translator, and your privacy.",
+        searchPlaceholder: "Search a question (e.g. news, weather, incognito-mode, translate, videos, capybara)...",
         empty: "No questions found matching your search.",
         footer_back: "Want to go back to the homepage?",
         footer_link: "Back to Home →",
-        cats: { all: "All", general: "General & v3.1", commands: "Commands, Videos & Translator", privacy: "Privacy & Limits", support: "Servers" }
+        cats: { all: "All", general: "General & v4.0", commands: "Commands, News & Weather", privacy: "Privacy & Limits", support: "Servers" }
       },
       es: {
         htmlLang: "es",
+        pageTitle: "FAQ — Bing Search v4.0",
         nav_sim: "Simulador", nav_feat: "Funciones", nav_cmd: "Comandos",
         title: "Preguntas Frecuentes",
-        subtitle: "Resuelve tus dudas sobre el funcionamiento, novedades de la v3.1, videos de YouTube, el traductor y privacidad de Bing Search.",
-        searchPlaceholder: "Buscar una pregunta (ej: traductor, videos, capibara, incognito)...",
+        subtitle: "Resuelve tus dudas sobre el Rework v4.0, los nuevos comandos /news y /weather, incognito-mode unificado, YouTube, traductor y privacidad de Bing Search.",
+        searchPlaceholder: "Buscar una pregunta (ej: news, weather, incognito-mode, traductor, videos)...",
         empty: "No se encontraron preguntas para tu búsqueda.",
         footer_back: "¿Quieres volver a la página principal?",
         footer_link: "Volver al inicio →",
-        cats: { all: "Todas", general: "General y v3.1", commands: "Comandos, Videos y Traductor", privacy: "Privacidad y Límites", support: "Servidores" }
+        cats: { all: "Todas", general: "General y v4.0", commands: "Comandos, Noticias y Clima", privacy: "Privacidad y Límites", support: "Servidores" }
       },
       fr: {
         htmlLang: "fr",
+        pageTitle: "FAQ — Bing Search v4.0",
         nav_sim: "Simulateur", nav_feat: "Fonctionnalités", nav_cmd: "Commandes",
         title: "Foire Aux Questions",
-        subtitle: "Trouvez des réponses sur le fonctionnement, les nouveautés de la v3.1, les vidéos YouTube, le traducteur et la confidentialité.",
-        searchPlaceholder: "Rechercher une question (ex : traducteur, vidéos, capybara, incognito)...",
+        subtitle: "Trouvez des réponses sur le Rework v4.0, les nouvelles commandes /news et /weather, l'incognito-mode unifié, YouTube, le traducteur et la confidentialité.",
+        searchPlaceholder: "Rechercher une question (ex : news, weather, incognito-mode, traducteur, vidéos)...",
         empty: "Aucune question trouvée pour cette recherche.",
         footer_back: "Vous souhaitez revenir à la page d'accueil ?",
         footer_link: "Retour à l'accueil →",
-        cats: { all: "Toutes", general: "Général & v3.1", commands: "Commandes, Vidéos & Traducteur", privacy: "Confidentialité", support: "Serveurs" }
+        cats: { all: "Toutes", general: "Général & v4.0", commands: "Commandes, Actu & Météo", privacy: "Confidentialité", support: "Serveurs" }
       },
       de: {
         htmlLang: "de",
+        pageTitle: "FAQ — Bing Search v4.0",
         nav_sim: "Simulator", nav_feat: "Funktionen", nav_cmd: "Befehle",
         title: "Häufig gestellte Fragen",
-        subtitle: "Antworten zur Funktionsweise, den Neuerungen in v3.1, YouTube-Videos, dem Übersetzer und zum Datenschutz von Bing Search.",
-        searchPlaceholder: "Frage suchen (z. B. Übersetzer, Videos, Capybara, Incognito)...",
+        subtitle: "Antworten zum v4.0 Rework, den neuen Befehlen /news und /weather, dem einheitlichen incognito-mode, YouTube, Übersetzer und Datenschutz.",
+        searchPlaceholder: "Frage suchen (z. B. news, weather, incognito-mode, Übersetzer, Videos)...",
         empty: "Keine passenden Fragen gefunden.",
         footer_back: "Zurück zur Startseite?",
         footer_link: "Zur Startseite →",
-        cats: { all: "Alle", general: "Allgemein & v3.1", commands: "Befehle, Videos & Übersetzer", privacy: "Datenschutz & Limits", support: "Server" }
+        cats: { all: "Alle", general: "Allgemein & v4.0", commands: "Befehle, News & Wetter", privacy: "Datenschutz & Limits", support: "Server" }
       },
       it: {
         htmlLang: "it",
+        pageTitle: "FAQ — Bing Search v4.0",
         nav_sim: "Simulatore", nav_feat: "Funzioni", nav_cmd: "Comandi",
         title: "Domande Frequenti",
-        subtitle: "Trova risposte sul funzionamento, sulle novità della v3.1, sui video YouTube, sul traduttore e sulla privacy di Bing Search.",
-        searchPlaceholder: "Cerca una domanda (es: traduttore, video, capibara, incognito)...",
+        subtitle: "Trova risposte sul Rework v4.0, i nuovi comandi /news e /weather, incognito-mode unificato, video YouTube, traduttore e privacy di Bing Search.",
+        searchPlaceholder: "Cerca una domanda (es: news, weather, incognito-mode, traduttore, video)...",
         empty: "Nessuna domanda trovata per questa ricerca.",
         footer_back: "Vuoi tornare alla pagina principale?",
         footer_link: "Torna alla home →",
-        cats: { all: "Tutte", general: "Generale & v3.1", commands: "Comandi, Video & Traduttore", privacy: "Privacy e Limiti", support: "Server" }
+        cats: { all: "Tutte", general: "Generale & v4.0", commands: "Comandi, Notizie & Meteo", privacy: "Privacy e Limiti", support: "Server" }
       }
     };
 
@@ -479,115 +485,134 @@
       {
         cat: "general",
         q: {
-          pt: "O que chegou na versão 3.1?",
-          en: "What arrived in version 3.1?",
-          es: "¿Qué llegó en la versión 3.1?",
-          fr: "Quelles sont les nouveautés de la version 3.1 ?",
-          de: "Was ist neu in Version 3.1?",
-          it: "Cosa è arrivato nella versione 3.1?"
+          pt: "O que chegou na versão 4.0 (Rework)?",
+          en: "What arrived in version 4.0 (Rework)?",
+          es: "¿Qué llegó en la versión 4.0 (Rework)?",
+          fr: "Quelles sont les nouveautés de la version 4.0 (Rework) ?",
+          de: "Was ist neu in Version 4.0 (Rework)?",
+          it: "Cosa è arrivato nella versione 4.0 (Rework)?"
         },
         a: {
-          pt: "A <strong>v3.1</strong> trouxe o <strong>tradutor integrado</strong> diretamente no Discord com <code>/translate</code> e <code>/incognitotranslate</code>, detecção automática do idioma de origem via <strong>MyMemory API</strong>, <strong>25 idiomas de destino</strong> numerados de <code>1</code> a <code>25</code>, comando <code>/help</code> expandido e maior transparência sobre os limites do <strong>Incognito Mode</strong>.",
-          en: "<strong>v3.1</strong> introduced the <strong>built-in translator</strong> right inside Discord with <code>/translate</code> and <code>/incognitotranslate</code>, automatic source language detection via <strong>MyMemory API</strong>, <strong>25 target languages</strong> numbered <code>1</code> to <code>25</code>, an expanded <code>/help</code> command, and clearer documentation on <strong>Incognito Mode</strong> limits.",
-          es: "La <strong>v3.1</strong> añadió el <strong>traductor integrado</strong> en Discord con <code>/translate</code> e <code>/incognitotranslate</code>, detección automática del idioma de origen mediante <strong>MyMemory API</strong>, <strong>25 idiomas de destino</strong> numerados del <code>1</code> al <code>25</code>, comando <code>/help</code> ampliado y mayor claridad sobre los límites del <strong>Incognito Mode</strong>.",
-          fr: "La <strong>v3.1</strong> a introduit le <strong>traducteur intégré</strong> sur Discord via <code>/translate</code> et <code>/incognitotranslate</code>, avec détection automatique de la langue source via <strong>MyMemory API</strong>, <strong>25 langues cibles</strong> numérotées de <code>1</code> à <code>25</code>, une commande <code>/help</code> enrichie et des précisions sur les limites de l'<strong>Incognito Mode</strong>.",
-          de: "<strong>v3.1</strong> bringt den <strong>integrierten Übersetzer</strong> direkt in Discord mit <code>/translate</code> und <code>/incognitotranslate</code>, automatischer Spracherkennung über die <strong>MyMemory API</strong>, <strong>25 Zielsprachen</strong> nummeriert von <code>1</code> bis <code>25</code>, einem erweiterten <code>/help</code>-Befehl und klareren Hinweisen zu den Grenzen des <strong>Incognito Mode</strong>.",
-          it: "La <strong>v3.1</strong> ha introdotto il <strong>traduttore integrato</strong> su Discord con <code>/translate</code> e <code>/incognitotranslate</code>, rilevamento automatico della lingua tramite <strong>MyMemory API</strong>, <strong>25 lingue di destinazione</strong> numerate da <code>1</code> a <code>25</code>, comando <code>/help</code> ampliato e maggiore chiarezza sui limiti dell'<strong>Incognito Mode</strong>."
+          pt: "O <strong>Rework v4.0</strong> trouxe dois novos comandos principais — <code>/news</code> (notícias em tempo real com paginação e links diretos) e <code>/weather</code> (clima ao vivo para qualquer cidade via <strong>wttr.in</strong>) — além de unificar o parâmetro booleano opcional <code>incognito-mode</code> em todos os comandos (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code> e <code>/weather</code>). Os antigos comandos incógnitos separados foram removidos para deixar o menu mais limpo, os rodapés agora exibem o indicador <strong>Public Mode</strong> / <strong>Incognito Mode</strong> e o comando <code>/Info</code> foi atualizado com toda a nova grade.",
+          en: "The <strong>v4.0 Rework</strong> introduced two major new commands — <code>/news</code> (real-time news articles with pagination and direct links) and <code>/weather</code> (live weather conditions for any city via <strong>wttr.in</strong>) — and unified the optional <code>incognito-mode</code> boolean toggle across all commands (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code>, and <code>/weather</code>). Legacy standalone incognito commands were removed to streamline slash slots, embed footers now clearly show <strong>Public Mode</strong> vs. <strong>Incognito Mode</strong>, and <code>/Info</code> was updated with the full lineup.",
+          es: "El <strong>Rework v4.0</strong> incorporó dos nuevos comandos principales — <code>/news</code> (noticias en tiempo real con paginación y enlaces directos) y <code>/weather</code> (clima en vivo para cualquier ciudad mediante <strong>wttr.in</strong>) — y unificó la opción booleana <code>incognito-mode</code> en todos los comandos (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code> y <code>/weather</code>). Se eliminaron los antiguos comandos incógnitos separados para limpiar el menú, los pies de página muestran <strong>Public Mode</strong> / <strong>Incognito Mode</strong> y <code>/Info</code> fue actualizado.",
+          fr: "Le <strong>Rework v4.0</strong> a ajouté deux nouvelles commandes majeures — <code>/news</code> (actualités en temps réel avec pagination et liens directs) et <code>/weather</code> (météo en direct pour toute ville via <strong>wttr.in</strong>) — et unifié l'option booléenne <code>incognito-mode</code> sur toutes les commandes (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code> et <code>/weather</code>). Les anciennes commandes incognito séparées ont été supprimées pour alléger le menu, les pieds d'embed indiquent <strong>Public Mode</strong> / <strong>Incognito Mode</strong> et <code>/Info</code> a été mis à jour.",
+          de: "Das <strong>v4.0 Rework</strong> bringt zwei neue Hauptbefehle — <code>/news</code> (aktuelle Nachrichten mit Seitennavigation und Direktlinks) und <code>/weather</code> (Live-Wetter für jede Stadt über <strong>wttr.in</strong>) — und vereinheitlicht die optionale <code>incognito-mode</code>-Option in allen Befehlen (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code> und <code>/weather</code>). Separate alte Incognito-Befehle wurden entfernt, Embed-Fußzeilen zeigen jetzt <strong>Public Mode</strong> / <strong>Incognito Mode</strong> an und <code>/Info</code> wurde aktualisiert.",
+          it: "Il <strong>Rework v4.0</strong> ha introdotto due nuovi comandi principali — <code>/news</code> (notizie in tempo reale con paginazione e link diretti) e <code>/weather</code> (meteo live per qualsiasi città tramite <strong>wttr.in</strong>) — e ha unificato l'opzione booleana <code>incognito-mode</code> in tutti i comandi (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code> e <code>/weather</code>). I vecchi comandi incognito separati sono stati rimossi, i footer ora indicano <strong>Public Mode</strong> / <strong>Incognito Mode</strong> e <code>/Info</code> è stato aggiornato."
         }
       },
       {
         cat: "commands",
         q: {
-          pt: "Como funcionam /translate e /incognitotranslate e quais idiomas são suportados?",
-          en: "How do /translate and /incognitotranslate work, and which languages are supported?",
-          es: "¿Cómo funcionan /translate e /incognitotranslate y qué idiomas admiten?",
-          fr: "Comment fonctionnent /translate et /incognitotranslate et quelles langues sont prises en charge ?",
-          de: "Wie funktionieren /translate und /incognitotranslate und welche Sprachen werden unterstützt?",
-          it: "Come funzionano /translate e /incognitotranslate e quali lingue sono supportate?"
+          pt: "Onde foram parar /incognito search, /incognito videos e /incognitotranslate?",
+          en: "What happened to /incognito search, /incognito videos, and /incognitotranslate?",
+          es: "¿Qué pasó con /incognito search, /incognito videos e /incognitotranslate?",
+          fr: "Que sont devenus /incognito search, /incognito videos et /incognitotranslate ?",
+          de: "Was ist mit /incognito search, /incognito videos und /incognitotranslate passiert?",
+          it: "Che fine hanno fatto /incognito search, /incognito videos e /incognitotranslate?"
         },
         a: {
-          pt: "Basta preencher o texto em <code>text</code> e escolher o idioma de destino em <code>to</code> — o bot detecta automaticamente o idioma original via <strong>MyMemory API</strong>. <code>/translate</code> responde publicamente no chat com botão <strong>Delete</strong>, enquanto <code>/incognitotranslate</code> envia em modo efêmero (só você vê). São <strong>25 idiomas de destino</strong> numerados de <code>1</code> a <code>25</code> (para seleção rápida digitando o número): Português (BR), Inglês, Espanhol, Francês, Alemão, Italiano, Japonês, Coreano, Chinês, Russo, Árabe, Hindi, Holandês, Polonês, Turco, Sueco, Ucraniano, Indonésio, Vietnamita, Tailandês, Grego, Tcheco, Romeno, Húngaro e Hebraico.",
-          en: "Simply enter your text in <code>text</code> and pick the target language in <code>to</code> — the bot automatically detects the source language via <strong>MyMemory API</strong>. <code>/translate</code> posts publicly with a <strong>Delete</strong> button, while <code>/incognitotranslate</code> sends an ephemeral reply (only you can see it). There are <strong>25 target languages</strong> numbered <code>1</code> to <code>25</code> (just type the number to jump straight to it): Portuguese (BR), English, Spanish, French, German, Italian, Japanese, Korean, Chinese, Russian, Arabic, Hindi, Dutch, Polish, Turkish, Swedish, Ukrainian, Indonesian, Vietnamese, Thai, Greek, Czech, Romanian, Hungarian, and Hebrew.",
-          es: "Solo escribe el texto en <code>text</code> y elige el idioma de destino en <code>to</code>: el bot detecta automáticamente el idioma original mediante <strong>MyMemory API</strong>. <code>/translate</code> publica la traducción con botón <strong>Delete</strong>, mientras que <code>/incognitotranslate</code> responde en modo efímero (solo tú lo ves). Incluye <strong>25 idiomas de destino</strong> numerados del <code>1</code> al <code>25</code>: portugués (BR), inglés, español, francés, alemán, italiano, japonés, coreano, chino, ruso, árabe, hindi, neerlandés, polaco, turco, sueco, ucraniano, indonesio, vietnamita, tailandés, griego, checo, rumano, húngaro y hebreo.",
-          fr: "Saisissez votre texte dans <code>text</code> et choisissez la langue cible dans <code>to</code> : le bot détecte automatiquement la langue source via <strong>MyMemory API</strong>. <code>/translate</code> répond publiquement avec un bouton <strong>Delete</strong>, tandis que <code>/incognitotranslate</code> est éphémère (visible uniquement par vous). <strong>25 langues cibles</strong> numérotées de <code>1</code> à <code>25</code> sont disponibles : portugais (BR), anglais, espagnol, français, allemand, italien, japonais, coréen, chinois, russe, arabe, hindi, néerlandais, polonais, turc, suédois, ukrainien, indonésien, vietnamien, thaï, grec, tchèque, roumain, hongrois et hébreu.",
-          de: "Gib einfach deinen Text bei <code>text</code> ein und wähle die Zielsprache bei <code>to</code> – die Ausgangssprache wird automatisch über die <strong>MyMemory API</strong> erkannt. <code>/translate</code> antwortet öffentlich mit <strong>Delete</strong>-Button, während <code>/incognitotranslate</code> eine flüchtige Antwort sendet (nur für dich sichtbar). Es gibt <strong>25 Zielsprachen</strong> von <code>1</code> bis <code>25</code>: Portugiesisch (BR), Englisch, Spanisch, Französisch, Deutsch, Italienisch, Japanisch, Koreanisch, Chinesisch, Russisch, Arabisch, Hindi, Niederländisch, Polnisch, Türkisch, Schwedisch, Ukrainisch, Indonesisch, Vietnamesisch, Thailändisch, Griechisch, Tschechisch, Rumänisch, Ungarisch und Hebräisch.",
-          it: "Inserisci il testo in <code>text</code> e scegli la lingua di destinazione in <code>to</code>: il bot rileva automaticamente la lingua originale tramite <strong>MyMemory API</strong>. <code>/translate</code> risponde pubblicamente con il pulsante <strong>Delete</strong>, mentre <code>/incognitotranslate</code> è effimero (visibile solo a te). Sono supportate <strong>25 lingue di destinazione</strong> numerate da <code>1</code> a <code>25</code>: portoghese (BR), inglese, spagnolo, francese, tedesco, italiano, giapponese, coreano, cinese, russo, arabo, hindi, olandese, polacco, turco, svedese, ucraino, indonesiano, vietnamita, thailandese, greco, ceco, rumeno, ungherese ed ebraico."
-        }
-      },
-      {
-        cat: "general",
-        q: {
-          pt: "O que chegou na versão 3.0?",
-          en: "What arrived in version 3.0?",
-          es: "¿Qué llegó en la versión 3.0?",
-          fr: "Quelles sont les nouveautés de la version 3.0 ?",
-          de: "Was ist neu in Version 3.0?",
-          it: "Cosa è arrivato nella versione 3.0?"
-        },
-        a: {
-          pt: "A <strong>v3.0</strong> adicionou busca de vídeos do YouTube com player nativo no Discord por meio de <code>/searchvideos</code> e <code>/incognito videos</code> (com até <strong>3 vídeos</strong> em 3 páginas), além de manter os Embeds web paginados (4 resultados em 2 páginas), <strong>Incognito Mode</strong>, <code>/help</code> e as <strong>6 regiões</strong>.",
-          en: "<strong>v3.0</strong> introduced YouTube video search with Discord's native player via <code>/searchvideos</code> and <code>/incognito videos</code> (up to <strong>3 videos</strong> across 3 pages), alongside paginated web Embeds (4 results across 2 pages), <strong>Incognito Mode</strong>, <code>/help</code>, and all <strong>6 regions</strong>.",
-          es: "La <strong>v3.0</strong> añadió búsqueda de videos de YouTube con reproductor nativo en Discord mediante <code>/searchvideos</code> y <code>/incognito videos</code> (hasta <strong>3 videos</strong> en 3 páginas), manteniendo los Embeds web paginados (4 resultados en 2 páginas), <strong>Incognito Mode</strong>, <code>/help</code> y las <strong>6 regiones</strong>.",
-          fr: "La <strong>v3.0</strong> a ajouté la recherche de vidéos YouTube avec le lecteur natif Discord via <code>/searchvideos</code> et <code>/incognito videos</code> (jusqu'à <strong>3 vidéos</strong> sur 3 pages), en plus des Embeds web paginés, de l'<strong>Incognito Mode</strong>, de <code>/help</code> et des <strong>6 régions</strong>.",
-          de: "<strong>v3.0</strong> bringt die YouTube-Videosuche mit nativem Discord-Player über <code>/searchvideos</code> und <code>/incognito videos</code> (bis zu <strong>3 Videos</strong> auf 3 Seiten) – ergänzt um Web-Embeds, <strong>Incognito Mode</strong>, <code>/help</code> und <strong>6 Regionen</strong>.",
-          it: "La <strong>v3.0</strong> ha introdotto la ricerca di video YouTube con il player nativo di Discord tramite <code>/searchvideos</code> e <code>/incognito videos</code> (fino a <strong>3 video</strong> su 3 pagine), insieme agli Embed web paginati, <strong>Incognito Mode</strong>, <code>/help</code> e le <strong>6 regioni</strong>."
+          pt: "Na <strong>v4.0</strong>, eles foram unificados diretamente nos comandos principais para deixar o menu mais limpo e liberar espaço para novos recursos como <code>/news</code> e <code>/weather</code>. Agora basta usar <code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code> ou <code>/weather</code> e marcar a opção <code>incognito-mode: True</code> sempre que quiser receber a resposta de forma privada (efêmera, visível apenas para você). Se deixar em branco ou em <code>False</code>, a resposta é enviada em <strong>Public Mode</strong> com botão <strong>Delete</strong>.",
+          en: "In <strong>v4.0</strong>, they were unified directly into the main commands to keep the slash menu clean and free up command slots for <code>/news</code> and <code>/weather</code>. Simply run <code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code>, or <code>/weather</code> and set <code>incognito-mode: True</code> whenever you want a private (ephemeral) reply visible only to you. Leaving it unset or <code>False</code> posts in <strong>Public Mode</strong> with a <strong>Delete</strong> button.",
+          es: "En la <strong>v4.0</strong> se unificaron directamente en los comandos principales para limpiar el menú y liberar espacio para <code>/news</code> y <code>/weather</code>. Ahora solo debes usar <code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code> o <code>/weather</code> y activar <code>incognito-mode: True</code> cuando quieras una respuesta privada (efímera, visible solo para ti). Si lo dejas vacío o en <code>False</code>, responde en <strong>Public Mode</strong> con botón <strong>Delete</strong>.",
+          fr: "Dans la <strong>v4.0</strong>, elles ont été unifiées dans les commandes principales pour alléger le menu et libérer des emplacements pour <code>/news</code> et <code>/weather</code>. Utilisez simplement <code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code> ou <code>/weather</code> avec <code>incognito-mode: True</code> pour recevoir une réponse privée (éphémère). Par défaut (<code>False</code>), la réponse s'affiche en <strong>Public Mode</strong> avec le bouton <strong>Delete</strong>.",
+          de: "In <strong>v4.0</strong> wurden sie direkt in die Hauptbefehle integriert, um das Menü aufzuräumen und Platz für <code>/news</code> und <code>/weather</code> zu schaffen. Nutze einfach <code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code> oder <code>/weather</code> mit <code>incognito-mode: True</code> für eine private (flüchtige) Antwort. Ohne diese Option oder bei <code>False</code> antwortet der Bot im <strong>Public Mode</strong> mit <strong>Delete</strong>-Button.",
+          it: "Nella <strong>v4.0</strong> sono stati unificati nei comandi principali per pulire il menu e liberare slot per <code>/news</code> e <code>/weather</code>. Usa semplicemente <code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code> o <code>/weather</code> impostando <code>incognito-mode: True</code> per una risposta privata (effimera). Lasciandolo vuoto o su <code>False</code>, il bot risponde in <strong>Public Mode</strong> con il pulsante <strong>Delete</strong>."
         }
       },
       {
         cat: "commands",
         q: {
-          pt: "Como funcionam /searchvideos e /incognito videos?",
-          en: "How do /searchvideos and /incognito videos work?",
-          es: "¿Cómo funcionan /searchvideos y /incognito videos?",
-          fr: "Comment fonctionnent /searchvideos et /incognito videos ?",
-          de: "Wie funktionieren /searchvideos und /incognito videos?",
-          it: "Come funzionano /searchvideos e /incognito videos?"
+          pt: "Como funciona o novo comando /news?",
+          en: "How does the new /news command work?",
+          es: "¿Cómo funciona el nuevo comando /news?",
+          fr: "Comment fonctionne la nouvelle commande /news ?",
+          de: "Wie funktioniert der neue Befehl /news?",
+          it: "Come funziona il nuovo comando /news?"
         },
         a: {
-          pt: "Ambos buscam vídeos no YouTube (usando o parâmetro <code>search</code> e a região <code>language</code>) e exibem até <strong>3 resultados</strong> navegáveis com <strong>Previous Page</strong> e <strong>Next Page</strong> direto no chat. <code>/searchvideos</code> envia a mensagem pública com botão <strong>Delete</strong>; <code>/incognito videos</code> envia em modo efêmero (só você vê no Discord — não substitui a guia anônima do navegador ou do YouTube).",
-          en: "Both search YouTube (using the <code>search</code> option and <code>language</code> region) and display up to <strong>3 results</strong> you can flip through with <strong>Previous Page</strong> and <strong>Next Page</strong> right in chat. <code>/searchvideos</code> posts publicly with a <strong>Delete</strong> button; <code>/incognito videos</code> is ephemeral (only you can see it in Discord — it does not replace your browser or YouTube incognito mode).",
-          es: "Ambos buscan videos en YouTube (con <code>search</code> y la región <code>language</code>) y muestran hasta <strong>3 resultados</strong> con botones <strong>Previous Page</strong> y <strong>Next Page</strong> en el chat. <code>/searchvideos</code> es público e incluye <strong>Delete</strong>; <code>/incognito videos</code> es efímero (solo tú lo ves en Discord — no reemplaza el modo incógnito de tu navegador o de YouTube).",
-          fr: "Les deux recherchent des vidéos YouTube (via <code>search</code> et la région <code>language</code>) et affichent jusqu'à <strong>3 résultats</strong> avec <strong>Previous Page</strong> et <strong>Next Page</strong> dans le chat. <code>/searchvideos</code> est public avec bouton <strong>Delete</strong> ; <code>/incognito videos</code> est éphémère (visible uniquement par vous sur Discord — cela ne remplace pas la navigation privée du navigateur ou de YouTube).",
-          de: "Beide suchen auf YouTube (über <code>search</code> und <code>language</code>) und zeigen bis zu <strong>3 Ergebnisse</strong> mit <strong>Previous Page</strong> und <strong>Next Page</strong> direkt im Chat. <code>/searchvideos</code> ist öffentlich inklusive <strong>Delete</strong>; <code>/incognito videos</code> ist flüchtig (nur für dich in Discord sichtbar — ersetzt nicht den Inkognito-Modus deines Browsers oder von YouTube).",
-          it: "Entrambi cercano video su YouTube (tramite <code>search</code> e la regione <code>language</code>) e mostrano fino a <strong>3 risultati</strong> sfogliabili con <strong>Previous Page</strong> e <strong>Next Page</strong> in chat. <code>/searchvideos</code> è pubblico con <strong>Delete</strong>; <code>/incognito videos</code> è effimero (visibile solo a te su Discord — non sostituisce la navigazione in incognito del browser o di YouTube)."
+          pt: "O comando <code>/news</code> busca as notícias mais recentes sobre qualquer palavra-chave ou assunto (<code>query</code>), com filtro opcional de idioma/região (<code>language</code>) e suporte completo a <code>incognito-mode</code>. Os resultados vêm organizados em páginas interativas (<strong>Previous Page</strong> / <strong>Next Page</strong>) com 3 manchetes por página, botões diretos de link para abrir cada matéria e botão <strong>Delete</strong> no modo público.",
+          en: "The <code>/news</code> command fetches the latest news articles for any keyword or topic (<code>query</code>), with optional region/language filtering (<code>language</code>) and full <code>incognito-mode</code> support. Results are displayed across interactive pages (<strong>Previous Page</strong> / <strong>Next Page</strong>) with 3 headlines per page, direct article link buttons, and a <strong>Delete</strong> button in public mode.",
+          es: "El comando <code>/news</code> busca las noticias más recientes sobre cualquier tema o palabra clave (<code>query</code>), con filtro opcional de idioma/región (<code>language</code>) y soporte completo para <code>incognito-mode</code>. Los resultados se muestran en páginas interactivas (<strong>Previous Page</strong> / <strong>Next Page</strong>) con 3 titulares por página, botones de enlace directo y botón <strong>Delete</strong> en modo público.",
+          fr: "La commande <code>/news</code> recherche les derniers articles d'actualité sur n'importe quel sujet (<code>query</code>), avec filtrage optionnel par langue/région (<code>language</code>) et prise en charge complète de <code>incognito-mode</code>. Les résultats s'affichent sur des pages interactives (<strong>Previous Page</strong> / <strong>Next Page</strong>) avec 3 titres par page, des boutons de lien direct et le bouton <strong>Delete</strong> en mode public.",
+          de: "Der Befehl <code>/news</code> sucht aktuelle Nachrichtenartikel zu jedem Stichwort oder Thema (<code>query</code>), mit optionalem Sprach-/Regionsfilter (<code>language</code>) und voller Unterstützung für <code>incognito-mode</code>. Die Ergebnisse erscheinen auf interaktiven Seiten (<strong>Previous Page</strong> / <strong>Next Page</strong>) mit 3 Schlagzeilen pro Seite, Direktlink-Buttons und <strong>Delete</strong>-Button im öffentlichen Modus.",
+          it: "Il comando <code>/news</code> cerca gli articoli di notizie più recenti su qualsiasi argomento o parola chiave (<code>query</code>), con filtro opzionale per lingua/regione (<code>language</code>) e pieno supporto a <code>incognito-mode</code>. I risultati sono divisi in pagine interattive (<strong>Previous Page</strong> / <strong>Next Page</strong>) con 3 titoli per pagina, pulsanti link diretto e pulsante <strong>Delete</strong> in modalità pubblica."
         }
       },
       {
         cat: "commands",
         q: {
-          pt: "Qual a diferença entre /search e /incognito search?",
-          en: "What is the difference between /search and /incognito search?",
-          es: "¿Cuál es la diferencia entre /search y /incognito search?",
-          fr: "Quelle est la différence entre /search et /incognito search ?",
-          de: "Was ist der Unterschied zwischen /search und /incognito search?",
-          it: "Qual è la differenza tra /search e /incognito search?"
+          pt: "Como funciona o novo comando /weather?",
+          en: "How does the new /weather command work?",
+          es: "¿Cómo funciona el nuevo comando /weather?",
+          fr: "Comment fonctionne la nouvelle commande /weather ?",
+          de: "Wie funktioniert der neue Befehl /weather?",
+          it: "Come funziona il nuovo comando /weather?"
         },
         a: {
-          pt: "<code>/search</code> posta o Embed web publicamente no canal para todos verem e traz o botão <strong>Delete</strong> + cooldown anti-spam. Já o <code>/incognito search</code> retorna uma resposta efêmera (<em>\"Só você pode ver esta mensagem\"</em>) para manter sua pesquisa privada sem poluir o chat.",
-          en: "<code>/search</code> posts the web Embed publicly in the channel for everyone to see and includes a <strong>Delete</strong> button plus anti-spam cooldown. <code>/incognito search</code> sends an ephemeral message (<em>\"Only you can see this\"</em>) to keep your search private without cluttering the channel.",
-          es: "<code>/search</code> publica el Embed web en el canal para todos e incluye el botón <strong>Delete</strong> + cooldown anti-spam. <code>/incognito search</code> envía un mensaje efímero (<em>\"Solo tú puedes ver este mensaje\"</em>) para mayor privacidad sin saturar el chat.",
-          fr: "<code>/search</code> publie l'Embed web dans le salon pour tous avec un bouton <strong>Delete</strong> et un cooldown anti-spam. <code>/incognito search</code> envoie un message éphémère visible uniquement par vous pour garder vos recherches privées.",
-          de: "<code>/search</code> postet das Web-Embed öffentlich im Kanal inklusive <strong>Delete</strong>-Button und Anti-Spam-Cooldown. <code>/incognito search</code> sendet eine flüchtige Antwort, die nur für dich sichtbar ist und den Chat sauber hält.",
-          it: "<code>/search</code> pubblica l'Embed web nel canale per tutti con il pulsante <strong>Delete</strong> e cooldown anti-spam. <code>/incognito search</code> invia un messaggio effimero visibile solo a te, tutelando la privacy senza sporcare la chat."
+          pt: "O comando <code>/weather</code> consulta o clima em tempo real de qualquer cidade ou localidade informada em <code>location</code> (usando a API gratuita <strong>wttr.in</strong>). O embed exibe temperatura atual, sensação térmica (<em>Feels like</em>), condição do céu, umidade relativa do ar e velocidade do vento. Também conta com tratamento de cidade não encontrada, botão <strong>Delete</strong> no modo público e suporte a <code>incognito-mode: True</code>.",
+          en: "The <code>/weather</code> command checks real-time weather conditions for any city or location entered in <code>location</code> (powered by the free <strong>wttr.in</strong> API). The embed shows current temperature, feels-like temperature, sky condition, humidity, and wind speed. It also includes invalid-location error handling, a <strong>Delete</strong> button in public mode, and <code>incognito-mode: True</code> support.",
+          es: "El comando <code>/weather</code> consulta el clima en tiempo real de cualquier ciudad indicada en <code>location</code> (mediante la API gratuita <strong>wttr.in</strong>). El embed muestra temperatura actual, sensación térmica, condición del cielo, humedad y velocidad del viento. Incluye manejo de ubicaciones inválidas, botón <strong>Delete</strong> en modo público y soporte para <code>incognito-mode: True</code>.",
+          fr: "La commande <code>/weather</code> consulte la météo en temps réel pour n'importe quelle ville saisie dans <code>location</code> (via l'API gratuite <strong>wttr.in</strong>). L'embed affiche la température actuelle, le ressenti, l'état du ciel, l'humidité et la vitesse du vent, avec gestion des lieux introuvables, bouton <strong>Delete</strong> en mode public et <code>incognito-mode: True</code>.",
+          de: "Der Befehl <code>/weather</code> ruft Echtzeit-Wetterdaten für jede unter <code>location</code> eingegebene Stadt ab (über die kostenlose <strong>wttr.in</strong>-API). Das Embed zeigt aktuelle Temperatur, gefühlte Temperatur, Wetterlage, Luftfeuchtigkeit und Windgeschwindigkeit – inklusive Fehlerbehandlung bei unbekannten Orten, <strong>Delete</strong>-Button und <code>incognito-mode: True</code>.",
+          it: "Il comando <code>/weather</code> controlla il meteo in tempo reale per qualsiasi città inserita in <code>location</code> (tramite l'API gratuita <strong>wttr.in</strong>). L'embed mostra temperatura attuale, temperatura percepita, condizioni del cielo, umidità e velocità del vento, con gestione degli errori per località non trovate, pulsante <strong>Delete</strong> e <code>incognito-mode: True</code>."
         }
       },
       {
         cat: "commands",
         q: {
-          pt: "Quantos resultados aparecem nas buscas web e de vídeo?",
-          en: "How many results appear in web and video searches?",
-          es: "¿Cuántos resultados aparecen en búsquedas web y de video?",
-          fr: "Combien de résultats s'affichent pour le web et les vidéos ?",
-          de: "Wie viele Ergebnisse erscheinen bei Web- und Videosuchen?",
-          it: "Quanti risultati appaiono nelle ricerche web e video?"
+          pt: "Como funciona o /translate e quais idiomas são suportados?",
+          en: "How does /translate work and which languages are supported?",
+          es: "¿Cómo funciona /translate y qué idiomas son compatibles?",
+          fr: "Comment fonctionne /translate et quelles langues sont prises en charge ?",
+          de: "Wie funktioniert /translate und welche Sprachen werden unterstützt?",
+          it: "Come funziona /translate e quali lingue sono supportate?"
         },
         a: {
-          pt: "Nas buscas web (<code>/search</code> e <code>/incognito search</code>), são até <strong>4 resultados</strong> divididos em <strong>2 páginas</strong> (2 por página). Nas buscas de vídeo (<code>/searchvideos</code> e <code>/incognito videos</code>), são até <strong>3 vídeos</strong> divididos em <strong>3 páginas</strong> (1 vídeo por página).",
-          en: "Web searches (<code>/search</code> and <code>/incognito search</code>) return up to <strong>4 results</strong> across <strong>2 pages</strong> (2 per page). Video searches (<code>/searchvideos</code> and <code>/incognito videos</code>) return up to <strong>3 videos</strong> across <strong>3 pages</strong> (1 video per page).",
-          es: "Las búsquedas web (<code>/search</code> y <code>/incognito search</code>) muestran hasta <strong>4 resultados</strong> en <strong>2 páginas</strong> (2 por página). Las de video (<code>/searchvideos</code> y <code>/incognito videos</code>) muestran hasta <strong>3 videos</strong> en <strong>3 páginas</strong> (1 video por página).",
-          fr: "Les recherches web (<code>/search</code> et <code>/incognito search</code>) affichent jusqu'à <strong>4 résultats</strong> sur <strong>2 pages</strong> (2 par page). Les recherches vidéo (<code>/searchvideos</code> et <code>/incognito videos</code>) affichent jusqu'à <strong>3 vidéos</strong> sur <strong>3 pages</strong> (1 vidéo par page).",
-          de: "Websuchen (<code>/search</code> und <code>/incognito search</code>) liefern bis zu <strong>4 Ergebnisse</strong> auf <strong>2 Seiten</strong> (je 2). Videosuchen (<code>/searchvideos</code> und <code>/incognito videos</code>) liefern bis zu <strong>3 Videos</strong> auf <strong>3 Seiten</strong> (je 1 Video).",
-          it: "Le ricerche web (<code>/search</code> e <code>/incognito search</code>) mostrano fino a <strong>4 risultati</strong> su <strong>2 pagine</strong> (2 per pagina). Quelle video (<code>/searchvideos</code> e <code>/incognito videos</code>) mostrano fino a <strong>3 video</strong> su <strong>3 pagine</strong> (1 video per pagina)."
+          pt: "Basta digitar o texto em <code>text</code> e escolher o idioma de destino em <code>to</code> — o bot detecta automaticamente o idioma de origem via <strong>MyMemory API</strong>. Por padrão ele responde no chat com botão <strong>Delete</strong>, ou em modo privado se você ativar <code>incognito-mode: True</code>. São <strong>25 idiomas de destino</strong> numerados de <code>1</code> a <code>25</code>: Português (BR), Inglês, Espanhol, Francês, Alemão, Italiano, Japonês, Coreano, Chinês, Russo, Árabe, Hindi, Holandês, Polonês, Turco, Sueco, Ucraniano, Indonésio, Vietnamita, Tailandês, Grego, Tcheco, Romeno, Húngaro e Hebraico.",
+          en: "Just enter your text in <code>text</code> and pick the target language in <code>to</code> — the bot automatically detects the source language via <strong>MyMemory API</strong>. By default it replies publicly with a <strong>Delete</strong> button, or privately if you set <code>incognito-mode: True</code>. There are <strong>25 target languages</strong> numbered <code>1</code> to <code>25</code>: Portuguese (BR), English, Spanish, French, German, Italian, Japanese, Korean, Chinese, Russian, Arabic, Hindi, Dutch, Polish, Turkish, Swedish, Ukrainian, Indonesian, Vietnamese, Thai, Greek, Czech, Romanian, Hungarian, and Hebrew.",
+          es: "Solo escribe el texto en <code>text</code> y elige el idioma de destino en <code>to</code>: el bot detecta automáticamente el idioma original mediante <strong>MyMemory API</strong>. Responde públicamente con botón <strong>Delete</strong> o en privado si activas <code>incognito-mode: True</code>. Incluye <strong>25 idiomas de destino</strong> numerados del <code>1</code> al <code>25</code>: portugués (BR), inglés, español, francés, alemán, italiano, japonés, coreano, chino, ruso, árabe, hindi, neerlandés, polaco, turco, sueco, ucraniano, indonesio, vietnamita, tailandés, griego, checo, rumano, húngaro y hebreo.",
+          fr: "Saisissez votre texte dans <code>text</code> et choisissez la langue cible dans <code>to</code> : le bot détecte automatiquement la langue source via <strong>MyMemory API</strong>. Il répond publiquement avec le bouton <strong>Delete</strong>, ou en privé avec <code>incognito-mode: True</code>. <strong>25 langues cibles</strong> numérotées de <code>1</code> à <code>25</code> sont disponibles : portugais (BR), anglais, espagnol, français, allemand, italien, japonais, coréen, chinois, russe, arabe, hindi, néerlandais, polonais, turc, suédois, ukrainien, indonésien, vietnamien, thaï, grec, tchèque, roumain, hongrois et hébreu.",
+          de: "Gib einfach deinen Text bei <code>text</code> ein und wähle die Zielsprache bei <code>to</code> – die Ausgangssprache wird automatisch über die <strong>MyMemory API</strong> erkannt. Standardmäßig antwortet der Bot öffentlich mit <strong>Delete</strong>-Button oder privat mit <code>incognito-mode: True</code>. Es gibt <strong>25 Zielsprachen</strong> von <code>1</code> bis <code>25</code>: Portugiesisch (BR), Englisch, Spanisch, Französisch, Deutsch, Italienisch, Japanisch, Koreanisch, Chinesisch, Russisch, Arabisch, Hindi, Niederländisch, Polnisch, Türkisch, Schwedisch, Ukrainisch, Indonesisch, Vietnamesisch, Thailändisch, Griechisch, Tschechisch, Rumänisch, Ungarisch und Hebräisch.",
+          it: "Inserisci il testo in <code>text</code> e scegli la lingua di destinazione in <code>to</code>: il bot rileva automaticamente la lingua originale tramite <strong>MyMemory API</strong>. Risponde pubblicamente con il pulsante <strong>Delete</strong> oppure in privato con <code>incognito-mode: True</code>. Sono supportate <strong>25 lingue di destinazione</strong> numerate da <code>1</code> a <code>25</code>: portoghese (BR), inglese, spagnolo, francese, tedesco, italiano, giapponese, coreano, cinese, russo, arabo, hindi, olandese, polacco, turco, svedese, ucraino, indonesiano, vietnamita, thailandese, greco, ceco, rumeno, ungherese ed ebraico."
+        }
+      },
+      {
+        cat: "commands",
+        q: {
+          pt: "Como funciona o /searchvideos?",
+          en: "How does /searchvideos work?",
+          es: "¿Cómo funciona /searchvideos?",
+          fr: "Comment fonctionne /searchvideos ?",
+          de: "Wie funktioniert /searchvideos?",
+          it: "Come funziona /searchvideos?"
+        },
+        a: {
+          pt: "O <code>/searchvideos</code> busca vídeos no YouTube (usando o parâmetro <code>search</code> e a região <code>language</code>) e abre o player nativo direto no Discord com até <strong>3 vídeos</strong> navegáveis pelos botões <strong>Previous Page</strong> e <strong>Next Page</strong>. No modo público traz botão <strong>Delete</strong>; com <code>incognito-mode: True</code>, a mensagem é efêmera (só você vê no Discord).",
+          en: "<code>/searchvideos</code> searches YouTube (using the <code>search</code> option and <code>language</code> region) and embeds Discord's native player with up to <strong>3 videos</strong> you can flip through via <strong>Previous Page</strong> and <strong>Next Page</strong>. In public mode it includes a <strong>Delete</strong> button; with <code>incognito-mode: True</code>, the reply is ephemeral (visible only to you in Discord).",
+          es: "<code>/searchvideos</code> busca videos en YouTube (con <code>search</code> y la región <code>language</code>) y abre el reproductor nativo en Discord con hasta <strong>3 videos</strong> navegables con <strong>Previous Page</strong> y <strong>Next Page</strong>. En modo público incluye <strong>Delete</strong>; con <code>incognito-mode: True</code>, el mensaje es efímero (solo tú lo ves en Discord).",
+          fr: "<code>/searchvideos</code> recherche des vidéos YouTube (via <code>search</code> et la région <code>language</code>) et affiche le lecteur natif Discord avec jusqu'à <strong>3 vidéos</strong> navigables via <strong>Previous Page</strong> et <strong>Next Page</strong>. En mode public, il inclut un bouton <strong>Delete</strong> ; avec <code>incognito-mode: True</code>, le message est éphémère.",
+          de: "<code>/searchvideos</code> sucht auf YouTube (über <code>search</code> und <code>language</code>) und zeigt bis zu <strong>3 Videos</strong> im nativen Discord-Player mit <strong>Previous Page</strong> und <strong>Next Page</strong>. Im öffentlichen Modus gibt es den <strong>Delete</strong>-Button; mit <code>incognito-mode: True</code> ist die Nachricht flüchtig (nur für dich sichtbar).",
+          it: "<code>/searchvideos</code> cerca video su YouTube (tramite <code>search</code> e <code>language</code>) e apre il player nativo di Discord con fino a <strong>3 video</strong> sfogliabili con <strong>Previous Page</strong> e <strong>Next Page</strong>. In modalità pubblica include <strong>Delete</strong>; con <code>incognito-mode: True</code> il messaggio è effimero."
+        }
+      },
+      {
+        cat: "commands",
+        q: {
+          pt: "Quantos resultados aparecem nas buscas web, de vídeo e de notícias?",
+          en: "How many results appear in web, video, and news searches?",
+          es: "¿Cuántos resultados aparecen en búsquedas web, de video y de noticias?",
+          fr: "Combien de résultats s'affichent pour le web, les vidéos et les actualités ?",
+          de: "Wie viele Ergebnisse erscheinen bei Web-, Video- und Nachrichtensuchen?",
+          it: "Quanti risultati appaiono nelle ricerche web, video e notizie?"
+        },
+        a: {
+          pt: "Na busca web (<code>/search</code>), são até <strong>4 resultados</strong> em <strong>2 páginas</strong> (2 por página). Em vídeos (<code>/searchvideos</code>), são até <strong>3 vídeos</strong> em <strong>3 páginas</strong> (1 por página). Em notícias (<code>/news</code>), os artigos são paginados exibindo <strong>3 manchetes por página</strong> com botões diretos de acesso.",
+          en: "Web searches (<code>/search</code>) return up to <strong>4 results</strong> across <strong>2 pages</strong> (2 per page). Video searches (<code>/searchvideos</code>) return up to <strong>3 videos</strong> across <strong>3 pages</strong> (1 per page). News searches (<code>/news</code>) are paginated showing <strong>3 headlines per page</strong> with direct link buttons.",
+          es: "Las búsquedas web (<code>/search</code>) muestran hasta <strong>4 resultados</strong> en <strong>2 páginas</strong> (2 por página). Los videos (<code>/searchvideos</code>) muestran hasta <strong>3 videos</strong> en <strong>3 páginas</strong> (1 por página). Las noticias (<code>/news</code>) se paginan mostrando <strong>3 titulares por página</strong> con botones directos.",
+          fr: "Les recherches web (<code>/search</code>) affichent jusqu'à <strong>4 résultats</strong> sur <strong>2 pages</strong> (2 par page). Les vidéos (<code>/searchvideos</code>) affichent jusqu'à <strong>3 vidéos</strong> sur <strong>3 pages</strong> (1 par page). Les actualités (<code>/news</code>) sont paginées avec <strong>3 titres par page</strong> et des boutons de lien direct.",
+          de: "Websuchen (<code>/search</code>) liefern bis zu <strong>4 Ergebnisse</strong> auf <strong>2 Seiten</strong> (je 2). Videosuchen (<code>/searchvideos</code>) liefern bis zu <strong>3 Videos</strong> auf <strong>3 Seiten</strong> (je 1). Nachrichtensuchen (<code>/news</code>) zeigen <strong>3 Schlagzeilen pro Seite</strong> mit Direktlinks.",
+          it: "Le ricerche web (<code>/search</code>) mostrano fino a <strong>4 risultati</strong> su <strong>2 pagine</strong> (2 per pagina). I video (<code>/searchvideos</code>) mostrano fino a <strong>3 video</strong> su <strong>3 pagine</strong> (1 per pagina). Le notizie (<code>/news</code>) sono paginate con <strong>3 titoli per pagina</strong> e pulsanti link diretto."
         }
       },
       {
@@ -601,12 +626,12 @@
           it: "Quali regioni e lingue sono supportate?"
         },
         a: {
-          pt: "Você pode escolher entre <strong>6 regiões</strong> direto na opção <code>language</code>: <strong>BR</strong> (Brasil), <strong>US</strong> (Estados Unidos / Inglês), <strong>ES</strong> (Espanha), <strong>FR</strong> (França), <strong>DE</strong> (Alemanha) e <strong>IT</strong> (Itália).",
-          en: "You can choose from <strong>6 regions</strong> directly in the <code>language</code> option: <strong>BR</strong> (Brazil), <strong>US</strong> (United States / English), <strong>ES</strong> (Spain), <strong>FR</strong> (France), <strong>DE</strong> (Germany), and <strong>IT</strong> (Italy).",
-          es: "Puedes elegir entre <strong>6 regiones</strong> directamente en la opción <code>language</code>: <strong>BR</strong> (Brasil), <strong>US</strong> (Estados Unidos / Inglés), <strong>ES</strong> (España), <strong>FR</strong> (Francia), <strong>DE</strong> (Alemania) e <strong>IT</strong> (Italia).",
-          fr: "Vous pouvez choisir parmi <strong>6 régions</strong> via l'option <code>language</code> : <strong>BR</strong> (Brésil), <strong>US</strong> (États-Unis / Anglais), <strong>ES</strong> (Espagne), <strong>FR</strong> (France), <strong>DE</strong> (Allemagne) et <strong>IT</strong> (Italie).",
-          de: "Du kannst direkt über die Option <code>language</code> zwischen <strong>6 Regionen</strong> wählen: <strong>BR</strong> (Brasilien), <strong>US</strong> (USA / Englisch), <strong>ES</strong> (Spanien), <strong>FR</strong> (Frankreich), <strong>DE</strong> (Deutschland) und <strong>IT</strong> (Italien).",
-          it: "Puoi scegliere tra <strong>6 regioni</strong> direttamente nell'opzione <code>language</code>: <strong>BR</strong> (Brasile), <strong>US</strong> (Stati Uniti / Inglese), <strong>ES</strong> (Spagna), <strong>FR</strong> (Francia), <strong>DE</strong> (Germania) e <strong>IT</strong> (Italia)."
+          pt: "Nos comandos <code>/search</code>, <code>/searchvideos</code> e <code>/news</code>, você pode escolher entre <strong>6 regiões</strong> na opção <code>language</code>: <strong>BR</strong> (Brasil), <strong>US</strong> (EUA / Inglês), <strong>ES</strong> (Espanha), <strong>FR</strong> (França), <strong>DE</strong> (Alemanha) e <strong>IT</strong> (Itália). Já o <code>/translate</code> suporta detecção automática de origem e <strong>25 idiomas de destino</strong>.",
+          en: "In <code>/search</code>, <code>/searchvideos</code>, and <code>/news</code>, you can choose from <strong>6 regions</strong> via the <code>language</code> option: <strong>BR</strong> (Brazil), <strong>US</strong> (United States / English), <strong>ES</strong> (Spain), <strong>FR</strong> (France), <strong>DE</strong> (Germany), and <strong>IT</strong> (Italy). Meanwhile, <code>/translate</code> supports auto-detect plus <strong>25 target languages</strong>.",
+          es: "En <code>/search</code>, <code>/searchvideos</code> y <code>/news</code> puedes elegir entre <strong>6 regiones</strong> en la opción <code>language</code>: <strong>BR</strong>, <strong>US</strong>, <strong>ES</strong>, <strong>FR</strong>, <strong>DE</strong> e <strong>IT</strong>. Además, <code>/translate</code> admite detección automática y <strong>25 idiomas de destino</strong>.",
+          fr: "Dans <code>/search</code>, <code>/searchvideos</code> et <code>/news</code>, vous pouvez choisir parmi <strong>6 régions</strong> via <code>language</code> : <strong>BR</strong>, <strong>US</strong>, <strong>ES</strong>, <strong>FR</strong>, <strong>DE</strong> et <strong>IT</strong>. De son côté, <code>/translate</code> prend en charge la détection automatique et <strong>25 langues cibles</strong>.",
+          de: "In <code>/search</code>, <code>/searchvideos</code> und <code>/news</code> stehen über <code>language</code> <strong>6 Regionen</strong> zur Auswahl: <strong>BR</strong>, <strong>US</strong>, <strong>ES</strong>, <strong>FR</strong>, <strong>DE</strong> und <strong>IT</strong>. Zusätzlich unterstützt <code>/translate</code> automatische Erkennung und <strong>25 Zielsprachen</strong>.",
+          it: "In <code>/search</code>, <code>/searchvideos</code> e <code>/news</code> puoi scegliere tra <strong>6 regioni</strong> tramite <code>language</code>: <strong>BR</strong>, <strong>US</strong>, <strong>ES</strong>, <strong>FR</strong>, <strong>DE</strong> e <strong>IT</strong>. Inoltre, <code>/translate</code> supporta rilevamento automatico e <strong>25 lingue di destinazione</strong>."
         }
       },
       {
@@ -631,39 +656,39 @@
       {
         cat: "privacy",
         q: {
-          pt: "O bot é gratuito e salva minhas buscas?",
-          en: "Is the bot free and does it store my search history?",
-          es: "¿El bot es gratuito y guarda mi historial de búsquedas?",
-          fr: "Le bot est-il gratuit et enregistre-t-il mes recherches ?",
-          de: "Ist der Bot kostenlos und speichert er meine Suchanfragen?",
-          it: "Il bot è gratuito e salva la mia cronologia di ricerca?"
+          pt: "O bot é gratuito e salva minhas buscas, traduções ou consultas de clima?",
+          en: "Is the bot free and does it store my searches, translations, or weather lookups?",
+          es: "¿El bot es gratuito y guarda mis búsquedas, traducciones o consultas de clima?",
+          fr: "Le bot est-il gratuit et enregistre-t-il mes recherches, traductions ou requêtes météo ?",
+          de: "Ist der Bot kostenlos und speichert er meine Suchen, Übersetzungen oder Wetterabfragen?",
+          it: "Il bot è gratuito e salva ricerche, traduzioni o richieste meteo?"
         },
         a: {
-          pt: "Sim, o Bing Search é <strong>100% gratuito</strong> e não salva histórico de pesquisas ou traduções. As consultas web, buscas de vídeos e traduções são processadas em tempo real apenas para exibir os resultados no Discord.",
-          en: "Yes, Bing Search is <strong>100% free</strong> and does not log or store your search or translation history. Web queries, video searches, and translations are processed in real time solely to return results in Discord.",
-          es: "Sí, Bing Search es <strong>100% gratuito</strong> y no guarda tu historial de búsquedas ni traducciones. Las consultas web, videos y traducciones se procesan en tiempo real solo para mostrar los resultados en Discord.",
-          fr: "Oui, Bing Search est <strong>100 % gratuit</strong> et n'enregistre aucun historique de recherche ou de traduction. Les requêtes web, vidéos et traductions sont traitées en temps réel uniquement pour afficher les résultats sur Discord.",
-          de: "Ja, Bing Search ist <strong>100 % kostenlos</strong> und speichert keinen Such- oder Übersetzungsverlauf. Websuchen, Videosuchen und Übersetzungen werden in Echtzeit verarbeitet, um Ergebnisse in Discord anzuzeigen.",
-          it: "Sì, Bing Search è <strong>100% gratuito</strong> e non salva alcuna cronologia di ricerche o traduzioni. Le ricerche web, i video e le traduzioni vengono elaborati in tempo reale solo per mostrare i risultati su Discord."
+          pt: "Sim, o Bing Search é <strong>100% gratuito</strong> e não salva histórico de buscas, notícias, traduções ou consultas de clima. Todas as requisições (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code> e <code>/weather</code>) são processadas exclusivamente em tempo real para exibir a resposta no Discord.",
+          en: "Yes, Bing Search is <strong>100% free</strong> and does not log or store your search, news, translation, or weather history. All requests (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code>, and <code>/weather</code>) are processed strictly in real time to display your response in Discord.",
+          es: "Sí, Bing Search es <strong>100% gratuito</strong> y no guarda historial de búsquedas, noticias, traducciones ni consultas climáticas. Todas las solicitudes (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code> y <code>/weather</code>) se procesan solo en tiempo real.",
+          fr: "Oui, Bing Search est <strong>100 % gratuit</strong> et n'enregistre aucun historique de recherche, d'actualités, de traduction ou de météo. Toutes les requêtes (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code> et <code>/weather</code>) sont traitées exclusivement en temps réel.",
+          de: "Ja, Bing Search ist <strong>100 % kostenlos</strong> und speichert keinen Such-, Nachrichten-, Übersetzungs- oder Wetterverlauf. Alle Anfragen (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code> und <code>/weather</code>) werden ausschließlich in Echtzeit verarbeitet.",
+          it: "Sì, Bing Search è <strong>100% gratuito</strong> e non salva alcuna cronologia di ricerche, notizie, traduzioni o meteo. Tutte le richieste (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code> e <code>/weather</code>) vengono elaborate esclusivamente in tempo reale."
         }
       },
       {
         cat: "privacy",
         q: {
-          pt: "O modo Incognito impede que vídeos ou links apareçam no histórico do YouTube ou do navegador?",
-          en: "Does Incognito Mode prevent videos or links from appearing in my YouTube or browser history?",
-          es: "¿El modo Incognito evita que los videos o enlaces aparezcan en el historial de YouTube o del navegador?",
-          fr: "L'Incognito Mode empêche-t-il les vidéos ou liens d'apparaître dans l'historique YouTube ou du navigateur ?",
-          de: "Verhindert der Incognito Mode, dass Videos oder Links im YouTube- oder Browserverlauf erscheinen?",
-          it: "L'Incognito Mode impedisce che video o link vengano salvati nella cronologia di YouTube o del browser?"
+          pt: "O incognito-mode impede que vídeos ou links apareçam no histórico do YouTube ou do navegador?",
+          en: "Does incognito-mode prevent videos or links from appearing in my YouTube or browser history?",
+          es: "¿El incognito-mode evita que los videos o enlaces aparezcan en el historial de YouTube o del navegador?",
+          fr: "L'incognito-mode empêche-t-il les vidéos ou liens d'apparaître dans l'historique YouTube ou du navigateur ?",
+          de: "Verhindert incognito-mode, dass Videos oder Links im YouTube- oder Browserverlauf erscheinen?",
+          it: "L'incognito-mode impedisce che video o link vengano salvati nella cronologia di YouTube o del browser?"
         },
         a: {
-          pt: "Não. O <strong>Incognito Mode</strong> (<code>/incognito search</code> e <code>/incognito videos</code>) oculta a resposta <strong>apenas dentro do Discord</strong> (mensagem efêmera visível só para você), funcionando como um atalho para os resultados e <strong>não</strong> como uma guia anônima de navegador. Se você estiver logado na sua conta Google/YouTube e assistir ao vídeo ou abrir o link fora do Discord, o acesso será registrado normalmente no seu histórico do YouTube e do navegador.",
-          en: "No. <strong>Incognito Mode</strong> (<code>/incognito search</code> and <code>/incognito videos</code>) hides the reply <strong>only inside Discord</strong> (an ephemeral message visible only to you), acting as a shortcut to results rather than a browser incognito tab. If you are signed into your Google/YouTube account and watch a video or open a link, it will still be recorded normally in your YouTube and browser history.",
-          es: "No. El <strong>Incognito Mode</strong> (<code>/incognito search</code> e <code>/incognito videos</code>) oculta la respuesta <strong>solo dentro de Discord</strong> (mensaje efímero visible únicamente para ti), actuando como un atajo hacia los resultados y <strong>no</strong> como una pestaña de incógnito del navegador. Si tienes tu cuenta de Google/YouTube iniciada y ves un video o abres un enlace, se registrará normalmente en tu historial de YouTube y del navegador.",
-          fr: "Non. L'<strong>Incognito Mode</strong> (<code>/incognito search</code> et <code>/incognito videos</code>) masque la réponse <strong>uniquement sur Discord</strong> (message éphémère visible par vous seul), servant de raccourci vers les résultats et <strong>non</strong> d'onglet de navigation privée. Si vous êtes connecté à votre compte Google/YouTube et regardez une vidéo ou ouvrez un lien, cela restera enregistré normalement dans votre historique YouTube et de navigateur.",
-          de: "Nein. Der <strong>Incognito Mode</strong> (<code>/incognito search</code> und <code>/incognito videos</code>) verbirgt die Antwort <strong>nur innerhalb von Discord</strong> (flüchtige Nachricht, die nur für dich sichtbar ist) und dient als Abkürzung zu Ergebnissen – <strong>nicht</strong> als Inkognito-Tab im Browser. Wenn du in deinem Google-/YouTube-Konto angemeldet bist und ein Video anschaust oder einen Link öffnest, wird dies ganz normal im YouTube- und Browserverlauf gespeichert.",
-          it: "No. L'<strong>Incognito Mode</strong> (<code>/incognito search</code> e <code>/incognito videos</code>) nasconde la risposta <strong>solo all'interno di Discord</strong> (messaggio effimero visibile solo a te), fungendo da scorciatoia verso i risultati e <strong>non</strong> da scheda in incognito del browser. Se hai effettuato l'accesso al tuo account Google/YouTube e guardi un video o apri un link, l'attività verrà registrata normalmente nella cronologia di YouTube e del browser."
+          pt: "Não. Definir <code>incognito-mode: True</code> oculta a resposta <strong>apenas dentro do Discord</strong> (mensagem efêmera visível só para você), funcionando como um atalho privado no chat e <strong>não</strong> como uma guia anônima de navegador. Se você estiver logado na sua conta Google/YouTube e assistir ao vídeo ou abrir links externos de sites ou notícias, o acesso será registrado normalmente no seu histórico do YouTube e do navegador.",
+          en: "No. Setting <code>incognito-mode: True</code> hides the reply <strong>only inside Discord</strong> (an ephemeral message visible only to you), acting as a private chat shortcut rather than a browser incognito tab. If you are signed into your Google/YouTube account and watch a video or open external website/news links, it will still be recorded normally in your YouTube and browser history.",
+          es: "No. Activar <code>incognito-mode: True</code> oculta la respuesta <strong>solo dentro de Discord</strong> (mensaje efímero visible únicamente para ti), actuando como un atajo privado y <strong>no</strong> como una pestaña de incógnito del navegador. Si tienes tu cuenta de Google/YouTube iniciada y ves un video o abres un enlace externo, se registrará normalmente en tu historial de YouTube y del navegador.",
+          fr: "Non. Définir <code>incognito-mode: True</code> masque la réponse <strong>uniquement sur Discord</strong> (message éphémère visible par vous seul), servant de raccourci privé et <strong>non</strong> d'onglet de navigation privée. Si vous êtes connecté à votre compte Google/YouTube et regardez une vidéo ou ouvrez un lien externe, cela restera enregistré normalement dans votre historique YouTube et de navigateur.",
+          de: "Nein. Das Aktivieren von <code>incognito-mode: True</code> verbirgt die Antwort <strong>nur innerhalb von Discord</strong> (flüchtige Nachricht, die nur für dich sichtbar ist) und ersetzt <strong>keinen</strong> Inkognito-Tab im Browser. Wenn du in deinem Google-/YouTube-Konto angemeldet bist und ein Video anschaust oder externe Links öffnest, wird dies regulär im YouTube- und Browserverlauf gespeichert.",
+          it: "No. Impostare <code>incognito-mode: True</code> nasconde la risposta <strong>solo all'interno di Discord</strong> (messaggio effimero visibile solo a te), fungendo da scorciatoia privata e <strong>non</strong> da scheda in incognito del browser. Se hai effettuato l'accesso al tuo account Google/YouTube e guardi un video o apri link esterni, l'attività verrà registrata normalmente nella cronologia di YouTube e del browser."
         }
       },
       {
@@ -677,12 +702,12 @@
           it: "Perché il profilo Discord del bot mostra 'Leggi messaggi', 'Presence' e 'Membri' in Accesso ai dati?"
         },
         a: {
-          pt: "Essas três permissões são chamadas no Discord de <strong>Privileged Gateway Intents</strong> (<code>Message Content</code>, <code>Presence</code> e <code>Server Members</code>). Elas aparecem no perfil do bot exclusivamente por uma <strong>exigência técnica obrigatória da plataforma de hospedagem (BotGhost)</strong>: o motor padrão do BotGhost exige que as 3 intents fiquem ativadas no Discord Developer Portal apenas para manter a conexão do bot online — se qualquer uma delas for desligada, a hospedagem desconecta o bot automaticamente.<br><br>Na prática, o <strong>Bing Search não utiliza nenhuma dessas 3 permissões</strong>: o bot funciona 100% via <strong>comandos slash</strong> (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/help</code> e modos Incognito). Ele <strong>não lê nem armazena mensagens comuns</strong> do chat, <strong>não monitora</strong> seu status online ou o que você está jogando e <strong>não rastreia</strong> entrada/saída de membros ou alterações de cargos.",
-          en: "Those three permissions are Discord's <strong>Privileged Gateway Intents</strong> (<code>Message Content</code>, <code>Presence</code>, and <code>Server Members</code>). They appear on the bot's profile strictly due to a <strong>mandatory technical requirement of the hosting platform (BotGhost)</strong>: BotGhost's standard engine requires all 3 intents to remain enabled in the Discord Developer Portal just to keep the bot connected — disabling any of them causes the host to take the bot offline.<br><br>In practice, <strong>Bing Search does not use any of these 3 permissions</strong>: the bot runs 100% through <strong>slash commands</strong> (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/help</code>, and Incognito modes). It <strong>does not read or store regular chat messages</strong>, <strong>does not track</strong> your online status or game activity, and <strong>does not monitor</strong> server members or role changes.",
-          es: "Esos tres permisos son las <strong>Privileged Gateway Intents</strong> de Discord (<code>Message Content</code>, <code>Presence</code> y <code>Server Members</code>). Aparecen en el perfil del bot únicamente por un <strong>requisito técnico obligatorio de la plataforma de alojamiento (BotGhost)</strong>: el motor estándar de BotGhost exige mantener las 3 intents activadas en el Discord Developer Portal solo para mantener la conexión activa; si se desactiva alguna, el bot se desconecta automáticamente.<br><br>En la práctica, <strong>Bing Search no utiliza ninguno de estos 3 permisos</strong>: funciona al 100% mediante <strong>comandos slash</strong> (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/help</code> y modos Incognito). <strong>No lee ni almacena mensajes normales</strong> del chat, <strong>no supervisa</strong> tu estado en línea ni a qué juegas, y <strong>no rastrea</strong> miembros ni cambios de roles.",
-          fr: "Ces trois autorisations correspondent aux <strong>Privileged Gateway Intents</strong> de Discord (<code>Message Content</code>, <code>Presence</code> et <code>Server Members</code>). Elles apparaissent sur le profil du bot uniquement en raison d'une <strong>exigence technique obligatoire de la plateforme d'hébergement (BotGhost)</strong> : le moteur standard de BotGhost impose que ces 3 intents restent activées dans le Discord Developer Portal pour maintenir le bot en ligne — en désactiver une seule entraîne sa déconnexion.<br><br>En pratique, <strong>Bing Search n'utilise aucune de ces 3 autorisations</strong> : le bot fonctionne exclusivement via des <strong>commandes slash</strong> (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/help</code> et modes Incognito). Il <strong>ne lit ni ne stocke les messages ordinaires</strong>, <strong>ne surveille pas</strong> votre statut ou votre activité en jeu, et <strong>ne suit pas</strong> les membres ni les changements de rôles.",
-          de: "Diese drei Berechtigungen sind Discords <strong>Privileged Gateway Intents</strong> (<code>Message Content</code>, <code>Presence</code> und <code>Server Members</code>). Sie erscheinen im Bot-Profil ausschließlich aufgrund einer <strong>zwingenden technischen Anforderung der Hosting-Plattform (BotGhost)</strong>: Die Standard-Engine von BotGhost verlangt, dass alle 3 Intents im Discord Developer Portal aktiviert bleiben, um den Bot online zu halten – wird auch nur eine deaktiviert, trennt der Host die Verbindung.<br><br>In der Praxis <strong>nutzt Bing Search keine dieser 3 Berechtigungen</strong>: Der Bot arbeitet zu 100 % über <strong>Slash-Befehle</strong> (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/help</code> und Incognito-Modi). Er <strong>liest oder speichert keine normalen Chatnachrichten</strong>, <strong>überwacht nicht</strong> deinen Online-Status oder deine Spiele und <strong>verfolgt keine</strong> Mitglieder oder Rollenänderungen.",
-          it: "Queste tre autorizzazioni sono le <strong>Privileged Gateway Intents</strong> di Discord (<code>Message Content</code>, <code>Presence</code> e <code>Server Members</code>). Compaiono sul profilo del bot esclusivamente per un <strong>requisito tecnico obbligatorio della piattaforma di hosting (BotGhost)</strong>: il motore standard di BotGhost richiede che tutte e 3 le intent restino attive nel Discord Developer Portal per mantenere il bot connesso — disattivarne anche solo una comporta la disconnessione automatica.<br><br>In pratica, <strong>Bing Search non utilizza nessuna di queste 3 autorizzazioni</strong>: il bot funziona al 100% tramite <strong>comandi slash</strong> (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/help</code> e modalità Incognito). <strong>Non legge né salva i normali messaggi</strong> della chat, <strong>non monitora</strong> il tuo stato online o a cosa stai giocando e <strong>non traccia</strong> i membri o le modifiche ai ruoli."
+          pt: "Essas três permissões são chamadas no Discord de <strong>Privileged Gateway Intents</strong> (<code>Message Content</code>, <code>Presence</code> e <code>Server Members</code>). Elas aparecem no perfil do bot exclusivamente por uma <strong>exigência técnica obrigatória da plataforma de hospedagem (BotGhost)</strong>: o motor padrão do BotGhost exige que as 3 intents fiquem ativadas no Discord Developer Portal apenas para manter a conexão do bot online — se qualquer uma delas for desligada, a hospedagem desconecta o bot automaticamente.<br><br>Na prática, o <strong>Bing Search não utiliza nenhuma dessas 3 permissões</strong>: o bot funciona 100% via <strong>comandos slash</strong> (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code>, <code>/weather</code> e <code>/Info</code>). Ele <strong>não lê nem armazena mensagens comuns</strong> do chat, <strong>não monitora</strong> seu status online ou o que você está jogando e <strong>não rastreia</strong> entrada/saída de membros ou alterações de cargos.",
+          en: "Those three permissions are Discord's <strong>Privileged Gateway Intents</strong> (<code>Message Content</code>, <code>Presence</code>, and <code>Server Members</code>). They appear on the bot's profile strictly due to a <strong>mandatory technical requirement of the hosting platform (BotGhost)</strong>: BotGhost's standard engine requires all 3 intents to remain enabled in the Discord Developer Portal just to keep the bot connected — disabling any of them causes the host to take the bot offline.<br><br>In practice, <strong>Bing Search does not use any of these 3 permissions</strong>: the bot runs 100% through <strong>slash commands</strong> (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code>, <code>/weather</code>, and <code>/Info</code>). It <strong>does not read or store regular chat messages</strong>, <strong>does not track</strong> your online status or game activity, and <strong>does not monitor</strong> server members or role changes.",
+          es: "Esos tres permisos son las <strong>Privileged Gateway Intents</strong> de Discord (<code>Message Content</code>, <code>Presence</code> y <code>Server Members</code>). Aparecen en el perfil del bot únicamente por un <strong>requisito técnico obligatorio de la plataforma de alojamiento (BotGhost)</strong>: el motor estándar de BotGhost exige mantener las 3 intents activadas en el Discord Developer Portal solo para mantener la conexión activa; si se desactiva alguna, el bot se desconecta automáticamente.<br><br>En la práctica, <strong>Bing Search no utiliza ninguno de estos 3 permisos</strong>: funciona al 100% mediante <strong>comandos slash</strong> (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code>, <code>/weather</code> y <code>/Info</code>). <strong>No lee ni almacena mensajes normales</strong> del chat, <strong>no supervisa</strong> tu estado en línea ni a qué juegas, y <strong>no rastrea</strong> miembros ni cambios de roles.",
+          fr: "Ces trois autorisations correspondent aux <strong>Privileged Gateway Intents</strong> de Discord (<code>Message Content</code>, <code>Presence</code> et <code>Server Members</code>). Elles apparaissent sur le profil du bot uniquement en raison d'une <strong>exigence technique obligatoire de la plateforme d'hébergement (BotGhost)</strong> : le moteur standard de BotGhost impose que ces 3 intents restent activées dans le Discord Developer Portal pour maintenir le bot en ligne — en désactiver une seule entraîne sa déconnexion.<br><br>En pratique, <strong>Bing Search n'utilise aucune de ces 3 autorisations</strong> : le bot fonctionne exclusivement via des <strong>commandes slash</strong> (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code>, <code>/weather</code> et <code>/Info</code>). Il <strong>ne lit ni ne stocke les messages ordinaires</strong>, <strong>ne surveille pas</strong> votre statut ou votre activité en jeu, et <strong>ne suit pas</strong> les membres ni les changements de rôles.",
+          de: "Diese drei Berechtigungen sind Discords <strong>Privileged Gateway Intents</strong> (<code>Message Content</code>, <code>Presence</code> und <code>Server Members</code>). Sie erscheinen im Bot-Profil ausschließlich aufgrund einer <strong>zwingenden technischen Anforderung der Hosting-Plattform (BotGhost)</strong>: Die Standard-Engine von BotGhost verlangt, dass alle 3 Intents im Discord Developer Portal aktiviert bleiben, um den Bot online zu halten – wird auch nur eine deaktiviert, trennt der Host die Verbindung.<br><br>In der Praxis <strong>nutzt Bing Search keine dieser 3 Berechtigungen</strong>: Der Bot arbeitet zu 100 % über <strong>Slash-Befehle</strong> (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code>, <code>/weather</code> und <code>/Info</code>). Er <strong>liest oder speichert keine normalen Chatnachrichten</strong>, <strong>überwacht nicht</strong> deinen Online-Status oder deine Spiele und <strong>verfolgt keine</strong> Mitglieder oder Rollenänderungen.",
+          it: "Queste tre autorizzazioni sono le <strong>Privileged Gateway Intents</strong> di Discord (<code>Message Content</code>, <code>Presence</code> e <code>Server Members</code>). Compaiono sul profilo del bot esclusivamente per un <strong>requisito tecnico obbligatorio della piattaforma di hosting (BotGhost)</strong>: il motore standard di BotGhost richiede che tutte e 3 le intent restino attive nel Discord Developer Portal per mantenere il bot connesso — disattivarne anche solo una comporta la disconnessione automatica.<br><br>In pratica, <strong>Bing Search non utilizza nessuna di queste 3 autorizzazioni</strong>: il bot funziona al 100% tramite <strong>comandi slash</strong> (<code>/search</code>, <code>/searchvideos</code>, <code>/translate</code>, <code>/news</code>, <code>/weather</code> e <code>/Info</code>). <strong>Non legge né salva i normali messaggi</strong> della chat, <strong>non monitora</strong> il tuo stato online o a cosa stai giocando e <strong>non traccia</strong> i membri o le modifiche ai ruoli."
         }
       },
       {
@@ -696,12 +721,12 @@
           it: "Chiunque può eliminare la mia ricerca con il pulsante Delete?"
         },
         a: {
-          pt: "Não. O botão <strong>Delete</strong> (assim como os botões de navegação entre páginas) nos comandos públicos é restrito ao usuário que executou o comando.",
-          en: "No. The <strong>Delete</strong> button (as well as page navigation buttons) on public commands is restricted to the user who invoked the command.",
-          es: "No. El botón <strong>Delete</strong> (al igual que los botones de página) en los comandos públicos está restringido al usuario que ejecutó el comando.",
-          fr: "Non. Le bouton <strong>Delete</strong> (ainsi que les boutons de pagination) sur les commandes publiques est réservé à l'utilisateur qui a lancé la commande.",
-          de: "Nein. Der <strong>Delete</strong>-Button (sowie die Seitenbuttons) bei öffentlichen Befehlen ist auf den Benutzer beschränkt, der den Befehl ausgeführt hat.",
-          it: "No. Il pulsante <strong>Delete</strong> (così come i pulsanti di pagina) nei comandi pubblici è riservato all'utente che ha eseguito il comando."
+          pt: "Não. O botão <strong>Delete</strong> (assim como os botões de navegação entre páginas) no modo público é restrito ao usuário que executou o comando.",
+          en: "No. The <strong>Delete</strong> button (as well as page navigation buttons) in public mode is restricted to the user who invoked the command.",
+          es: "No. El botón <strong>Delete</strong> (al igual que los botones de página) en modo público está restringido al usuario que ejecutó el comando.",
+          fr: "Non. Le bouton <strong>Delete</strong> (ainsi que les boutons de pagination) en mode public est réservé à l'utilisateur qui a lancé la commande.",
+          de: "Nein. Der <strong>Delete</strong>-Button (sowie die Seitenbuttons) im öffentlichen Modus ist auf den Benutzer beschränkt, der den Befehl ausgeführt hat.",
+          it: "No. Il pulsante <strong>Delete</strong> (così come i pulsanti di pagina) in modalità pubblica è riservato all'utente che ha eseguito il comando."
         }
       },
       {
@@ -726,20 +751,20 @@
       {
         cat: "general",
         q: {
-          pt: "O Bing Search tem vínculo oficial com Microsoft, Bing ou YouTube?",
-          en: "Is Bing Search officially affiliated with Microsoft, Bing, or YouTube?",
-          es: "¿Bing Search tiene vínculo oficial con Microsoft, Bing o YouTube?",
-          fr: "Bing Search est-il officiellement affilié à Microsoft, Bing ou YouTube ?",
-          de: "Steht Bing Search in offizieller Verbindung zu Microsoft, Bing oder YouTube?",
-          it: "Bing Search ha legami ufficiali con Microsoft, Bing o YouTube?"
+          pt: "O Bing Search tem vínculo oficial com Microsoft, Bing, YouTube, wttr.in ou MyMemory?",
+          en: "Is Bing Search officially affiliated with Microsoft, Bing, YouTube, wttr.in, or MyMemory?",
+          es: "¿Bing Search tiene vínculo oficial con Microsoft, Bing, YouTube, wttr.in o MyMemory?",
+          fr: "Bing Search est-il officiellement affilié à Microsoft, Bing, YouTube, wttr.in ou MyMemory ?",
+          de: "Steht Bing Search in offizieller Verbindung zu Microsoft, Bing, YouTube, wttr.in oder MyMemory?",
+          it: "Bing Search ha legami ufficiali con Microsoft, Bing, YouTube, wttr.in o MyMemory?"
         },
         a: {
-          pt: "Não. É um projeto independente criado para o Discord, sem vínculo ou patrocínio oficial da Microsoft, Bing, YouTube ou Discord Inc.",
-          en: "No. It is an independent Discord project with no official affiliation or sponsorship from Microsoft, Bing, YouTube, or Discord Inc.",
-          es: "No. Es un proyecto independiente para Discord sin afiliación ni patrocinio oficial de Microsoft, Bing, YouTube o Discord Inc.",
-          fr: "Non. C'est un projet indépendant pour Discord sans affiliation ni parrainage officiel de Microsoft, Bing, YouTube ou Discord Inc.",
-          de: "Nein. Es ist ein unabhängiges Discord-Projekt ohne offizielle Verbindung oder Unterstützung durch Microsoft, Bing, YouTube oder Discord Inc.",
-          it: "No. È un progetto indipendente per Discord senza affiliazione o sponsorizzazione ufficiale da parte di Microsoft, Bing, YouTube o Discord Inc."
+          pt: "Não. É um projeto independente criado para o Discord, sem vínculo ou patrocínio oficial da Microsoft, Bing, YouTube, wttr.in, MyMemory ou Discord Inc.",
+          en: "No. It is an independent Discord project with no official affiliation or sponsorship from Microsoft, Bing, YouTube, wttr.in, MyMemory, or Discord Inc.",
+          es: "No. Es un proyecto independiente para Discord sin afiliación ni patrocinio oficial de Microsoft, Bing, YouTube, wttr.in, MyMemory o Discord Inc.",
+          fr: "Non. C'est un projet indépendant pour Discord sans affiliation ni parrainage officiel de Microsoft, Bing, YouTube, wttr.in, MyMemory ou Discord Inc.",
+          de: "Nein. Es ist ein unabhängiges Discord-Projekt ohne offizielle Verbindung oder Unterstützung durch Microsoft, Bing, YouTube, wttr.in, MyMemory oder Discord Inc.",
+          it: "No. È un progetto indipendente per Discord senza affiliazione o sponsorizzazione ufficiale da parte di Microsoft, Bing, YouTube, wttr.in, MyMemory o Discord Inc."
         }
       },
       {
@@ -782,6 +807,7 @@
     function applyTranslations() {
       const t = UI[currentLang];
       document.documentElement.lang = t.htmlLang;
+      document.title = t.pageTitle;
       langSelect.value = currentLang;
       searchInput.placeholder = t.searchPlaceholder;
       emptyState.textContent = t.empty;
