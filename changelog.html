@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Changelog — Bing Search v3.2</title>
+  <title>Changelog — Bing Search v4.0</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -422,7 +422,7 @@
         <a href="faq.html">FAQ</a>
         <a href="changelog.html" class="active">
           <span>Changelog</span>
-          <span class="version-pill">v3.2</span>
+          <span class="version-pill">v4.0</span>
         </a>
         <select id="langSelect" class="lang-select" aria-label="Language">
           <option value="pt">🇧🇷 PT-BR</option>
@@ -446,7 +446,7 @@
             <span data-i18n="liveStatus">Ativo no Discord</span>
           </span>
         </div>
-        <p data-i18n="subtitle">Acompanhe toda a evolução do Bing Search desde o lançamento até a versão 3.2.</p>
+        <p data-i18n="subtitle">Acompanhe toda a evolução do Bing Search desde o lançamento até a versão 4.0.</p>
       </div>
 
       <button type="button" id="replayBtn" class="replay-btn">
@@ -482,7 +482,7 @@
           nav_cmd: "Comandos",
           title: "Changelog & Releases",
           liveStatus: "Ativo no Discord",
-          subtitle: "Acompanhe toda a evolução do Bing Search desde o lançamento até a versão 3.2.",
+          subtitle: "Acompanhe toda a evolução do Bing Search desde o lançamento até a versão 4.0.",
           replay: "Rever animação",
           footer_back: "Quer voltar para a página inicial?",
           footer_link: "Voltar ao início →",
@@ -577,13 +577,28 @@
             },
             {
               version: "v3.2",
-              statusLabel: "Versão Atual",
+              statusLabel: "Atualização",
               date: "Novembro de 2026",
-              isLatest: true,
+              isLatest: false,
               title: "API de Busca Privada & Comando /Info",
               changes: [
                 { tag: "MOTOR", color: "purple", text: "Migração completa da API de buscas do Brave para uma <strong>API privada própria</strong>, garantindo maior autonomia, estabilidade e controle nas pesquisas web e de vídeos." },
                 { tag: "COMANDO", color: "indigo", text: "O comando <code>/help</code> foi renomeado para <code>/Info</code>, centralizando todas as informações e comandos do bot." }
+              ]
+            },
+            {
+              version: "v4.0",
+              statusLabel: "Versão Atual (Rework)",
+              date: "24 de Novembro de 2026",
+              isLatest: true,
+              title: "Rework v4.0: /news, /weather & incognito-mode Unificado",
+              changes: [
+                { tag: "NOVO", color: "emerald", text: "Novo comando <code>/news</code> para buscar notícias recentes por tema ou palavra-chave, com filtro de idioma, paginação interativa (3 manchetes por página) e botões diretos para os artigos." },
+                { tag: "NOVO", color: "emerald", text: "Novo comando <code>/weather</code> para consultar o clima em tempo real de qualquer cidade (temperatura, sensação térmica, condição do céu, umidade e vento) via <strong>wttr.in</strong>." },
+                { tag: "MELHORIA", color: "indigo", text: "Unificação de <code>/search</code>, <code>/searchvideos</code> e <code>/translate</code> com a opção booleana <code>incognito-mode</code> — agora todos os 5 comandos suportam respostas efêmeras reais visíveis só para você." },
+                { tag: "MELHORIA", color: "indigo", text: "Indicadores claros de <strong>Public Mode</strong> e <strong>Incognito Mode</strong> nos rodapés dos embeds, botões interativos de <strong>Delete</strong> e tratamento dedicado para resultados vazios ou cidades inválidas." },
+                { tag: "LIMPEZA", color: "amber", text: "Remoção dos antigos comandos incógnitos separados (<code>/incognito search</code>, <code>/incognito videos</code> e <code>/incognitotranslate</code>), otimizando os slots de comandos slash." },
+                { tag: "DOCS", color: "purple", text: "Atualização completa do <code>/Info</code>, descrições de comandos/opções, simulador v4.0 no site, FAQ, Termos de Serviço e Política de Privacidade nos 6 idiomas." }
               ]
             }
           ]
@@ -596,7 +611,7 @@
           nav_cmd: "Commands",
           title: "Changelog & Releases",
           liveStatus: "Live on Discord",
-          subtitle: "Follow the full evolution of Bing Search from initial launch to version 3.2.",
+          subtitle: "Follow the full evolution of Bing Search from initial launch to version 4.0.",
           replay: "Replay animation",
           footer_back: "Want to go back to the homepage?",
           footer_link: "Back to Home →",
@@ -691,13 +706,28 @@
             },
             {
               version: "v3.2",
-              statusLabel: "Current Release",
+              statusLabel: "Update",
               date: "November 2026",
-              isLatest: true,
+              isLatest: false,
               title: "Private Search API & /Info Command",
               changes: [
                 { tag: "ENGINE", color: "purple", text: "Migrated the search API from Brave to a <strong>dedicated private API</strong>, ensuring greater autonomy, stability, and control for web and video searches." },
                 { tag: "COMMAND", color: "indigo", text: "Renamed the <code>/help</code> command to <code>/Info</code>, centralizing all bot information and commands." }
+              ]
+            },
+            {
+              version: "v4.0",
+              statusLabel: "Current Release (Rework)",
+              date: "November 24, 2026",
+              isLatest: true,
+              title: "v4.0 Rework: /news, /weather & Unified incognito-mode",
+              changes: [
+                { tag: "NEW", color: "emerald", text: "Added <code>/news</code> command to search the latest news articles by keyword or topic, featuring optional language filtering, multi-page navigation (3 headlines per page), and direct article link buttons." },
+                { tag: "NEW", color: "emerald", text: "Added <code>/weather</code> command to check real-time weather conditions for any city or location (temperature, feels-like, sky condition, humidity, and wind speed) powered by <strong>wttr.in</strong>." },
+                { tag: "IMPROVED", color: "indigo", text: "Unified <code>/search</code>, <code>/searchvideos</code>, and <code>/translate</code> with an optional <code>incognito-mode</code> boolean toggle — all 5 lookup commands now support true ephemeral replies visible only to you." },
+                { tag: "IMPROVED", color: "indigo", text: "Added clear <strong>Public Mode</strong> vs. <strong>Incognito Mode</strong> indicators in embed footers alongside interactive <strong>Delete</strong> buttons and empty-result / invalid-location error handling." },
+                { tag: "CLEANUP", color: "amber", text: "Removed legacy standalone incognito commands (<code>/incognito search</code>, <code>/incognito videos</code>, and <code>/incognitotranslate</code>) to streamline the slash command menu and optimize slots." },
+                { tag: "DOCS", color: "purple", text: "Updated <code>/Info</code>, all command/option descriptions, the v4.0 website simulator, FAQ, Terms of Service, and Privacy Policy across all 6 languages." }
               ]
             }
           ]
@@ -710,7 +740,7 @@
           nav_cmd: "Comandos",
           title: "Changelog y Lanzamientos",
           liveStatus: "Activo en Discord",
-          subtitle: "Sigue toda la evolución de Bing Search desde su creación hasta la versión 3.2.",
+          subtitle: "Sigue toda la evolución de Bing Search desde su creación hasta la versión 4.0.",
           replay: "Repetir animación",
           footer_back: "¿Quieres volver a la página principal?",
           footer_link: "Volver al inicio →",
@@ -805,13 +835,28 @@
             },
             {
               version: "v3.2",
-              statusLabel: "Versión Actual",
+              statusLabel: "Actualización",
               date: "Noviembre de 2026",
-              isLatest: true,
+              isLatest: false,
               title: "API de Búsqueda Privada y Comando /Info",
               changes: [
                 { tag: "MOTOR", color: "purple", text: "Migración completa de la API de búsqueda de Brave a una <strong>API privada propia</strong>, ofreciendo mayor autonomía, estabilidad y control en búsquedas web y de videos." },
                 { tag: "COMANDO", color: "indigo", text: "El comando <code>/help</code> pasó a llamarse <code>/Info</code>, centralizando toda la información y comandos del bot." }
+              ]
+            },
+            {
+              version: "v4.0",
+              statusLabel: "Versión Actual (Rework)",
+              date: "24 de Noviembre de 2026",
+              isLatest: true,
+              title: "Rework v4.0: /news, /weather e incognito-mode Unificado",
+              changes: [
+                { tag: "NUEVO", color: "emerald", text: "Nuevo comando <code>/news</code> para buscar noticias recientes por tema o palabra clave, con filtro de idioma, paginación interactiva (3 titulares por página) y enlaces directos." },
+                { tag: "NUEVO", color: "emerald", text: "Nuevo comando <code>/weather</code> para consultar el clima en tiempo real de cualquier ciudad (temperatura, sensación térmica, cielo, humedad y viento) mediante <strong>wttr.in</strong>." },
+                { tag: "MEJORA", color: "indigo", text: "Unificación de <code>/search</code>, <code>/searchvideos</code> y <code>/translate</code> con la opción booleana <code>incognito-mode</code>: los 5 comandos ahora admiten respuestas efímeras reales solo visibles para ti." },
+                { tag: "MEJORA", color: "indigo", text: "Indicadores claros de <strong>Public Mode</strong> e <strong>Incognito Mode</strong> en los pies de embed, botones <strong>Delete</strong> y manejo de errores para búsquedas vacías o ciudades inválidas." },
+                { tag: "LIMPIEZA", color: "amber", text: "Eliminación de los antiguos comandos incógnitos separados (<code>/incognito search</code>, <code>/incognito videos</code> e <code>/incognitotranslate</code>) para optimizar el menú slash." },
+                { tag: "DOCS", color: "purple", text: "Actualización completa de <code>/Info</code>, descripciones, simulador v4.0 en el sitio, FAQ, Términos de Servicio y Política de Privacidad en los 6 idiomas." }
               ]
             }
           ]
@@ -824,7 +869,7 @@
           nav_cmd: "Commandes",
           title: "Changelog & Versions",
           liveStatus: "En ligne sur Discord",
-          subtitle: "Suivez toute l'évolution de Bing Search depuis son lancement jusqu'à la version 3.2.",
+          subtitle: "Suivez toute l'évolution de Bing Search depuis son lancement jusqu'à la version 4.0.",
           replay: "Rejouer l'animation",
           footer_back: "Vous souhaitez revenir à la page d'accueil ?",
           footer_link: "Retour à l'accueil →",
@@ -919,13 +964,28 @@
             },
             {
               version: "v3.2",
-              statusLabel: "Version Actuelle",
+              statusLabel: "Mise à jour",
               date: "Novembre 2026",
-              isLatest: true,
+              isLatest: false,
               title: "API de Recherche Privée & Commande /Info",
               changes: [
                 { tag: "MOTEUR", color: "purple", text: "Migration complète de l'API de recherche Brave vers une <strong>API privée dédiée</strong>, garantissant plus d'autonomie, de stabilité et de contrôle pour les recherches web et vidéo." },
                 { tag: "COMMANDE", color: "indigo", text: "La commande <code>/help</code> a été renommée en <code>/Info</code>, regroupant toutes les informations et commandes du bot." }
+              ]
+            },
+            {
+              version: "v4.0",
+              statusLabel: "Version Actuelle (Rework)",
+              date: "24 Novembre 2026",
+              isLatest: true,
+              title: "Rework v4.0 : /news, /weather & incognito-mode Unifié",
+              changes: [
+                { tag: "NOUVEAU", color: "emerald", text: "Nouvelle commande <code>/news</code> pour rechercher les derniers articles par thème ou mot-clé, avec filtre de langue, pagination (3 titres par page) et boutons de lien direct." },
+                { tag: "NOUVEAU", color: "emerald", text: "Nouvelle commande <code>/weather</code> pour consulter la météo en temps réel de n'importe quelle ville (température, ressenti, ciel, humidité et vent) via <strong>wttr.in</strong>." },
+                { tag: "AMÉLIORÉ", color: "indigo", text: "Unification de <code>/search</code>, <code>/searchvideos</code> et <code>/translate</code> avec l'option booléenne <code>incognito-mode</code> pour des réponses éphémères privées sur toutes les commandes." },
+                { tag: "AMÉLIORÉ", color: "indigo", text: "Indicateurs <strong>Public Mode</strong> / <strong>Incognito Mode</strong> dans les pieds d'embed, boutons <strong>Delete</strong> et gestion des résultats vides ou villes introuvables." },
+                { tag: "NETTOYAGE", color: "amber", text: "Suppression des anciennes commandes incognito séparées (<code>/incognito search</code>, <code>/incognito videos</code> et <code>/incognitotranslate</code>) pour alléger le menu slash." },
+                { tag: "DOCS", color: "purple", text: "Mise à jour complète de <code>/Info</code>, des descriptions, du simulateur v4.0 sur le site, de la FAQ, des Conditions et de la Politique de Confidentialité dans les 6 langues." }
               ]
             }
           ]
@@ -938,7 +998,7 @@
           nav_cmd: "Befehle",
           title: "Changelog & Releases",
           liveStatus: "Aktiv auf Discord",
-          subtitle: "Verfolge die gesamte Entwicklung von Bing Search vom Start bis zur Version 3.2.",
+          subtitle: "Verfolge die gesamte Entwicklung von Bing Search vom Start bis zur Version 4.0.",
           replay: "Animation wiederholen",
           footer_back: "Zurück zur Startseite?",
           footer_link: "Zur Startseite →",
@@ -1033,13 +1093,28 @@
             },
             {
               version: "v3.2",
-              statusLabel: "Aktuelle Version",
+              statusLabel: "Update",
               date: "November 2026",
-              isLatest: true,
+              isLatest: false,
               title: "Private Such-API & Befehl /Info",
               changes: [
                 { tag: "ENGINE", color: "purple", text: "Vollständige Migration der Such-API von Brave auf eine <strong>eigene private API</strong> für mehr Unabhängigkeit, Stabilität und Kontrolle bei Web- und Videosuchen." },
                 { tag: "BEFEHL", color: "indigo", text: "Der Befehl <code>/help</code> wurde in <code>/Info</code> umbenannt und bündelt alle Informationen und Befehle des Bots." }
+              ]
+            },
+            {
+              version: "v4.0",
+              statusLabel: "Aktuelle Version (Rework)",
+              date: "24. November 2026",
+              isLatest: true,
+              title: "v4.0 Rework: /news, /weather & Einheitlicher incognito-mode",
+              changes: [
+                { tag: "NEU", color: "emerald", text: "Neuer Befehl <code>/news</code> für aktuelle Nachrichten nach Thema oder Stichwort, mit Sprachfilter, Seitennavigation (3 Schlagzeilen pro Seite) und Direktlink-Buttons." },
+                { tag: "NEU", color: "emerald", text: "Neuer Befehl <code>/weather</code> für Echtzeit-Wetterdaten jeder Stadt (Temperatur, gefühlte Temperatur, Wetterlage, Luftfeuchtigkeit und Wind) über <strong>wttr.in</strong>." },
+                { tag: "VERBESSERT", color: "indigo", text: "Vereinheitlichung von <code>/search</code>, <code>/searchvideos</code> und <code>/translate</code> mit der optionalen <code>incognito-mode</code>-Option für echte flüchtige Antworten in allen 5 Befehlen." },
+                { tag: "VERBESSERT", color: "indigo", text: "Klare <strong>Public Mode</strong> / <strong>Incognito Mode</strong>-Anzeigen in Embed-Fußzeilen, <strong>Delete</strong>-Buttons sowie Fehlerbehandlung bei leeren Suchen oder ungültigen Orten." },
+                { tag: "AUFRÄUMEN", color: "amber", text: "Entfernung der separaten alten Incognito-Befehle (<code>/incognito search</code>, <code>/incognito videos</code> und <code>/incognitotranslate</code>) für ein übersichtlicheres Slash-Menü." },
+                { tag: "DOCS", color: "purple", text: "Aktualisierung von <code>/Info</code>, allen Beschreibungen, dem v4.0-Website-Simulator, FAQ, Nutzungsbedingungen und Datenschutz in allen 6 Sprachen." }
               ]
             }
           ]
@@ -1052,7 +1127,7 @@
           nav_cmd: "Comandi",
           title: "Changelog & Versioni",
           liveStatus: "Attivo su Discord",
-          subtitle: "Segui tutta l'evoluzione di Bing Search dal lancio fino alla versione 3.2.",
+          subtitle: "Segui tutta l'evoluzione di Bing Search dal lancio fino alla versione 4.0.",
           replay: "Ripeti animazione",
           footer_back: "Vuoi tornare alla pagina principale?",
           footer_link: "Torna alla home →",
@@ -1147,13 +1222,28 @@
             },
             {
               version: "v3.2",
-              statusLabel: "Versione Attuale",
+              statusLabel: "Aggiornamento",
               date: "Novembre 2026",
-              isLatest: true,
+              isLatest: false,
               title: "API di Ricerca Privata & Comando /Info",
               changes: [
                 { tag: "MOTORE", color: "purple", text: "Migrazione completa dell'API di ricerca da Brave a una <strong>API privata dedicata</strong>, garantendo maggiore autonomia, stabilità e controllo nelle ricerche web e video." },
                 { tag: "COMANDO", color: "indigo", text: "Il comando <code>/help</code> è stato rinominato in <code>/Info</code>, centralizzando tutte le informazioni e i comandi del bot." }
+              ]
+            },
+            {
+              version: "v4.0",
+              statusLabel: "Versione Attuale (Rework)",
+              date: "24 Novembre 2026",
+              isLatest: true,
+              title: "Rework v4.0: /news, /weather & incognito-mode Unificato",
+              changes: [
+                { tag: "NUOVO", color: "emerald", text: "Nuovo comando <code>/news</code> per cercare le ultime notizie per argomento o parola chiave, con filtro lingua, paginazione (3 titoli per pagina) e pulsanti link diretto." },
+                { tag: "NUOVO", color: "emerald", text: "Nuovo comando <code>/weather</code> per controllare il meteo in tempo reale di qualsiasi città (temperatura, percepita, cielo, umidità e vento) tramite <strong>wttr.in</strong>." },
+                { tag: "MIGLIORATO", color: "indigo", text: "Unificazione di <code>/search</code>, <code>/searchvideos</code> e <code>/translate</code> con l'opzione booleana <code>incognito-mode</code> per risposte effimere reali su tutti e 5 i comandi." },
+                { tag: "MIGLIORATO", color: "indigo", text: "Indicatori <strong>Public Mode</strong> / <strong>Incognito Mode</strong> nei footer degli embed, pulsanti <strong>Delete</strong> e gestione degli errori per ricerche vuote o località non valide." },
+                { tag: "PULIZIA", color: "amber", text: "Rimozione dei vecchi comandi incognito separati (<code>/incognito search</code>, <code>/incognito videos</code> e <code>/incognitotranslate</code>) per snellire il menu slash." },
+                { tag: "DOCS", color: "purple", text: "Aggiornamento completo di <code>/Info</code>, descrizioni, simulatore v4.0 sul sito, FAQ, Termini di Servizio e Informativa sulla Privacy in tutte e 6 le lingue." }
               ]
             }
           ]
