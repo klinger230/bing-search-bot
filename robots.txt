@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://klinger230.github.io/bing-search-bot/sitemap.xml
